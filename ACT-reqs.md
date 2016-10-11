@@ -48,12 +48,21 @@ Because of this, the ACT Framework will need to ensure that ACT Rules can be tes
 ### 2.5 ACT Rules Evolve Along Side Web Technologies
 
 As web technologies change, the rules for testing them should change as well. Rules may require change for many reasons, including changes to the markup language, changes to assistive technologies, even major changes to JavaScript frameworks may require a change to ACT Rules, as perhaps a rare technique that a rule might not have tested for is now much more common.
+### 2.7 Accessibility Support
 
 Because of this it is important that ACT Framework outlines a way to deal with that. Rules should be dated and versioned, so that users of rules can understand that a rule needs to be updated. A possible approach to this could be semantic versioning, although there are many other possibilities.
+The ACT Framework ensures that ACT Rules consider difference in assistive technologies. ACT Rules can be configured to use or ignore accessibility features that are not consistently implemented. Gathering accessibility support data is outside the scope of ACT Rule design.
 
 ### 2.6 Existing Rulesets can be Transformed to ACT Rules
+### 2.8 Run As Negative Feature Tests
+
+ACT Rules are negative feature tests. Meaning they can test if some accessibility requirement is not met. Testing if such requirement was met is outside the scope of ACT Rules and should be left up to expert accessibility evaluators.
+
+
+### 2.9 Provide a common output format
 
 There currently exist a number of rulesets with similar functions to what ACT rules would be. Examples of these are the Auto-WCAG Ruleset, the WCAG rules of the Open Ajax Alliance as well as the documentation of rules implemented in specific automated test tools.  The ACT Framework will be designed in a way that these rulesets can be transitioned to the ACT Framework format. The ACT Taskforce will assist organizaitons interested in this effort, as part of the development of the ACT Framework. Doing this, at least once, will be part of the ACT Framework development process.
+The ACT Framework must ensure that results from ACT Rules can be aggregated to gain higher level insight. This must be possible across tools, so that the output of different tools can complement each other. This could be particularly useful to aggregate accessibility for different technologies.
 
 Definitions
 -----------
