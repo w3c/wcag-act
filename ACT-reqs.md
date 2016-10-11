@@ -21,29 +21,20 @@ The ACT Framework will standardize those aspects all rules have in common that e
 
 Simply put, the ACT Framework is a standard on how to write test rules. Rules written in conformance to the ACT Framework specification are referred to as ACT Rules. These in turn are test procedures for accessibility, that can be implemented by ATTs or used for testing of accessibility.
 
-The ACT Framework should ensure that:
-
-# ACT Rules should be clear
-# ACT Rules are grounded in underlying requirement
-# ACT Rules provide correct results
-# Accuracy of ACT Rules is measurable
-# ACT Rules evolve along side web technologies
-# Existing rulesets can be transformed to ACT Rules
-
 2. Requirements
 ---------------
 
-### 2.1 ACT Rules Should be Clear
+### 2.1 Ensure Readability
 
 ACT Rules have different audiences. These include the developer of test tools, QA testers who may have to run through the rules manually or with the aid of a tool, as well as accessibility experts who should understand what the tools they use can do, so that they can be informed on where a tool might not test, and where potential false positives might occur.
 
 Because ACT Rules both a technical and non-technical audience, the ACT Framework should work out a balance between the two. Tool developers should have a good idea of what the rule should do, without the ACT Rule being written as pseudo code, as this is not well understood by non-technical readers.
+### 2.2 Ensure Justification
 
-### 2.2 ACT Rules Are Grounded In Underlying Requirement
 
 Interpretation difference in web accessibility is a common problem, and one of the motivations behind the ACT Project. It leads to a confusion and wasted effort on the part of teams trying to make their products accessible. The ACT Framework should therefore ensure that ACT Rules are well grounded in the requirements they test. It is insufficient for an ACT Rule to simply claim something violates a requirement. The ACT Framework has to ensure that ACT Rules document why it's claims are in line with the requirement. The ACT Framework steer ACT Rules away from common pitfalls in interpreting accessibility requirements.
+### 2.3 Ensure Consistency
 
-### 2.3 ACT Rules Provide Correct Result
 
 The ACT Framework has to ensure that ACT Rules can be implemented in a way that provides consistent results. The ACT Framework has to ensure that if an ACT Rule should not be implemented in a tool, that this is clear to the developer. For example: an ACT Rule that requires testing stylesheets should not be implemented in a tool incapable of doing so. The ACT Framework has to ensure this is clear, both to developers of ATT and to their users.
 
