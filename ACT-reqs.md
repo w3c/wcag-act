@@ -26,13 +26,12 @@ Simply put, the ACT Framework is a standard on how to write test rules. Rules wr
 
 ### 2.1 Ensure Readability
 
-ACT Rules have different audiences. These include the developer of test tools, QA testers who may have to run through the rules manually or with the aid of a tool, as well as accessibility experts who should understand what the tools they use can do, so that they can be informed on where a tool might not test, and where potential false positives might occur.
+The ACT Framework should ensure that the rules are readable by both tool developers and less-technical users. For instance, the ACT Framework may discourage the use of pseudo code in favor of plain English.
 
-Because ACT Rules both a technical and non-technical audience, the ACT Framework should work out a balance between the two. Tool developers should have a good idea of what the rule should do, without the ACT Rule being written as pseudo code, as this is not well understood by non-technical readers.
 ### 2.2 Ensure Justification
 
+The ACT Framework should ensure that ACT Rules are well grounded in the requirements they test. It is insufficient for an ACT Rule to merely claim something violates a requirement. The ACT Framework has to ensure that ACT Rules document why its claims are a valid interpretation of the requirement.
 
-Interpretation difference in web accessibility is a common problem, and one of the motivations behind the ACT Project. It leads to a confusion and wasted effort on the part of teams trying to make their products accessible. The ACT Framework should therefore ensure that ACT Rules are well grounded in the requirements they test. It is insufficient for an ACT Rule to simply claim something violates a requirement. The ACT Framework has to ensure that ACT Rules document why it's claims are in line with the requirement. The ACT Framework steer ACT Rules away from common pitfalls in interpreting accessibility requirements.
 ### 2.3 Ensure Consistency
 
 
