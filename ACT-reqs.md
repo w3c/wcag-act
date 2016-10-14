@@ -34,11 +34,11 @@ The ACT Framework should ensure that ACT Rules are well grounded in the requirem
 
 ### 2.3 Ensure Consistency
 
-The ACT Framework has to ensure that ACT Rules can be implemented in a way that provides consistent results. An ACT Rule must include a way to test the implementation of that rule.
+The ACT Framework has to ensure that ACT Rules can be implemented in a way that produces consistent results. An ACT Rule must include a way to test the implementation of that rule.
 
 ### 2.4 Ensure Measurable Accuracy
 
-The ACT Framework ensures that ACT Rules can be tested for real world accuracy. False positives happen in every rule, as there are endless different ways to use web technologies. The ACT Framework ensures that common false positives can be identified and resolved. This also gives insight into how often a rule may give incorrect results.
+The ACT Framework will provide criteria and benchmarking mechanism to validate and measure the accuracy of test rules. Note: Accuracy is difference of actual test results to expected results.
 
 ### 2.5 Ensure Evolution
 
@@ -46,7 +46,7 @@ As web technologies change, the rules for testing them should change as well. Be
 
 ### 2.6 Existing Rulesets can be Transformed to ACT Rules
 
-The ACT Framework must ensure that existing rulesets can be updated to meet the ACT Framework. Existing work in this field should be the bases for the ACT Framework to ease the adoption. At least one ruleset must be adopted to the ACT Framework during the development process.
+The ACT Framework will provide support for different organizations and vendors to migrate their test rules into the required format. This may include mappings to other formats, and tolerance for different test rules structures and parameters where possible
 
 ### 2.7 Accessibility Support
 
@@ -56,10 +56,29 @@ The ACT Framework ensures that ACT Rules consider difference in assistive techno
 
 ACT Rules are negative feature tests. Meaning they can test if some accessibility requirement is not met. Testing if such requirement was met is outside the scope of ACT Rules and should be left up to expert accessibility evaluators.
 
-
 ### 2.9 Provide a common output format
 
 The ACT Framework must ensure that results from ACT Rules can be aggregated to gain higher level insight. This must be possible across tools, so that the output of different tools can complement each other. This could be particularly useful to aggregate accessibility for different technologies.
+
+### 2.10 Rules Not Included
+
+
+### 2.11 No New Accessibility Requirements
+
+
+### 2.12 Automation and Manual Rules
+
+
+### 2.13 Applicable to Web and Digital Publishing Technologies
+
+
+### 2.14 Useable With Different Accessibility Requirements
+
+
+### 2.15 Leverages WCAG Failure Techniques
+
+
+
 
 Definitions
 -----------
