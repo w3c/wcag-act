@@ -61,18 +61,27 @@ The ACT Framework ensures that results from ACT Rules can be aggregated to gain 
 
 ### 2.10 Rules Not Included
 
+The ACT Framework is a recommendation on how to write rules. It does not include any ACT Rules, with the possible exception of rule examples.
 
 ### 2.11 No New Accessibility Requirements
 
+The ACT Framework does not add or change accessibility requirements. It's purpose is to standardize the way requirements are tested. The method of testing must never change the actual requirement.
 
 ### 2.12 Automation and Manual Rules
 
+The ACT Framework provides mechanisms to develop rules that are:
 
-### 2.13 Applicable to Web and Digital Publishing Technologies
+- Automated: A completely automatic process, no user is involved in the test
+- Manual: A process that can only be done by a user
+- Semi-automated: A test combining automated testing and manual testing
 
+### 2.13 Useable With Different Accessibility Requirements
 
-### 2.14 Useable With Different Accessibility Requirements
+The ACT Framework provides mechanisms for the development of rules to test conformance to popular accessibility requirements, including but not limited to: WCAG 2.0, WCAG 2.1, UAAG 2.0 and ATAG 2.0.
 
+### 2.14 Applicable to Web and Digital Publishing Technologies
+
+The ACT Framework provides mechanisms for the development of rules to test current web and digital publishing technologies, including but not limited to: HTML, CSS, ARIA and EPUB.
 
 Definitions
 -----------
