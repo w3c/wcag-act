@@ -25,39 +25,39 @@ Development and implementation of ACT Rules are outside the scope of the ACT Fra
 
 ### 2.1 Ensure Readability
 
-The ACT Framework should ensure that the rules are readable by both tool developers and less-technical users. For instance, the ACT Framework may discourage the use of pseudo code in favor of plain English.
+The ACT Framework ensures that the rules are readable by both tool developers and less-technical users. For instance, the ACT Framework may discourage the use of pseudo code in favor of plain English.
 
 ### 2.2 Ensure Justification
 
-The ACT Framework should ensure that ACT Rules are well grounded in the requirements they test. It is insufficient for an ACT Rule to merely claim something violates a requirement. The ACT Framework has to ensure that ACT Rules document why its claims are a valid interpretation of the requirement.
+The ACT Framework ensures that sufficient documentation is provided, to justify that it's claims are a valid interpretation of the accessibility requirement.
 
 ### 2.3 Ensure Consistency
 
-The ACT Framework has to ensure that ACT Rules can be implemented in a way that produces consistent results. An ACT Rule must include a way to test the implementation of that rule.
+The ACT Framework ensures that ACT Rules can be implemented in a way that produces consistent results. An ACT Rule must include a way to test the implementation of that rule.
 
 ### 2.4 Ensure Measurable Accuracy
 
-The ACT Framework will provide criteria and benchmarking mechanism to validate and measure the accuracy of test rules. Note: Accuracy is difference of actual test results to expected results.
+The ACT Framework provides criteria and a benchmarking mechanism to validate and measure the accuracy of test rules. Note: Accuracy is difference of actual test results to expected results.
 
 ### 2.5 Ensure Evolution
 
-As web technologies change, the rules for testing them should change as well. Because of this it is important that ACT Framework outlines a way to deal with that. Rules should be dated and versioned, so that users of rules can understand that a rule needs to be updated. A possible approach to this could be semantic versioning, although there are many other possibilities.
+The ACT Framework provides a mechanism to manage updates to rules as technologies change. Rules should be dated and / or versioned to enable users to figure out if new issues are caused by a rule change or a change of content. A possible approach to this could be semantic versioning.
 
 ### 2.6 Existing Rulesets can be Transformed to ACT Rules
 
-The ACT Framework will provide support for different organizations and vendors to migrate their test rules into the required format. This may include mappings to other formats, and tolerance for different test rules structures and parameters where possible
+The ACT Framework provides support for different organizations and vendors to migrate their test rules into the required format. This may include mappings to other formats, and tolerance for different test rules structures and parameters where possible
 
 ### 2.7 Accessibility Support
 
-The ACT Framework ensures that ACT Rules consider difference in assistive technologies. ACT Rules can be configured to use or ignore accessibility features that are not consistently implemented. Gathering accessibility support data is outside the scope of ACT Rule design.
+The ACT Framework ensures that ACT Rules consider difference in assistive technologies. ACT Rules can be configured to use or ignore accessibility features that are not consistently implemented. Accessibility support data is input for a rule, and is not part of the rule's design.
 
-### 2.8 Run As Negative Feature Tests
+### 2.8 Rules Test for Failures
 
-ACT Rules are negative feature tests. Meaning they can test if some accessibility requirement is not met. Testing if such requirement was met is outside the scope of ACT Rules and should be left up to expert accessibility evaluators.
+The ACT Framework results in negative feature tests, meaning that ACT Rules test for violations instead of compliance. ACT Rules should map to [WCAG 2.0 Failure Techniques](https://www.w3.org/TR/WCAG20-TECHS/failures.html) where possible to avoid duplication of work. In some cases absence of violations may be proof of compliance, if rules are available to test all possible violations.
 
-### 2.9 Provide a common output format
+### 2.9 Provide a Common Output Format
 
-The ACT Framework must ensure that results from ACT Rules can be aggregated to gain higher level insight. This must be possible across tools, so that the output of different tools can complement each other. This could be particularly useful to aggregate accessibility for different technologies.
+The ACT Framework ensures that results from ACT Rules can be aggregated to gain higher level insight. This must be possible across tools, so that the output of different tools can complement each other.
 
 ### 2.10 Rules Not Included
 
@@ -72,11 +72,6 @@ The ACT Framework must ensure that results from ACT Rules can be aggregated to g
 
 
 ### 2.14 Useable With Different Accessibility Requirements
-
-
-### 2.15 Leverages WCAG Failure Techniques
-
-
 
 
 Definitions
