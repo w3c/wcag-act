@@ -18,7 +18,7 @@ The Accessibility Conformance Testing (ACT) Framework will be a recommendation o
 
 The ACT Framework is developed by the [ACT Taskforce](https://www.w3.org/WAI/GL/task-forces/conformance-testing/), lead by the [WCAG Working Group](https://www.w3.org/WAI/GL/). The ACT Framework will standardize those aspects all rules have in common that ensure them to be reliable, implementable by different ATTs and transparent for the users of this tool. By standardizing this, the ACT Taskforce aims to promote a common understanding of how accessibility can be tested for certain technologies.
 
-Development and implementation of ACT Rules are outside the scope of the ACT Framework. This work is currently done within the [Auto-WCAG Community Group](https://www.w3.org/community/auto-wcag/). The ACT Taskforce support the Auto-WCAG Community group in the development of the first set of ACT Rules.
+Development and implementation of ACT Rules are outside the scope of the ACT Framework. This work is currently done within the [Auto-WCAG Community Group](https://www.w3.org/community/auto-wcag/). The ACT Taskforce will support the Auto-WCAG Community group in the development of the first set of ACT Rules.
 
 2. Requirements
 ---------------
