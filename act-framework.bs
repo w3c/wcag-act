@@ -1,0 +1,102 @@
+<pre class='metadata'>
+Title: Accessibility Conformance Testing Framework
+Shortname: ACT-Framework
+Level: 1
+Status: w3c/FPWD
+Group: Accessibility Conformance Testing Task Force
+URL: https://w3c.github.io/wcag-act/act-framework.html
+Editor: Wilco Fiers, Deque Systems
+Abstract: To do
+</pre>
+
+Introduction {#intro}
+=====================
+
+To do
+
+
+ACT Rule Structure {#structure}
+==============================
+
+Rule Outline {#structure-outline}
+-----------------------
+
+*Editor note*: This sections gives a broad outline of parts make up an ACT Rule. We'll go into further detail in sections below. At this point it is important to show the reader the big picture
+
+Rule Description {#structure-description}
+----------------------------------------
+
+*Editor note*: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.
+
+
+ACT Input Data {#input}
+=======================
+
+Test Input Types {#input-types}
+-------------------------------
+
+*Editor note*: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.
+
+
+Accessibility Support Data {#input-acc-supp}
+--------------------------------------------
+
+*Editor note*: This section will describe data about the accessibility support of different assistive technologies should be used by rules to produce results. Where relevant, rules must be able to take in data about supported features in assistive technologies, and adjust results accordingly.
+
+
+ACT Test Procedure {#test-proc}
+===============================
+
+Selector {#test-proc-selector}
+--------
+
+*Editor note*: This section will describe how, given a certain input type (see above), the elements or components are located that can be tested using the rule, and how the author of a rule should describe this.
+
+
+Test Cases {#test-proc-cases}
+---------------------------------------
+
+*Editor note*: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.
+
+
+ACT Output Data {#output}
+=========================
+
+ACT Data Format {#output-format}
+--------------------------------
+
+*Editor note*: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below).
+
+
+Rule Aggregation {#output-aggregation}
+--------------------------------------
+
+*Editor note*: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.
+
+
+Rule Quality Assurance {#quality}
+=================================
+
+Managing Exceptions {#quality-exceptions}
+-----------------------------------------
+
+*Editor note*: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.
+
+
+Implementation Validation {#quality-implement}
+----------------------------------------------
+
+*Editor note*: This section describes the requirements of tests that have to be created for a rule. Rules are abstract, high level descriptions. To ensure the implementation of rules is done correctly, validation tests have to be provided along with each rule.
+
+
+Accuracy Benchmarking {#quality-accuracy}
+-----------------------------------------
+
+*Editor note*: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.
+
+
+Change Management {#quality-version}
+------------------------------------
+
+*Editor note*: In this section we describe how changes to a rule must be managed over time. Understanding the results of accessibility tests can be difficult, as there are many factors that can influence a result (think cookies, user interaction in a page, updates to a user agent, etc.). When changes in results occur over time, users must be able to rule out that these changes occurred as a result of a change in the test tool itself.
+
