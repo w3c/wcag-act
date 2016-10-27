@@ -1,21 +1,21 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing Framework Requirements
 Shortname: ACT-Framework Requirements
-Revision: 1
+Revision: 2
 Status: LS-BRANCH
 Group: Accessibility Conformance Testing Task Force
-URL: https://w3c.github.io/wcag-act/act-reqs.html
+URL: https://w3c.github.io/wcag-act/act-fr-reqs.html
 Editor: Wilco Fiers, Deque Systems
 Abstract: The Accessibility Conformance Testing Framework will be a W3C Recommendation, developed by the ACT Taskforce, lead by the WCAG Working Group. This document outlines the requirements for the ACT Framework. The ACT Framework is one part of the deliverables of the ACT Taskforce, for more details on this read [[ACT Deliverables]].
 </pre>
 
 
-\1. Status of This Document {#status}
+Status of This Document {#status}
 =========================
 
 This is the first draft of this document. It has not yet been submitted for formal review to the WCAG Working Group.
 
-\2.Introduction {#intro}
+Introduction {#intro}
 =================
 
 The Accessibility Conformance Testing (ACT) Framework will be a recommendation on how to write rules for accessibility conformance testing. For an introduction on Accessibility Conformance Testing, read [What is ACT](https://www.w3.org/WAI/GL/task-forces/conformance-testing/wiki/ACT_Overview_-_What_is_ACT).
@@ -27,9 +27,9 @@ Development and implementation of ACT Rules are outside the scope of the ACT Fra
 Requirements
 =======================
 
-## 2.1 Ensure Readability
+## 2.1 Ensure Understandability
 
-The ACT Framework ensures that the rules are readable by both tool developers and less-technical users. For instance, the ACT Framework may discourage the use of pseudo code in favor of plain English.
+The ACT Framework ensures that ACT rules are understandable by tool developers, accessibility auditors and testers. Users of an ACT Rule should be able to follow the steps of the rule and come to the same conclusion.
 
 ## 2.2 Ensure Justification
 
@@ -37,7 +37,7 @@ The ACT Framework ensures that sufficient documentation is provided, to justify 
 
 ## 2.3 Ensure Consistency
 
-The ACT Framework ensures that ACT Rules can be implemented in a way that produces consistent results. An ACT Rule must include a way to test the implementation of that rule.
+The ACT Framework ensures that ACT Rules can be implemented in a way that produces consistent results in different tools and in different runs. An ACT Rule must include a way to test the implementation of that rule.
 
 ## 2.4 Ensure Measurable Accuracy
 

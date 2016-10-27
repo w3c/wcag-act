@@ -1326,11 +1326,11 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Framework Requirements</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Branch Snapshot, <time class="dt-updated" datetime="2016-10-27">27 October 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Branch Snapshot, <time class="dt-updated" datetime="2016-10-25">25 October 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-fr-reqs.html">https://w3c.github.io/wcag-act/act-fr-reqs.html</a>
+     <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-reqs.html">https://w3c.github.io/wcag-act/act-reqs.html</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
      <dt class="editor">Editor:
@@ -1340,7 +1340,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 27 October 2016,
+In addition, as of 25 October 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1354,12 +1354,12 @@ Parts of this work may be from another specification document.  If so, those par
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
-    <li><a href="#status"><span class="secno">1</span> <span class="content">Status of This Document</span></a>
-    <li><a href="#intro"><span class="secno">2</span> <span class="content">Introduction</span></a>
+    <li><a href="#status"><span class="secno">1</span> <span class="content">\1. Status of This Document</span></a>
+    <li><a href="#intro"><span class="secno">2</span> <span class="content">\2.Introduction</span></a>
     <li>
      <a href="#requirements"><span class="secno">3</span> <span class="content">Requirements</span></a>
      <ol class="toc">
-      <li><a href="#21-ensure-understandability"><span class="secno">3.1</span> <span class="content">2.1 Ensure Understandability</span></a>
+      <li><a href="#21-ensure-readability"><span class="secno">3.1</span> <span class="content">2.1 Ensure Readability</span></a>
       <li><a href="#22-ensure-justification"><span class="secno">3.2</span> <span class="content">2.2 Ensure Justification</span></a>
       <li><a href="#23-ensure-consistency"><span class="secno">3.3</span> <span class="content">2.3 Ensure Consistency</span></a>
       <li><a href="#24-ensure-measurable-accuracy"><span class="secno">3.4</span> <span class="content">2.4 Ensure Measurable Accuracy</span></a>
@@ -1390,19 +1390,19 @@ Parts of this work may be from another specification document.  If so, those par
    </ol>
   </nav>
   <main>
-   <h2 class="heading settled" data-level="1" id="status"><span class="secno">1. </span><span class="content">Status of This Document</span><a class="self-link" href="#status"></a></h2>
+   <h2 class="heading settled" data-level="1" id="status"><span class="secno">1. </span><span class="content">\1. Status of This Document</span><a class="self-link" href="#status"></a></h2>
    <p>This is the first draft of this document. It has not yet been submitted for formal review to the WCAG Working Group.</p>
-   <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <h2 class="heading settled" data-level="2" id="intro"><span class="secno">2. </span><span class="content">\2.Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>The Accessibility Conformance Testing (ACT) Framework will be a recommendation on how to write rules for accessibility conformance testing. For an introduction on Accessibility Conformance Testing, read [What is ACT](https://www.w3.org/WAI/GL/task-forces/conformance-testing/wiki/ACT_Overview_-_What_is_ACT).</p>
    <p>The ACT Framework is developed by the [ACT Taskforce](https://www.w3.org/WAI/GL/task-forces/conformance-testing/), lead by the [WCAG Working Group](https://www.w3.org/WAI/GL/). The ACT Framework will standardize those aspects all rules have in common that ensure them to be reliable, implementable by different ATTs and transparent for the users of this tool. By standardizing this, the ACT Taskforce aims to promote a common understanding of how accessibility can be tested for certain technologies.</p>
    <p>Development and implementation of ACT Rules are outside the scope of the ACT Framework. This work is currently done within the [Auto-WCAG Community Group](https://www.w3.org/community/auto-wcag/). The ACT Taskforce will support the Auto-WCAG Community group in the development of the first set of ACT Rules.</p>
    <h2 class="heading settled" data-level="3" id="requirements"><span class="secno">3. </span><span class="content">Requirements</span><a class="self-link" href="#requirements"></a></h2>
-   <h3 class="heading settled" data-level="3.1" id="21-ensure-understandability"><span class="secno">3.1. </span><span class="content">2.1 Ensure Understandability</span><a class="self-link" href="#21-ensure-understandability"></a></h3>
-   <p>The ACT Framework ensures that ACT rules are understandable by tool developers, accessibility auditors and testers. Users of an ACT Rule should be able to follow the steps of the rule and come to the same conclusion.</p>
+   <h3 class="heading settled" data-level="3.1" id="21-ensure-readability"><span class="secno">3.1. </span><span class="content">2.1 Ensure Readability</span><a class="self-link" href="#21-ensure-readability"></a></h3>
+   <p>The ACT Framework ensures that the rules are readable by both tool developers and less-technical users. For instance, the ACT Framework may discourage the use of pseudo code in favor of plain English.</p>
    <h3 class="heading settled" data-level="3.2" id="22-ensure-justification"><span class="secno">3.2. </span><span class="content">2.2 Ensure Justification</span><a class="self-link" href="#22-ensure-justification"></a></h3>
    <p>The ACT Framework ensures that sufficient documentation is provided, to justify that it’s claims are a valid interpretation of the accessibility requirement.</p>
    <h3 class="heading settled" data-level="3.3" id="23-ensure-consistency"><span class="secno">3.3. </span><span class="content">2.3 Ensure Consistency</span><a class="self-link" href="#23-ensure-consistency"></a></h3>
-   <p>The ACT Framework ensures that ACT Rules can be implemented in a way that produces consistent results in different tools and in different runs. An ACT Rule must include a way to test the implementation of that rule.</p>
+   <p>The ACT Framework ensures that ACT Rules can be implemented in a way that produces consistent results. An ACT Rule must include a way to test the implementation of that rule.</p>
    <h3 class="heading settled" data-level="3.4" id="24-ensure-measurable-accuracy"><span class="secno">3.4. </span><span class="content">2.4 Ensure Measurable Accuracy</span><a class="self-link" href="#24-ensure-measurable-accuracy"></a></h3>
    <p>The ACT Framework provides criteria and a benchmarking mechanism to validate and measure the accuracy of test rules. Note: Accuracy is difference of actual test results to expected results.</p>
    <h3 class="heading settled" data-level="3.5" id="25-ensure-evolution"><span class="secno">3.5. </span><span class="content">2.5 Ensure Evolution</span><a class="self-link" href="#25-ensure-evolution"></a></h3>
