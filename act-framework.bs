@@ -1,7 +1,7 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
-Level: 1
+Level: 2
 Status: w3c/FPWD
 Group: Accessibility Conformance Testing Task Force
 URL: https://w3c.github.io/wcag-act/act-framework.html
@@ -65,7 +65,7 @@ ACT Output Data {#output}
 ACT Data Format {#output-format}
 --------------------------------
 
-*Editor note*: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below).
+*Editor note*: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
 
 
 Rule Aggregation {#output-aggregation}
