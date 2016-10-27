@@ -1,10 +1,11 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing Framework Requirements
 Shortname: ACT-Framework Requirements
+URL: https://w3c.github.io/wcag-act/act-fr-reqs.html
 Revision: 2
+Previous Version: https://w3c.github.io/wcag-act/2016-10-25-act-fr-reqs.html
 Status: LS-BRANCH
 Group: Accessibility Conformance Testing Task Force
-URL: https://w3c.github.io/wcag-act/act-fr-reqs.html
 Editor: Wilco Fiers, Deque Systems
 Abstract: The Accessibility Conformance Testing Framework will be a W3C Recommendation, developed by the ACT Taskforce, lead by the WCAG Working Group. This document outlines the requirements for the ACT Framework. The ACT Framework is one part of the deliverables of the ACT Taskforce, for more details on this read [[ACT Deliverables]].
 </pre>
