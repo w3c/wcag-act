@@ -1429,7 +1429,13 @@ Parts of this work may be from another specification document.  If so, those par
    <p>*Editor note*: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.</p>
    <h3 class="heading settled" data-level="6.4" id="quality-version"><span class="secno">6.4. </span><span class="content">Change Management</span><a class="self-link" href="#quality-version"></a></h3>
    <p>*Editor note*: In this section we describe how changes to a rule must be managed over time. Understanding the results of accessibility tests can be difficult, as there are many factors that can influence a result (think cookies, user interaction in a page, updates to a user agent, etc.). When changes in results occur over time, users must be able to rule out that these changes occurred as a result of a change in the test tool itself.</p>
+   <p>Changes in rules are unavoidable and they should be managed as the technology advances, (ex: updates to a user agent, browser cookies) and ways that user interact with technology evolves.</p> 
+	<p>When rule changes are detected or requested by community, the group will facilitate feedback and suggestions via public WCAG list. (Change detection)</p>
+	<p>Rule changes also cause changes in test results. When changes in test results happen due to rule changes, users (as well as tool developers?) will be informed to consider these changes in running the test tool (what is the communication plan for this?) (Change propagation)</p>
+	<p>If the change benefits are significant and indispensable to users and testing tools under the condition that other W3C working groups do not oppose changes, the WCAG-ACT group will make an effort to embed changes in the document via note format. [RFC2119](Chang reaction)</p>
+  
   </main>
+
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
    <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
