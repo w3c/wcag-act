@@ -2,8 +2,8 @@
 Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
-Previous Version: https://w3c.github.io/wcag-act/2016-10-25-act-framework.html
-Level: 2
+Previous Version: https://w3c.github.io/wcag-act/2016-10-27-act-framework.html
+Level: 3
 Status: w3c/FPWD
 Group: Accessibility Conformance Testing Task Force
 Editor: Wilco Fiers, Deque Systems
@@ -13,7 +13,11 @@ Abstract: To do
 Introduction {#intro}
 =====================
 
-To do
+There are currently many products available which aid their users in testing for conformance of accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web. The volume of information and services organizations provide on the web make it often impractical to manually test for accessibility.
+
+Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements on how a requirement should be tested, lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for accessibility testing done through automated test tools (ATTs).
+
+Describing how to test certain accessibility requirements is the answer to this. By describing the test procedures, the results of an accessibility test become reproducible, and the test method becomes transparent. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
 
 ACT Rule Structure {#structure}
