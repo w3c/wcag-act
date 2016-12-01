@@ -35,8 +35,7 @@ Editor note: This sections gives a broad outline of parts make up an ACT Rule. W
 Rule Description {#structure-description}
 ----------------------------------------
 
-Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.
-
+Each ACT Rule will have a description that in plain English, should provide a broad understanding of what accessibility requirement the rule is supposed to test along with any limitation or assumtions it may have. It explains what are the failure conditions and why.
 
 ACT Input Data {#input}
 =======================
