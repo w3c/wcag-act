@@ -21,7 +21,7 @@ There are currently many products available which aid their users in testing for
 
 Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements on how a requirement should be tested, lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for accessibility testing done through automated test tools (ATTs).
 
-The Accessibility Conformance Testing Framework (ACT Framework) defines a set of requirements to produce a transparent set of accessibility test methods that produce consistent validation results. This work will lead to a more common understanding by accessibility experts on how to test accessibility standards, such as WCAG 2.0. In support of this framework is a set of test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules) which define test descriptions that meet the requirements outlined by the ACT Framework.
+The Accessibility Conformance Testing Framework (ACT Framework) defines a set of requirements, format and measurable qualities to produce a transparent set of accessibility test methods that produce consistent validation results. This work will lead to a more common understanding by accessibility experts on how to test accessibility standards, such as WCAG 2.0. In support of this framework is a set of test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules) which define test descriptions that meet the requirements outlined by the ACT Framework.
 
 
 ACT Rule Structure {#structure}
