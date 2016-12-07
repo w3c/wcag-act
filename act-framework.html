@@ -1326,13 +1326,23 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Framework</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C First Public Working Draft, <time class="dt-updated" datetime="2016-10-25">25 October 2016</time></span></h2>
+<<<<<<< HEAD
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C First Public Working Draft, <time class="dt-updated" datetime="2016-11-09">9 November 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-ACT-Framework-1-20161025/">https://www.w3.org/TR/2016/WD-ACT-Framework-1-20161025/</a>
+     <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-ACT-Framework-3-20161109/">https://www.w3.org/TR/2016/WD-ACT-Framework-3-20161109/</a>
+=======
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">W3C First Public Working Draft, <time class="dt-updated" datetime="2016-11-11">11 November 2016</time></span></h2>
+   <div data-fill-with="spec-metadata">
+    <dl>
+     <dt>This version:
+     <dd><a class="u-url" href="https://www.w3.org/TR/2016/WD-ACT-Framework-3-20161111/">https://www.w3.org/TR/2016/WD-ACT-Framework-3-20161111/</a>
+>>>>>>> pr/3
      <dt>Editor's Draft:
      <dd><a href="https://w3c.github.io/wcag-act/act-framework.html">https://w3c.github.io/wcag-act/act-framework.html</a>
+     <dt>Previous Versions:
+     <dd><a href="https://w3c.github.io/wcag-act/2016-10-27-act-framework.html" rel="previous">https://w3c.github.io/wcag-act/2016-10-27-act-framework.html</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
      <dt class="editor">Editor:
@@ -1342,7 +1352,11 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 25 October 2016,
+<<<<<<< HEAD
+In addition, as of 9 November 2016,
+=======
+In addition, as of 11 November 2016,
+>>>>>>> pr/3
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1387,7 +1401,13 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#quality-exceptions"><span class="secno">6.1</span> <span class="content">Managing Exceptions</span></a>
       <li><a href="#quality-implement"><span class="secno">6.2</span> <span class="content">Implementation Validation</span></a>
       <li><a href="#quality-accuracy"><span class="secno">6.3</span> <span class="content">Accuracy Benchmarking</span></a>
-      <li><a href="#quality-version"><span class="secno">6.4</span> <span class="content">Change Management</span></a>
+      <li>
+       <a href="#quality-updates"><span class="secno">6.4</span> <span class="content">Update Management</span></a>
+       <ol class="toc">
+        <li><a href="#quality-updates-version"><span class="secno">6.4.1</span> <span class="content">Version Numbers</span></a>
+        <li><a href="#quality-updates-changes"><span class="secno">6.4.2</span> <span class="content">Change List</span></a>
+        <li><a href="#quality-updates-issues"><span class="secno">6.4.3</span> <span class="content">Issues List</span></a>
+       </ol>
      </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
@@ -1399,36 +1419,66 @@ Parts of this work may be from another specification document.  If so, those par
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>To do</p>
+   <p>There are currently many products available which aid their users in testing for conformance of accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web. The volume of information and services organizations provide on the web make it often impractical to manually test for accessibility.</p>
+   <p>Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements on how a requirement should be tested, lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for accessibility testing done through automated test tools (ATTs).</p>
+   <p>Describing how to test certain accessibility requirements is the answer to this. By describing the test procedures, the results of an accessibility test become reproducible, and the test method becomes transparent. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).</p>
    <h2 class="heading settled" data-level="2" id="structure"><span class="secno">2. </span><span class="content">ACT Rule Structure</span><a class="self-link" href="#structure"></a></h2>
    <h3 class="heading settled" data-level="2.1" id="structure-outline"><span class="secno">2.1. </span><span class="content">Rule Outline</span><a class="self-link" href="#structure-outline"></a></h3>
-   <p>*Editor note*: This sections gives a broad outline of parts make up an ACT Rule. We’ll go into further detail in sections below. At this point it is important to show the reader the big picture</p>
+   <p>Editor note: This sections gives a broad outline of parts make up an ACT Rule. We’ll go into further detail in sections below. At this point it is important to show the reader the big picture</p>
    <h3 class="heading settled" data-level="2.2" id="structure-description"><span class="secno">2.2. </span><span class="content">Rule Description</span><a class="self-link" href="#structure-description"></a></h3>
-   <p>*Editor note*: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.</p>
+   <p>Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.</p>
    <h2 class="heading settled" data-level="3" id="input"><span class="secno">3. </span><span class="content">ACT Input Data</span><a class="self-link" href="#input"></a></h2>
    <h3 class="heading settled" data-level="3.1" id="input-types"><span class="secno">3.1. </span><span class="content">Test Input Types</span><a class="self-link" href="#input-types"></a></h3>
-   <p>*Editor note*: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.</p>
+   <p>Editor note: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.</p>
    <h3 class="heading settled" data-level="3.2" id="input-acc-supp"><span class="secno">3.2. </span><span class="content">Accessibility Support Data</span><a class="self-link" href="#input-acc-supp"></a></h3>
-   <p>*Editor note*: This section will describe data about the accessibility support of different assistive technologies should be used by rules to produce results. Where relevant, rules must be able to take in data about supported features in assistive technologies, and adjust results accordingly.</p>
+   <p>Editor note: This section will describe data about the accessibility support of different assistive technologies should be used by rules to produce results. Where relevant, rules must be able to take in data about supported features in assistive technologies, and adjust results accordingly.</p>
    <h2 class="heading settled" data-level="4" id="test-proc"><span class="secno">4. </span><span class="content">ACT Test Procedure</span><a class="self-link" href="#test-proc"></a></h2>
    <h3 class="heading settled" data-level="4.1" id="test-proc-selector"><span class="secno">4.1. </span><span class="content">Selector</span><a class="self-link" href="#test-proc-selector"></a></h3>
-   <p>*Editor note*: This section will describe how, given a certain input type (see above), the elements or components are located that can be tested using the rule, and how the author of a rule should describe this.</p>
+   <p>Editor note: This section will describe how, given a certain input type (see above), the elements or components are located that can be tested using the rule, and how the author of a rule should describe this.</p>
    <h3 class="heading settled" data-level="4.2" id="test-proc-cases"><span class="secno">4.2. </span><span class="content">Test Cases</span><a class="self-link" href="#test-proc-cases"></a></h3>
-   <p>*Editor note*: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.</p>
+   <p>Editor note: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.</p>
    <h2 class="heading settled" data-level="5" id="output"><span class="secno">5. </span><span class="content">ACT Output Data</span><a class="self-link" href="#output"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="output-format"><span class="secno">5.1. </span><span class="content">ACT Data Format</span><a class="self-link" href="#output-format"></a></h3>
-   <p>*Editor note*: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below).</p>
+   <p>Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.</p>
    <h3 class="heading settled" data-level="5.2" id="output-aggregation"><span class="secno">5.2. </span><span class="content">Rule Aggregation</span><a class="self-link" href="#output-aggregation"></a></h3>
-   <p>*Editor note*: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.</p>
+   <p>Editor note: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.</p>
    <h2 class="heading settled" data-level="6" id="quality"><span class="secno">6. </span><span class="content">Rule Quality Assurance</span><a class="self-link" href="#quality"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="quality-exceptions"><span class="secno">6.1. </span><span class="content">Managing Exceptions</span><a class="self-link" href="#quality-exceptions"></a></h3>
-   <p>*Editor note*: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.</p>
+   <p>Editor note: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.</p>
    <h3 class="heading settled" data-level="6.2" id="quality-implement"><span class="secno">6.2. </span><span class="content">Implementation Validation</span><a class="self-link" href="#quality-implement"></a></h3>
-   <p>*Editor note*: This section describes the requirements of tests that have to be created for a rule. Rules are abstract, high level descriptions. To ensure the implementation of rules is done correctly, validation tests have to be provided along with each rule.</p>
+   <p>Editor note: This section describes the requirements of tests that have to be created for a rule. Rules are abstract, high level descriptions. To ensure the implementation of rules is done correctly, validation tests have to be provided along with each rule.</p>
    <h3 class="heading settled" data-level="6.3" id="quality-accuracy"><span class="secno">6.3. </span><span class="content">Accuracy Benchmarking</span><a class="self-link" href="#quality-accuracy"></a></h3>
-   <p>*Editor note*: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.</p>
-   <h3 class="heading settled" data-level="6.4" id="quality-version"><span class="secno">6.4. </span><span class="content">Change Management</span><a class="self-link" href="#quality-version"></a></h3>
-   <p>*Editor note*: In this section we describe how changes to a rule must be managed over time. Understanding the results of accessibility tests can be difficult, as there are many factors that can influence a result (think cookies, user interaction in a page, updates to a user agent, etc.). When changes in results occur over time, users must be able to rule out that these changes occurred as a result of a change in the test tool itself.</p>
+   <p>Editor note: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.</p>
+   <h3 class="heading settled" data-level="6.4" id="quality-updates"><span class="secno">6.4. </span><span class="content">Update Management</span><a class="self-link" href="#quality-updates"></a></h3>
+   <h4 class="heading settled" data-level="6.4.1" id="quality-updates-version"><span class="secno">6.4.1. </span><span class="content">Version Numbers</span><a class="self-link" href="#quality-updates-version"></a></h4>
+   <p>Each ACT Rule must have it’s own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:</p>
+   <dl>
+    <dt data-md="">
+     <p>X / Major updates:</p>
+    <dd data-md="">
+     <p>The major version number must be increased if the change can lead to new failure results.</p>
+    <dt data-md="">
+     <p>Y / Minor updates:</p>
+    <dd data-md="">
+     <p>The minor version number must be increased if the test logic has been updated, which could lead to a a different result.</p>
+    <dt data-md="">
+     <p>Z / Patch updates:</p>
+    <dd data-md="">
+     <p>The patch version number must be increased if the change does not affect the result of a rule. This includes editorial changes, new issues on the issues list, an updated description, etc.</p>
+   </dl>
+   <h4 class="heading settled" data-level="6.4.2" id="quality-updates-changes"><span class="secno">6.4.2. </span><span class="content">Change List</span><a class="self-link" href="#quality-updates-changes"></a></h4>
+   <p>All major and minor changes to an ACT Rule must be recorded in a change log, that is part of the updated rule. The change log must at least include the changes since the last minor update, as well as a reference to the previous version.</p>
+   <h4 class="heading settled" data-level="6.4.3" id="quality-updates-issues"><span class="secno">6.4.3. </span><span class="content">Issues List</span><a class="self-link" href="#quality-updates-issues"></a></h4>
+   <p>An ACT Rule may include an issues list. This list must be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There may be several reasons why this might occur, including:</p>
+   <ul>
+    <li data-md="">
+     <p>Certain scenarios or the use of technologies is very rare and was not included in the rule for that reason.</p>
+    <li data-md="">
+     <p>Certain accessibility features are impossible to test within the test environment. They might for instance only be testable by accessing the accessibility API, require screen capturing, etc.</p>
+    <li data-md="">
+     <p>The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.</p>
+   </ul>
+   <p>The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
