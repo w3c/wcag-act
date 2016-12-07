@@ -2,11 +2,7 @@
 Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
-<<<<<<< HEAD
 Previous Version: https://w3c.github.io/wcag-act/2016-10-27-act-framework.html
-=======
-Previous Version: https://w3c.github.io/wcag-act/2016-10-25-act-framework.html
->>>>>>> pr/3
 Level: 3
 Status: w3c/FPWD
 Group: Accessibility Conformance Testing Task Force
