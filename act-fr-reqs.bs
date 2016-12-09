@@ -2,7 +2,7 @@
 Title: Accessibility Conformance Testing Framework Requirements
 Shortname: ACT-Framework Requirements
 URL: https://w3c.github.io/wcag-act/act-fr-reqs.html
-Revision: 3
+Revision: 4
 Previous Version: https://w3c.github.io/wcag-act/2016-10-25-act-fr-reqs.html
 Status: LS-BRANCH
 Group: Accessibility Conformance Testing Task Force
