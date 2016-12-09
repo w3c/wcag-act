@@ -1,0 +1,131 @@
+<pre class='metadata'>
+Title: Accessibility Conformance Testing Framework
+Shortname: ACT-Framework
+URL: https://w3c.github.io/wcag-act/act-framework.html
+Previous Version: https://w3c.github.io/wcag-act/2016-10-27-act-framework.html
+Level: 3
+Status: w3c/FPWD
+Group: Accessibility Conformance Testing Task Force
+Editor: Wilco Fiers, Deque Systems
+Abstract: To do
+</pre>
+
+Introduction {#intro}
+=====================
+
+There are currently many products available which aid their users in testing for conformance of accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web. The volume of information and services organizations provide on the web make it often impractical to manually test for accessibility.
+
+Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements on how a requirement should be tested, lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for accessibility testing done through automated test tools (ATTs).
+
+Describing how to test certain accessibility requirements is the answer to this. By describing the test procedures, the results of an accessibility test become reproducible, and the test method becomes transparent. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
+
+
+ACT Rule Structure {#structure}
+==============================
+
+Rule Outline {#structure-outline}
+-----------------------
+
+Editor note: This sections gives a broad outline of parts make up an ACT Rule. We'll go into further detail in sections below. At this point it is important to show the reader the big picture
+
+Rule Description {#structure-description}
+----------------------------------------
+
+Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.
+
+
+ACT Input Data {#input}
+=======================
+
+Test Input Types {#input-types}
+-------------------------------
+
+Editor note: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.
+
+
+Accessibility Support Data {#input-acc-supp}
+--------------------------------------------
+
+Editor note: This section will describe data about the accessibility support of different assistive technologies should be used by rules to produce results. Where relevant, rules must be able to take in data about supported features in assistive technologies, and adjust results accordingly.
+
+
+ACT Test Procedure {#test-proc}
+===============================
+
+Selector {#test-proc-selector}
+--------
+
+Editor note: This section will describe how, given a certain input type (see above), the elements or components are located that can be tested using the rule, and how the author of a rule should describe this.
+
+
+Test Cases {#test-proc-cases}
+---------------------------------------
+
+Editor note: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.
+
+
+ACT Output Data {#output}
+=========================
+
+ACT Data Format {#output-format}
+--------------------------------
+
+Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
+
+
+Rule Aggregation {#output-aggregation}
+--------------------------------------
+
+Editor note: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.
+
+
+Rule Quality Assurance {#quality}
+=================================
+
+Managing Exceptions {#quality-exceptions}
+-----------------------------------------
+
+Editor note: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.
+
+
+Implementation Validation {#quality-implement}
+----------------------------------------------
+
+Editor note: This section describes the requirements of tests that have to be created for a rule. Rules are abstract, high level descriptions. To ensure the implementation of rules is done correctly, validation tests have to be provided along with each rule.
+
+
+Accuracy Benchmarking {#quality-accuracy}
+-----------------------------------------
+
+Editor note: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.
+
+
+Update Management {#quality-updates}
+------------------------------------
+
+### Version Numbers ### {#quality-updates-version}
+
+Each ACT Rule must have it's own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:
+
+: X / Major updates:
+:: The major version number must be increased if the change can lead to new failure results.
+
+: Y / Minor updates:
+:: The minor version number must be increased if the test logic has been updated, which could lead to a a different result.
+
+: Z / Patch updates:
+:: The patch version number must be increased if the change does not affect the result of a rule. This includes editorial changes, new issues on the issues list, an updated description, etc.
+
+### Change List ### {#quality-updates-changes}
+
+All major and minor changes to an ACT Rule must be recorded in a change log, that is part of the updated rule. The change log must at least include the changes since the last minor update, as well as a reference to the previous version.
+
+### Issues List ### {#quality-updates-issues}
+
+An ACT Rule may include an issues list. This list must be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There may be several reasons why this might occur, including:
+
+- Certain scenarios or the use of technologies is very rare and was not included in the rule for that reason.
+- Certain accessibility features are impossible to test within the test environment. They might for instance only be testable by accessing the accessibility API, require screen capturing, etc.
+- The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
+
+The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
