@@ -13,6 +13,7 @@ Abstract: The Accessibility Conformance Testing (ACT) Framework is intended to b
 Status of This Document {#status}
 =========================
 
+
 This is the first draft of the ACT Framework Requirements document. It has not yet been reviewed or approved by the WCAG Working Group. At this stage, input on the following aspects is requested:
 
 - Completeness: Are there missing requirements?
@@ -25,6 +26,8 @@ Introduction {#intro}
 The Accessibility Conformance Testing (ACT) Framework will define how to write rules for accessibility conformance testing. It will standardize aspects that are common across different rules, to contribute to the development of rules that produce reliable results, are implementable by different testing and quality assurance tools, and that provide transparency and comparability for tool users. This should contribute to greater consistency of results across different tools, and avoid confusion on accessibility.
 
 The development and implementation of ACT Rules is complementary effort to the development of this ACT Framework. ACT Rules are currently developed through the [Auto-WCAG Community Group](https://www.w3.org/community/auto-wcag/). Feedback from the development of these ACT Rules will refine the ACT Framework during its development. Over time it is expected that other organizations will develop or make their rules available in the format defined by the ACT Framework, to facilitate a scalable approach for ACT Rules development.
+
+The work has been incubated in the Auto-WCAG Community Group for over 2 years, which has shown a growing interest in harmonized accessibility testing. Development and implementation of ACT Rules are outside the scope of the ACT Framework. This work is currently done within the [Auto-WCAG Community Group](https://www.w3.org/community/auto-wcag/). The ACT Taskforce will support the Auto-WCAG Community group in the development of the first set of ACT Rules.
 
 More background on ACT efforts and deliverables is provided in [What is ACT](https://www.w3.org/WAI/GL/task-forces/conformance-testing/wiki/ACT_Overview_-_What_is_ACT).
 
@@ -83,9 +86,9 @@ The ACT Framework provides mechanisms to develop rules that are:
 - Manual: A process that can only be done by a user
 - Semi-automated: A test combining automated testing and manual testing
 
-## Useable With Different Accessibility Requirements
+## Usable With Different Accessibility Requirements
 
-The ACT Framework provides mechanisms for the development of rules to test conformance to popular accessibility requirements, including but not limited to: WCAG 2.0, WCAG 2.1, UAAG 2.0 and ATAG 2.0.
+ACT Rules will be developed as part of the project as evidence that the ACT Framework is capable of targeting different accessibility requirements for web content and digital publications.
 
 ## Applicable to Web and Digital Publishing Technologies
 
