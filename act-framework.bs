@@ -7,6 +7,7 @@ Level: 5
 Status: w3c/FPWD
 Group: Accessibility Conformance Testing Task Force
 Editor: Wilco Fiers, Deque Systems
+Editor: Maureen Kraft, IBM Corp.
 Abstract: To do
 </pre>
 
@@ -39,7 +40,12 @@ Editor note: This sections gives a broad outline of parts make up an ACT Rule. W
 Rule Description {#structure-description}
 ----------------------------------------
 
-Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.
+Each ACT Rule MUST have a description that:
+
+* Is in plain language;
+* Explains the accessibility requirement being tested;
+* Lists any limitations and assumptions for the test;
+* Explains the failure conditions and their reasons.
 
 
 ACT Input Data {#input}
