@@ -56,11 +56,16 @@ Test Input Types {#input-types}
 
 Editor note: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.
 
-
 Accessibility Support Data {#input-acc-supp}
 --------------------------------------------
 
-Editor note: This section will describe data about the accessibility support of different assistive technologies should be used by rules to produce results. Where relevant, rules must be able to take in data about supported features in assistive technologies, and adjust results accordingly.
+Determining if content is accessible, depends partly on the assistive technologies that are used to access it. This is known as Accessibility Supported in WCAG 2.0. One accessibility technique can be relied upon on one site, given their users, but not on another. This depends entirely on the users of the site, and the accessibility support policy an organization sets for themselves.
+
+It would be impractical to write a new ACT Rule every time a new assistive technology is released. An ACT Rule should therefore be independent of assistive technologies. To do this, it must take accessibility support data, and use it in addition to the test page (or other test subject) to determine passing of failing of the rule.
+
+TODO: Describe what format the accessibility support data should be in.
+
+TODO: Describe how an ACT Rule should use the accessibility support data.  I'm thinking we could use a CSS selector style description like this: `input[type="text"][aria-describedby]` It would mean that anything that doesn't support aria-describedby, or aria-describedy on input or aria-describedby on input type="text" would not be accessibility supported.
 
 
 ACT Test Procedure {#test-proc}
