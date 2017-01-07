@@ -63,7 +63,7 @@ ACT Test Procedure {#test-proc}
 Selector {#test-proc-selector}
 --------
 
-A selector is a pattern used to select element(s) in an HTML document or node(s) in the DOM tree. In an ACT Rule, a selector is applied to the entire input data to filter it into a set of elements or nodes to be evaluated against the test procedure.
+A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
 Selector syntax depends on the input type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the input type, the selector may be described unambiguously in plain English.
 
