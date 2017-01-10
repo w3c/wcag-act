@@ -44,8 +44,8 @@ Each ACT Rule MUST have a description that:
 
 * Is in plain language and provides a brief description of what the rule does.
 * Explains the accessibility requirement being tested such as the WCAG SC or the technique the rule maps to; For example WCAG 2.0 Technique H67.
-* Lists any limitations and assumptions for the test, the test environment, technologies being used or the subject being tested;
-* The scope or the context of the rule; For example: A rule for 1.4.1: Use of Color has to make an assumption with CSS-properties are used to make a link visually evident. Typically something like background, border, color, font, or text-decoration.
+* Lists any limitations and assumptions for the test, the test environment, technologies being used or the subject being tested; For example: A rule for 1.4.1: Use of Color has to make an assumption with CSS-properties are used to make a link visually evident. Typically something like background, border, color, font, or text-decoration.
+* The scope or the context of the rule; 
 * Explains the failure conditions and their reasons. For example the rule triggers on all images on the page that has no alt attribute defined.
 
 
