@@ -86,8 +86,34 @@ ACT Output Data {#output}
 ACT Data Format {#output-format}
 --------------------------------
 
-Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
+Rules are tested in two steps. Firstly, the selector works out what elements / tags or other 'components' to test, these are known as the *Test Target*. Following this, each test target will be taken through the test procedure of the rule. This will give a *Test Result* for each *Test Target*.
 
+In addition to Test Target and Test Result, contextual information MUST be provided to indicate what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself. Running a rule will result in at least the following four pieces of information:
+
+- Test Criterion: The rule (or other test) that was used to generate the result
+- Subject: The web page or other component that was tested
+- Target: An element / component contained within the subject, that was selected for testing
+- Result: The finding as determined by the test, either: Pass, Fail or Unknown
+
+### Test Target
+
+How to describe the test target depends on whether or not the test subject is parsed or not. When testing against the DOM tree, CSS and XPath are usually the way elements are located. Where as for files the most common method is to indicate line number and character number. For the purpose of validating
+
+- DOM Tree: Express the target as either a CSS selector targeting a single node on the page, or an XPath selector.
+
+- Text Files: Express the location of the target with two properties: Line number, and Character number.
+
+### Test Result
+
+A rule must result in one of the following three values:
+
+- Pass: The Test Target passed the test
+- Fail: The Test Target failed the test
+- CantTell: It is unclear whether or not the Test Target passes of rails the test
+
+### Ensure Comparable Results
+
+TODO
 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
