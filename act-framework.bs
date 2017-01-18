@@ -35,7 +35,13 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Editor note: This sections gives a broad outline of parts make up an ACT Rule. We'll go into further detail in sections below. At this point it is important to show the reader the big picture
+A rule MUST provide the following items written in plain language:
+* A descriptive title 
+* A unique identifier
+* A rule description
+* Associated criteria, standard(s) or requirement(s) (Note: Auto-WCAG calls this Background)
+* Assumptions, if any
+* Test procedure
 
 Rule Description {#structure-description}
 ----------------------------------------
