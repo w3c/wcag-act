@@ -2,11 +2,12 @@
 Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
-Previous Version: https://w3c.github.io/wcag-act/2016-10-27-act-framework.html
-Level: 3
-Status: w3c/FPWD
+Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
+Level: 6
+Status: w3c/ED
 Group: Accessibility Conformance Testing Task Force
 Editor: Wilco Fiers, Deque Systems
+Editor: Maureen Kraft, IBM Corp.
 Abstract: To do
 </pre>
 
@@ -39,7 +40,12 @@ Editor note: This sections gives a broad outline of parts make up an ACT Rule. W
 Rule Description {#structure-description}
 ----------------------------------------
 
-Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.
+Each ACT Rule MUST have a description that:
+
+* Is in plain language;
+* Explains the accessibility requirement being tested;
+* Lists any limitations and assumptions for the test;
+* Explains the failure conditions and their reasons.
 
 
 ACT Input Data {#input}
@@ -63,7 +69,7 @@ ACT Test Procedure {#test-proc}
 Selector {#test-proc-selector}
 --------
 
-A selector is a boolean predicate that takes an element or component in the set represented in the input data and unambiguously tests whether the element or component matches the selector or not. In an ACT Rule, a selector is applied to the entire input data to filter it into a set of elements or components to be evaluated with the test procedure.
+A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
 Selector syntax depends on the input type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the input type, the selector may be described unambiguously in plain English.
 
