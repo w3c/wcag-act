@@ -53,6 +53,7 @@ ACT Input Data {#input}
 
 Test Input Types {#input-types}
 -------------------------------
+
 Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *type of input* that an ACT Rule expects.
 
 The following input types are common in accessibility testing:
