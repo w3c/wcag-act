@@ -53,8 +53,7 @@ ACT Input Data {#input}
 
 Test Input Types {#input-types}
 -------------------------------
-
-Web pages, publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. We can divide this into two stages of testing, black-box and white-box testing.
+Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. We can divide this into two stages of testing, black-box and white-box testing.
 
 ### Black-box testing
 
@@ -90,19 +89,19 @@ In white box testing, the source files are tested instead of the output of the b
 
 There are generally two approaches to building a web document. Either through templating, or through scripting. The source files for most (if not all) websites are either templates or scripts (or a mix of the two). This gives two new types of tests. Template testing and composition testing.
 
-Unlike black-box testing, in white-box testing, the Accessibility Test Tool implementing the ACT Rule must be developed specifically for the template engine or component technology. I.e. An ATT build to test HTML Handlebars templates should and can not be used to test Pug templates.
+Unlike black-box testing, in white-box testing, the Accessibility Test Tool implementing the ACT Rule must be developed specifically for the template engine or component technology. I.e. An ATT built to test HTML Handlebars templates should and can not be used to test Pug templates.
 
 #### Template Testing
 
 A template is document that has 'open' fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
-Example: `<img>` tags with a variable `src`, *must not* have static `alt` value.
+Example: `<img>` tags with a variable `src`, *must not* have a static `alt` value.
 
 #### Composition Testing
 
-A composition is an class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
+A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
 
-Example: Component properties starting with `aria-` *must* exist in the list of ARIA attributes.
+Example: Component properties starting with `aria-` *must* exist in the list of WAI-ARIA attributes.
 
 Accessibility Support Data {#input-acc-supp}
 --------------------------------------------
