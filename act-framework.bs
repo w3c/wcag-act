@@ -47,6 +47,32 @@ Each ACT Rule MUST have a description that:
 * Lists any limitations and assumptions for the test;
 * Explains the failure conditions and their reasons.
 
+Accessibility Support {#structure-acc-supp}
+---------------------------------------
+
+Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0][accsupp]. When testing a web page for accessibility, it is important to know which assistive technologies are to be used for this page.
+
+Because of this it is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
+
+Developers of Accessibility Test Tools should use this information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of ATT to customize which rules are run, allowing fine grained control of the accessibility test.
+
+A list of `Relied upon accessibility features` is an optional part of ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
+
+- Context: The context in which the element for which support is checked lives. If there is no specific context, this can be left blank.
+- Element: The name of the element that is being tested. If the element name is irrelevant, use `*`.
+- Attributes: Specific attributes that are to be tested. If there are none, this can be left blank.
+
+Example 1: Requires support for the `alt` attribute on an `img` element, existing within a link.
+
+```
+  a[ref] img[alt]
+```
+
+Example 2: Requires support for role=menuitem on any type of element, existing within an element marked up as a menu
+
+```
+  *[role=menu] *[role=menuitem]
+```
 
 ACT Input Data {#input}
 =======================
@@ -103,32 +129,6 @@ A composition is a class or component that extends other native elements or othe
 
 Example: Component properties starting with `aria-` *must* exist in the list of WAI-ARIA attributes.
 
-Accessibility Support Data {#input-acc-supp}
---------------------------------------------
-
-Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0][accsupp]. When testing a web page for accessibility, it is important to know which assistive technologies are to be used for this page.
-
-Because of this it is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
-
-Developers of Accessibility Test Tools should use this information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of ATT to customize which rules are run, allowing fine grained control of the accessibility test.
-
-A list of `Relied upon accessibility features` is an optional part of ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
-
-- Context: The context in which the element for which support is checked lives. If there is no specific context, this can be left blank.
-- Element: The name of the element that is being tested. If the element name is irrelevant, use `*`.
-- Attributes: Specific attributes that are to be tested. If there are none, this can be left blank.
-
-Example 1: Requires support for the `alt` attribute on an `img` element, existing within a link.
-
-```
-  a[ref] img[alt]
-```
-
-Example 2: Requires support for role=menuitem on any type of element, existing within an element marked up as a menu
-
-```
-  *[role=menu] *[role=menuitem]
-```
 
 ACT Test Procedure {#test-proc}
 ===============================
