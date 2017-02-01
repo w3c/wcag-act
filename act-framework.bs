@@ -119,7 +119,6 @@ A selector is a pattern that is used as a condition to filter input data to be e
 
 Selector syntax depends on the input type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the input type, the selector may be described unambiguously in plain English.
 
-
 Test Cases {#test-proc-cases}
 ---------------------------------------
 
@@ -129,29 +128,29 @@ Editor note: This section describes how rules are broken down into one or more t
 ACT Output Data {#output}
 =========================
 
+With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
+
 ACT Data Format {#output-format}
 --------------------------------
 
-Rules are tested in two steps. Firstly, the selector works out what elements / tags or other 'components' to test, these are known as the *Test Target*. Following this, each test target will be taken through the test procedure of the rule. This will give a *Test Result* for each *Test Target*.
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected item* (elements, tags or other 'components') to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
-In addition to Test Target and Test Result, contextual information MUST be provided to indicate what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself. Running a rule will result in at least the following four pieces of information:
+This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
 
-- Test Criterion: The rule (or other test) that was used to generate the result
-- Subject: The web page or other component that was tested
-- Target: An element / component contained within the subject, that was selected for testing
-- Result: The finding as determined by the test, either: Pass, Fail or Unknown
+- Rule ID
+- Test subject
+- Selected item
+- Outcome
 
-### Test Target
+### Selected Item
 
-How to describe the test target depends on whether or not the test subject is parsed or not. When testing against the DOM tree, CSS and XPath are usually the way elements are located. Where as for files the most common method is to indicate line number and character number. For the purpose of validating
+When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
-- DOM Tree: Express the target as either a CSS selector targeting a single node on the page, or an XPath selector.
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used [Implementation Test Cases](#quality-implement).
 
-- Text Files: Express the location of the target with two properties: Line number, and Character number.
+### Outcome
 
-### Test Result
-
-A rule must result in one of the following three values:
+The procedure of a rule MUST always return one of the following outcomes:
 
 - Pass: The Test Target passed the test
 - Fail: The Test Target failed the test
@@ -159,7 +158,11 @@ A rule must result in one of the following three values:
 
 ### Ensure Comparable Results
 
-TODO
+In addition to the Selected Item and the Outcome, ACT Rules MUST require contextual information be provided. This must include what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself.
+
+### Test Subject
+
+When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
