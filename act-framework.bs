@@ -137,10 +137,23 @@ Rules are tested in two steps. Firstly, the selector is applied to the web page 
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
 
-- Rule ID
-- Test subject
-- Selected item
-- Outcome
+- test (Rule ID)
+- subject (Web page)
+- pointer (Selected item)
+- outcome (`passed`, `failed` or `cantTell`)
+
+### Example: (using EARL and JSON-LD)
+
+```javascript
+{
+  "@context": "<see appendix 1>",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "pointer": "html > body > h1:first-child"
+}
+```
 
 ### Selected Item
 
@@ -152,9 +165,9 @@ The pointer method used in the output data of an ACT Rule MUST include the point
 
 The procedure of a rule MUST always return one of the following outcomes:
 
-- Pass: The Test Target passed the test
-- Fail: The Test Target failed the test
-- CantTell: It is unclear whether or not the Test Target passes of rails the test
+- `passed`: The Test Target passed the test
+- `failed`: The Test Target failed the test
+- `cantTell`: It is unclear whether or not the Test Target passes of rails the test
 
 ### Ensure Comparable Results
 
@@ -220,3 +233,27 @@ An ACT Rule may include an issues list. This list must be used to record cases i
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
+
+Appendix 1: JSON-LD Context
+===========================
+
+```
+{
+  "@vocab": "http://www.w3.org/ns/earl#",
+  "earl": "http://www.w3.org/ns/earl#",
+  "ptr": "http://www.w3.org/2009/pointers#",
+  "auto-wcag": "https://auto-wcag.github.io/auto-wcag/",
+  "Assertion": "earl:Assertion",
+  "CSSSelector": "ptr:CSSSelectorPointer",
+  "subject": { "@type": "earl:TestSubject" },
+  "pointer": { "@type": "ptr:CSSSelectorPointer" },
+  "test": { "@type": "@id"},
+  "outcome": { "@type": "@id" },
+  "Failed": "earl:Failed",
+  "Passed": "earl:Passed",
+  "CantTell": "earl:CantTell",
+  "Inapplicable": "earl:Inapplicable",
+  "Untested": "earl:Untested"
+}
+```
+
