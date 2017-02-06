@@ -159,8 +159,17 @@ Editor note: This section describes the requirements of tests that have to be cr
 Accuracy Benchmarking {#quality-accuracy}
 -----------------------------------------
 
-Editor note: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.
+The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.
 
+This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured, by comparing it's results to those obtained through accessibility expert testing.
+
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared.
+
+The accuracy of a rule is the average between the false positives and false positives, which are in tern calculated as follows:
+
+- *False positives*: This is the percentages of selected elements, that were failed by the rule, but were not failed by an accessibility expert.
+
+- *False negative*: This is the percentages of selected elements, that were passed by the rule, but were failed by an accessibility expert.
 
 Update Management {#quality-updates}
 ------------------------------------
