@@ -138,8 +138,86 @@ Editor note: This section describes the required properties of the data output b
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-Editor note: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.
+As describe in section [ACT Data Format](#output-format) a rule will return a list of results, each of which contain 1) an outcome (passed, failed or cantTell), 2) the selected item, 3) the Rule ID and 4) the test subject. We can create a new result, that combines all the results of that rule, to create provide a single result for that rule.
 
+Individual cases are useful for remediation, but often what is needed is a higher level view of accessibility. For instance, when reporting accessibility to higher management, all they are interested in is which websites aren't meeting the requirements.
+
+An aggregated result takes puts the original data as it's source data. Aggregated results do not have a pointer. The outcome of the aggregated result, is the worst outcome on the source data. (E.g. If there is one Failed, and ten Passed, the aggregated outcome is Failed)
+
+Example:
+
+```javascript
+{
+  "@context": "<see appendix 1>",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "sourceData": [{
+    "outcome": "Failed",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "pointer": "html > body > h1:nth-child(2)"
+  }]
+}
+```
+
+Data that is common to all sourceData items can be removed if it is put on the aggregate, like in the example, subject and test are already part of the aggregate, so those values are removed from sourceData items.
+
+Results can be aggregated much further than the rule level. A rule is a partial test for WCAG Success Criterion or other accessibility requirement. In the same way a list of results from a rule are aggergated to a single result for that rule, results of rules that test a specific accessibility requirement can be aggregated in a similar way. This can even include results produced by different accessibility test tools (or even those obtained through expert evaluation)
+
+Example: Aggregate rules to a WCAG success criterion
+
+```javascript
+{
+  "@context": "<see appendix 1>",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": {
+    "@id": "wcag20:#text-equiv-all",
+    "title": "1.1.1 Non-text Content"
+  },
+  "outcome": "Failed",
+  "sourceData": [{
+    "outcome": "Failed",
+    "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "test": "auto-wcag:rules/SC1-1-1-longdesc.html",
+    "pointer": "html > body > img:nth-child(2)"
+  }]
+}
+```
+
+Example: Aggregate a list of results to a result for the website
+
+```javascript
+{
+  "@context": "<see below>",
+  "@type": "Assertion",
+  "subject": {
+    "@type": "WebSite",
+    "@value": "https://example.org/"
+  }
+  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+  "outcome": "Failed",
+  "sourceData": [{
+    "outcome": "Failed",
+    "test": "wcag20:#text-equiv-all",
+    "sourceData": [ … ]
+  }, {
+    "outcome": "Passed",
+    "test": "wcag20:#media-equiv-av-only-alt",
+    "sourceData": [ … ]
+  }, {
+    "outcome": "Inapplicable",
+    "test": "wcag20:#media-equiv-captions",
+    "sourceData": [ … ]
+  }, … ]
+}
+```
 
 Rule Quality Assurance {#quality}
 =================================
