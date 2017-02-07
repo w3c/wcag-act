@@ -36,10 +36,12 @@ Rule Outline {#structure-outline}
 -----------------------
 
 A rule MUST provide the following items written in plain language:
+
 * A descriptive title 
 * A unique identifier
 * A rule description
-* Associated criteria, standard(s) or requirement(s) (Note: Auto-WCAG calls this Background)
+* Accessibility requirement(s)
+* Related techniques
 * Assumptions, if any
 * Test procedure
 
