@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <title>Accessibility Conformance Testing Framework</title>
@@ -419,7 +418,7 @@
 	[data-algorithm]:not(.heading) {
 	  padding: .5em;
 	  border: thin solid #ddd; border-radius: .5em;
-	  margin: .5em 0;
+	  margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
 	  margin-top: 0;
@@ -1177,7 +1176,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 90eb18a0d2a7680cdd94ecc3b342163de5a3fd43" name="generator">
+  <meta content="Bikeshed version 862f905dcd28738c926b57b7cfebee04d3d6e31e" name="generator">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1329,13 +1328,13 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Framework</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-02-06">6 February 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-02-13">13 February 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-framework.html">https://w3c.github.io/wcag-act/act-framework.html</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-framework/2016-12-21.html" rel="previous">https://w3c.github.io/wcag-act/archive_act-framework/2016-12-21.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-framework/2017-02-06.html" rel="previous">https://w3c.github.io/wcag-act/archive_act-framework/2017-02-06.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1344,7 +1343,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 6 February 2017,
+In addition, as of 13 February 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1434,18 +1433,32 @@ Parts of this work may be from another specification document.  If so, those par
    <p>For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based.</p>
    <h2 class="heading settled" data-level="3" id="structure"><span class="secno">3. </span><span class="content">ACT Rule Structure</span><a class="self-link" href="#structure"></a></h2>
    <h3 class="heading settled" data-level="3.1" id="structure-outline"><span class="secno">3.1. </span><span class="content">Rule Outline</span><a class="self-link" href="#structure-outline"></a></h3>
-   <p>Editor note: This sections gives a broad outline of parts make up an ACT Rule. We’ll go into further detail in sections below. At this point it is important to show the reader the big picture</p>
+   <p>A rule MUST provide the following items written in plain language:</p>
+   <ul>
+    <li data-md="">
+     <p>A descriptive title</p>
+    <li data-md="">
+     <p>A unique identifier</p>
+    <li data-md="">
+     <p>A rule description</p>
+    <li data-md="">
+     <p>Accessibility requirement(s)</p>
+    <li data-md="">
+     <p>Related techniques</p>
+    <li data-md="">
+     <p>Assumptions, if any</p>
+    <li data-md="">
+     <p>Test procedure</p>
+   </ul>
    <h3 class="heading settled" data-level="3.2" id="structure-description"><span class="secno">3.2. </span><span class="content">Rule Description</span><a class="self-link" href="#structure-description"></a></h3>
    <p>Each ACT Rule MUST have a description that:</p>
    <ul>
     <li data-md="">
-     <p>Is in plain language;</p>
+     <p>Is in plain language and provides a brief explanation of what the rule does.</p>
     <li data-md="">
-     <p>Explains the accessibility requirement being tested;</p>
+     <p>Explains the accessibility requirement being tested such as the WCAG Success Criterion.</p>
     <li data-md="">
-     <p>Lists any limitations and assumptions for the test;</p>
-    <li data-md="">
-     <p>Explains the failure conditions and their reasons.</p>
+     <p>Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.</p>
    </ul>
    <h2 class="heading settled" data-level="4" id="input"><span class="secno">4. </span><span class="content">ACT Input Data</span><a class="self-link" href="#input"></a></h2>
    <h3 class="heading settled" data-level="4.1" id="input-types"><span class="secno">4.1. </span><span class="content">Test Input Types</span><a class="self-link" href="#input-types"></a></h3>
