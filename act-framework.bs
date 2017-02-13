@@ -35,17 +35,24 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Editor note: This sections gives a broad outline of parts make up an ACT Rule. We'll go into further detail in sections below. At this point it is important to show the reader the big picture
+A rule MUST provide the following items written in plain language:
+
+* A descriptive title 
+* A unique identifier
+* A rule description
+* Accessibility requirement(s)
+* Related techniques
+* Assumptions, if any
+* Test procedure
 
 Rule Description {#structure-description}
 ----------------------------------------
 
 Each ACT Rule MUST have a description that:
 
-* Is in plain language;
-* Explains the accessibility requirement being tested;
-* Lists any limitations and assumptions for the test;
-* Explains the failure conditions and their reasons.
+* Is in plain language and provides a brief explanation of what the rule does.
+* Explains the accessibility requirement being tested such as the WCAG Success Criterion.
+* Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.
 
 
 ACT Input Data {#input}
