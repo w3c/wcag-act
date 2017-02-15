@@ -37,7 +37,7 @@ Rule Outline {#structure-outline}
 
 A rule MUST provide the following items written in plain language:
 
-* A descriptive title 
+* A descriptive title
 * A unique identifier
 * A rule description
 * Accessibility requirement(s)
@@ -58,12 +58,12 @@ Each ACT Rule MUST have a description that:
 ACT Input Data {#input}
 =======================
 
-Test Input Types {#input-types}
+Test Subjects {#input-test-subject}
 -------------------------------
 
-Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *type of input* that an ACT Rule expects.
+Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
-The following input types are common in accessibility testing:
+The following test subject types are common in accessibility testing:
 
 - HTTP Response
 - DOM Tree
@@ -71,7 +71,7 @@ The following input types are common in accessibility testing:
 - Template
 - Script
 
-Other types of input may be possible. In those cases the ACT Rule *must* include a detailed description of the input type, or a reference to the that description.
+Other types of test subjects may be possible. In those cases the ACT Rule *must* include a detailed description of the test subject type, or a reference to the that description.
 
 ### HTTP Response Testing
 
@@ -111,8 +111,7 @@ Selector {#test-proc-selector}
 
 A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the input type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the input type, the selector may be described unambiguously in plain English.
-
+Selector syntax depends on the test subject type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
 
 Test Cases {#test-proc-cases}
 ---------------------------------------
@@ -123,11 +122,54 @@ Editor note: This section describes how rules are broken down into one or more t
 ACT Output Data {#output}
 =========================
 
+With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
+
 ACT Data Format {#output-format}
 --------------------------------
 
-Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected item* (elements, tags or other 'components') to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
+This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
+
+- test (Rule ID)
+- subject (Web page)
+- pointer (Selected item)
+- outcome (`passed`, `failed` or `cantTell`)
+
+### Example: (using EARL and JSON-LD)
+
+```javascript
+{
+  "@context": "<see appendix 1>",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "pointer": "html > body > h1:first-child"
+}
+```
+
+### Selected Item
+
+When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
+
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used [Implementation Test Cases](#quality-implement).
+
+### Outcome
+
+The procedure of a rule MUST always return one of the following outcomes:
+
+- `passed`: The Test Target passed the test
+- `failed`: The Test Target failed the test
+- `cantTell`: It is unclear whether or not the Test Target passes of rails the test
+
+### Ensure Comparable Results
+
+In addition to the Selected Item and the Outcome, ACT Rules MUST require contextual information be provided. This must include what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself.
+
+### Test Subject
+
+When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
@@ -185,3 +227,27 @@ An ACT Rule may include an issues list. This list must be used to record cases i
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
+
+Appendix 1: JSON-LD Context
+===========================
+
+```
+{
+  "@vocab": "http://www.w3.org/ns/earl#",
+  "earl": "http://www.w3.org/ns/earl#",
+  "ptr": "http://www.w3.org/2009/pointers#",
+  "auto-wcag": "https://auto-wcag.github.io/auto-wcag/",
+  "Assertion": "earl:Assertion",
+  "CSSSelector": "ptr:CSSSelectorPointer",
+  "subject": { "@type": "earl:TestSubject" },
+  "pointer": { "@type": "ptr:CSSSelectorPointer" },
+  "test": { "@type": "@id"},
+  "outcome": { "@type": "@id" },
+  "Failed": "earl:Failed",
+  "Passed": "earl:Passed",
+  "CantTell": "earl:CantTell",
+  "Inapplicable": "earl:Inapplicable",
+  "Untested": "earl:Untested"
+}
+```
+
