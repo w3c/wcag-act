@@ -61,7 +61,6 @@ The following input types are common in accessibility testing:
 - HTTP Response
 - DOM Tree
 - Rendered Page
-- (Web)Driver
 - Template
 - Script
 
@@ -78,12 +77,6 @@ After the web browser (or other user agent) has parsed the files, and executed s
 ### Rendered Page Testing
 
 Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
-
-### (Web)Driver Testing
-
-By controlling the browser, events can be triggered in the page, and user interaction can be simulated. This can be done using drivers, the most common of which is currently WebDriver. With driver testing, interactions can be tested.
-
-Example: The expand state of an element with `role=menu` can be toggled if the enter key is pressed when it has focus.
 
 ### Template Testing
 
