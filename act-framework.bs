@@ -60,51 +60,38 @@ ACT Input Data {#input}
 
 Test Input Types {#input-types}
 -------------------------------
-Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. We can divide this into two stages of testing, black-box and white-box testing.
 
-### Black-box testing
+Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *type of input* that an ACT Rule expects.
 
-In black box testing the final product is tested, without looking at the code that generated it. To do black-box testing, the tester does not need access to the source file(s), which usually makes black-box testing easier to set up.
+The following input types are common in accessibility testing:
 
-There are different types of black-box testing:
-- File testing
-- DOM tree testing
-- Browser testing
-- Driver testing
+- HTTP Response
+- DOM Tree
+- Rendered Page
+- Template
+- Script
 
-#### File Testing
+Other types of input may be possible. In those cases the ACT Rule *must* include a detailed description of the input type, or a reference to the that description.
+
+### HTTP Response Testing
 
 Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
 
-#### DOM Tree Testing
+### DOM Tree Testing
 
 After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
 
-#### Browser Testing
+### Rendered Page Testing
 
 Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
 
-#### Driver Testing
-
-By controlling the browser, events can be triggered in the page, and user interaction can be simulated. This can be done using drivers, the most common of which is currently WebDriver. With driver testing, interactions can be tested.
-
-Example: The expand state of an element with `role=menu` can be toggled if the enter key is pressed when it has focus.
-
-### White-box testing
-
-In white box testing, the source files are tested instead of the output of the build process. The advantage of testing against source files is that it gives direct feedback to a developer, instead of only after a full page can be build. Additionally, it can provide information about which parts of elements are static, and which are dynamic.
-
-There are generally two approaches to building a web document. Either through templating, or through scripting. The source files for most (if not all) websites are either templates or scripts (or a mix of the two). This gives two new types of tests. Template testing and composition testing.
-
-Unlike black-box testing, in white-box testing, the Accessibility Test Tool implementing the ACT Rule must be developed specifically for the template engine or component technology. I.e. An ATT built to test HTML Handlebars templates should and can not be used to test Pug templates.
-
-#### Template Testing
+### Template Testing
 
 A template is document that has 'open' fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
 Example: `<img>` tags with a variable `src`, *must not* have a static `alt` value.
 
-#### Composition Testing
+### Script Testing
 
 A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
 
