@@ -131,7 +131,13 @@ Selector syntax depends on the input type. When the input data is an HTML docume
 Test Cases {#test-proc-cases}
 ---------------------------------------
 
-Editor note: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.
+Each rule contains one or more testcases written in plain language. The testcases provide the following:
+*Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
+*Testcase steps which clearly outline the steps necessary to reach the result.
+*Test case result of whether testcase passed or failed.
+**Failing test results provide a description of the failure.
+**Each test case result that, when combined, provides the outcome of the rule. 
+
 
 
 ACT Output Data {#output}
