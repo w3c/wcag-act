@@ -131,12 +131,14 @@ Selector syntax depends on the input type. When the input data is an HTML docume
 Test Cases {#test-proc-cases}
 ---------------------------------------
 
-Each rule contains one or more testcases written in plain language. The testcases provide the following:
+Each rule contains one or more testcases written in plain language. Each testcase MUST provide the following:
+
 *Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
 *Testcase steps which clearly outline the steps necessary to reach the result.
-*Test case result of whether testcase passed or failed.
-**Failing test results provide a description of the failure.
-**Each test case result that, when combined, provides the outcome of the rule. 
+*Test case result indicating whether testcase passed or failed.
+**Description of error causing any failing result.
+
+Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. 
 
 
 
