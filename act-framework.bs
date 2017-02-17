@@ -35,17 +35,24 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Editor note: This sections gives a broad outline of parts make up an ACT Rule. We'll go into further detail in sections below. At this point it is important to show the reader the big picture
+A rule MUST provide the following items written in plain language:
+
+* A descriptive title
+* A unique identifier
+* A rule description
+* Accessibility requirement(s)
+* Related techniques
+* Assumptions, if any
+* Test procedure
 
 Rule Description {#structure-description}
 ----------------------------------------
 
 Each ACT Rule MUST have a description that:
 
-* Is in plain language;
-* Explains the accessibility requirement being tested;
-* Lists any limitations and assumptions for the test;
-* Explains the failure conditions and their reasons.
+* Is in plain language and provides a brief explanation of what the rule does.
+* Explains the accessibility requirement being tested such as the WCAG Success Criterion.
+* Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.
 
 Accessibility Support {#structure-acc-supp}
 ---------------------------------------
@@ -77,53 +84,40 @@ Example 2: Requires support for role=menuitem on any type of element, existing w
 ACT Input Data {#input}
 =======================
 
-Test Input Types {#input-types}
+Test Subjects {#input-test-subject}
 -------------------------------
-Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. We can divide this into two stages of testing, black-box and white-box testing.
 
-### Black-box testing
+Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
-In black box testing the final product is tested, without looking at the code that generated it. To do black-box testing, the tester does not need access to the source file(s), which usually makes black-box testing easier to set up.
+The following test subject types are common in accessibility testing:
 
-There are different types of black-box testing:
-- File testing
-- DOM tree testing
-- Browser testing
-- Driver testing
+- HTTP Response
+- DOM Tree
+- Rendered Page
+- Template
+- Script
 
-#### File Testing
+Other types of test subjects may be possible. In those cases the ACT Rule *must* include a detailed description of the test subject type, or a reference to the that description.
+
+### HTTP Response Testing
 
 Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
 
-#### DOM Tree Testing
+### DOM Tree Testing
 
 After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
 
-#### Browser Testing
+### Rendered Page Testing
 
 Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
 
-#### Driver Testing
-
-By controlling the browser, events can be triggered in the page, and user interaction can be simulated. This can be done using drivers, the most common of which is currently WebDriver. With driver testing, interactions can be tested.
-
-Example: The expand state of an element with `role=menu` can be toggled if the enter key is pressed when it has focus.
-
-### White-box testing
-
-In white box testing, the source files are tested instead of the output of the build process. The advantage of testing against source files is that it gives direct feedback to a developer, instead of only after a full page can be build. Additionally, it can provide information about which parts of elements are static, and which are dynamic.
-
-There are generally two approaches to building a web document. Either through templating, or through scripting. The source files for most (if not all) websites are either templates or scripts (or a mix of the two). This gives two new types of tests. Template testing and composition testing.
-
-Unlike black-box testing, in white-box testing, the Accessibility Test Tool implementing the ACT Rule must be developed specifically for the template engine or component technology. I.e. An ATT built to test HTML Handlebars templates should and can not be used to test Pug templates.
-
-#### Template Testing
+### Template Testing
 
 A template is document that has 'open' fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
 Example: `<img>` tags with a variable `src`, *must not* have a static `alt` value.
 
-#### Composition Testing
+### Script Testing
 
 A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
 
@@ -138,8 +132,7 @@ Selector {#test-proc-selector}
 
 A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the input type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the input type, the selector may be described unambiguously in plain English.
-
+Selector syntax depends on the test subject type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
 
 Test Cases {#test-proc-cases}
 ---------------------------------------
@@ -150,11 +143,54 @@ Editor note: This section describes how rules are broken down into one or more t
 ACT Output Data {#output}
 =========================
 
+With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
+
 ACT Data Format {#output-format}
 --------------------------------
 
-Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected item* (elements, tags or other 'components') to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
+This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
+
+- test (Rule ID)
+- subject (Web page)
+- pointer (Selected item)
+- outcome (`passed`, `failed` or `cantTell`)
+
+### Example: (using EARL and JSON-LD)
+
+```javascript
+{
+  "@context": "<see appendix 1>",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "pointer": "html > body > h1:first-child"
+}
+```
+
+### Selected Item
+
+When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
+
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used [Implementation Test Cases](#quality-implement).
+
+### Outcome
+
+The procedure of a rule MUST always return one of the following outcomes:
+
+- `passed`: The Test Target passed the test
+- `failed`: The Test Target failed the test
+- `cantTell`: It is unclear whether or not the Test Target passes of rails the test
+
+### Ensure Comparable Results
+
+In addition to the Selected Item and the Outcome, ACT Rules MUST require contextual information be provided. This must include what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself.
+
+### Test Subject
+
+When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
@@ -212,5 +248,28 @@ An ACT Rule may include an issues list. This list must be used to record cases i
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
+
+Appendix 1: JSON-LD Context
+===========================
+
+```
+{
+  "@vocab": "http://www.w3.org/ns/earl#",
+  "earl": "http://www.w3.org/ns/earl#",
+  "ptr": "http://www.w3.org/2009/pointers#",
+  "auto-wcag": "https://auto-wcag.github.io/auto-wcag/",
+  "Assertion": "earl:Assertion",
+  "CSSSelector": "ptr:CSSSelectorPointer",
+  "subject": { "@type": "earl:TestSubject" },
+  "pointer": { "@type": "ptr:CSSSelectorPointer" },
+  "test": { "@type": "@id"},
+  "outcome": { "@type": "@id" },
+  "Failed": "earl:Failed",
+  "Passed": "earl:Passed",
+  "CantTell": "earl:CantTell",
+  "Inapplicable": "earl:Inapplicable",
+  "Untested": "earl:Untested"
+}
+```
 
 [accsupp]:  https://www.w3.org/TR/WCAG20/#accessibility-supporteddef
