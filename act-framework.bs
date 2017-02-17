@@ -57,6 +57,8 @@ Each ACT Rule MUST have a description that:
 Accessibility Support {#structure-acc-supp}
 ---------------------------------------
 
+<p class="note">Editor's Note - The ACT Taskforce acknowledges that this approach does not capture all nuances of accessibility support. We are looking for feedback on how to balance the need for organizations to solve issues with buggy or unsupported features in assistive technologies, with keeping the development cycle lean, and delivering future-proof products.</p>
+
 Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0][accsupp]. When testing a web page for accessibility, it is important to know which assistive technologies are to be used for this page.
 
 Because of this it is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
