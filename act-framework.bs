@@ -133,10 +133,10 @@ Test Cases {#test-proc-cases}
 
 Each rule contains one or more testcases written in plain language. Each testcase MUST provide the following:
 
-*Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
-*Testcase steps which clearly outline the steps necessary to reach the result.
-*Test case result indicating whether testcase passed or failed.
-**Description of error causing any failing result.
+* Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
+* Testcase steps which clearly outline the steps necessary to reach the result.
+* Test case result indicating whether testcase passed or failed.
+** Description of error causing any failing result.
 
 Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. 
 
