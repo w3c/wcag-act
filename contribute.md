@@ -3,7 +3,7 @@
 ## Provide Feedback
 The [ACT Taskforce](https://www.w3.org/WAI/GL/task-forces/conformance-testing/) welcomes the feedback in two ways:
 
-1. *Pull requests:* Submit a pull request if you have a change that you wish to propose to the work. Pull requests are best used if you have a very specific change in mind. When ready for review, label your pull request *Ready for Survey*. Or, review and comment on existing pull requests to provide feedback to the author.
+1. *Pull requests:* Submit a pull request if you have a change that you wish to propose to the work. Pull requests are best used if you have a very specific change in mind. When ready for review, label your pull request *ready for survey*. Or, review and comment on existing pull requests to provide feedback to the author.
 2. *Issues:* Submit an issue if you feel there is a problem with some of the existing work which you wish to discuss. Issues are best used if you do not have a change in mind.
 
 ### Submit An Issue
@@ -16,7 +16,7 @@ For help creating an issue, see [GitHub Help, creating an issue](https://help.gi
 
 A pull request is a request to pull changes that have been made in one place, and merge them into another. Contributors each maintain a local copy, a fork, of the project (the repository). Changes made to it can be sent in as a pull request to the main project.
 
-Pull requests will be reviewed by the ACT Taskforce, after which, one of three things may happen:
+Pull requests labeled *ready for survey* will be reviewed by the ACT Taskforce, after which, one of three things may happen:
 
 1. If everything is alright, the pull request will be merged and closed.
 2. If additional changes are needed, a comment outlining the necessary changes will be added to the pull request. The *author of the pull request* should make the requested changes. This may lead to further discussion and more change requests. We try to keep this as short as possible.
