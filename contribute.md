@@ -1,15 +1,14 @@
 # How to contribute
 
-## Leave Changes & Suggestions
-
-The ACT Taskforce welcomes the feedback in two ways:
+## Provide Feedback
+The [ACT Taskforce](https://www.w3.org/WAI/GL/task-forces/conformance-testing/) welcomes the feedback in two ways:
 
 1. *Pull requests:* Submit a pull request if you have a change you wish to propose to the work. Pull requests are best used if you have a very specific change in mind.
 2. *Issues:* Submit an issue if you feel there is a problem with some of the existing work which you wish to discuss. Issues are best used if you do not have a change in mind.
 
 ### Submit An Issue
 
-Before submitting an issue, we ask that you look through existing issues to ensure that there isn't already an issue that addresses this topic, either open or closed. You can find a list of all issues at: https://github.com/w3c/wcag-act/issues.
+Before submitting an issue, we ask that you look through existing issues to ensure that there isn't already an issue that addresses this topic, either open or closed. You can find a list of all issues at: [w3c/wcag-act Issues tab](https://github.com/w3c/wcag-act/issues).
 
 For help creating an issue, see [GitHub Help, creating an issue](https://help.github.com/articles/creating-an-issue/).
 
@@ -27,7 +26,7 @@ Not sure how to use Github? See [Using GitHub](#using-github)
 
 ## Participate in the ACT Task Force
 
-For details on how to participate in the ACT Taskforce, see https://www.w3.org/WAI/GL/task-forces/conformance-testing/#contribute
+For details on how to participate in the ACT Taskforce, see [How to Comment, Contribute and Participate] (https://www.w3.org/WAI/GL/task-forces/conformance-testing/#contribute)
 
 ## Using GitHub
 
@@ -41,6 +40,6 @@ If you have a change in mind that you wish to propose, you can do so by creating
 
 ## Code Of Conduct
 
-We are committed to maintain a positive work environment. This commitment calls for a workplace where participants at all levels behave according to the rules of the following code. A foundational concept of this code is that we all share responsibility for our work environment.
+We are committed to maintaining a positive work environment. This commitment calls for a workplace where participants at all levels behave according to the rules of the following code. A foundational concept of this code is that we all share responsibility for our work environment.
 
 As such, we are committed to following the [W3C's Code of Ethics and Professional Conduct](https://www.w3.org/Consortium/cepc/). Follow the link for details.
