@@ -3,7 +3,7 @@
 ## Provide Feedback
 The [ACT Taskforce](https://www.w3.org/WAI/GL/task-forces/conformance-testing/) welcomes the feedback in two ways:
 
-1. *Pull requests:* Submit a pull request if you have a change you wish to propose to the work. Pull requests are best used if you have a very specific change in mind. When ready for review, label your pull request Ready for Survey. Or review and comment on existing pull requests to provide feedback to the author.
+1. *Pull requests:* Submit a pull request if you have a change that you wish to propose to the work. Pull requests are best used if you have a very specific change in mind. When ready for review, label your pull request *Ready for Survey*. Or, review and comment on existing pull requests to provide feedback to the author.
 2. *Issues:* Submit an issue if you feel there is a problem with some of the existing work which you wish to discuss. Issues are best used if you do not have a change in mind.
 
 ### Submit An Issue
