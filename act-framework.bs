@@ -129,16 +129,7 @@ Editor note: This section describes how rules are broken down into one or more t
 ACT Output Data {#output}
 =========================
 
-ACT Data Format {#output-format}
---------------------------------
-
 Editor note: This section describes the required properties of the data output by a rule. Certain parts must be standardized to enable aggregation of results produced by different accessibility test tools. Additionally, standardizing parts of the output format is required for validating the implementation (see below). Data in the output format has to be accessible.
-
-
-Rule Aggregation {#output-aggregation}
---------------------------------------
-
-Editor note: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.
 
 
 Rule Quality Assurance {#quality}
@@ -163,13 +154,31 @@ The web is ever changing, and technologies are used in such diverse and creative
 
 This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured, by comparing it's results to those obtained through accessibility expert testing.
 
-There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared.
-
 The accuracy of a rule is the average between the false positives and false positives, which are in tern calculated as follows:
 
 - *False positives*: This is the percentages of selected elements, that were failed by the rule, but were not failed by an accessibility expert.
 
 - *False negative*: This is the percentages of selected elements, that were passed by the rule, but were failed by an accessibility expert.
+
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.
+
+Rule Aggregation {#output-aggregation}
+--------------------------------------
+
+As describe in section [ACT Data Format](#output-format) a rule will return a list of results, each of which contain 1) an outcome (passed, failed or cantTell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+
+Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (pass, failed, inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
+
+When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.
+
+### Example
+
+An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.
+
+In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combing this inapplicable and fail, means the success criterion has failed.
+
+See [Appendix 1](#appendix-data-example) on how this could be expressed using JSON-LD and EARL.
+
 
 Update Management {#quality-updates}
 ------------------------------------
@@ -200,3 +209,78 @@ An ACT Rule may include an issues list. This list must be used to record cases i
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
+
+
+Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example}
+========================================================
+
+Example:
+
+```javascript
+{
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "pointer": "html > body > h1:nth-child(2)"
+  }]
+}
+```
+
+Example: Aggregate rules to a WCAG success criterion
+
+```javascript
+{
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": {
+    "@id": "wcag20:#text-equiv-all",
+    "title": "1.1.1 Non-text Content"
+  },
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "test": "auto-wcag:SC1-1-1-css-image.html",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "test": "auto-wcag:SC1-1-1-longdesc.html",
+    "pointer": "html > body > img:nth-child(2)"
+  }]
+}
+```
+
+Example: Aggregate a list of results to a result for the website
+
+```javascript
+{
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": {
+    "@type": ["WebSite", "TestSubject"],
+    "@value": "https://example.org/"
+  }
+  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "test": "wcag20:text-equiv-all",
+    "source": [ … ]
+  }, {
+    "outcome": "Passed",
+    "test": "wcag20:media-equiv-av-only-alt",
+    "source": [ … ]
+  }, {
+    "outcome": "Inapplicable",
+    "test": "wcag20:media-equiv-captions",
+    "source": [ … ]
+  }, … ]
+}
+```
