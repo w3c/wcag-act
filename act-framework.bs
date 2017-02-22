@@ -151,13 +151,15 @@ Test Cases {#test-proc-cases}
 
 Each rule contains one or more testcases written in plain language. Each testcase MUST provide the following:
 
-*Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
-*Testcase steps which clearly outline the steps necessary to reach the result.
-*Test case result indicating whether testcase passed or failed.
-**Description of error causing any failing result.
+* Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
+* Testcase steps which clearly outline the steps necessary to reach the result.
+* Test case result indicating whether testcase passed or failed.
+  * Description of the error causing any failing result.
 
-Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. 
+Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test cases, the results of all test cases are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test case passes, the rule has passed.
 
+Example:
+A rule for HTML img elements has two test cases, one that checks if there is a text alternative, and another that checks if the image is marked as decorative. If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
 
 
 ACT Output Data {#output}
