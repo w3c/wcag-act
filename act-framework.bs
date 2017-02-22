@@ -54,6 +54,16 @@ Each ACT Rule MUST have a description that:
 * Explains the accessibility requirement being tested such as the WCAG Success Criterion.
 * Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.
 
+Accessibility Requirements {#structure-accessibility-requirements}
+-------------------------------------------------------------------
+
+Explain the accessibility requirement being tested such as the WCAG SC and / or the technique the rule maps to; For example WCAG 2.0 Technique H67.
+
+Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
+-------------------------------------------------------------------
+
+List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example: A rule for 1.4.1: Use of Color has to make an assumption with CSS-properties are used to make a link visually evident. Typically something like background, border, color, font, or text-decoration.
+
 Accessibility Support {#structure-acc-supp}
 ---------------------------------------
 
@@ -139,7 +149,15 @@ Selector syntax depends on the test subject type. When the input data is an HTML
 Test Cases {#test-proc-cases}
 ---------------------------------------
 
-Editor note: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.
+Each rule contains one or more testcases written in plain language. Each testcase MUST provide the following:
+
+*Testcase mode identifying whether testcase steps are automated, semi-automated or require manual testing.
+*Testcase steps which clearly outline the steps necessary to reach the result.
+*Test case result indicating whether testcase passed or failed.
+**Description of error causing any failing result.
+
+Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. 
+
 
 
 ACT Output Data {#output}
