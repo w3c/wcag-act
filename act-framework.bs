@@ -212,7 +212,7 @@ Editor note: This section will describe how a rule author should document scenar
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of that rule. An ACT Rule must have implementation tests for the selector as well as for each test case in the rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule must have implementation tests for the selector, as well as for each test case in the rule.
 
 An implementation test consists of two parts. It has a snippet of input, such as an HTML code snippet. This piece is put through the rule. The result of this is then compared to the expected result. The expected result is a list of pointers, along with the outcome (pass, fail, inapplicable) the rule should have been found for the element.
 
