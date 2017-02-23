@@ -8,7 +8,7 @@ Status: w3c/ED
 Group: Accessibility Conformance Testing Task Force
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: To do
+Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
 </pre>
 
 Introduction {#intro}
