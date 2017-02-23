@@ -172,7 +172,7 @@ This will mean that every time a rule is executed on a page, it will return a se
 }
 ```
 
-### Selected Item
+### Selected Item {#selected-item}
 
 When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
@@ -214,7 +214,7 @@ Implementation Validation {#quality-implement}
 
 Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule must have implementation tests for the selector, as well as for each test case in the rule.
 
-An implementation test consists of two parts. It has a snippet of input, such as an HTML code snippet. This piece is put through the rule. The result of this is then compared to the expected result. The expected result is a list of pointers, along with the outcome (pass, fail, inapplicable) the rule should have been found for the element.
+An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data –for instance an HTML code snippet– is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#selected-item) and the expected outcome (pass, fail, inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
