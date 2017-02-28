@@ -8,7 +8,7 @@ Status: w3c/ED
 Group: Accessibility Conformance Testing Task Force
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: To do
+Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
 </pre>
 
 Introduction {#intro}
@@ -53,6 +53,16 @@ Each ACT Rule MUST have a description that:
 * Is in plain language and provides a brief explanation of what the rule does.
 * Explains the accessibility requirement being tested such as the WCAG Success Criterion.
 * Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.
+
+Accessibility Requirements {#structure-accessibility-requirements}
+-------------------------------------------------------------------
+
+Explain the accessibility requirement being tested such as the WCAG SC and / or the technique the rule maps to; For example WCAG 2.0 Technique H67.
+
+Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
+-------------------------------------------------------------------
+
+List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example: A rule for 1.4.1: Use of Color has to make an assumption with CSS-properties are used to make a link visually evident. Typically something like background, border, color, font, or text-decoration.
 
 Accessibility Support {#structure-acc-supp}
 ---------------------------------------
@@ -139,7 +149,17 @@ Selector syntax depends on the test subject type. When the input data is an HTML
 Test Cases {#test-proc-cases}
 ---------------------------------------
 
-Editor note: This section describes how rules are broken down into one or more test cases. Each test case gives some result that, when combined, provides the outcome of the rule. Additionally this section describes how rule authors should write test cases, and the mechanism of combining their outcomes.
+Each rule contains one or more test cases written in plain language. Each test case MUST provide the following:
+
+* Test case mode identifying whether test case steps are automated, semi-automated or require manual testing.
+* Test case steps which clearly outline the steps necessary to reach the result.
+* Test case result indicating whether test case passed or failed.
+  * Description of the error causing any failing result.
+
+Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test cases, the results of all test cases are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test case passes, the rule has passed.
+
+Example:
+A rule for HTML img elements has two test cases, one that checks if there is a text alternative, and another that checks if the image is marked as decorative. If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
 
 
 ACT Output Data {#output}
@@ -172,13 +192,13 @@ This will mean that every time a rule is executed on a page, it will return a se
 }
 ```
 
-### Selected Item
+### Selected Item {#selected-item}
 
 When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
 The pointer method used in the output data of an ACT Rule MUST include the pointer method used [Implementation Test Cases](#quality-implement).
 
-### Outcome
+### Outcome {#outcome}
 
 The procedure of a rule MUST always return one of the following outcomes:
 
@@ -212,7 +232,9 @@ Editor note: This section will describe how a rule author should document scenar
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Editor note: This section describes the requirements of tests that have to be created for a rule. Rules are abstract, high level descriptions. To ensure the implementation of rules is done correctly, validation tests have to be provided along with each rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule must have implementation tests for the selector, as well as for each test case in the rule.
+
+An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data –for instance an HTML code snippet– is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#selected-item) and the expected [outcome](#outcome) (pass, fail, inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
