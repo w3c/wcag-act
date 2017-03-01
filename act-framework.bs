@@ -14,20 +14,21 @@ Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0
 Introduction {#intro}
 =====================
 
-There are currently many products available which aid their users in testing for conformance of accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web. The volume of information and services organizations provide on the web make it often impractical to manually test for accessibility.
+There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
 
-Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements on how a requirement should be tested, lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for accessibility testing done through automated test tools (ATTs).
+Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for automated testing done through accessibility test tools (ATTs).
 
-Describing how to test certain accessibility requirements is the answer to this. By describing the test procedures, the results of an accessibility test become reproducible, and the test method becomes transparent. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
+Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
 Scope {#scope}
 ==============
 
-The ACT Framework is created to develop rules for the conformance of web technologies, including those used in digital publishing. This includes technologies such as HTML, CSS, WAI-ARIA, SVG and more. The ACT Framework is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies. Whether or not this is the case depends on the specific technology.
+The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies. 
 
-Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules. Other accessibility requirements that would also be applicable to web technologies should also be testable with ACT Rules. Because some of those accessibility requirements may be applicable to technologies other than web technologies, the ACT Framework may not be suitable for every part of this requirement.
+Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
 
-For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based.
+Other accessibility requirements that may be applicable to web technologies should also be testable with ACT Rules. For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based. Because some accessibility requirements may be applicable to technologies other than web technologies, the ACT Framework may not be suitable for every part of these accessibility requirement.
+
 
 ACT Rule Structure {#structure}
 ==============================
