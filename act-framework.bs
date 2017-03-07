@@ -41,10 +41,9 @@ A rule MUST provide the following items written in plain language:
 * Unique identifier
 * [Rule Description](#structure-description)
 * [Accessibility requirement(s)](#structure-accessibility-requirements)
-* Related techniques
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#structure-acc-supp) (optional)
-* [Test procedure](#test-proc)
+* [Test Procedure](#test-proc)
 
 Rule Description {#structure-description}
 ----------------------------------------
