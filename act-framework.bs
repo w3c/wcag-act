@@ -37,13 +37,14 @@ Rule Outline {#structure-outline}
 
 A rule MUST provide the following items written in plain language:
 
-* A descriptive title
-* A unique identifier
-* A rule description
-* Accessibility requirement(s)
+* Descriptive title
+* Unique identifier
+* [Rule Description](#structure-description)
+* [Accessibility requirement(s)](#structure-accessibility-requirements)
 * Related techniques
-* Assumptions, if any
-* Test procedure
+* [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
+* [Accessibility Support](#structure-acc-supp) (optional)
+* [Test procedure](#test-proc)
 
 Rule Description {#structure-description}
 ----------------------------------------
@@ -93,11 +94,8 @@ Example 2: Requires support for role=menuitem on any type of element, existing w
   *[role=menu] *[role=menuitem]
 ```
 
-ACT Input Data {#input}
-=======================
-
-Test Subjects {#input-test-subject}
--------------------------------
+Test Subjects (Input Data) {#input-test-subject}
+==========================
 
 Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
@@ -111,25 +109,25 @@ The following test subject types are common in accessibility testing:
 
 Other types of test subjects may be possible. In those cases the ACT Rule *must* include a detailed description of the test subject type, or a reference to the that description.
 
-### HTTP Response Testing
+## HTTP Response Testing
 
 Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
 
-### DOM Tree Testing
+## DOM Tree Testing
 
 After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
 
-### Rendered Page Testing
+## Rendered Page Testing
 
 Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
 
-### Template Testing
+## Template Testing
 
 A template is document that has 'open' fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
 Example: `<img>` tags with a variable `src`, *must not* have a static `alt` value.
 
-### Script Testing
+## Script Testing
 
 A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
 
