@@ -69,13 +69,13 @@ Accessibility Support {#structure-acc-supp}
 
 <p class="note">Editor's Note - The ACT Taskforce acknowledges that this approach does not capture all nuances of accessibility support. We are looking for feedback on how to balance the need for organizations to solve issues with buggy or unsupported features in assistive technologies, with keeping the development cycle lean, and delivering future-proof products.</p>
 
-Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). When testing a web page for accessibility, it is important to know which assistive technologies are to be used for this page.
+Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). When testing a web page for accessibility, it is important to know which assistive technologies should be supported.
 
-Because of this it is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
+It is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
 
-Developers of Accessibility Test Tools should use this information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of ATT to customize which rules are run, allowing fine grained control of the accessibility test.
+Developers of Accessibility Test Tools should use the Accessibility Support information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of the ATT to customize which rules are run, allowing fine grained control of the accessibility test.
 
-A list of `Relied upon accessibility features` is an optional part of ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
+A list of `Relied upon accessibility features` is an optional part of an ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
 
 - Context: The context in which the element for which support is checked lives. If there is no specific context, this can be left blank.
 - Element: The name of the element that is being tested. If the element name is irrelevant, use `*`.
