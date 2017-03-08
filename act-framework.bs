@@ -26,7 +26,7 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies. 
+The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies.
 
 Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
 
@@ -48,7 +48,7 @@ Each ACT Rule MUST provide the following items written in plain language:
 * [Accessibility Requirements](#structure-accessibility-requirements)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#structure-acc-supp) (optional)
-* [Test Subjects](#input-types)
+* [Test Subject Type](#input-types)
 * [Test Procedure](#test-proc)
 
 
@@ -100,10 +100,10 @@ Example 2: Requires support for `role=menuitem` on any type of element, existing
 ```
 
 
-Test Subjects (Input Data) {#input-types}
+Test Subject Types (Input Data) {#input-types}
 ===================================
 
-Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in term parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the *test subject type* that an ACT Rule expects.
+Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in turn parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
 The following test subject types are common in accessibility testing:
 
