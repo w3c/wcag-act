@@ -166,6 +166,14 @@ A selector is a pattern that is used as a condition to filter input data to be e
 
 Selector syntax depends on the test subject type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
 
+<div class=example>
+A rule for HTML `img` elements has the following selector:
+
+1. Select elements matching the following CSS Selector: `img:not([alt=""])`
+2. Exclude any elements that have `visibility:hidden` or `display: none`
+
+</div>
+
 
 Test Cases {#test-proc-cases}
 -----------------------------
