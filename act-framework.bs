@@ -95,7 +95,7 @@ Example 1: Requires support for the `alt` attribute on an `img` element, existin
   a[ref] img[alt]
 ```
 
-Example 2: Requires support for role=menuitem on any type of element, existing within an element marked up as a menu
+Example 2: Requires support for `role=menuitem` on any type of element, existing within an element marked up as a menu
 
 ```
   *[role=menu] *[role=menuitem]
@@ -105,7 +105,7 @@ Example 2: Requires support for role=menuitem on any type of element, existing w
 Test Subjects (Input Data) {#input-types}
 ===================================
 
-Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
+Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
 The following test subject types are common in accessibility testing:
 
@@ -115,7 +115,7 @@ The following test subject types are common in accessibility testing:
 - Template
 - Script
 
-Other types of test subjects may be possible. In those cases the ACT Rule *must* include a detailed description of the test subject type, or a reference to the that description.
+Other types of test subjects may be possible. In those cases the ACT Rule MUST include a detailed description of the test subject type, or a reference to the that description.
 
 
 HTTP Response Testing {#input-types-http-response}
@@ -142,7 +142,7 @@ Template Testing {#input-types-template}
 A template is document that has "open" fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
 <div class=example>
-`<img>` tags with a variable `src`, *must not* have a static `alt` value.
+`<img>` tags with a variable `src`, MUST NOT have a static `alt` value.
 </div>
 
 
@@ -189,12 +189,12 @@ If either one of these passed, the rule has passed. Only if both fail, does that
 </div>
 
 
-ACT Data Format (Output data) {#output}
+ACT Data Format (Output Data) {#output}
 =======================================
 
 With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected item* (elements, tags or other "components") to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected items* (elements, tags or other "components") to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
 
