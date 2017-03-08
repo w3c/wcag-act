@@ -5,7 +5,7 @@ URL: https://w3c.github.io/wcag-act/act-framework.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
 Level: 1
 Status: ED
-Group: WCAG-ACT
+Group: WCAG
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corporation
 Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
