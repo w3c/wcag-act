@@ -252,12 +252,6 @@ When a single URL can be used to reference the web page, or other test subject, 
 Rule Quality Assurance {#quality}
 =================================
 
-Managing Exceptions {#quality-exceptions}
------------------------------------------
-
-Editor note: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.
-
-
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
