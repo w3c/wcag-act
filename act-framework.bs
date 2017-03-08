@@ -164,7 +164,7 @@ Selector {#test-proc-selector}
 
 A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the test subject type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
+Selector syntax depends on the test subject type. When a formal syntax is available, the selector should use that syntax. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
 
 <div class=example>
 A rule for HTML `img` elements has the following selector:
