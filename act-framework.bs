@@ -16,11 +16,14 @@ Status of This Document {#sotd}
 
 <em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em>
 
-This is a [<del>First Public Working Draft</del>] {<ins>Editor Draft</ins>} of Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) by the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. ACT Framework 1.0 is @@@ some words about what this particular draft provides @@@.
+This is a [<del>First Public Working Draft</del>] {<ins>Editor Draft</ins>} of Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) by the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. ACT Framework 1.0 is a complete draft, addressing all of the [requirements](w3c.github.io/wcag-act/act-fr-reqs.html) the ACT Task Force believes are important to cover when writing rules. The ACT Framework is based on rules developed by the [Auto-WCAG Community Group](https://auto-wcag.github.io/auto-wcag/).
 
 For this publication, the Accessibility Guidelines Working Group particularly seeks feedback on the following questions:
 
-* @@@ specific questions for reviewers @@@
+- Does the ACT Framework address all the topics that are critical to rule design?
+- Does the [section on accessibility support](#structure-acc-supp) adequately address the topic?
+- Does the [section on Accuracy Benchmarking](#quality-accuracy) adequately address the topic?
+- Are there improvements to better support developers of test rules to transpose their rules and adopt this framework?
 
 To comment, <a href="https://github.com/w3c/wcag-act/issues/new">file an issue in the <abbr title="World Wide Web Consortium">W3C</abbr> ACT GitHub repository</a>. It is free to create a GitHub account to file issues. If filing issues in GitHub is not feasible, send email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Framework%201.0%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">comment archive</a>). Comments are requested by <strong>@@ April 2017</strong>. In-progress updates to the document may be viewed in the <a href="https://w3c.github.io/wcag-act/act-framework.html">publicly visible editors' draft</a>.</p>
 
@@ -44,7 +47,7 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies. 
+The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies.
 
 Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
 
