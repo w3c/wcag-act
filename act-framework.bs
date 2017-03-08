@@ -231,9 +231,10 @@ Outcome {#output-outcome}
 
 The procedure of a rule MUST always return one of the following outcomes:
 
-- `passed`: The Test Target passed the test
-- `failed`: The Test Target failed the test
-- `cantTell`: It is unclear whether or not the Test Target passes of rails the test
+- **Passed**: The Test Target passed the test
+- **Failed**: The Test Target failed the test
+- **Cannot tell**: It is unclear whether or not the Test Target passes of rails the test
+
 
 Ensure Comparable Results {#output-comparable}
 -------------------------
@@ -261,7 +262,7 @@ Implementation Validation {#quality-implement}
 
 Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule must have implementation tests for the selector, as well as for each test case in the rule.
 
-An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data –for instance an HTML code snippet– is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#selected-item) and the expected [outcome](#outcome) (pass, fail, inapplicable) of the evaluation.
+An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data –for instance an HTML code snippet– is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-selected-item) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
@@ -283,9 +284,9 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As describe in section [ACT Data Format](#output-format) a rule will return a list of results, each of which contain 1) an outcome (passed, failed or cantTell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As describe in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Cannot tell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
-Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (pass, failed, inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
+Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
 When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.
 
