@@ -418,7 +418,7 @@
 	[data-algorithm]:not(.heading) {
 	  padding: .5em;
 	  border: thin solid #ddd; border-radius: .5em;
-	  margin: .5em calc(-0.5em - 1px);
+	  margin: .5em 0;
 	}
 	[data-algorithm]:not(.heading) > :first-child {
 	  margin-top: 0;
@@ -968,8 +968,6 @@ Possible extra rowspan handling
 		/* Reverse color scheme */
 		color: black;
 		border-color: #3980B5;
-		border-bottom-width: 3px !important;
-		margin-bottom: 0px !important;
 	}
 	.toc a:visited {
 		border-color: #054572;
@@ -1176,7 +1174,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 7e43b56c4e1ede2eed18417e4d8def49e6eb4bd8" name="generator">
+  <meta content="Bikeshed 1.0.0" name="generator">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1393,6 +1391,8 @@ Possible extra rowspan handling
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-framework.html">https://w3c.github.io/wcag-act/act-framework.html</a>
      <dt>Previous Versions:
      <dd><a href="https://w3c.github.io/wcag-act/archive_act-framework/2017-02-23.html" rel="previous">https://w3c.github.io/wcag-act/archive_act-framework/2017-02-23.html</a>
+     <dt>Issue Tracking:
+     <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1481,7 +1481,7 @@ Parts of this work may be from another specification document.  If so, those par
     <del>First Public Working Draft</del>
     ] {
     <ins>Editor Draft</ins>
-    } of Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) by the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. ACT Framework 1.0 is a complete draft, addressing all of the <a href="w3c.github.io/wcag-act/act-fr-reqs.html">requirements</a> the ACT Task Force believes are important to cover when writing rules. The ACT Framework is based on rules developed by the <a href="https://auto-wcag.github.io/auto-wcag/">Auto-WCAG Community Group</a>.
+    } of Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) by the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. ACT Framework 1.0 is a complete draft, addressing all of the <a href="https://w3c.github.io/wcag-act/act-fr-reqs.html">requirements</a> the ACT Task Force believes are important to cover when writing rules. The ACT Framework is based on rules developed by the <a href="https://auto-wcag.github.io/auto-wcag/">Auto-WCAG Community Group</a>.
    </p>
    <p>For this publication, the Accessibility Guidelines Working Group particularly seeks feedback on the following questions:</p>
    <ul>
@@ -1698,13 +1698,16 @@ Parts of this work may be from another specification document.  If so, those par
    <h4 class="heading settled" data-level="8.4.1" id="quality-updates-version"><span class="secno">8.4.1. </span><span class="content">Version Numbers</span><a class="self-link" href="#quality-updates-version"></a></h4>
    <p>Each ACT Rule MUST have it’s own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:</p>
    <dl>
-    <dt data-md="">X / Major updates:
+    <dt data-md="">
+     <p>X / Major updates:</p>
     <dd data-md="">
      <p>The major version number must be increased if the change can lead to new failure results.</p>
-    <dt data-md="">Y / Minor updates:
+    <dt data-md="">
+     <p>Y / Minor updates:</p>
     <dd data-md="">
      <p>The minor version number must be increased if the test logic has been updated, which could lead to a a different result.</p>
-    <dt data-md="">Z / Patch updates:
+    <dt data-md="">
+     <p>Z / Patch updates:</p>
     <dd data-md="">
      <p>The patch version number must be increased if the change does not affect the result of a rule. This includes editorial changes, new issues on the issues list, an updated description, etc.</p>
    </dl>
