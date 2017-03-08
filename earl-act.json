@@ -1,0 +1,23 @@
+{
+  "@vocab": "http://www.w3.org/ns/earl#",
+  "sch": "http://schema.org/",
+  "earl": "http://www.w3.org/ns/earl#",
+  "ptr": "http://www.w3.org/2009/pointers#",
+  "wcag20": "https://www.w3.org/TR/WCAG20/#",
+  "auto-wcag": "https://auto-wcag.github.io/auto-wcag/rules/",
+  "WebSite": "sch:WebSite",
+  "WebPage": "sch:WebPage",
+  "Assertion": "earl:Assertion",
+  "TestSubject": "earl:TestSubject",
+  "CSSSelector": "ptr:CSSSelectorPointer",
+  "subject": { "@type": ["TestSubject", "WebPage"] },
+  "pointer": { "@type": "ptr:CSSSelectorPointer" },
+  "test": { "@type": "@id"},
+  "outcome": { "@type": "@id" },
+  "source": "http://purl.org/dc/terms/source",
+  "Failed": "earl:Failed",
+  "Passed": "earl:Passed",
+  "CantTell": "earl:CantTell",
+  "Inapplicable": "earl:Inapplicable",
+  "Untested": "earl:Untested"
+}
