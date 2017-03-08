@@ -1,15 +1,14 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing Framework
+Title: Accessibility Conformance Testing (ACT) Framework 1.0
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
-Level: 6
-Status: w3c/ED
-Group: Accessibility Conformance Testing Task Force
+Level: 1
+Status: ED
+Group: Accessibility Conformance Testing (ACT) Task Force
 Editor: Wilco Fiers, Deque Systems
-Editor: Maureen Kraft, IBM Corp.
+Editor: Maureen Kraft, IBM Corporation
 Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
-Copyright: <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2017 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). <abbr title="World Wide Web Consortium">W3C</abbr> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a rel="license" href="https://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.
 
 </pre>
 
