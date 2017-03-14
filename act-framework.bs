@@ -3,7 +3,7 @@ Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
-Level: 7
+Level: 1.0
 Status: ED
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
