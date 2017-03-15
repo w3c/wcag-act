@@ -32,7 +32,6 @@ Accessibility requirements such as Web Content Accessibility Guidelines, which i
 Other accessibility requirements that may be applicable to web technologies should also be testable with ACT Rules. For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based. Because some accessibility requirements may be applicable to technologies other than web technologies, the ACT Framework may not be suitable for every part of these accessibility requirement.
 
 
-
 ACT Rule Structure {#structure}
 ==============================
 
