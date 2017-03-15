@@ -3,12 +3,13 @@ Title: Accessibility Conformance Testing Framework
 Shortname: ACT-Framework
 URL: https://w3c.github.io/wcag-act/act-framework.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
-Level: 6
-Status: w3c/ED
-Group: Accessibility Conformance Testing Task Force
+Level: 1.0
+Status: ED
+Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
 Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
+Markup Shorthands: markdown yes
 </pre>
 
 Introduction {#intro}
@@ -20,10 +21,11 @@ Accessibility experts often disagree on how accessibility requirements should be
 
 Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
+
 Scope {#scope}
 ==============
 
-The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies. 
+The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies.
 
 Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
 
@@ -36,47 +38,48 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-A rule MUST provide the following items written in plain language:
+Each ACT Rule MUST provide the following items written in plain language:
 
-* A descriptive title
-* A unique identifier
-* A rule description
-* Accessibility requirement(s)
-* Related techniques
-* Assumptions, if any
-* Test procedure
+* Descriptive title
+* Unique identifier
+* [Rule Description](#structure-description)
+* [Accessibility Requirements](#structure-accessibility-requirements)
+* [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
+* [Accessibility Support](#structure-acc-supp) (optional)
+* [Test Subject Type](#input-types)
+* [Test Procedure](#test-proc)
+
 
 Rule Description {#structure-description}
 ----------------------------------------
 
-Each ACT Rule MUST have a description that:
+Each ACT Rule MUST have a description that is in plain language and provides a brief explanation of what the rule does.
 
-* Is in plain language and provides a brief explanation of what the rule does.
-* Explains the accessibility requirement being tested such as the WCAG Success Criterion.
-* Refers to any related information, such as the WCAG Techniques it maps to; For example WCAG 2.0, Technique H67.
 
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-Explain the accessibility requirement being tested such as the WCAG SC and / or the technique the rule maps to; For example WCAG 2.0 Technique H67.
+Explain the accessibility requirement being tested such as the WCAG 2 Success criterion and / or the technique the rule maps to; For example WCAG 2.0 Technique H67.
+
 
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example: A rule for 1.4.1: Use of Color has to make an assumption with CSS-properties are used to make a link visually evident. Typically something like background, border, color, font, or text-decoration.
+List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
+
 
 Accessibility Support {#structure-acc-supp}
 ---------------------------------------
 
-<p class="note">Editor's Note - The ACT Taskforce acknowledges that this approach does not capture all nuances of accessibility support. We are looking for feedback on how to balance the need for organizations to solve issues with buggy or unsupported features in assistive technologies, with keeping the development cycle lean, and delivering future-proof products.</p>
+<p class="note">Editor's Note - The ACT Task Force acknowledges that this approach does not capture all nuances of accessibility support. We are looking for feedback on how to balance the need for organizations to solve issues with buggy or unsupported features in assistive technologies and user agents, with keeping the development cycle lean, and delivering future-proof products.</p>
 
-Determining if a web page is accessible, depends partly on the assistive technologies that are used to access it. This is known as [Accessibility Supported in WCAG 2.0][accsupp]. When testing a web page for accessibility, it is important to know which assistive technologies are to be used for this page.
+Determining if a web page is accessible depends partly on the assistive technologies and user agents that are used by the visitors of the page to access it. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). When testing a web page for accessibility, it is important to know which assistive technologies and user agents should be supported.
 
-Because of this it is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
+It is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, the user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
 
-Developers of Accessibility Test Tools should use this information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of ATT to customize which rules are run, allowing fine grained control of the accessibility test.
+Developers of Accessibility Test Tools should use the Accessibility Support information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of the ATT to customize which rules are run, allowing fine grained control of the accessibility test.
 
-A list of `Relied upon accessibility features` is an optional part of ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
+A list of *Accessibility Support Features* is an optional part of an ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
 
 - Context: The context in which the element for which support is checked lives. If there is no specific context, this can be left blank.
 - Element: The name of the element that is being tested. If the element name is irrelevant, use `*`.
@@ -88,19 +91,17 @@ Example 1: Requires support for the `alt` attribute on an `img` element, existin
   a[ref] img[alt]
 ```
 
-Example 2: Requires support for role=menuitem on any type of element, existing within an element marked up as a menu
+Example 2: Requires support for `role=menuitem` on any type of element, existing within an element marked up as a menu
 
 ```
   *[role=menu] *[role=menuitem]
 ```
 
-ACT Input Data {#input}
-=======================
 
-Test Subjects {#input-test-subject}
--------------------------------
+Test Subject Types (Input Data) {#input-types}
+===================================
 
-Web pages, including publications and applications go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser, which in term parses it and turns it into a DOM tree, before rendering it to the screen. At each of these stages, accessibility tests could be run. It is therefore important to specify the *test subject type* that an ACT Rule expects.
+Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in turn parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the *test subject type* that an ACT Rule expects.
 
 The following test subject types are common in accessibility testing:
 
@@ -110,45 +111,68 @@ The following test subject types are common in accessibility testing:
 - Template
 - Script
 
-Other types of test subjects may be possible. In those cases the ACT Rule *must* include a detailed description of the test subject type, or a reference to the that description.
+Other types of test subjects may be possible. In those cases the ACT Rule MUST include a detailed description of the test subject type, or a reference to the that description.
 
-### HTTP Response Testing
+
+HTTP Response Testing {#input-types-http-response}
+--------------------------------------------
 
 Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
 
-### DOM Tree Testing
+
+DOM Tree Testing {#input-types-dom-tree}
+-----------------------------------
 
 After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
 
-### Rendered Page Testing
+
+Rendered Page Testing {#input-types-rendered-page}
+--------------------------------------------
 
 Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
 
-### Template Testing
 
-A template is document that has 'open' fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
+Template Testing {#input-types-template}
+----------------------------------
 
-Example: `<img>` tags with a variable `src`, *must not* have a static `alt` value.
+A template is a document that has "open" fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
 
-### Script Testing
+<div class=example>
+`<img>` tags with a variable `src`, MUST NOT have a static `alt` value.
+</div>
+
+
+Script Testing {#input-types-script}
+------------------------------
 
 A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
 
-Example: Component properties starting with `aria-` *must* exist in the list of WAI-ARIA attributes.
+<div class=example>
+Component properties starting with `aria-` MUST exist in the list of WAI-ARIA attributes.
+</div>
 
 
 ACT Test Procedure {#test-proc}
 ===============================
 
 Selector {#test-proc-selector}
---------
+------------------------------
 
 A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the test subject type. When the input data is an HTML document or set of elements, the selector must be a CSS selector. When a formal selector syntax is not available for the test subject type, the selector may be described unambiguously in plain English.
+Selector syntax depends on the test subject type. When a formal syntax is available, the selector should use that syntax. When a formal selector syntax is not available for the test subject type, the selector MAY be described unambiguously in plain English.
+
+<div class=example>
+A rule for HTML `img` elements has the following selector:
+
+1. Select elements matching the following CSS Selector: `img:not([alt=""])`
+2. Exclude any elements that have `visibility:hidden` or `display: none`
+
+</div>
+
 
 Test Cases {#test-proc-cases}
----------------------------------------
+-----------------------------
 
 Each rule contains one or more test cases written in plain language. Each test case MUST provide the following:
 
@@ -159,32 +183,36 @@ Each rule contains one or more test cases written in plain language. Each test c
 
 Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test cases, the results of all test cases are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test case passes, the rule has passed.
 
-Example:
-A rule for HTML img elements has two test cases, one that checks if there is a text alternative, and another that checks if the image is marked as decorative. If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
+<div class=example>
+A rule for HTML `img` elements has two test cases:
+
+1. Check if there is a text alternative
+2. Check if the image is marked as decorative.
+
+If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
+</div>
 
 
-ACT Output Data {#output}
-=========================
+ACT Data Format (Output Data) {#output}
+=======================================
 
 With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
 
-ACT Data Format {#output-format}
---------------------------------
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected items* (elements, tags or other "components") to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
-Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected item* (elements, tags or other 'components') to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
-
-This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which has at least the following properties:
+This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
 - test (Rule ID)
 - subject (Web page)
 - pointer (Selected item)
-- outcome (`passed`, `failed` or `cantTell`)
+- outcome (`Passed`, `Failed` or `Cannot tell`)
 
-### Example: (using EARL and JSON-LD)
+<div class=example>
+Output data using EARL and JSON-LD
 
 ```javascript
 {
-  "@context": "<see appendix 1>",
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
   "@type": "Assertion",
   "subject": "https://example.org/",
   "test": "auto-wcag:rules/SC1-1-1-css-image.html",
@@ -192,56 +220,83 @@ This will mean that every time a rule is executed on a page, it will return a se
   "pointer": "html > body > h1:first-child"
 }
 ```
+</div>
 
-### Selected Item {#selected-item}
+
+Selected Item {#output-selected-item}
+------------------------------
 
 When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
-The pointer method used in the output data of an ACT Rule MUST include the pointer method used [Implementation Test Cases](#quality-implement).
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Test Cases](#quality-implement).
 
-### Outcome {#outcome}
+
+Outcome {#output-outcome}
+------------------
 
 The procedure of a rule MUST always return one of the following outcomes:
 
-- `passed`: The Test Target passed the test
-- `failed`: The Test Target failed the test
-- `cantTell`: It is unclear whether or not the Test Target passes of rails the test
+- **Passed**: The Test Target passed the test
+- **Failed**: The Test Target failed the test
+- **Cannot tell**: It is unclear whether or not the Test Target passes of rails the test
 
-### Ensure Comparable Results
 
-In addition to the Selected Item and the Outcome, ACT Rules MUST require contextual information be provided. This must include what web page, file or other test subject the rule was applied to, as well as an identifier of the rule itself.
+Ensure Comparable Results {#output-comparable}
+-------------------------
 
-### Test Subject
+In addition to the Selected Item and the Outcome, ACT Rule output data MUST include the following contextual information:
+
+- the Web page, file or other test subject the rule was applied to and
+- an identifier of the rule itself.
+
+
+Test Subject {#output-test-subject}
+-----------------------------------
 
 When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
-
-Rule Aggregation {#output-aggregation}
---------------------------------------
-
-Editor note: In this section we describe how the data that is returned from a rule can be combined to give a higher level view of the conformance to accessibility requirements. Rules provide very low level information, this is valuable for people working at that level, but managing accessibility of products as a whole requires a higher level understanding of the accessibility.
 
 
 Rule Quality Assurance {#quality}
 =================================
 
-Managing Exceptions {#quality-exceptions}
------------------------------------------
-
-Editor note: This section will describe how a rule author should document scenarios where a rule might cause incorrect results. Such exceptions exist in nearly every rule and must be managed actively. Some exceptions can be mitigated by adjusting the rule, but others may be unavoidable. In both cases documenting such exceptions is valuable in interpreting the results of a rule.
-
-
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule must have implementation tests for the selector, as well as for each test case in the rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test case in the rule.
 
-An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data –for instance an HTML code snippet– is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#selected-item) and the expected [outcome](#outcome) (pass, fail, inapplicable) of the evaluation.
+An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-selected-item) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
 -----------------------------------------
 
-Editor note: This section describes how to measure the rate of incorrect results to correct results of a rule. Measuring this accuracy, not just on test data, but on pages and components that the rules would actually be applied to, is important to give users of the test results confidence in the accuracy of this data.
+The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.
+
+This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured, by comparing it's results to those obtained through accessibility expert testing.
+
+The accuracy of a rule is the average between the false positives and false positives, which are in tern calculated as follows:
+
+- **False positives**: This is the percentages of selected elements, that were failed by the rule, but were not failed by an accessibility expert.
+
+- **False negative**: This is the percentages of selected elements, that were passed by the rule, but were failed by an accessibility expert.
+
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.
+
+
+Rule Aggregation {#output-aggregation}
+--------------------------------------
+
+As describe in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Cannot tell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+
+Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
+
+When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.
+
+**Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.
+
+In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combing this inapplicable and fail, means the success criterion has failed.
+
+See [[#appendix-data-example]] on how this could be expressed using JSON-LD and EARL.
 
 
 Update Management {#quality-updates}
@@ -249,7 +304,7 @@ Update Management {#quality-updates}
 
 ### Version Numbers ### {#quality-updates-version}
 
-Each ACT Rule must have it's own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:
+Each ACT Rule MUST have it's own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:
 
 : X / Major updates:
 :: The major version number must be increased if the change can lead to new failure results.
@@ -260,13 +315,13 @@ Each ACT Rule must have it's own version number. The version number has to follo
 : Z / Patch updates:
 :: The patch version number must be increased if the change does not affect the result of a rule. This includes editorial changes, new issues on the issues list, an updated description, etc.
 
-### Change List ### {#quality-updates-changes}
+### Change Log ### {#quality-updates-changes}
 
-All major and minor changes to an ACT Rule must be recorded in a change log, that is part of the updated rule. The change log must at least include the changes since the last minor update, as well as a reference to the previous version.
+All major and minor changes to an ACT Rule MUST be recorded in a change log that is part of the updated rule. The change log MUST at least include the changes since the last minor update, as well as a reference to the previous version.
 
 ### Issues List ### {#quality-updates-issues}
 
-An ACT Rule may include an issues list. This list must be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There may be several reasons why this might occur, including:
+An ACT Rule MAY include an issues list. This list must be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There may be several reasons why this might occur, including:
 
 - Certain scenarios or the use of technologies is very rare and was not included in the rule for that reason.
 - Certain accessibility features are impossible to test within the test environment. They might for instance only be testable by accessing the accessibility API, require screen capturing, etc.
@@ -274,27 +329,77 @@ An ACT Rule may include an issues list. This list must be used to record cases i
 
 The issues list serves two purposes. For users of ACT Rules, they give insight into why an inaccurate result might have occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. A new version of the rule might see issues resolved and the item moved to the change log.
 
-Appendix 1: JSON-LD Context
-===========================
 
-```
+Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example}
+========================================================
+
+**Example:**
+
+```javascript
 {
-  "@vocab": "http://www.w3.org/ns/earl#",
-  "earl": "http://www.w3.org/ns/earl#",
-  "ptr": "http://www.w3.org/2009/pointers#",
-  "auto-wcag": "https://auto-wcag.github.io/auto-wcag/",
-  "Assertion": "earl:Assertion",
-  "CSSSelector": "ptr:CSSSelectorPointer",
-  "subject": { "@type": "earl:TestSubject" },
-  "pointer": { "@type": "ptr:CSSSelectorPointer" },
-  "test": { "@type": "@id"},
-  "outcome": { "@type": "@id" },
-  "Failed": "earl:Failed",
-  "Passed": "earl:Passed",
-  "CantTell": "earl:CantTell",
-  "Inapplicable": "earl:Inapplicable",
-  "Untested": "earl:Untested"
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": "auto-wcag:SC1-1-1-css-image.html",
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "pointer": "html > body > h1:nth-child(2)"
+  }]
 }
 ```
 
-[accsupp]:  https://www.w3.org/TR/WCAG20/#accessibility-supporteddef
+**Example:** Aggregate rules to a WCAG success criterion
+
+```javascript
+{
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": "https://example.org/",
+  "test": {
+    "@id": "wcag20:#text-equiv-all",
+    "title": "1.1.1 Non-text Content"
+  },
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "test": "auto-wcag:SC1-1-1-css-image.html",
+    "pointer": "html > body > h1:first-child"
+  }, {
+    "outcome": "Passed",
+    "test": "auto-wcag:SC1-1-1-longdesc.html",
+    "pointer": "html > body > img:nth-child(2)"
+  }]
+}
+```
+
+**Example:** Aggregate a list of results to a result for the website
+
+```javascript
+{
+  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@type": "Assertion",
+  "subject": {
+    "@type": ["WebSite", "TestSubject"],
+    "@value": "https://example.org/"
+  }
+  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+  "outcome": "Failed",
+  "source": [{
+    "outcome": "Failed",
+    "test": "wcag20:text-equiv-all",
+    "source": [ … ]
+  }, {
+    "outcome": "Passed",
+    "test": "wcag20:media-equiv-av-only-alt",
+    "source": [ … ]
+  }, {
+    "outcome": "Inapplicable",
+    "test": "wcag20:media-equiv-captions",
+    "source": [ … ]
+  }, … ]
+}
+```
