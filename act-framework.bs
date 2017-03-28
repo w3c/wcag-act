@@ -158,9 +158,11 @@ ACT Test Procedure {#test-proc}
 Selector {#test-proc-selector}
 ------------------------------
 
-A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
+A selector is a filter procedure that is used on the input data to be evaluated against the test procedure. For example, finding specific nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the test subject type. When a formal syntax is available, the selector should use that syntax. When a formal selector syntax is not available for the test subject type, the selector MAY be described unambiguously in plain English.
+Selector syntax depends on the test subject type. When a formal syntax can be used, that (part of the) selector should use that syntax. When a formal selector syntax can not be used, that (part of the) selector MAY be described unambiguously in plain language.
+
+This can be used together, such as in the following example which uses CSS selector syntax to locate elements, combined with a plain language description to further filter the nodes.
 
 <div class=example>
 A rule for HTML `img` elements has the following selector:
