@@ -1326,23 +1326,24 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Framework</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-12-17">17 December 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-12-21">21 December 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-framework.html">https://w3c.github.io/wcag-act/act-framework.html</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-framework/2016-11-11.html" rel="previous">https://w3c.github.io/wcag-act/archive_act-framework/2016-11-11.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2016-12-17.html" rel="previous">https://w3c.github.io/wcag-act/archive_act-format/2016-12-17.html</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
-     <dt class="editor">Editor:
+     <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 17 December 2016,
+In addition, as of 21 December 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1417,7 +1418,17 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="3.1" id="structure-outline"><span class="secno">3.1. </span><span class="content">Rule Outline</span><a class="self-link" href="#structure-outline"></a></h3>
    <p>Editor note: This sections gives a broad outline of parts make up an ACT Rule. We’ll go into further detail in sections below. At this point it is important to show the reader the big picture</p>
    <h3 class="heading settled" data-level="3.2" id="structure-description"><span class="secno">3.2. </span><span class="content">Rule Description</span><a class="self-link" href="#structure-description"></a></h3>
-   <p>Editor note: In this section we will put down requirements for the description of an ACT Rule. The description should, in plain English, give a broad understanding of what the rule is supposed to test. It explains which accessibility requirement is violated when the rule returns a failure and why.</p>
+   <p>Each ACT Rule MUST have a description that:</p>
+   <ul>
+    <li data-md="">
+     <p>Is in plain language;</p>
+    <li data-md="">
+     <p>Explains the accessibility requirement being tested;</p>
+    <li data-md="">
+     <p>Lists any limitations and assumptions for the test;</p>
+    <li data-md="">
+     <p>Explains the failure conditions and their reasons.</p>
+   </ul>
    <h2 class="heading settled" data-level="4" id="input"><span class="secno">4. </span><span class="content">ACT Input Data</span><a class="self-link" href="#input"></a></h2>
    <h3 class="heading settled" data-level="4.1" id="input-types"><span class="secno">4.1. </span><span class="content">Test Input Types</span><a class="self-link" href="#input-types"></a></h3>
    <p>Editor note: Some rules may run only on the template, and others require the full page to be rendered on screen before it can run. This sections describe the different types of content that can be tested by ACT Rules, and how rules should deal with each of these.</p>
