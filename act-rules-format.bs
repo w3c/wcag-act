@@ -1,14 +1,14 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing Framework
-Shortname: ACT-Framework
-URL: https://w3c.github.io/wcag-act/act-framework.html
-Previous Version: https://w3c.github.io/wcag-act/archive_act-framework/2016-12-17.html
-Level: 7
+Title: Accessibility Conformance Testing Rules Format
+Shortname: ACT-Format
+URL: https://w3c.github.io/wcag-act/act-rules-format.html
+Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2016-12-17.html
+Level: 1.0
 Status: ED
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: The Accessibility Conformance Testing Framework 1.0 (ACT Framework 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
+Abstract: The Accessibility Conformance Testing Rules Format 1.0 (ACT Rules Format 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
 Markup Shorthands: markdown yes
 </pre>
 
@@ -17,20 +17,19 @@ Introduction {#intro}
 
 There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
 
-Accessibility experts often disagree on how accessibility requirements should be tested. These disagreements lead to conflicting results of accessibility tests. This is true for both manual accessibility tests as well as for automated testing done through accessibility test tools (ATTs).
+This format is intended to provide a consistent interpretation of how to test for accessibility requirements so as to avoid conflicting results of accessibility tests. It is intended for both manual accessibility tests as well as for automated testing done through accessibility test tools (ATTs).
 
-Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing Framework (ACT Framework) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
+Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing Rules Format (ACT Rules Format) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
 
 Scope {#scope}
 ==============
 
-The ACT Framework scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Framework, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Framework could conceivably be used for other technologies.
+The ACT Rules Format scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Rules Format could conceivably be used for other technologies.
 
 Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
 
-Other accessibility requirements that may be applicable to web technologies should also be testable with ACT Rules. For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based. Because some accessibility requirements may be applicable to technologies other than web technologies, the ACT Framework may not be suitable for every part of these accessibility requirement.
-
+Other accessibility requirements that may be applicable to web technologies should also be testable with ACT Rules. For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based. Because some accessibility requirements may be applicable to technologies other than web technologies, the ACT Rules Format may not be suitable for every part of these accessibility requirement.
 
 
 ACT Rule Structure {#structure}
@@ -159,9 +158,11 @@ ACT Test Procedure {#test-proc}
 Selector {#test-proc-selector}
 ------------------------------
 
-A selector is a pattern that is used as a condition to filter input data to be evaluated against the test procedure. For example, finding all  nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
+A selector is a filter procedure that is used on the input data to be evaluated against the test procedure. For example, finding specific nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
 
-Selector syntax depends on the test subject type. When a formal syntax is available, the selector should use that syntax. When a formal selector syntax is not available for the test subject type, the selector MAY be described unambiguously in plain English.
+Selector syntax depends on the test subject type. When a formal syntax can be used, that (part of the) selector should use that syntax. When a formal selector syntax can not be used, that (part of the) selector MAY be described unambiguously in plain language.
+
+This can be used together, such as in the following example which uses CSS selector syntax to locate elements, combined with a plain language description to further filter the nodes.
 
 <div class=example>
 A rule for HTML `img` elements has the following selector:
