@@ -8,7 +8,7 @@ Status: ED
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: The Accessibility Conformance Testing Rules Format 1.0 (ACT Rules Format 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
 Markup Shorthands: markdown yes
 </pre>
 
@@ -19,7 +19,7 @@ There are currently many products available which aid their users in testing web
 
 This format is intended to provide a consistent interpretation of how to test for accessibility requirements so as to avoid conflicting results of accessibility tests. It is intended for both manual accessibility tests as well as for automated testing done through accessibility test tools (ATTs).
 
-Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing Rules Format (ACT Rules Format) defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
+Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
 
 Scope {#scope}
