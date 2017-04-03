@@ -1,14 +1,13 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing Rules Format
+Title: Accessibility Conformance Testing (ACT) Rules Format 1.0
 Shortname: ACT-Format
-URL: https://w3c.github.io/wcag-act/act-rules-format.html
-Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2016-12-17.html
+URL: https://www.w3.org/TR/act-rules-format
 Level: 1.0
 Status: WD
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: The Accessibility Conformance Testing Rules Format 1.0 (ACT Rules Format 1.0) is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
 Markup Shorthands: markdown yes
 </pre>
 
