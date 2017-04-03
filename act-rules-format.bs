@@ -1,9 +1,10 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing (ACT) Rules Format 1.0
-Shortname: ACT-Format
-URL: https://www.w3.org/TR/act-rules-format
+Shortname: act-rules-Format
+TR: https://www.w3.org/TR/act-rules-format/
+ED: https://w3c.github.io/wcag-act/act-rules-format.html
 Level: 1.0
-Status: WD
+Status: FPWD
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
