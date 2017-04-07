@@ -88,7 +88,7 @@ A list of *Accessibility Support Features* is an optional part of an ACT Rule. N
 Example 1: Requires support for the `alt` attribute on an `img` element, existing within a link.
 
 ```
-  a[ref] img[alt]
+  a[href] img[alt]
 ```
 
 Example 2: Requires support for `role=menuitem` on any type of element, existing within an element marked up as a menu
