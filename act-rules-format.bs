@@ -296,7 +296,7 @@ When all rules pass, that does not mean that all accessibility requirements are 
 
 **Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.
 
-In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combing this inapplicable and fail, means the success criterion has failed.
+In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combining this inapplicable and fail, means the success criterion has failed.
 
 See [[#appendix-data-example]] on how this could be expressed using JSON-LD and EARL.
 
