@@ -276,11 +276,11 @@ The web is ever changing, and technologies are used in such diverse and creative
 
 This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured, by comparing it's results to those obtained through accessibility expert testing.
 
-The accuracy of a rule is the average between the false positives and false negatives, which are in tern calculated as follows:
+The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
 
 - **False positives**: This is the percentage of selected elements, that were failed by the rule, but were not failed by an accessibility expert.
 
-- **False negative**: This is the percentage of selected elements, that were passed by the rule, but were failed by an accessibility expert.
+- **False negatives**: This is the percentage of selected elements, that were passed by the rule, but were failed by an accessibility expert.
 
 There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.
 
