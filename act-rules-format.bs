@@ -207,7 +207,7 @@ This will mean that every time a rule is executed on a page, it will return a se
 - test (Rule ID)
 - subject (Web page)
 - pointer (Selected item)
-- outcome (`Passed`, `Failed` or `Cannot tell`)
+- outcome (`Passed`, `Failed` or `Undetermined`)
 
 <div class=example>
 Output data using EARL and JSON-LD
@@ -240,7 +240,7 @@ The procedure of a rule MUST always return one of the following outcomes:
 
 - **Passed**: The Test Target passed the test
 - **Failed**: The Test Target failed the test
-- **Cannot tell**: It is unclear whether or not the Test Target passes of rails the test
+- **Undetermined**: The result of the test is undetermined. Human intervention or further testing is needed.
 
 
 Ensure Comparable Results {#output-comparable}
