@@ -304,22 +304,11 @@ See [[#appendix-data-example]] on how this could be expressed using JSON-LD and 
 Update Management {#quality-updates}
 ------------------------------------
 
-### Version Numbers ### {#quality-updates-version}
-
-Each ACT Rule MUST have it's own version number. The version number has to follow the semantic versioning schema. Using the X.Y.Z schema in the following way:
-
-: X / Major updates:
-:: The major version number must be increased if the change can lead to new failure results.
-
-: Y / Minor updates:
-:: The minor version number must be increased if the test logic has been updated, which could lead to a a different result.
-
-: Z / Patch updates:
-:: The patch version number must be increased if the change does not affect the result of a rule. This includes editorial changes, new issues on the issues list, an updated description, etc.
-
 ### Change Log ### {#quality-updates-changes}
 
-All major and minor changes to an ACT Rule MUST be recorded in a change log that is part of the updated rule. The change log MUST at least include the changes since the last minor update, as well as a reference to the previous version.
+It is important to keep track of what has changed in ACT rules, so that users of them can work out if changes in accessibility results are due to changes in the rules used in testing, rather than changes in the content itself. It is recommended that for huge changes, such as those that significantly change the scope of a rule, a new rule is created and the old rule is deprecated.
+
+All changes to an ACT Rule that can change the outcome of a test MUST be recorded in a change log. The change log can either be part of the rule document itself, or be referenced from it. Each new release of an ACT Rule must be identifiable with either a date or a version number.
 
 ### Issues List ### {#quality-updates-issues}
 
