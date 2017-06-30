@@ -1,9 +1,11 @@
-<!doctype html><html lang="en">
+<!doctype html>
+<html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <title>Accessibility Conformance Testing Rules Format</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-<style data-fill-with="stylesheet">/******************************************************************************
+<style data-fill-with="stylesheet">
+/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
  *
  * Special classes handled by this style sheet include:
@@ -470,7 +472,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: normal;
+		font-size: medium;
 	}
 	dfn var {
 		font-style: normal;
@@ -1176,7 +1178,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 19325e1a3d427dec9961fd38c89c65a206603f18" name="generator">
+  <meta content="Bikeshed version 6de62f723758889927d2dc5378f7d1e02a3563f7" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1219,62 +1221,62 @@ Possible extra rowspan handling
             }</style>
 <style>/* style-syntax-highlighting */
 
-        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
-        code.highlight { padding: .1em; border-radius: .3em; }
-        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
-        .highlight .c { color: #708090 } /* Comment */
-        .highlight .k { color: #990055 } /* Keyword */
-        .highlight .l { color: #000000 } /* Literal */
-        .highlight .n { color: #0077aa } /* Name */
-        .highlight .o { color: #999999 } /* Operator */
-        .highlight .p { color: #999999 } /* Punctuation */
-        .highlight .cm { color: #708090 } /* Comment.Multiline */
-        .highlight .cp { color: #708090 } /* Comment.Preproc */
-        .highlight .c1 { color: #708090 } /* Comment.Single */
-        .highlight .cs { color: #708090 } /* Comment.Special */
-        .highlight .kc { color: #990055 } /* Keyword.Constant */
-        .highlight .kd { color: #990055 } /* Keyword.Declaration */
-        .highlight .kn { color: #990055 } /* Keyword.Namespace */
-        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
-        .highlight .kr { color: #990055 } /* Keyword.Reserved */
-        .highlight .kt { color: #990055 } /* Keyword.Type */
-        .highlight .ld { color: #000000 } /* Literal.Date */
-        .highlight .m { color: #000000 } /* Literal.Number */
-        .highlight .s { color: #a67f59 } /* Literal.String */
-        .highlight .na { color: #0077aa } /* Name.Attribute */
-        .highlight .nc { color: #0077aa } /* Name.Class */
-        .highlight .no { color: #0077aa } /* Name.Constant */
-        .highlight .nd { color: #0077aa } /* Name.Decorator */
-        .highlight .ni { color: #0077aa } /* Name.Entity */
-        .highlight .ne { color: #0077aa } /* Name.Exception */
-        .highlight .nf { color: #0077aa } /* Name.Function */
-        .highlight .nl { color: #0077aa } /* Name.Label */
-        .highlight .nn { color: #0077aa } /* Name.Namespace */
-        .highlight .py { color: #0077aa } /* Name.Property */
-        .highlight .nt { color: #669900 } /* Name.Tag */
-        .highlight .nv { color: #222222 } /* Name.Variable */
-        .highlight .ow { color: #999999 } /* Operator.Word */
-        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
-        .highlight .mf { color: #000000 } /* Literal.Number.Float */
-        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
-        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
-        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
-        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
-        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
-        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
-        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
-        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
-        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
-        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
-        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
-        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
-        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
-        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
-        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
-        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
-        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
-        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
-        </style>
+.highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+.highlight .c { color: #708090 } /* Comment */
+.highlight .k { color: #990055 } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #0077aa } /* Name */
+.highlight .o { color: #999999 } /* Operator */
+.highlight .p { color: #999999 } /* Punctuation */
+.highlight .cm { color: #708090 } /* Comment.Multiline */
+.highlight .cp { color: #708090 } /* Comment.Preproc */
+.highlight .c1 { color: #708090 } /* Comment.Single */
+.highlight .cs { color: #708090 } /* Comment.Special */
+.highlight .kc { color: #990055 } /* Keyword.Constant */
+.highlight .kd { color: #990055 } /* Keyword.Declaration */
+.highlight .kn { color: #990055 } /* Keyword.Namespace */
+.highlight .kp { color: #990055 } /* Keyword.Pseudo */
+.highlight .kr { color: #990055 } /* Keyword.Reserved */
+.highlight .kt { color: #990055 } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #000000 } /* Literal.Number */
+.highlight .s { color: #a67f59 } /* Literal.String */
+.highlight .na { color: #0077aa } /* Name.Attribute */
+.highlight .nc { color: #0077aa } /* Name.Class */
+.highlight .no { color: #0077aa } /* Name.Constant */
+.highlight .nd { color: #0077aa } /* Name.Decorator */
+.highlight .ni { color: #0077aa } /* Name.Entity */
+.highlight .ne { color: #0077aa } /* Name.Exception */
+.highlight .nf { color: #0077aa } /* Name.Function */
+.highlight .nl { color: #0077aa } /* Name.Label */
+.highlight .nn { color: #0077aa } /* Name.Namespace */
+.highlight .py { color: #0077aa } /* Name.Property */
+.highlight .nt { color: #669900 } /* Name.Tag */
+.highlight .nv { color: #222222 } /* Name.Variable */
+.highlight .ow { color: #999999 } /* Operator.Word */
+.highlight .mb { color: #000000 } /* Literal.Number.Bin */
+.highlight .mf { color: #000000 } /* Literal.Number.Float */
+.highlight .mh { color: #000000 } /* Literal.Number.Hex */
+.highlight .mi { color: #000000 } /* Literal.Number.Integer */
+.highlight .mo { color: #000000 } /* Literal.Number.Oct */
+.highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+.highlight .sc { color: #a67f59 } /* Literal.String.Char */
+.highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+.highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+.highlight .se { color: #a67f59 } /* Literal.String.Escape */
+.highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+.highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+.highlight .sx { color: #a67f59 } /* Literal.String.Other */
+.highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+.highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+.highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+.highlight .vc { color: #0077aa } /* Name.Variable.Class */
+.highlight .vg { color: #0077aa } /* Name.Variable.Global */
+.highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+.highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+</style>
 <style>/* style-selflinks */
 
             .heading, .issue, .note, .example, li, dt {
@@ -1387,13 +1389,13 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-05-12">12 May 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-06-30">30 June 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-03-28.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-03-28.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-05-12.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-05-12.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1402,7 +1404,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 12 May 2017,
+In addition, as of 30 June 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1410,7 +1412,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The Accessibility Conformance Testing (ACT) Rules Format 1.0 is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.</p>
+   <p>The Accessibility Conformance Testing (ACT) Rules Format 1.0 specifies requirements for writing accessibility test rules. This includes test rules that are carried out fully-automatically, semi-automatically, and manually. By defining this common format, organizations are better able to document and share their testing procedures. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1606,7 +1608,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p>pointer (Selected item)</p>
     <li data-md="">
-     <p>outcome (<code>Passed</code>, <code>Failed</code> or <code>Cannot tell</code>)</p>
+     <p>outcome (<code>Passed</code>, <code>Failed</code> or <code>Undetermined</code>)</p>
    </ul>
    <div class="example" id="example-807d1071">
     <a class="self-link" href="#example-807d1071"></a> Output data using EARL and JSON-LD 
@@ -1631,7 +1633,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p><strong>Failed</strong>: The Test Target failed the test</p>
     <li data-md="">
-     <p><strong>Cannot tell</strong>: It is unclear whether or not the Test Target passes of rails the test</p>
+     <p><strong>Undetermined</strong>: The result of the test is unknown. Human intervention or further testing is needed.</p>
    </ul>
    <h3 class="heading settled" data-level="6.3" id="output-comparable"><span class="secno">6.3. </span><span class="content">Ensure Comparable Results</span><a class="self-link" href="#output-comparable"></a></h3>
    <p>In addition to the Selected Item and the Outcome, ACT Rule output data MUST include the following contextual information:</p>
@@ -1659,7 +1661,7 @@ Parts of this work may be from another specification document.  If so, those par
    </ul>
    <p>There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.</p>
    <h3 class="heading settled" data-level="7.3" id="output-aggregation"><span class="secno">7.3. </span><span class="content">Rule Aggregation</span><a class="self-link" href="#output-aggregation"></a></h3>
-   <p>As describe in section <a href="#output">§6 ACT Data Format (Output Data)</a> a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Cannot tell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.</p>
+   <p>As describe in section <a href="#output">§6 ACT Data Format (Output Data)</a> a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Undetermined), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.</p>
    <p>Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.</p>
    <p>When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.</p>
    <p><strong>Example:</strong> An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.</p>
@@ -1700,13 +1702,13 @@ Parts of this work may be from another specification document.  If so, those par
   <span class="s2">"subject"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span><span class="p">,</span>
   <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
   <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
     <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:first-child"</span>
-  <span class="p">}</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">},</span> <span class="p">{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
     <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:nth-child(2)"</span>
-  <span class="p">}</span><span class="p">]</span>
+  <span class="p">}]</span>
 <span class="p">}</span>
 </pre>
    <p><strong>Example:</strong> Aggregate rules to a WCAG success criterion</p>
@@ -1717,17 +1719,17 @@ Parts of this work may be from another specification document.  If so, those par
   <span class="s2">"test"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"@id"</span><span class="o">:</span> <span class="s2">"wcag20:#text-equiv-all"</span><span class="p">,</span>
     <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1.1.1 Non-text Content"</span>
-  <span class="p">}</span><span class="p">,</span>
+  <span class="p">},</span>
   <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
     <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
     <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:first-child"</span>
-  <span class="p">}</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">},</span> <span class="p">{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
     <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-longdesc.html"</span><span class="p">,</span>
     <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > img:nth-child(2)"</span>
-  <span class="p">}</span><span class="p">]</span>
+  <span class="p">}]</span>
 <span class="p">}</span>
 </pre>
    <p><strong>Example:</strong> Aggregate a list of results to a result for the website</p>
@@ -1735,24 +1737,24 @@ Parts of this work may be from another specification document.  If so, those par
   <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
   <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
   <span class="s2">"subject"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"@type"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"WebSite"</span><span class="p">,</span> <span class="s2">"TestSubject"</span><span class="p">]</span><span class="p">,</span>
+    <span class="s2">"@type"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"WebSite"</span><span class="p">,</span> <span class="s2">"TestSubject"</span><span class="p">],</span>
     <span class="s2">"@value"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span>
   <span class="p">}</span>
   <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"http://www.w3.org/WAI/WCAG2A-Conformance"</span><span class="p">,</span>
   <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
-  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+  <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
     <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:text-equiv-all"</span><span class="p">,</span>
     <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
-  <span class="p">}</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">},</span> <span class="p">{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
     <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:media-equiv-av-only-alt"</span><span class="p">,</span>
     <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
-  <span class="p">}</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">},</span> <span class="p">{</span>
     <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Inapplicable"</span><span class="p">,</span>
     <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:media-equiv-captions"</span><span class="p">,</span>
     <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
-  <span class="p">}</span><span class="p">,</span> … <span class="p">]</span>
+  <span class="p">},</span> … <span class="p">]</span>
 <span class="p">}</span>
 </pre>
   </main>
