@@ -8,7 +8,7 @@ Status: ED
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 is a specification designed to harmonize how accessibility rules are described for automated test tools, and how test procedures are written for quality assurance testing. By writing these tests in a defined format, organizations are better able to document and share their method of testing. A defined format for writing tests is the first step in enabling a harmonized approach for accessibility conformance testing.
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 specifies requirements for writing accessibility test rules. This includes test rules that are carried out fully-automatically, semi-automatically, and manually. By defining this common format, organizations are better able to document and share their testing procedures. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
 
@@ -207,7 +207,7 @@ This will mean that every time a rule is executed on a page, it will return a se
 - test (Rule ID)
 - subject (Web page)
 - pointer (Selected item)
-- outcome (`Passed`, `Failed` or `Cannot tell`)
+- outcome (`Passed`, `Failed` or `Undetermined`)
 
 <div class=example>
 Output data using EARL and JSON-LD
@@ -240,7 +240,7 @@ The procedure of a rule MUST always return one of the following outcomes:
 
 - **Passed**: The Test Target passed the test
 - **Failed**: The Test Target failed the test
-- **Cannot tell**: It is unclear whether or not the Test Target passes of rails the test
+- **Undetermined**: The result of the test is unknown. Human intervention or further testing is needed.
 
 
 Ensure Comparable Results {#output-comparable}
@@ -288,7 +288,7 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As describe in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Cannot tell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As describe in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Undetermined), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
