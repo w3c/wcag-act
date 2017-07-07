@@ -59,7 +59,9 @@ Each ACT Rule MUST have a description that is in plain language and provides a b
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-Explain the accessibility requirement being tested such as the WCAG 2 Success criterion and / or the technique the rule maps to; For example WCAG 2.0 Technique H67.
+Explain the accessibility requirement being tested such as the WCAG 2 Success criterion and / or the technique the rule maps to; For example WCAG 2.0 Technique H67. An ACT Rule DOES NOT have to test the entire accessibility requirement. The Rule COULD be used to test multiple accessibility requirements, when such requirements overlap each other.
+
+Outcomes from an ACT Rule MUST be consistent within a rule, e.g. if a rule results in a fail, this must be a failure for that particular accessibility requirement. This means that the rule maps to that accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
 
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
