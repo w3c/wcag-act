@@ -195,6 +195,18 @@ If either one of these passed, the rule has passed. Only if both fail, does that
 </div>
 
 
+Rule Grouping {#grouping}
+===================
+
+In accessibility testing, there are often multiple ways to solve the same problem. For instance, in HTML tables, header cells can be indicated through the `scope` attribute, by using the `headers` attributes, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
+
+To meet the accessibility requirement, only one rule in a rule-group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels). If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
+
+Elements can pass a rules group if at least one rule within that group selected that element, and returned a passed result. Likewise, an element will fail the rule group, if any rule in the group selected it, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and railing the aria label and headers+id rule, would mean the element passed this group of rules.
+
+Note that rules in a group MAY have different selectors. Because of this, not every element selected within the group, is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
+
+
 ACT Data Format (Output Data) {#output}
 =======================================
 
