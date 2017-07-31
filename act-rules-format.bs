@@ -306,11 +306,11 @@ Update Management {#quality-updates}
 
 ### Change Log ### {#quality-updates-changes}
 
-It is important to keep track of what has changed in ACT rules, so that users of them can work out if changes in accessibility results are due to changes in the rules used in testing, rather than changes in the content itself. All changes to an ACT Rule that can change the outcome of a test MUST be recorded in a change log. The change log can either be part of the rule document itself, or be referenced from it.
+It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the outcome of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
 
-Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. It is recommended that for huge changes, a new rule is created and the old rule is deprecated. 
+Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. It is recommended that for extensive changes, a new rule is created and the old rule is deprecated.
 
-An example of when a new rule should be created would be when going from a rule that tests the use of a blink element, and changes it to a rule that looks for animated style changes. This potentially adds lots of new issues that were previously out of scope. But for that same rule, adding a step to check if the blink element is positioned off screen, should be done by updating the existing rule.
+An example of when a new rule should be created would be when going from a rule that tests the use of a blink element, to a rule that looks for animated style changes. This potentially adds lots of new issues that were previously out of scope. But for that same rule, adding a step to check if the blink element is positioned off screen, should be done by updating the existing rule.
 
 
 ### Issues List ### {#quality-updates-issues}
