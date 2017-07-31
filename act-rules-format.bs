@@ -59,11 +59,11 @@ Each ACT Rule MUST have a description that is in plain language and provides a b
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-This section should explain the accessibility requirement the rule maps to, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule DOES NOT have to test the entire accessibility requirement. The Rule COULD be used to test multiple accessibility requirements, when such requirements overlap each other.
+Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule MAY be a complete or partial test for one or more accessibility requirements.
 
-Outcomes from an ACT Rule MUST be consistent within a rule, e.g. if a rule results in a fail, this must be a failure for that particular accessibility requirement. This means that the rule maps to that accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
+Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. if the rule returns a Failed result, this MUST be a failure for the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
-Note: For WCAG 2, the Success Criteria are the accessibility requirements. Often organizations have accessibility requirements in addition to the WCAG success criteria. These too can be tested using ACT Rules.
+The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations may have particular requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria; in these too would be accessibility requirements.
 
 
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
