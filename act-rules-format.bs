@@ -72,36 +72,6 @@ Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-excep
 List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
 
 
-Accessibility Support {#structure-acc-supp}
----------------------------------------
-
-<p class="note">Editor's Note - The ACT Task Force acknowledges that this approach does not capture all nuances of accessibility support. We are looking for feedback on how to balance the need for organizations to solve issues with buggy or unsupported features in assistive technologies and user agents, with keeping the development cycle lean, and delivering future-proof products.</p>
-
-Determining if a web page is accessible depends partly on the assistive technologies and user agents that are used by the visitors of the page to access it. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). When testing a web page for accessibility, it is important to know which assistive technologies and user agents should be supported.
-
-It is important that users of ACT Rules can determine which accessibility features are relied upon in a rule. With this information, the user can determine which rules do not provide results that are in line with the accessibility support baseline set for this particular test.
-
-Developers of Accessibility Test Tools should use the Accessibility Support information to develop a default ruleset that is sensible for their user base. Additionally, they could allow users of the ATT to customize which rules are run, allowing fine grained control of the accessibility test.
-
-A list of *Accessibility Support Features* is an optional part of an ACT Rule. Not every accessibility requirement involves assistive technologies, and so certain rules will have no use for this feature. For HTML, XML and similar markup documents, the accessibility features should be described using a three part CSS selector.
-
-- Context: The context in which the element for which support is checked lives. If there is no specific context, this can be left blank.
-- Element: The name of the element that is being tested. If the element name is irrelevant, use `*`.
-- Attributes: Specific attributes that are to be tested. If there are none, this can be left blank.
-
-Example 1: Requires support for the `alt` attribute on an `img` element, existing within a link.
-
-```
-  a[href] img[alt]
-```
-
-Example 2: Requires support for `role=menuitem` on any type of element, existing within an element marked up as a menu
-
-```
-  *[role=menu] *[role=menuitem]
-```
-
-
 Test Subject Types (Input Data) {#input-types}
 ===================================
 
@@ -197,6 +167,30 @@ A rule for HTML `img` elements has two test cases:
 
 If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
 </div>
+
+
+Rule Grouping {#grouping}
+===================
+
+In accessibility testing, there are often multiple ways to solve the same problem. For instance, in HTML tables, header cells can be indicated through the `scope` attribute, by using the `headers` attributes, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
+
+To meet the accessibility requirement, only one rule in a rule-group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels). If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
+
+<p class="note">Editor's Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.</p>
+
+Elements can pass a rules group if at least one rule within that group selected that element, and returned a passed result. Likewise, an element will fail the rule group, if any rule in the group selected it, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the element passed this group of rules.
+
+Note that rules in a group MAY have different selectors. Because of this, not every element selected within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
+
+
+Accessibility Support {#acc-support}
+===========================
+
+ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.
+
+Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.
+
+To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
 
 
 ACT Data Format (Output Data) {#output}
