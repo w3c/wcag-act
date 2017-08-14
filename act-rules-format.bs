@@ -45,7 +45,7 @@ Each ACT Rule MUST provide the following items written in plain language:
 * [Rule Description](#structure-description)
 * [Accessibility Requirements](#structure-accessibility-requirements)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
-* [Accessibility Support](#structure-acc-supp) (optional)
+* [Accessibility Support](#acc-support) (optional)
 * [Test Subject Type](#input-types)
 * [Test Procedure](#test-proc)
 
