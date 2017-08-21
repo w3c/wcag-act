@@ -152,7 +152,7 @@ Test Execution Steps {#test-proc-steps}
 
 Each rule contains one or more test execution steps written in plain language. Each test execution step MUST provide the following:
 
-* Test mode identifying whether test execution step is automated, semi-automated or require manual testing.
+* Test mode identifying whether test execution step is automated, semi-automated or requires manual testing.
 * Test execution which clearly outlines the actions necessary to reach the result.
 * Test result indicating whether test execution step passed or failed.
   * Description of the error causing any failing result.
