@@ -1,4 +1,5 @@
-<!doctype html><html lang="en">
+<!doctype html>
+<html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <title>Accessibility Conformance Testing Rules Format</title>
@@ -1176,7 +1177,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 7018a6f1ff92cfd8deb54176c6a0459be54c3896" name="generator">
+  <meta content="Bikeshed version c2e28785d7e239a08c784e65d126cc69068b86eb" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1387,13 +1388,13 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-08-14">14 August 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-08-24">24 August 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-06-30.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-06-30.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-08-14.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-08-14.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1402,7 +1403,7 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 14 August 2017,
+In addition, as of 24 August 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1659,6 +1660,7 @@ Parts of this work may be from another specification document.  If so, those par
    <p>See <a href="#appendix-data-example">Appendix 1: Aggregation examples, using JSON-LD and EARL</a> on how this could be expressed using JSON-LD and EARL.</p>
    <h3 class="heading settled" data-level="9.4" id="quality-updates"><span class="secno">9.4. </span><span class="content">Update Management</span><a class="self-link" href="#quality-updates"></a></h3>
    <h4 class="heading settled" data-level="9.4.1" id="quality-updates-changes"><span class="secno">9.4.1. </span><span class="content">Change Log</span><a class="self-link" href="#quality-updates-changes"></a></h4>
+   <p class="note" role="note">Editor note - The task force is considering different methods of identifying the version, either by number, date or other, and is looking for feedback on the subject from reviewers.</p>
    <p>It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the outcome of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.</p>
    <p>Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. It is recommended that for extensive changes, a new rule is created and the old rule is deprecated.</p>
    <p>An example of when a new rule should be created would be when going from a rule that tests the use of a blink element, to a rule that looks for animated style changes. This potentially adds lots of new issues that were previously out of scope. But for that same rule, adding a step to check if the blink element is positioned off screen, should be done by updating the existing rule.</p>
