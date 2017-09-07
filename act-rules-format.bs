@@ -147,20 +147,20 @@ A rule for HTML `img` elements has the following selector:
 </div>
 
 
-Test Cases {#test-proc-cases}
+Test Execution Steps {#test-proc-steps}
 -----------------------------
 
-Each rule contains one or more test cases written in plain language. Each test case MUST provide the following:
+Each rule contains one or more test execution steps written in plain language. Each test execution step MUST provide the following:
 
-* Test case mode identifying whether test case steps are automated, semi-automated or require manual testing.
-* Test case steps which clearly outline the steps necessary to reach the result.
-* Test case result indicating whether test case passed or failed.
+* Test mode identifying whether test execution step is automated, semi-automated or requires manual testing.
+* Test execution which clearly outlines the actions necessary to reach the result.
+* Test result indicating whether test execution step passed or failed.
   * Description of the error causing any failing result.
 
-Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test cases, the results of all test cases are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test case passes, the rule has passed.
+Test execution step results are combined with other test execution step results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test execution steps, the results of all test execution steps are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test execution step passes, the rule has passed.
 
 <div class=example>
-A rule for HTML `img` elements has two test cases:
+A rule for HTML `img` elements has two test execution steps:
 
 1. Check if there is a text alternative
 2. Check if the image is marked as decorative.
@@ -228,7 +228,7 @@ Selected Item {#output-selected-item}
 
 When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
-The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Test Cases](#quality-implement).
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Validation](#quality-implement).
 
 
 Outcome {#output-outcome}
@@ -262,7 +262,7 @@ Rule Quality Assurance {#quality}
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test case in the rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test execution step in the rule.
 
 An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-selected-item) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
