@@ -167,7 +167,7 @@ Each rule contains one or more test execution steps written in plain language. E
 * Test result indicating whether test execution step passed or failed.
   * Description of the error causing any failing result.
 
-Test execution step results are combined with other test execution step results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test execution steps, the results of all test execution steps are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test execution step passes, the rule has passed.
+Test execution step results are combined with other test execution step results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test execution steps, the results of all test execution steps are combined to give a single result for each test target. The results are cumulative, meaning that as long as one test execution step passes, the rule has passed.
 
 <div class=example>
 A rule for HTML `img` elements has two test execution steps:
@@ -198,13 +198,13 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Selected items* (elements, tags or other "components") to test. Following this, each *selected item* will be taken through the test procedure of the rule. This will give the *outcome* for each *selected item*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
+Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Test Targets* (elements, tags or other "components") to test. Following this, each *test target* will be taken through the test procedure of the rule. This will give the *outcome* for each *test target*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
 - test (Rule ID)
 - subject (Web page)
-- pointer (Selected item)
+- pointer (Test target)
 - outcome (`Passed`, `Failed` or `Undetermined`)
 
 <div class=example>
@@ -223,10 +223,10 @@ Output data using EARL and JSON-LD
 </div>
 
 
-Selected Item {#output-selected-item}
+Test Target {#output-test-target}
 ------------------------------
 
-When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
+When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
 The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Validation](#quality-implement).
 
@@ -244,7 +244,7 @@ The procedure of a rule MUST always return one of the following outcomes:
 Ensure Comparable Results {#output-comparable}
 -------------------------
 
-In addition to the Selected Item and the Outcome, ACT Rule output data MUST include the following contextual information:
+In addition to the Test Target and the Outcome, ACT Rule output data MUST include the following contextual information:
 
 - the Web page, file or other test subject the rule was applied to and
 - an identifier of the rule itself.
@@ -286,7 +286,7 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Undetermined), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Undetermined), 2) the test target, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
