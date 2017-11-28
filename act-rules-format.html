@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <title>Accessibility Conformance Testing Rules Format</title>
@@ -1177,47 +1176,47 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c2e28785d7e239a08c784e65d126cc69068b86eb" name="generator">
+  <meta content="Bikeshed version fbf1456a756299b3ff6d248d0857ec87f2e68cd7" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
 <style>/* style-md-lists */
 
-            /* This is a weird hack for me not yet following the commonmark spec
-               regarding paragraph and lists. */
-            [data-md] > :first-child {
-                margin-top: 0;
-            }
-            [data-md] > :last-child {
-                margin-bottom: 0;
-            }</style>
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}</style>
 <style>/* style-counters */
 
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
 
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
 
-            figcaption {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure) " ";
-            }</style>
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}</style>
 <style>/* style-syntax-highlighting */
 
 .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
@@ -1278,123 +1277,123 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
 </style>
 <style>/* style-selflinks */
 
-            .heading, .issue, .note, .example, li, dt {
-                position: relative;
-            }
-            a.self-link {
-                position: absolute;
-                top: 0;
-                left: calc(-1 * (3.5rem - 26px));
-                width: calc(3.5rem - 26px);
-                height: 2em;
-                text-align: center;
-                border: none;
-                transition: opacity .2s;
-                opacity: .5;
-            }
-            a.self-link:hover {
-                opacity: 1;
-            }
-            .heading > a.self-link {
-                font-size: 83%;
-            }
-            li > a.self-link {
-                left: calc(-1 * (3.5rem - 26px) - 2em);
-            }
-            dfn > a.self-link {
-                top: auto;
-                left: auto;
-                opacity: 0;
-                width: 1.5em;
-                height: 1.5em;
-                background: gray;
-                color: white;
-                font-style: normal;
-                transition: opacity .2s, background-color .2s, color .2s;
-            }
-            dfn:hover > a.self-link {
-                opacity: 1;
-            }
-            dfn > a.self-link:hover {
-                color: black;
-            }
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: gray;
+    color: white;
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: black;
+}
 
-            a.self-link::before            { content: "¶"; }
-            .heading > a.self-link::before { content: "§"; }
-            dfn > a.self-link::before      { content: "#"; }</style>
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }</style>
 <style>/* style-autolinks */
 
-            .css.css, .property.property, .descriptor.descriptor {
-                color: #005a9c;
-                font-size: inherit;
-                font-family: inherit;
-            }
-            .css::before, .property::before, .descriptor::before {
-                content: "‘";
-            }
-            .css::after, .property::after, .descriptor::after {
-                content: "’";
-            }
-            .property, .descriptor {
-                /* Don't wrap property and descriptor names */
-                white-space: nowrap;
-            }
-            .type { /* CSS value <type> */
-                font-style: italic;
-            }
-            pre .property::before, pre .property::after {
-                content: "";
-            }
-            [data-link-type="property"]::before,
-            [data-link-type="propdesc"]::before,
-            [data-link-type="descriptor"]::before,
-            [data-link-type="value"]::before,
-            [data-link-type="function"]::before,
-            [data-link-type="at-rule"]::before,
-            [data-link-type="selector"]::before,
-            [data-link-type="maybe"]::before {
-                content: "‘";
-            }
-            [data-link-type="property"]::after,
-            [data-link-type="propdesc"]::after,
-            [data-link-type="descriptor"]::after,
-            [data-link-type="value"]::after,
-            [data-link-type="function"]::after,
-            [data-link-type="at-rule"]::after,
-            [data-link-type="selector"]::after,
-            [data-link-type="maybe"]::after {
-                content: "’";
-            }
+.css.css, .property.property, .descriptor.descriptor {
+    color: #005a9c;
+    font-size: inherit;
+    font-family: inherit;
+}
+.css::before, .property::before, .descriptor::before {
+    content: "‘";
+}
+.css::after, .property::after, .descriptor::after {
+    content: "’";
+}
+.property, .descriptor {
+    /* Don't wrap property and descriptor names */
+    white-space: nowrap;
+}
+.type { /* CSS value <type> */
+    font-style: italic;
+}
+pre .property::before, pre .property::after {
+    content: "";
+}
+[data-link-type="property"]::before,
+[data-link-type="propdesc"]::before,
+[data-link-type="descriptor"]::before,
+[data-link-type="value"]::before,
+[data-link-type="function"]::before,
+[data-link-type="at-rule"]::before,
+[data-link-type="selector"]::before,
+[data-link-type="maybe"]::before {
+    content: "‘";
+}
+[data-link-type="property"]::after,
+[data-link-type="propdesc"]::after,
+[data-link-type="descriptor"]::after,
+[data-link-type="value"]::after,
+[data-link-type="function"]::after,
+[data-link-type="at-rule"]::after,
+[data-link-type="selector"]::after,
+[data-link-type="maybe"]::after {
+    content: "’";
+}
 
-            [data-link-type].production::before,
-            [data-link-type].production::after,
-            .prod [data-link-type]::before,
-            .prod [data-link-type]::after {
-                content: "";
-            }
+[data-link-type].production::before,
+[data-link-type].production::after,
+.prod [data-link-type]::before,
+.prod [data-link-type]::after {
+    content: "";
+}
 
-            [data-link-type=element],
-            [data-link-type=element-attr] {
-                font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
-                font-size: .9em;
-            }
-            [data-link-type=element]::before { content: "<" }
-            [data-link-type=element]::after  { content: ">" }
+[data-link-type=element],
+[data-link-type=element-attr] {
+    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    font-size: .9em;
+}
+[data-link-type=element]::before { content: "<" }
+[data-link-type=element]::after  { content: ">" }
 
-            [data-link-type=biblio] {
-                white-space: pre;
-            }</style>
+[data-link-type=biblio] {
+    white-space: pre;
+}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-08-24">24 August 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-11-28">28 November 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-08-14.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-08-14.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2017-08-24.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2017-08-24.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1403,7 +1402,7 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 24 August 2017,
+In addition, as of 28 November 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1427,27 +1426,27 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#structure-accessibility-requirements"><span class="secno">3.3</span> <span class="content">Accessibility Requirements</span></a>
       <li><a href="#structure-limitations-assumptions-exceptions"><span class="secno">3.4</span> <span class="content">Limitations, Assumptions or Exceptions</span></a>
      </ol>
+    <li><a href="#acc-support"><span class="secno">4</span> <span class="content">Accessibility Support</span></a>
     <li>
-     <a href="#input-types"><span class="secno">4</span> <span class="content">Test Subject Types (Input Data)</span></a>
+     <a href="#input-types"><span class="secno">5</span> <span class="content">Test Subject Types (Input Data)</span></a>
      <ol class="toc">
-      <li><a href="#input-types-http-response"><span class="secno">4.1</span> <span class="content">HTTP Response Testing</span></a>
-      <li><a href="#input-types-dom-tree"><span class="secno">4.2</span> <span class="content">DOM Tree Testing</span></a>
-      <li><a href="#input-types-rendered-page"><span class="secno">4.3</span> <span class="content">Rendered Page Testing</span></a>
-      <li><a href="#input-types-template"><span class="secno">4.4</span> <span class="content">Template Testing</span></a>
-      <li><a href="#input-types-script"><span class="secno">4.5</span> <span class="content">Script Testing</span></a>
+      <li><a href="#input-types-http-response"><span class="secno">5.1</span> <span class="content">HTTP Response Testing</span></a>
+      <li><a href="#input-types-dom-tree"><span class="secno">5.2</span> <span class="content">DOM Tree Testing</span></a>
+      <li><a href="#input-types-rendered-page"><span class="secno">5.3</span> <span class="content">Rendered Page Testing</span></a>
+      <li><a href="#input-types-template"><span class="secno">5.4</span> <span class="content">Template Testing</span></a>
+      <li><a href="#input-types-script"><span class="secno">5.5</span> <span class="content">Script Testing</span></a>
      </ol>
     <li>
-     <a href="#test-proc"><span class="secno">5</span> <span class="content">ACT Test Procedure</span></a>
+     <a href="#test-proc"><span class="secno">6</span> <span class="content">ACT Test Procedure</span></a>
      <ol class="toc">
-      <li><a href="#test-proc-selector"><span class="secno">5.1</span> <span class="content">Selector</span></a>
-      <li><a href="#test-proc-cases"><span class="secno">5.2</span> <span class="content">Test Cases</span></a>
+      <li><a href="#test-proc-selector"><span class="secno">6.1</span> <span class="content">Selector</span></a>
+      <li><a href="#test-proc-steps"><span class="secno">6.2</span> <span class="content">Test Execution Steps</span></a>
      </ol>
-    <li><a href="#grouping"><span class="secno">6</span> <span class="content">Rule Grouping</span></a>
-    <li><a href="#acc-support"><span class="secno">7</span> <span class="content">Accessibility Support</span></a>
+    <li><a href="#grouping"><span class="secno">7</span> <span class="content">Rule Grouping</span></a>
     <li>
      <a href="#output"><span class="secno">8</span> <span class="content">ACT Data Format (Output Data)</span></a>
      <ol class="toc">
-      <li><a href="#output-selected-item"><span class="secno">8.1</span> <span class="content">Selected Item</span></a>
+      <li><a href="#output-test-target"><span class="secno">8.1</span> <span class="content">Test Target</span></a>
       <li><a href="#output-outcome"><span class="secno">8.2</span> <span class="content">Outcome</span></a>
       <li><a href="#output-comparable"><span class="secno">8.3</span> <span class="content">Ensure Comparable Results</span></a>
       <li><a href="#output-test-subject"><span class="secno">8.4</span> <span class="content">Test Subject</span></a>
@@ -1507,12 +1506,16 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="3.2" id="structure-description"><span class="secno">3.2. </span><span class="content">Rule Description</span><a class="self-link" href="#structure-description"></a></h3>
    <p>Each ACT Rule MUST have a description that is in plain language and provides a brief explanation of what the rule does.</p>
    <h3 class="heading settled" data-level="3.3" id="structure-accessibility-requirements"><span class="secno">3.3. </span><span class="content">Accessibility Requirements</span><a class="self-link" href="#structure-accessibility-requirements"></a></h3>
-   <p>Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule MAY be a complete or partial test for one or more accessibility requirements.</p>
-   <p>Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. if the rule returns a Failed result, this MUST be a failure for the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.</p>
-   <p>The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations may have particular requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria; in these too would be accessibility requirements.</p>
+   <p>Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule is a complete or partial test for one or more accessibility requirements.</p>
+   <p>Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.</p>
+   <p>The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations have additional Accessibility Requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria.</p>
    <h3 class="heading settled" data-level="3.4" id="structure-limitations-assumptions-exceptions"><span class="secno">3.4. </span><span class="content">Limitations, Assumptions or Exceptions</span><a class="self-link" href="#structure-limitations-assumptions-exceptions"></a></h3>
    <p>List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.</p>
-   <h2 class="heading settled" data-level="4" id="input-types"><span class="secno">4. </span><span class="content">Test Subject Types (Input Data)</span><a class="self-link" href="#input-types"></a></h2>
+   <h2 class="heading settled" data-level="4" id="acc-support"><span class="secno">4. </span><span class="content">Accessibility Support</span><a class="self-link" href="#acc-support"></a></h2>
+   <p>ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as <a href="https://www.w3.org/TR/WCAG20/#accessibility-supporteddef">Accessibility Supported in WCAG 2.0</a>. Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.</p>
+   <p>Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.</p>
+   <p>To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.</p>
+   <h2 class="heading settled" data-level="5" id="input-types"><span class="secno">5. </span><span class="content">Test Subject Types (Input Data)</span><a class="self-link" href="#input-types"></a></h2>
    <p>Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in turn parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the <em>test subject type</em> that an ACT Rule expects.</p>
    <p>The following test subject types are common in accessibility testing:</p>
    <ul>
@@ -1528,20 +1531,20 @@ Parts of this work may be from another specification document.  If so, those par
      <p>Script</p>
    </ul>
    <p>Other types of test subjects may be possible. In those cases the ACT Rule MUST include a detailed description of the test subject type, or a reference to the that description.</p>
-   <h3 class="heading settled" data-level="4.1" id="input-types-http-response"><span class="secno">4.1. </span><span class="content">HTTP Response Testing</span><a class="self-link" href="#input-types-http-response"></a></h3>
+   <h3 class="heading settled" data-level="5.1" id="input-types-http-response"><span class="secno">5.1. </span><span class="content">HTTP Response Testing</span><a class="self-link" href="#input-types-http-response"></a></h3>
    <p>Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.</p>
-   <h3 class="heading settled" data-level="4.2" id="input-types-dom-tree"><span class="secno">4.2. </span><span class="content">DOM Tree Testing</span><a class="self-link" href="#input-types-dom-tree"></a></h3>
+   <h3 class="heading settled" data-level="5.2" id="input-types-dom-tree"><span class="secno">5.2. </span><span class="content">DOM Tree Testing</span><a class="self-link" href="#input-types-dom-tree"></a></h3>
    <p>After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.</p>
-   <h3 class="heading settled" data-level="4.3" id="input-types-rendered-page"><span class="secno">4.3. </span><span class="content">Rendered Page Testing</span><a class="self-link" href="#input-types-rendered-page"></a></h3>
+   <h3 class="heading settled" data-level="5.3" id="input-types-rendered-page"><span class="secno">5.3. </span><span class="content">Rendered Page Testing</span><a class="self-link" href="#input-types-rendered-page"></a></h3>
    <p>Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.</p>
-   <h3 class="heading settled" data-level="4.4" id="input-types-template"><span class="secno">4.4. </span><span class="content">Template Testing</span><a class="self-link" href="#input-types-template"></a></h3>
+   <h3 class="heading settled" data-level="5.4" id="input-types-template"><span class="secno">5.4. </span><span class="content">Template Testing</span><a class="self-link" href="#input-types-template"></a></h3>
    <p>A template is a document that has "open" fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.</p>
    <div class="example" id="example-d714fb90"><a class="self-link" href="#example-d714fb90"></a> <code>&lt;img></code> tags with a variable <code>src</code>, MUST NOT have a static <code>alt</code> value. </div>
-   <h3 class="heading settled" data-level="4.5" id="input-types-script"><span class="secno">4.5. </span><span class="content">Script Testing</span><a class="self-link" href="#input-types-script"></a></h3>
+   <h3 class="heading settled" data-level="5.5" id="input-types-script"><span class="secno">5.5. </span><span class="content">Script Testing</span><a class="self-link" href="#input-types-script"></a></h3>
    <p>A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.</p>
    <div class="example" id="example-3c846cfc"><a class="self-link" href="#example-3c846cfc"></a> Component properties starting with <code>aria-</code> MUST exist in the list of WAI-ARIA attributes. </div>
-   <h2 class="heading settled" data-level="5" id="test-proc"><span class="secno">5. </span><span class="content">ACT Test Procedure</span><a class="self-link" href="#test-proc"></a></h2>
-   <h3 class="heading settled" data-level="5.1" id="test-proc-selector"><span class="secno">5.1. </span><span class="content">Selector</span><a class="self-link" href="#test-proc-selector"></a></h3>
+   <h2 class="heading settled" data-level="6" id="test-proc"><span class="secno">6. </span><span class="content">ACT Test Procedure</span><a class="self-link" href="#test-proc"></a></h2>
+   <h3 class="heading settled" data-level="6.1" id="test-proc-selector"><span class="secno">6.1. </span><span class="content">Selector</span><a class="self-link" href="#test-proc-selector"></a></h3>
    <p>A selector is a filter procedure that is used on the input data to be evaluated against the test procedure. For example, finding specific nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.</p>
    <p>Selector syntax depends on the test subject type. When a formal syntax can be used, that (part of the) selector should use that syntax. When a formal selector syntax can not be used, that (part of the) selector MAY be described unambiguously in plain language.</p>
    <p>This can be used together, such as in the following example which uses CSS selector syntax to locate elements, combined with a plain language description to further filter the nodes.</p>
@@ -1554,21 +1557,21 @@ Parts of this work may be from another specification document.  If so, those par
       <p>Exclude any elements that have <code>visibility:hidden</code> or <code>display: none</code></p>
     </ol>
    </div>
-   <h3 class="heading settled" data-level="5.2" id="test-proc-cases"><span class="secno">5.2. </span><span class="content">Test Cases</span><a class="self-link" href="#test-proc-cases"></a></h3>
-   <p>Each rule contains one or more test cases written in plain language. Each test case MUST provide the following:</p>
+   <h3 class="heading settled" data-level="6.2" id="test-proc-steps"><span class="secno">6.2. </span><span class="content">Test Execution Steps</span><a class="self-link" href="#test-proc-steps"></a></h3>
+   <p>Each rule contains one or more test execution steps written in plain language. Each test execution step MUST provide the following:</p>
    <ul>
     <li data-md="">
-     <p>Test case mode identifying whether test case steps are automated, semi-automated or require manual testing.</p>
+     <p>Test mode identifying whether test execution step is automated, semi-automated or requires manual testing.</p>
     <li data-md="">
-     <p>Test case steps which clearly outline the steps necessary to reach the result.</p>
+     <p>Test execution which clearly outlines the actions necessary to reach the result.</p>
     <li data-md="">
-     <p>Test case result indicating whether test case passed or failed.</p>
+     <p>Test result indicating whether test execution step passed or failed.</p>
     <li data-md="">
      <p>Description of the error causing any failing result.</p>
    </ul>
-   <p>Test case results are combined with other test case results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test cases, the results of all test cases are combined to give a single result for each selected item. The results are cumulative, meaning that as long as one test case passes, the rule has passed.</p>
-   <div class="example" id="example-a4625812">
-    <a class="self-link" href="#example-a4625812"></a> A rule for HTML <code>img</code> elements has two test cases: 
+   <p>Test execution step results are combined with other test execution step results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test execution steps, the results of all test execution steps are combined to give a single result for each test target. The results are cumulative, meaning that as long as one test execution step passes, the rule has passed.</p>
+   <div class="example" id="example-e4473aa4">
+    <a class="self-link" href="#example-e4473aa4"></a> A rule for HTML <code>img</code> elements has two test execution steps: 
     <ol>
      <li data-md="">
       <p>Check if there is a text alternative</p>
@@ -1577,19 +1580,15 @@ Parts of this work may be from another specification document.  If so, those par
     </ol>
     <p>If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.</p>
    </div>
-   <h2 class="heading settled" data-level="6" id="grouping"><span class="secno">6. </span><span class="content">Rule Grouping</span><a class="self-link" href="#grouping"></a></h2>
+   <h2 class="heading settled" data-level="7" id="grouping"><span class="secno">7. </span><span class="content">Rule Grouping</span><a class="self-link" href="#grouping"></a></h2>
    <p>In accessibility testing, there are often multiple ways to solve the same problem. For instance, in HTML tables, header cells can be indicated through the <code>scope</code> attribute, by using the <code>headers</code> attributes, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.</p>
    <p>To meet the accessibility requirement, only one rule in a rule-group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels). If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.</p>
    <p class="note" role="note">Editor’s Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0’s Multiple ways success criterion</a>, this may be useful.</p>
    <p>Elements can pass a rules group if at least one rule within that group selected that element, and returned a passed result. Likewise, an element will fail the rule group, if any rule in the group selected it, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the element passed this group of rules.</p>
    <p>Note that rules in a group MAY have different selectors. Because of this, not every element selected within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See <a href="#acc-support">Accessibility support</a> for details.</p>
-   <h2 class="heading settled" data-level="7" id="acc-support"><span class="secno">7. </span><span class="content">Accessibility Support</span><a class="self-link" href="#acc-support"></a></h2>
-   <p>ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as <a href="https://www.w3.org/TR/WCAG20/#accessibility-supporteddef">Accessibility Supported in WCAG 2.0</a>. Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.</p>
-   <p>Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.</p>
-   <p>To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.</p>
    <h2 class="heading settled" data-level="8" id="output"><span class="secno">8. </span><span class="content">ACT Data Format (Output Data)</span><a class="self-link" href="#output"></a></h2>
    <p>With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.</p>
-   <p>Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of <em>Selected items</em> (elements, tags or other "components") to test. Following this, each <em>selected item</em> will be taken through the test procedure of the rule. This will give the <em>outcome</em> for each <em>selected item</em>. For contextual information, the output data must also include <em>test subject</em> and the <em>rule identifier</em>.</p>
+   <p>Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of <em>Test Targets</em> (elements, tags or other "components") to test. Following this, each <em>test target</em> will be taken through the test procedure of the rule. This will give the <em>outcome</em> for each <em>test target</em>. For contextual information, the output data must also include <em>test subject</em> and the <em>rule identifier</em>.</p>
    <p>This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:</p>
    <ul>
     <li data-md="">
@@ -1599,7 +1598,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p>pointer (Selected item)</p>
     <li data-md="">
-     <p>outcome (<code>Passed</code>, <code>Failed</code> or <code>Undetermined</code>)</p>
+     <p>outcome (<code>Passed</code>, <code>Failed</code> or <code>CannotTell</code>)</p>
    </ul>
    <div class="example" id="example-807d1071">
     <a class="self-link" href="#example-807d1071"></a> Output data using EARL and JSON-LD 
@@ -1613,9 +1612,9 @@ Parts of this work may be from another specification document.  If so, those par
 <span class="p">}</span>
 </pre>
    </div>
-   <h3 class="heading settled" data-level="8.1" id="output-selected-item"><span class="secno">8.1. </span><span class="content">Selected Item</span><a class="self-link" href="#output-selected-item"></a></h3>
-   <p>When representing the selected item in the output data, it is often impractical or impossible to serialize the selected item as a whole. Instead of this, a pointer can be used to indicate where the selected item exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in <a href="https://www.w3.org/TR/Pointers-in-RDF/">Pointer Methods in RDF 1.0</a>.</p>
-   <p>The pointer method used in the output data of an ACT Rule MUST include the pointer method used in <a href="#quality-implement">Implementation Test Cases</a>.</p>
+   <h3 class="heading settled" data-level="8.1" id="output-test-target"><span class="secno">8.1. </span><span class="content">Test Target</span><a class="self-link" href="#output-test-target"></a></h3>
+   <p>When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in <a href="https://www.w3.org/TR/Pointers-in-RDF/">Pointer Methods in RDF 1.0</a>.</p>
+   <p>The pointer method used in the output data of an ACT Rule MUST include the pointer method used in <a href="#quality-implement">Implementation Validation</a>.</p>
    <h3 class="heading settled" data-level="8.2" id="output-outcome"><span class="secno">8.2. </span><span class="content">Outcome</span><a class="self-link" href="#output-outcome"></a></h3>
    <p>The procedure of a rule MUST always return one of the following outcomes:</p>
    <ul>
@@ -1624,10 +1623,10 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p><strong>Failed</strong>: The Test Target failed the test</p>
     <li data-md="">
-     <p><strong>Undetermined</strong>: The result of the test is unknown. Human intervention or further testing is needed.</p>
+     <p><strong>CannotTell</strong>: The result of the test is unknown. Human intervention or further testing is needed.</p>
    </ul>
    <h3 class="heading settled" data-level="8.3" id="output-comparable"><span class="secno">8.3. </span><span class="content">Ensure Comparable Results</span><a class="self-link" href="#output-comparable"></a></h3>
-   <p>In addition to the Selected Item and the Outcome, ACT Rule output data MUST include the following contextual information:</p>
+   <p>In addition to the Test Target and the Outcome, ACT Rule output data MUST include the following contextual information:</p>
    <ul>
     <li data-md="">
      <p>the Web page, file or other test subject the rule was applied to and</p>
@@ -1638,8 +1637,8 @@ Parts of this work may be from another specification document.  If so, those par
    <p>When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.</p>
    <h2 class="heading settled" data-level="9" id="quality"><span class="secno">9. </span><span class="content">Rule Quality Assurance</span><a class="self-link" href="#quality"></a></h2>
    <h3 class="heading settled" data-level="9.1" id="quality-implement"><span class="secno">9.1. </span><span class="content">Implementation Validation</span><a class="self-link" href="#quality-implement"></a></h3>
-   <p>Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test case in the rule.</p>
-   <p>An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule’s test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of <a href="#output-selected-item">pointers</a> and the expected <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable) of the evaluation.</p>
+   <p>Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test execution step in the rule.</p>
+   <p>An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule’s test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of <a href="#output-test-target">pointers</a> and the expected <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable) of the evaluation.</p>
    <h3 class="heading settled" data-level="9.2" id="quality-accuracy"><span class="secno">9.2. </span><span class="content">Accuracy Benchmarking</span><a class="self-link" href="#quality-accuracy"></a></h3>
    <p>The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.</p>
    <p>This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured, by comparing it’s results to those obtained through accessibility expert testing.</p>
@@ -1650,9 +1649,9 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p><strong>False negatives</strong>: This is the percentage of selected elements, that were passed by the rule, but were failed by an accessibility expert.</p>
    </ul>
-   <p>There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.</p>
+   <p>There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.</p>
    <h3 class="heading settled" data-level="9.3" id="output-aggregation"><span class="secno">9.3. </span><span class="content">Rule Aggregation</span><a class="self-link" href="#output-aggregation"></a></h3>
-   <p>As describe in section <a href="#output">§8 ACT Data Format (Output Data)</a> a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or Undetermined), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.</p>
+   <p>As described in section <a href="#output">§8 ACT Data Format (Output Data)</a> a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or CannotTell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.</p>
    <p>Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.</p>
    <p>When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.</p>
    <p><strong>Example:</strong> An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.</p>
