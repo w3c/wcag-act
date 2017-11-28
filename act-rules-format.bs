@@ -72,6 +72,16 @@ Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-excep
 List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
 
 
+Accessibility Support {#acc-support}
+===========================
+
+ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.
+
+Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.
+
+To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
+
+
 Test Subject Types (Input Data) {#input-types}
 ===================================
 
@@ -181,16 +191,6 @@ To meet the accessibility requirement, only one rule in a rule-group has to pass
 Elements can pass a rules group if at least one rule within that group selected that element, and returned a passed result. Likewise, an element will fail the rule group, if any rule in the group selected it, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the element passed this group of rules.
 
 Note that rules in a group MAY have different selectors. Because of this, not every element selected within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
-
-
-Accessibility Support {#acc-support}
-===========================
-
-ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.
-
-Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.
-
-To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
 
 
 ACT Data Format (Output Data) {#output}
