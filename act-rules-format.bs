@@ -59,11 +59,11 @@ Each ACT Rule MUST have a description that is in plain language and provides a b
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule MAY be a complete or partial test for one or more accessibility requirements.
+Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule is a complete or partial test for one or more accessibility requirements.
 
-Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. if the rule returns a Failed result, this MUST be a failure for the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
+Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
-The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations may have particular requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria; in these too would be accessibility requirements.
+The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations have additional Accessibility Requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria.
 
 
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
