@@ -264,7 +264,7 @@ Implementation Validation {#quality-implement}
 
 Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test execution step in the rule.
 
-An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-selected-item) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
+An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
