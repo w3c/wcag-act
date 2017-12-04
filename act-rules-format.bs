@@ -49,6 +49,7 @@ Each ACT Rule MUST provide the following items written in plain language:
 * [Test Subject Type](#input-types)
 * [Test Procedure](#test-proc)
 
+<p class="note">Note: The unique identifier can be any unique text value, such as plain text, URL or a database identifier.</p>
 
 Rule Description {#structure-description}
 ----------------------------------------
