@@ -38,7 +38,7 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Each ACT Rule MUST provide the following items written in plain language:
+Each ACT Rule MUST be written in plain language. It MUST consist of the following items:
 
 * Descriptive title
 * Unique identifier
