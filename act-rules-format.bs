@@ -217,8 +217,10 @@ Output data using EARL and JSON-LD
   "@type": "Assertion",
   "subject": "https://example.org/",
   "test": "auto-wcag:rules/SC1-1-1-css-image.html",
-  "outcome": "Failed",
-  "pointer": "html > body > h1:first-child"
+  "result": {
+    "outcome": "Failed",
+    "pointer": "html > body > h1:first-child"
+  }
 }
 ```
 </div>
@@ -336,14 +338,22 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
   "@type": "Assertion",
   "subject": "https://example.org/",
   "test": "auto-wcag:SC1-1-1-css-image.html",
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "pointer": "html > body > h1:first-child"
-  }, {
-    "outcome": "Passed",
-    "pointer": "html > body > h1:nth-child(2)"
-  }]
+    "source": [{
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Failed",
+        "pointer": "html > body > h1:first-child"
+      }
+    }, {
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Passed",
+        "pointer": "html > body > h1:nth-child(2)"
+      }
+    }]
+  }
 }
 ```
 
@@ -358,16 +368,22 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
     "@id": "wcag20:#text-equiv-all",
     "title": "1.1.1 Non-text Content"
   },
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "test": "auto-wcag:SC1-1-1-css-image.html",
-    "pointer": "html > body > h1:first-child"
-  }, {
-    "outcome": "Passed",
-    "test": "auto-wcag:SC1-1-1-longdesc.html",
-    "pointer": "html > body > img:nth-child(2)"
-  }]
+    "source": [{
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Failed",
+        "pointer": "html > body > h1:first-child"
+      }
+    }, {
+      "test": "auto-wcag:SC1-1-1-longdesc.html",
+      "result": {
+        "outcome": "Passed",
+        "pointer": "html > body > img:nth-child(2)"
+      }
+    }]
+  }
 }
 ```
 
@@ -382,19 +398,27 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
     "@value": "https://example.org/"
   }
   "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "test": "wcag20:text-equiv-all",
-    "source": [ … ]
-  }, {
-    "outcome": "Passed",
-    "test": "wcag20:media-equiv-av-only-alt",
-    "source": [ … ]
-  }, {
-    "outcome": "Inapplicable",
-    "test": "wcag20:media-equiv-captions",
-    "source": [ … ]
-  }, … ]
+    "source": [{
+      "test": "wcag20:text-equiv-all",
+      "result": {
+        "outcome": "Failed",
+        "source": [ … ]
+      }
+    }, {
+      "test": "wcag20:media-equiv-av-only-alt",
+      "result": {
+        "outcome": "Passed",
+        "source": [ … ]
+      }
+    }, {
+      "test": "wcag20:media-equiv-captions",
+      "result" : {
+        "outcome": "Inapplicable",
+        "source": [ … ]
+      }
+    }, … ]
+  }
 }
 ```
