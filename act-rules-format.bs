@@ -86,7 +86,7 @@ To support users of ACT Rules in properly defining their test scenarios, ACT Rul
 Aspects Under Test {#input-aspects}
 ===================================
 
-ACT Rules can operate on different aspects of the subject being tested. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
+ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
 Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete and no overlap exist between aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
 
