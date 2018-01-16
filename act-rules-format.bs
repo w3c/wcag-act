@@ -147,6 +147,8 @@ The applicability section is a required part of an ACT rule. It MUST contain a p
 
 Applicability SHOULD be described unambiguously in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing on in the test subject matches the applicability of the rule, the result is `inapplicable`.
 
+An unambiguous description is one that can be resolved without uncertainty in a given technology. Examples of unambiguous properties in HTML are element names, their computed role, the spacing between two elements, etc. Ambiguous properties are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with no ambiguity. When used in applicability, these concepts MUST have an unambiguous definition.
+
 <div class=example>
 A rule for HTML `img` elements without alt has the following applicability:
 
@@ -159,9 +161,9 @@ Each `img` element without an `alt` attribute (e.g. `img:not([alt])` in CSS).
 Expectations
 ------------
 
-Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each test target (see Applicability). Each expectation MUST be written in plain language.
+Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each test target (see Applicability). Each expectation MUST be written in plain language. Unlike in applicability, a certain level of ambiguity is allowed in expectations.
 
-When all expectations are true for a test target it `passed` the rule. If one or more expectations is not true, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see rule grouping for details).
+When all expectations are true for a test target it `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see rule grouping for details).
 
 <div class=example>
 A rule for HTML `img` elements without alt has the following two expectations:
