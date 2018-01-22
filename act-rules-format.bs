@@ -111,7 +111,7 @@ The means by which the CSS styling is computed, be it by a web browser or not, i
 
 ### Accessibility Tree ### {#input-aspects-accessibility}
 
-The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules that wish to test the web page as presented to assistive technologies such as screen readers.
+The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules that wish to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
 
 The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[CORE-AAM-1.1]].
 
