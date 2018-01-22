@@ -143,11 +143,11 @@ ACT Test Procedure {#test-proc}
 Applicability
 -------------
 
-The applicability section is a required part of an ACT rule. It MUST contain a precise description of what (parts of the) test subject the rule applies to. For example, specific nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document. These are known as the **test targets**.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of what (parts of the) test subject the rule applies to. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*.
 
-Applicability SHOULD be described unambiguously in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing on in the test subject matches the applicability of the rule, the result is `inapplicable`.
+Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing on in the test subject matches the applicability of the rule, the result is `inapplicable`.
 
-An unambiguous description is one that can be resolved without uncertainty in a given technology. Examples of unambiguous properties in HTML are element names, their computed role, the spacing between two elements, etc. Ambiguous properties are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with no ambiguity. When used in applicability, these concepts MUST have an unambiguous definition.
+An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with objectively. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
 <div class=example>
 A rule for labels of HTML `input` elements may have the following applicability:
@@ -161,9 +161,9 @@ Each *available* `input` element, except elements with `type="hidden"`.
 Expectations
 ------------
 
-Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each test target (see Applicability). Each expectation MUST be written in plain language. Unlike in applicability, a certain level of ambiguity is allowed in expectations.
+Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectively is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
-When all expectations are true for a test target it `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see rule grouping for details).
+When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see rule grouping for details).
 
 <div class=example>
 A rule for labels of HTML `input` elements may have the following expectations:
@@ -183,7 +183,7 @@ To meet the accessibility requirement, only one rule in a rule group has to pass
 
 <p class="note">Editor's Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.</p>
 
-Test targets can pass a rules group if it was applicable to at least one rule within that group, and returned a passed result. Likewise, a test target will fail the rule group, if it was applicable in any rule in the group, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the test target passed this group of rules.
+Test targets can pass a rules group if it was applicable to at least one rule within that group, and returned a passed result. Likewise, a *test target* will fail the rule group, if it was applicable in any rule in the group, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the *test target* passed this group of rules.
 
 Note that rules in a group MAY have different applicability. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
 
@@ -221,7 +221,7 @@ Output data using EARL and JSON-LD
 Test Target {#output-test-target}
 ------------------------------
 
-When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
+When representing the *test target* in the output data, it is often impractical or impossible to serialize the *test target* as a whole. Instead of this, a pointer can be used to indicate where the *test target* exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
 The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Validation](#quality-implement).
 
@@ -272,9 +272,9 @@ This makes it important to be able to regularly test if the rule has the accurac
 
 The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
 
-- **False positives**: This is the percentage of test targets, that were failed by the rule, but were not failed by an accessibility expert.
+- **False positives**: This is the percentage of *test targets*, that were failed by the rule, but were not failed by an accessibility expert.
 
-- **False negatives**: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.
+- **False negatives**: This is the percentage of *test targets*, that were passed by the rule, but were failed by an accessibility expert.
 
 There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.
 
@@ -282,13 +282,13 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or CannotTell), 2) the test target, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or CannotTell), 2) the *test target*, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
 When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.
 
-**Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 test targets that pass, and a 3rd test target that fails.
+**Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 *test targets* that pass, and a 3rd *test target* that fails.
 
 In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combining this inapplicable and fail, means the success criterion has failed.
 
