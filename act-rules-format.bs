@@ -115,6 +115,12 @@ The accessibility tree constructed from extracting information from both the DOM
 
 The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[CORE-AAM-1.1]].
 
+### Language ### {#input-aspects-text}
+
+Language, either written or spoken, as available in e.g. nodes of the DOM or accessibility trees may be of interest to ACT Rules that wish to test things like complexity or intention of the language. For example, an ACT Rule might wish to test that certain paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description thereof.
+
+The means by which the language is assessed, be it by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]].
+
 
 ACT Test Procedure {#test-proc}
 ===============================
