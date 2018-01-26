@@ -143,25 +143,29 @@ ACT Test Procedure {#test-proc}
 Applicability
 -------------
 
-The applicability section is a required part of an ACT rule. It MUST contain a precise description of what (parts of the) test subject the rule applies to. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the test subject to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*.
 
-Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing on in the test subject matches the applicability of the rule, the result is `inapplicable`.
+Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
 
-An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with objectively. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
+An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
 <div class=example>
 A rule for labels of HTML `input` elements may have the following applicability:
 
 Each *available* `input` element, except elements with `type="hidden"`.
 
-**available**: The isn't hidden with `display:none`, `visibility:hidden` or though `aria-hidden="true"`.
+**available**: The element isn't hidden with `display:none`, `visibility:hidden` or though `aria-hidden="true"`.
 </div>
 
 
 Expectations
 ------------
 
-Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectively is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+
+<p class=note>
+  Editor note - The task force is looking for feedback about if expectations should be allowed to reference each other, or if each must be testable independently of the others.
+</p>
 
 When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see rule grouping for details).
 
@@ -179,7 +183,7 @@ Rule Grouping {#grouping}
 
 In accessibility testing, there are often multiple ways to solve the same problem. For instance, in HTML tables, header cells can be indicated through the `scope` attribute, by using the `headers` attributes, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
 
-To meet the accessibility requirement, only one rule in a rule group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels). If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
+To meet the accessibility requirement, only one rule in a rule group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels. If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
 
 <p class="note">Editor's Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.</p>
 
@@ -200,7 +204,7 @@ This will mean that every time a rule is executed on a page, it will return a se
 - test (Rule ID)
 - subject (Web page)
 - pointer (Test target)
-- outcome (`Passed`, `Failed` or `CannotTell`)
+- outcome (`Passed` or `Failed`)
 
 <div class=example>
 Output data using EARL and JSON-LD
@@ -233,7 +237,6 @@ The procedure of a rule MUST always return one of the following outcomes:
 
 - **Passed**: All *expectations* for the Test Target were true
 - **Failed**: One or more *expectations* for the Test Target was false
-- **CannotTell**: The *applicability* or some of the *expectations* were inconclusive. Human intervention or further testing is needed.
 - **Inapplicable**: There were no Test Targets in the Test Subject
 
 
@@ -282,7 +285,7 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or CannotTell), 2) the *test target*, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed or Failed), 2) the *test target*, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
