@@ -46,7 +46,7 @@ Each ACT Rule MUST be written in plain language. It MUST consist of the followin
 * [Accessibility Requirements](#structure-accessibility-requirements)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
-* [Test Subject Type](#input-types)
+* [Aspects Under Test](#input-aspects)
 * [Test Procedure](#test-proc)
 
 <p class="note">Note: The unique identifier can be any unique text value, such as plain text, URL or a database identifier.</p>
@@ -83,58 +83,43 @@ Even within a rules group, certain rules may not be used. This leaves one fewer 
 To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
 
 
-Test Subject Types (Input Data) {#input-types}
+Aspects Under Test {#input-aspects}
 ===================================
 
-Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in turn parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the *test subject type* that an ACT Rule expects.
+ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
-The following test subject types are common in accessibility testing:
+Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
 
-- HTTP Response
-- DOM Tree
-- Rendered Page
-- Template
-- Script
+Common Aspects {#input-aspects-common}
+--------------------------------------
 
-Other types of test subjects may be possible. In those cases the ACT Rule MUST include a detailed description of the test subject type, or a reference to the that description.
+### HTTP Messages ### {#input-aspects-http}
 
+The HTTP messages exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example to perform validation of HTTP headers or unparsed HTML and CSS.
 
-HTTP Response Testing {#input-types-http-response}
---------------------------------------------
+### DOM Tree ### {#input-aspects-dom}
 
-Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
+The DOM tree constructed from parsing HTML, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
+The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[DOM]].
 
-DOM Tree Testing {#input-types-dom-tree}
------------------------------------
+### CSS Styling ### {#input-aspects-css}
 
-After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
+The computed CSS styling resulting from parsing CSS and applying it to the DOM may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.
 
+The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as [[CSSOM]].
 
-Rendered Page Testing {#input-types-rendered-page}
---------------------------------------------
+### Accessibility Tree ### {#input-aspects-accessibility}
 
-Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
+The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
 
+The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[CORE-AAM-1.1]].
 
-Template Testing {#input-types-template}
-----------------------------------
+### Language ### {#input-aspects-text}
 
-A template is a document that has "open" fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
+Language, either written or spoken, as available in nodes of the DOM or accessibility trees may be of interest to ACT Rules that wish to test things like complexity or intention of the language. For example, an ACT Rule might wish to test that certain paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description thereof.
 
-<div class=example>
-`<img>` tags with a variable `src`, MUST NOT have a static `alt` value.
-</div>
-
-
-Script Testing {#input-types-script}
-------------------------------
-
-A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
-
-<div class=example>
-Component properties starting with `aria-` MUST exist in the list of WAI-ARIA attributes.
-</div>
+The means by which the language is assessed, be it by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]].
 
 
 ACT Test Procedure {#test-proc}
