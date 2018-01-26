@@ -88,36 +88,36 @@ Aspects Under Test {#input-aspects}
 
 ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
-Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete and no overlap exist between aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
+Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
 
 Common Aspects {#input-aspects-common}
 --------------------------------------
 
 ### HTTP Messages ### {#input-aspects-http}
 
-The HTTP messages exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules that wish to perform validation of e.g. HTTP headers or unparsed HTML and CSS.
+The HTTP messages exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example to perform validation of HTTP headers or unparsed HTML and CSS.
 
 ### DOM Tree ### {#input-aspects-dom}
 
-The DOM tree constructed from parsing HTML, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules that wish to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
+The DOM tree constructed from parsing HTML, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
 The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[DOM]].
 
 ### CSS Styling ### {#input-aspects-css}
 
-The computed CSS styling resulting from parsing CSS and applying it to the DOM may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the fore- and background colors, the visibility, and more, of elements becomes available.
+The computed CSS styling resulting from parsing CSS and applying it to the DOM may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.
 
 The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as [[CSSOM]].
 
 ### Accessibility Tree ### {#input-aspects-accessibility}
 
-The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules that wish to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
+The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
 
 The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[CORE-AAM-1.1]].
 
 ### Language ### {#input-aspects-text}
 
-Language, either written or spoken, as available in e.g. nodes of the DOM or accessibility trees may be of interest to ACT Rules that wish to test things like complexity or intention of the language. For example, an ACT Rule might wish to test that certain paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description thereof.
+Language, either written or spoken, as available in nodes of the DOM or accessibility trees may be of interest to ACT Rules that wish to test things like complexity or intention of the language. For example, an ACT Rule might wish to test that certain paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description thereof.
 
 The means by which the language is assessed, be it by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]].
 
