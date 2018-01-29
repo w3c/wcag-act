@@ -17,7 +17,7 @@ Introduction {#intro}
 
 There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as WCAG 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
 
-This format is intended to provide a consistent interpretation of how to test for accessibility requirements so as to avoid conflicting results of accessibility tests. It is intended for both manual accessibility tests as well as for automated testing done through accessibility test tools (ATTs).
+This format is intended to enable a consistent interpretation of how to test for accessibility requirements so as to avoid conflicting results of accessibility tests. It is intended to be applicable to describe both manual accessibility tests as well as automated testing done through accessibility test tools (ATTs).
 
 Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements of these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
@@ -25,11 +25,11 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Rules Format scope is focused on the development of ACT Rules for the conformance testing of content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Rules Format could conceivably be used for other technologies.
+The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Rules Format could conceivably be used for other technologies.
 
-Accessibility requirements such as Web Content Accessibility Guidelines, which is specifically designed for web content, can be tested using ACT Rules.
+For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the accessibility requirements defined in the Web Content Accessbility Guidelines, which are specifically designed for web content.
 
-Other accessibility requirements that may be applicable to web technologies should also be testable with ACT Rules. For example, the User Agent Accessibility Guidelines 2.0 is applicable to web-based user agents, for which ACT Rules could be developed, but other technologies can also be used to develop User Agents, which are not web-based. Because some accessibility requirements may be applicable to technologies other than web technologies, the ACT Rules Format may not be suitable for every part of these accessibility requirement.
+Other accessibility requirements applicable to web technologies could also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the User Agent Accessibility Guidelines. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
 
 
 ACT Rule Structure {#structure}
@@ -38,7 +38,7 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Each ACT Rule MUST provide the following items written in plain language:
+Each ACT Rule MUST be written in plain language. It MUST consist of the following items:
 
 * Descriptive title
 * Unique identifier
@@ -46,9 +46,10 @@ Each ACT Rule MUST provide the following items written in plain language:
 * [Accessibility Requirements](#structure-accessibility-requirements)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
-* [Test Subject Type](#input-types)
+* [Aspects Under Test](#input-aspects)
 * [Test Procedure](#test-proc)
 
+<p class="note">Note: The unique identifier can be any unique text value, such as plain text, URL or a database identifier.</p>
 
 Rule Description {#structure-description}
 ----------------------------------------
@@ -82,100 +83,83 @@ Even within a rules group, certain rules may not be used. This leaves one fewer 
 To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
 
 
-Test Subject Types (Input Data) {#input-types}
+Aspects Under Test {#input-aspects}
 ===================================
 
-Web pages, including publications and applications, go through many different stages before it is rendered to the end user. For example, PHP may be used to put various pieces of content into a template. That template is then sent as an HTML text document to a web browser. The browser in turn parses it and turns it into a DOM tree before rendering it to the screen. Accessibility tests could be run at each of these stages. It is therefore important to specify the *test subject type* that an ACT Rule expects.
+ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
-The following test subject types are common in accessibility testing:
+Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
 
-- HTTP Response
-- DOM Tree
-- Rendered Page
-- Template
-- Script
+Common Aspects {#input-aspects-common}
+--------------------------------------
 
-Other types of test subjects may be possible. In those cases the ACT Rule MUST include a detailed description of the test subject type, or a reference to the that description.
+### HTTP Messages ### {#input-aspects-http}
 
+The HTTP messages exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example to perform validation of HTTP headers or unparsed HTML and CSS.
 
-HTTP Response Testing {#input-types-http-response}
---------------------------------------------
+### DOM Tree ### {#input-aspects-dom}
 
-Testing the files as they are served to the web browser (or other user agent) has its limitations. The files may be manipulated in different ways through presentation and scripting. Although this is an excellent place for parser testing.
+The DOM tree constructed from parsing HTML, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
+The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[DOM]].
 
-DOM Tree Testing {#input-types-dom-tree}
------------------------------------
+### CSS Styling ### {#input-aspects-css}
 
-After the web browser (or other user agent) has parsed the files, and executed scripts to get it into a specific state (be it the initial state or any other), tests can be run against the DOM Tree. The DOM Tree can be tested for things like correct parent-child relationships, use of required attributes or properties and more.
+The computed CSS styling resulting from parsing CSS and applying it to the DOM may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.
 
+The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as [[CSSOM]].
 
-Rendered Page Testing {#input-types-rendered-page}
---------------------------------------------
+### Accessibility Tree ### {#input-aspects-accessibility}
 
-Testing the browser is the next level up from DOM Tree Testing. In addition to building the DOM Tree, the browser styles elements in the DOM tree and positions them. This enables a rule to determine if an element is visible, which is critical for many tests. Additionally, testing things like the color contrast becomes possible at this level.
+The accessibility tree constructed from extracting information from both the DOM tree and the CSS styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
 
+The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[CORE-AAM-1.1]].
 
-Template Testing {#input-types-template}
-----------------------------------
+### Language ### {#input-aspects-text}
 
-A template is a document that has "open" fields that are filled with pieces of content or other templates. E.g. an HTML template contains a head with a variable title, a predefined navigation, and a variable content area.
+Language, either written or spoken, as available in nodes of the DOM or accessibility trees may be of interest to ACT Rules that wish to test things like complexity or intention of the language. For example, an ACT Rule might wish to test that certain paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description thereof.
 
-<div class=example>
-`<img>` tags with a variable `src`, MUST NOT have a static `alt` value.
-</div>
-
-
-Script Testing {#input-types-script}
-------------------------------
-
-A composition is a class or component that extends other native elements or other compositions, to build a higher level component. E.g. a login form component, consists of a form, a few fields, and a label.
-
-<div class=example>
-Component properties starting with `aria-` MUST exist in the list of WAI-ARIA attributes.
-</div>
+The means by which the language is assessed, be it by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]].
 
 
 ACT Test Procedure {#test-proc}
 ===============================
 
-Selector {#test-proc-selector}
-------------------------------
+Applicability
+-------------
 
-A selector is a filter procedure that is used on the input data to be evaluated against the test procedure. For example, finding specific nodes in the DOM tree, or finding tags that are incorrectly closed in an HTML document.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the test subject to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*.
 
-Selector syntax depends on the test subject type. When a formal syntax can be used, that (part of the) selector should use that syntax. When a formal selector syntax can not be used, that (part of the) selector MAY be described unambiguously in plain language.
+Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
 
-This can be used together, such as in the following example which uses CSS selector syntax to locate elements, combined with a plain language description to further filter the nodes.
+An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
 <div class=example>
-A rule for HTML `img` elements has the following selector:
+A rule for labels of HTML `input` elements may have the following applicability:
 
-1. Select elements matching the following CSS Selector: `img:not([alt=""])`
-2. Exclude any elements that have `visibility:hidden` or `display: none`
+Each *available* `input` element, except elements with `type="hidden"`.
 
+**available**: The element isn't hidden with `display:none`, `visibility:hidden` or though `aria-hidden="true"`.
 </div>
 
 
-Test Execution Steps {#test-proc-steps}
------------------------------
+Expectations
+------------
 
-Each rule contains one or more test execution steps written in plain language. Each test execution step MUST provide the following:
+Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
-* Test mode identifying whether test execution step is automated, semi-automated or requires manual testing.
-* Test execution which clearly outlines the actions necessary to reach the result.
-* Test result indicating whether test execution step passed or failed.
-  * Description of the error causing any failing result.
+<p class=note>
+  Editor note - The task force is looking for feedback about if expectations should be allowed to reference each other, or if each must be testable independently of the others.
+</p>
 
-Test execution step results are combined with other test execution step results to provide a cumulative outcome, pass or fail, of the rule. When a rule has multiple test execution steps, the results of all test execution steps are combined to give a single result for each test target. The results are cumulative, meaning that as long as one test execution step passes, the rule has passed.
+When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see rule grouping for details).
 
 <div class=example>
-A rule for HTML `img` elements has two test execution steps:
-
-1. Check if there is a text alternative
-2. Check if the image is marked as decorative.
-
-If either one of these passed, the rule has passed. Only if both fail, does that element fail the rule.
+  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
+  <ol>
+    <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)).</li>
+    <li>The accessible name describes the purpose of the test target.</li>
+  </ol>
 </div>
 
 
@@ -184,13 +168,13 @@ Rule Grouping {#grouping}
 
 In accessibility testing, there are often multiple ways to solve the same problem. For instance, in HTML tables, header cells can be indicated through the `scope` attribute, by using the `headers` attributes, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
 
-To meet the accessibility requirement, only one rule in a rule-group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels). If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
+To meet the accessibility requirement, only one rule in a rule group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels. If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
 
 <p class="note">Editor's Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.</p>
 
-Elements can pass a rules group if at least one rule within that group selected that element, and returned a passed result. Likewise, an element will fail the rule group, if any rule in the group selected it, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the element passed this group of rules.
+Test targets can pass a rules group if it was applicable to at least one rule within that group, and returned a passed result. Likewise, a *test target* will fail the rule group, if it was applicable in any rule in the group, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the *test target* passed this group of rules.
 
-Note that rules in a group MAY have different selectors. Because of this, not every element selected within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
+Note that rules in a group MAY have different applicability. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
 
 
 ACT Data Format (Output Data) {#output}
@@ -198,14 +182,14 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the selector is applied to the web page or other test subject. This results in a list of *Test Targets* (elements, tags or other "components") to test. Following this, each *test target* will be taken through the test procedure of the rule. This will give the *outcome* for each *test target*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
+Rules are tested in two steps. Firstly, an applicability is used to find a list of *Test Targets* (elements, tags or other "components") within the web page or other test subject. Following this, each *test target* is tested to see if all expectations are true. This will give the *outcome* for each *test target*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
 - test (Rule ID)
 - subject (Web page)
-- pointer (Selected item)
-- outcome (`Passed`, `Failed` or `CannotTell`)
+- pointer (Test target)
+- outcome (`Passed` or `Failed`)
 
 <div class=example>
 Output data using EARL and JSON-LD
@@ -216,8 +200,10 @@ Output data using EARL and JSON-LD
   "@type": "Assertion",
   "subject": "https://example.org/",
   "test": "auto-wcag:rules/SC1-1-1-css-image.html",
-  "outcome": "Failed",
-  "pointer": "html > body > h1:first-child"
+  "result": {
+    "outcome": "Failed",
+    "pointer": "html > body > h1:first-child"
+  }
 }
 ```
 </div>
@@ -226,7 +212,7 @@ Output data using EARL and JSON-LD
 Test Target {#output-test-target}
 ------------------------------
 
-When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
+When representing the *test target* in the output data, it is often impractical or impossible to serialize the *test target* as a whole. Instead of this, a pointer can be used to indicate where the *test target* exists within the web page or other test subject. There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/).
 
 The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Validation](#quality-implement).
 
@@ -236,9 +222,9 @@ Outcome {#output-outcome}
 
 The procedure of a rule MUST always return one of the following outcomes:
 
-- **Passed**: The Test Target passed the test
-- **Failed**: The Test Target failed the test
-- **CannotTell**: The result of the test is unknown. Human intervention or further testing is needed.
+- **Passed**: All *expectations* for the Test Target were true
+- **Failed**: One or more *expectations* for the Test Target was false
+- **Inapplicable**: There were no Test Targets in the Test Subject
 
 
 Ensure Comparable Results {#output-comparable}
@@ -262,7 +248,7 @@ Rule Quality Assurance {#quality}
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the selector, as well as for each test execution step in the rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the *applicability*, as well as for each *expectation* in the rule.
 
 An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
@@ -276,9 +262,9 @@ This makes it important to be able to regularly test if the rule has the accurac
 
 The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
 
-- **False positives**: This is the percentage of selected elements, that were failed by the rule, but were not failed by an accessibility expert.
+- **False positives**: This is the percentage of *test targets*, that were failed by the rule, but were not failed by an accessibility expert.
 
-- **False negatives**: This is the percentage of selected elements, that were passed by the rule, but were failed by an accessibility expert.
+- **False negatives**: This is the percentage of *test targets*, that were passed by the rule, but were failed by an accessibility expert.
 
 There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, data aggregation may be necessary.
 
@@ -286,13 +272,13 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed, Failed or CannotTell), 2) the selected item, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) an outcome (Passed or Failed), 2) the *test target*, 3) the Rule ID and 4) the test subject. Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
 When all rules pass, that does not mean that all accessibility requirements are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criteria is inconclusive.
 
-**Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 elements that pass, and a 3rd element that fails.
+**Example:** An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 *test targets* that pass, and a 3rd *test target* that fails.
 
 In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combining this inapplicable and fail, means the success criterion has failed.
 
@@ -310,7 +296,7 @@ It is important to keep track of changes to the ACT rules so that users of the r
 
 Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. It is recommended that for extensive changes, a new rule is created and the old rule is deprecated.
 
-An example of when a new rule should be created would be when going from a rule that tests the use of a blink element, to a rule that looks for animated style changes. This potentially adds lots of new issues that were previously out of scope. But for that same rule, adding a step to check if the blink element is positioned off screen, should be done by updating the existing rule.
+An example of when a new rule should be created would be when going from a rule that tests the use of a blink element, to a rule that looks for animated style changes. This potentially adds lots of new issues that were previously out of scope. But for that same rule, adding an exception to allow blink elements positioned off screen, should be done by updating the existing rule.
 
 
 ### Issues List ### {#quality-updates-issues}
@@ -335,14 +321,22 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
   "@type": "Assertion",
   "subject": "https://example.org/",
   "test": "auto-wcag:SC1-1-1-css-image.html",
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "pointer": "html > body > h1:first-child"
-  }, {
-    "outcome": "Passed",
-    "pointer": "html > body > h1:nth-child(2)"
-  }]
+    "source": [{
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Failed",
+        "pointer": "html > body > h1:first-child"
+      }
+    }, {
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Passed",
+        "pointer": "html > body > h1:nth-child(2)"
+      }
+    }]
+  }
 }
 ```
 
@@ -357,16 +351,22 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
     "@id": "wcag20:#text-equiv-all",
     "title": "1.1.1 Non-text Content"
   },
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "test": "auto-wcag:SC1-1-1-css-image.html",
-    "pointer": "html > body > h1:first-child"
-  }, {
-    "outcome": "Passed",
-    "test": "auto-wcag:SC1-1-1-longdesc.html",
-    "pointer": "html > body > img:nth-child(2)"
-  }]
+    "source": [{
+      "test": "auto-wcag:SC1-1-1-css-image.html",
+      "result": {
+        "outcome": "Failed",
+        "pointer": "html > body > h1:first-child"
+      }
+    }, {
+      "test": "auto-wcag:SC1-1-1-longdesc.html",
+      "result": {
+        "outcome": "Passed",
+        "pointer": "html > body > img:nth-child(2)"
+      }
+    }]
+  }
 }
 ```
 
@@ -381,19 +381,27 @@ Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example
     "@value": "https://example.org/"
   }
   "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
-  "outcome": "Failed",
-  "source": [{
+  "result": {
     "outcome": "Failed",
-    "test": "wcag20:text-equiv-all",
-    "source": [ … ]
-  }, {
-    "outcome": "Passed",
-    "test": "wcag20:media-equiv-av-only-alt",
-    "source": [ … ]
-  }, {
-    "outcome": "Inapplicable",
-    "test": "wcag20:media-equiv-captions",
-    "source": [ … ]
-  }, … ]
+    "source": [{
+      "test": "wcag20:text-equiv-all",
+      "result": {
+        "outcome": "Failed",
+        "source": [ … ]
+      }
+    }, {
+      "test": "wcag20:media-equiv-av-only-alt",
+      "result": {
+        "outcome": "Passed",
+        "source": [ … ]
+      }
+    }, {
+      "test": "wcag20:media-equiv-captions",
+      "result" : {
+        "outcome": "Inapplicable",
+        "source": [ … ]
+      }
+    }, … ]
+  }
 }
 ```
