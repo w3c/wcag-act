@@ -135,11 +135,11 @@ Applicability MUST be described objectively, unambiguously and in plain language
 An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The later of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
 <div class=example>
-A rule for labels of HTML `input` elements may have the following applicability:
-
-Each *available* `input` element, except elements with `type="hidden"`.
-
-**available**: The element isn't hidden with `display:none`, `visibility:hidden` or though `aria-hidden="true"`.
+  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
+  <ol>
+    <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)).</li>
+    <li>The accessible name describes the purpose of the test target.</li>
+  </ol>
 </div>
 
 
