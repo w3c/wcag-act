@@ -38,7 +38,7 @@ ACT Rule Structure {#structure}
 Rule Outline {#structure-outline}
 -----------------------
 
-Each ACT Rule MUST be written in plain language. It MUST consist of the following items:
+An ACT Rule MUST be written in plain language. It MUST consist of the following items:
 
 * Descriptive title
 * Unique identifier
@@ -54,13 +54,13 @@ Each ACT Rule MUST be written in plain language. It MUST consist of the followin
 Rule Description {#structure-description}
 ----------------------------------------
 
-Each ACT Rule MUST have a description that is in plain language and provides a brief explanation of what the rule does.
+An ACT Rule MUST have a description that is in plain language and provides a brief explanation of what the rule does.
 
 
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-Each ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule is a complete or partial test for one or more accessibility requirements.
+An ACT Rule MUST identify the accessibility requirements to which the rule maps, (for example, WCAG 2.0 success criterion 1.1.1). An ACT Rule is a complete or partial test for one or more accessibility requirements.
 
 Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
@@ -70,7 +70,7 @@ The actual definition of specific accessibility requirements is beyond the scope
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-List any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
+An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested; For example, A rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
 
 
 Accessibility Support {#acc-support}
@@ -88,7 +88,7 @@ Aspects Under Test {#input-aspects}
 
 ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules may need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
-Each ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
+An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include a detailed description, or a reference to one, of the aspect in question.
 
 Common Aspects {#input-aspects-common}
 --------------------------------------
@@ -146,7 +146,7 @@ An objective description is one that can be resolved without uncertainty in a gi
 Expectations
 ------------
 
-Each rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+An ACT Rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
 <p class=note>
   Editor note - The task force is looking for feedback about if expectations should be allowed to reference each other, or if each must be testable independently of the others.
@@ -248,7 +248,7 @@ Rule Quality Assurance {#quality}
 Implementation Validation {#quality-implement}
 ----------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. Each rule MUST have implementation tests for the *applicability*, as well as for each *expectation* in the rule.
+Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. An ACT rule MUST have implementation tests for the *applicability*, as well as for each *expectation* in the rule.
 
 An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [pointers](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
