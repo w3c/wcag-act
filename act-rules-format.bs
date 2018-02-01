@@ -150,16 +150,17 @@ An ACT Rule MUST contain one or more expectations. An expectation is a statement
 
 <p class=note>
   Editor note - The task force is looking for feedback about if expectations should be allowed to reference each other, or if each must be testable independently of the others.
+  For details, see [Github issue #173](https://github.com/w3c/wcag-act/issues/173).
 </p>
 
 When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see rule grouping for details).
 
 <div class=example>
-A rule for labels of HTML `input` elements may have the following expectations:
-
-1. The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)).
-
-2. The accessible name describes the purpose of the test target.
+  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
+  <ol>
+    <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)).</li>
+    <li>The accessible name describes the purpose of the test target.</li>
+  </ol>
 </div>
 
 
@@ -170,7 +171,10 @@ In accessibility testing, there are often multiple ways to solve the same proble
 
 To meet the accessibility requirement, only one rule in a rule group has to pass. This way, for our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels. If a table meets any of these rules, it automatically passes the group, and the failed results of the other rules can be ignored.
 
-<p class="note">Editor's Note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.</p>
+<p class="note">
+  Editor note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering if a group should be allowed to have a single rule, as though it adds some complexity it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. Particularly in an example of <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0's Multiple ways success criterion</a>, this may be useful.
+  For details, see [Github issue #161](https://github.com/w3c/wcag-act/issues/161).
+</p>
 
 Test targets can pass a rules group if it was applicable to at least one rule within that group, and returned a passed result. Likewise, a *test target* will fail the rule group, if it was applicable in any rule in the group, but none of them passed it. In the example of HTML Tables, passing the table scope rule, and failing the aria label and headers+id rule, would mean the *test target* passed this group of rules.
 
@@ -183,6 +187,12 @@ ACT Data Format (Output Data) {#output}
 With ACT Rules, it becomes important that data coming from different sources can be compared. Only by having a shared vocabulary, can accessibility data that is produced by different auditors be compared and where necessary aggregated. Every ACT Rule MUST therefore require that the output is expressed in a format that has all of the features described in the ACT Data Format.
 
 Rules are tested in two steps. Firstly, an applicability is used to find a list of *Test Targets* (elements, tags or other "components") within the web page or other test subject. Following this, each *test target* is tested to see if all expectations are true. This will give the *outcome* for each *test target*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
+
+<p class="note">
+  Editor note - The ACT Taskforce is investigating to what extend a shared data format may
+  or may not be necessary for the rules format, and if it is necessary, how in depth it should be.
+  For details, see [Github issue #162](https://github.com/w3c/wcag-act/issues/162).
+</p>
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
@@ -289,8 +299,6 @@ Update Management {#quality-updates}
 ------------------------------------
 
 ### Change Log ### {#quality-updates-changes}
-
-<p class="note">Editor note - The task force is considering different methods of identifying the version, either by number, date or other, and is looking for feedback on the subject from reviewers.</p>
 
 It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the outcome of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
 
