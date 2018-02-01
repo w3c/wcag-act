@@ -8,7 +8,7 @@ Status: ED
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 specifies requirements for writing accessibility test rules. This includes test rules that are carried out fully-automatically, semi-automatically, and manually. By defining this common format, organizations are better able to document and share their testing procedures. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+Abstract: This specification defines a format for writing accessibility test rules. These rules can be carried out fully-automatically, semi-automatically, and manually. This common format allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
 
