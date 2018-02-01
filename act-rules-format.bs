@@ -76,11 +76,11 @@ An ACT Rule MUST list any limitations, assumptions or any exceptions for the tes
 Accessibility Support {#acc-support}
 ===========================
 
-ACT Rules are designed to test good and bad uses of a web technology. Not every part of a web technology is implemented in all assistive technologies a website may need to support. This is known as [Accessibility Supported in WCAG 2.0](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef). Because of this, some rules should not be used in a particular test scenario. For instance, rules related to ARIA should not be used on a site that is supposed to work for assistive technologies that have no ARIA support.
+ACT Rules are designed to test accessible uses of a web technology. However, not every part of a web technology is implemented in all assistive technologies a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
 
-Even within a rules group, certain rules may not be used. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so it MUST NOT rely on other rules to be part of the same test scenario.
+Even within a rules group, certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, and so an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
 
-To support users of ACT Rules in properly defining their test scenarios, ACT Rules SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
+To support users of ACT Rules in properly defining their test scenarios, an ACT Rule SHOULD include a warning, if there are significant accessibility support concerns known about a rule.
 
 
 Aspects Under Test {#input-aspects}
