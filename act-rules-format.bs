@@ -25,11 +25,11 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning it has no specific technology in mind. This also means that the ACT Rules Format could conceivably be used for other technologies.
+The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML, CSS, WAI-ARIA, SVG and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used for other technologies.
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the accessibility requirements defined in the Web Content Accessbility Guidelines, which are specifically designed for web content.
 
-Other accessibility requirements applicable to web technologies could also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the User Agent Accessibility Guidelines. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
+Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the User Agent Accessibility Guidelines. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
 
 
 ACT Rule Structure {#structure}
@@ -64,7 +64,7 @@ Each ACT Rule MUST identify the accessibility requirements to which the rule map
 
 Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
-The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations have additional Accessibility Requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria.
+The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG 2, Success Criteria are considered to be accessibility requirements. Some organizations have additional accessibility requirements, such as specific implementation techniques to meet WCAG 2 Success Criteria.
 
 
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
