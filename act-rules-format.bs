@@ -122,13 +122,13 @@ Language, either written or spoken, as available in nodes of the DOM or accessib
 The means by which the language is assessed, be it by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]].
 
 
-ACT Test Procedure {#test-proc}
+ACT Test Definition {#test-def}
 ===============================
 
 Applicability
 -------------
 
-The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the test subject to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the test subject to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*. The applicability MUST only use information provided through test aspects. No other information should be used in the applicability.
 
 Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
 
@@ -146,7 +146,7 @@ An objective description is one that can be resolved without uncertainty in a gi
 Expectations
 ------------
 
-An ACT Rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be unambiguous and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+An ACT Rule MUST contain one or more expectations. An expectation is a statement that must be true about each *test target* (see Applicability). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
 <p class=note>
   Editor note - The task force is looking for feedback about if expectations should be allowed to reference each other, or if each must be testable independently of the others.
@@ -163,6 +163,7 @@ When all expectations are true for a *test target* it `passed` the rule. If one 
   </ol>
 </div>
 
+An expectation MUST only use information available in the test aspects, and from the applicability and other expectations of the same rule. No other information should be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensure the rule is encapsulated.
 
 Rule Grouping {#grouping}
 ===================
