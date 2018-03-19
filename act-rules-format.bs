@@ -274,7 +274,7 @@ Accuracy Benchmarking {#quality-accuracy}
 
 The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.
 
-This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing it's results to those obtained through accessibility expert testing.
+This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing its results to those obtained through accessibility expert testing.
 
 The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
 
