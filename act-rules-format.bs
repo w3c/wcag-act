@@ -25,7 +25,7 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML [[HTML5]], CSS [[CSS21]], WAI-ARIA [[ARIA11]], SVG [[SVG11]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
+The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML [[HTML5]], CSS [[CSS21]], WAI-ARIA [[WAI-ARIA11]], SVG [[SVG11]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the accessibility requirements defined in WCAG, which are specifically designed for web content.
 
