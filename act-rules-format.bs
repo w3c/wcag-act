@@ -47,7 +47,7 @@ An ACT Rule MUST be written in plain language. It MUST consist of the following 
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
 * [Aspects Under Test](#input-aspects)
-* [Test Procedure](#test-proc)
+* [Test Definition](#test-def)
 
 Unique Identifier {#unique-identifier}
 ----------------------------------------
