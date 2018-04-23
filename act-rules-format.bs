@@ -25,7 +25,7 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as HTML [[HTML5]], CSS [[CSS21]], WAI-ARIA [[wai-aria-1.1]], SVG [[SVG11]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
+The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as Hypertext Markup Language (HTML) [[HTML5]], Cascading Style Sheets (CSS) [[CSS21]], Accessible Rich Internet Applications (WAI-ARIA) [[wai-aria-1.1]], Scaleable Vector Graphics (SVG) [[SVG11]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the accessibility requirements defined in WCAG, which are specifically designed for web content.
 
@@ -64,7 +64,7 @@ An ACT Rule MUST have a description that is in plain language and provides a bri
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, WCAG 2.0 Success Criterion 1.1.1. An ACT Rule is a complete or partial test for one or more accessibility requirements.
+An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, [WCAG 2.0 Success Criterion 1.1.1](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#text-equiv-all). An ACT Rule is a complete or partial test for one or more accessibility requirements.
 
 Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
@@ -74,7 +74,7 @@ The actual definition of specific accessibility requirements is beyond the scope
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
+An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule for [WCAG 2.0 Success Criterion 1.4.1: Use of Color](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
 
 
 Accessibility Support {#acc-support}
@@ -90,7 +90,7 @@ To support users of ACT Rules in properly defining their test scenarios, an ACT 
 Aspects Under Test {#input-aspects}
 ===================================
 
-ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the HTTP messages exchanged between a server and a client, while others need to operate on the DOM tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
+ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the Hypertext Transfer Protocol (HTTP) [[HTTP]] messages exchanged between a server and a client, while others need to operate on the Document Object Model (DOM) [[DOM]] tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
 An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
 
@@ -130,12 +130,12 @@ The means by which the language is assessed, whether by a person or a machine, i
 ACT Test Definition {#test-def}
 ===============================
 
-Applicability
+Applicability {#test-applicability}
 -------------
 
-The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the test subject to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the *test targets*. The applicability MUST only use information provided through test aspects of the same rule. No other information should be used in the applicability.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the [test subject](#output-test-subject) to which the rule applies. For example, specific nodes in the DOM tree, or tags that are incorrectly closed in an HTML document. These are known as the [test targets](#output-test-target). The applicability MUST only use information provided through test aspects of the same rule. No other information should be used in the applicability.
 
-Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax (such as a CSS selector or XPATH) can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
+Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax, such as a CSS selector [[[css3-selectors]] or XPATH [[XPATH]], can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
 
 An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page - the latter of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
@@ -151,14 +151,14 @@ An objective description is one that can be resolved without uncertainty in a gi
 Expectations
 ------------
 
-An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each test target (see Applicability). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each test target (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
 <p class=note>
   Editor note - The task force is looking for feedback about whether expectations should be allowed to reference each other, or if each must be testable independently of the others.
   For details, see [Github issue #173](https://github.com/w3c/wcag-act/issues/173).
 </p>
 
-When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see Rule Grouping for details).
+When all expectations are true for a test target it `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see Rule Grouping for details).
 
 <div class=example>
   <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
