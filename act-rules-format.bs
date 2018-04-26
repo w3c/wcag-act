@@ -15,7 +15,7 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-There are currently many tools available which aid their users in testing web content for conformance to the Web Content Accessibility Guidelines (WCAG). As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.
+There are currently many tools available which aid their users in testing web content for conformance to accessibility standards such as the Web Content Accessibility Guidelines (WCAG). As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.
 
 This format is intended to enable a consistent interpretation of how to test for accessibility requirements to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools (ATTs).
 
