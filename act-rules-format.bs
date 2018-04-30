@@ -140,7 +140,7 @@ Applicability MUST be described objectively, unambiguously and in plain language
 An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it's purpose in the web page? The latter of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.
 
 <div class=example>
-  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
+  <p>A rule for labels of HTML `input` elements may have the following [expectations](#expectations):</p>
   <ol>
     <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)).</li>
     <li>The accessible name describes the purpose of the test target.</li>
@@ -151,14 +151,14 @@ An objective description is one that can be resolved without uncertainty in a gi
 Expectations {#expectations}
 ------------
 
-An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each test target (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
 <p class=note>
   Editor note - The task force is looking for feedback about whether expectations should be allowed to reference each other, or if each must be testable independently of the others.
   For details, see [Github issue #173](https://github.com/w3c/wcag-act/issues/173).
 </p>
 
-When all expectations are true for a test target (#output-test-subject), the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see [Rule Grouping](#grouping) for details).
+When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see [Rule Grouping](#grouping) for details).
 
 <div class=example>
   <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
@@ -173,18 +173,18 @@ An expectation MUST only use information available in the test aspects, and from
 Rule Grouping {#grouping}
 ===================
 
-In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML tables can be indicated through the `scope` attribute, by using the `headers` attribute, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
+In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML tables can be indicated through the `scope` attribute, by using the `headers` attribute, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.
 
-To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.
+To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for `scope`, one for `headers` + `id` and one for ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.
 
 <p class="note">
   Editor note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering whether a group should be allowed to have a single rule. Though it adds some complexity, it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. As an example, this may be particularly useful for <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0 Success Criterion 2.4.5 Multiple ways</a>.
   For details, see [Github issue #161](https://github.com/w3c/wcag-act/issues/161).
 </p>
 
-A *test target* will pass a rule group if it passes at least one of the applicable rules within that group. Likewise, a *test target* will fail the rule group, if it does not pass any of the applicable rules in the group. In the example of HTML Tables, passing the table scope rule, and failing the ARIA label and headers+id rule, would mean the *test target* passed this group of rules.
+A [test target](#output-test-target) will pass a rule group if it passes at least one of the applicable rules within that group. Likewise, a test target will fail the rule group, if it does not pass any of the applicable rules in the group. In the example of HTML Tables, passing the table `scope` rule, and failing the ARIA label and `headers` + `id` rule, would mean the test target passed this group of rules.
 
-Note that rules in a group MAY have different applicability. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
+Note that rules in a group MAY have different [applicability](#test-applicability). Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
 
 
 ACT Data Format (Output Data) {#output}
@@ -192,7 +192,7 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it is important that data coming from different sources can be compared. By having a shared vocabulary, accessibility data that is produced by different auditors can be compared and, where necessary, aggregated. Therefore, every ACT Rule MUST express the output in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the applicability is used to find a list of *Test Targets* (elements, tags or other "components") within the web page or other test subject. Then each *test target* is tested to see if all of the expectations are true. This will give the *outcome* for each *test target*. For contextual information, the output data must also include *test subject* and the *rule identifier*.
+Rules are tested in two steps. Firstly, the applicability is used to find a list of Test Targets (elements, tags or other "components") within the web page or other test subject. Then each test target is tested to see if all of the [expectations](#expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include *test subject* and the *rule identifier*.
 
 <p class="note">
   Editor note - The ACT Task Force is investigating to what extent a shared data format may
