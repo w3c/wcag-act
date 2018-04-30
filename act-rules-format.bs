@@ -82,7 +82,7 @@ Accessibility Support {#acc-support}
 
 ACT Rules are designed to test accessible uses of a web technology. However, not every part of a web technology is implemented in all assistive technologies a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
 
-Even within a rules group, certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
+Even within a [rules group][rule group](#grouping), certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
 
 To support users of ACT Rules in properly defining their test scenarios, an ACT Rule SHOULD include a warning if there are significant accessibility support concerns known about a rule.
 
@@ -148,7 +148,7 @@ An objective description is one that can be resolved without uncertainty in a gi
 </div>
 
 
-Expectations
+Expectations {#expectations}
 ------------
 
 An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each test target (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
@@ -158,7 +158,7 @@ An ACT Rule MUST contain one or more expectations. An expectation is an assertio
   For details, see [Github issue #173](https://github.com/w3c/wcag-act/issues/173).
 </p>
 
-When all expectations are true for a test target (#output-test-subject), the tes target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see Rule Grouping for details).
+When all expectations are true for a test target (#output-test-subject), the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. If the rule is part of a rule group, a test target that `failed` a rule may still meet the requirement (see [Rule Grouping](#grouping) for details).
 
 <div class=example>
   <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
