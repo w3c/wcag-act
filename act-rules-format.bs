@@ -15,9 +15,9 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as the Web Content Accessibility Guidelines (WCAG) 2.0. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
+There are currently many tools available which aid their users in testing web content for conformance to accessibility standards such as the Web Content Accessibility Guidelines (WCAG). As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.
 
-This format is intended to enable a consistent interpretation of how to test for accessibility requirements to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility test tools (ATTs).
+This format is intended to enable a consistent interpretation of how to test for accessibility requirements to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools (ATTs).
 
 Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
