@@ -15,7 +15,7 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as the Web Content Accessibility Guidelines (WCAG) 2.0 [[WCAG20]]. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
+There are currently many products available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines (WCAG) 2.0](https://www.w3.org/TR/WCAG20/) [[WCAG20]]. As the web develops and grows in both size and complexity, these tools are essential for managing the accessibility of resources available on the web.
 
 This format is intended to enable a consistent interpretation of how to test for accessibility requirements to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility test tools (ATTs).
 
@@ -25,7 +25,7 @@ Describing how to test certain accessibility requirements will result in accessi
 Scope {#scope}
 ==============
 
-The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as Hypertext Markup Language (HTML) [[HTML5]], Cascading Style Sheets (CSS) [[CSS21]], Accessible Rich Internet Applications (WAI-ARIA) [[wai-aria-1.1]], Scaleable Vector Graphics (SVG) [[SVG11]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
+The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as [Hypertext Markup Language](https://www.w3.org/TR/html5/) (HTML) [[HTML5]], [Cascading Style Sheets](https://www.w3.org/TR/CSS2/) (CSS) [[CSS21]], [Accessible Rich Internet Applications](https://www.w3.org/TR/wai-aria-1.1/) (WAI-ARIA) [[wai-aria-1.1]], [Scaleable Vector Graphics](https://www.w3.org/TR/SVG2/) (SVG) [[SVG2]] and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the accessibility requirements defined in WCAG, which are specifically designed for web content.
 
