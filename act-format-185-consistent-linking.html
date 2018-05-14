@@ -993,57 +993,91 @@ Possible extra rowspan handling
 	.toc > li li          { font-weight: normal; }
 	.toc > li li li       { font-size:   95%;    }
 	.toc > li li li li    { font-size:   90%;    }
+	.toc > li li li li .secno { font-size: 85%; }
 	.toc > li li li li li { font-size:   85%;    }
+	.toc > li li li li li .secno { font-size: 100%; }
 
-	.toc > li             { margin: 1.5rem 0;    }
-	.toc > li li          { margin: 0.3rem 0;    }
-	.toc > li li li       { margin-left: 2rem;   }
+	/* @supports not (display:grid) { */
+		.toc > li             { margin: 1.5rem 0;    }
+		.toc > li li          { margin: 0.3rem 0;    }
+		.toc > li li li       { margin-left: 2rem;   }
 
-	/* Section numbers in a column of their own */
-	.toc .secno {
-		float: left;
-		width: 4rem;
-		white-space: nowrap;
-	}
-	.toc > li li li li .secno {
-		font-size: 85%;
-	}
-	.toc > li li li li li .secno {
-		font-size: 100%;
-	}
+		/* Section numbers in a column of their own */
+		.toc .secno {
+			float: left;
+			width: 4rem;
+			white-space: nowrap;
+		}
 
-	:not(li) > .toc              { margin-left:  5rem; }
-	.toc .secno                  { margin-left: -5rem; }
-	.toc > li li li .secno       { margin-left: -7rem; }
-	.toc > li li li li .secno    { margin-left: -9rem; }
-	.toc > li li li li li .secno { margin-left: -11rem; }
+		.toc li {
+			clear: both;
+		}
 
-	/* Tighten up indentation in narrow ToCs */
-	@media (max-width: 30em) {
-		:not(li) > .toc              { margin-left:  4rem; }
-		.toc .secno                  { margin-left: -4rem; }
-		.toc > li li li              { margin-left:  1rem; }
-		.toc > li li li .secno       { margin-left: -5rem; }
-		.toc > li li li li .secno    { margin-left: -6rem; }
-		.toc > li li li li li .secno { margin-left: -7rem; }
-	}
-	@media screen and (min-width: 78em) {
-		body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
-		body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
-		body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
-		body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
-		body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
-		body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
-	}
-	body.toc-sidebar #toc :not(li) > .toc              { margin-left:  4rem; }
-	body.toc-sidebar #toc .toc .secno                  { margin-left: -4rem; }
-	body.toc-sidebar #toc .toc > li li li              { margin-left:  1rem; }
-	body.toc-sidebar #toc .toc > li li li .secno       { margin-left: -5rem; }
-	body.toc-sidebar #toc .toc > li li li li .secno    { margin-left: -6rem; }
-	body.toc-sidebar #toc .toc > li li li li li .secno { margin-left: -7rem; }
+		:not(li) > .toc              { margin-left:  5rem; }
+		.toc .secno                  { margin-left: -5rem; }
+		.toc > li li li .secno       { margin-left: -7rem; }
+		.toc > li li li li .secno    { margin-left: -9rem; }
+		.toc > li li li li li .secno { margin-left: -11rem; }
 
-	.toc li {
-		clear: both;
+		/* Tighten up indentation in narrow ToCs */
+		@media (max-width: 30em) {
+			:not(li) > .toc              { margin-left:  4rem; }
+			.toc .secno                  { margin-left: -4rem; }
+			.toc > li li li              { margin-left:  1rem; }
+			.toc > li li li .secno       { margin-left: -5rem; }
+			.toc > li li li li .secno    { margin-left: -6rem; }
+			.toc > li li li li li .secno { margin-left: -7rem; }
+		}
+	/* } */
+
+	@supports (display:grid) {
+		/* Use #toc over .toc to override non-@supports rules. */
+		#toc {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			grid-column-gap: 1rem;
+			column-gap: 1rem;
+			grid-row-gap: .6rem;
+			row-gap: .6rem;
+		}
+		#toc h2 {
+			grid-column: 1 / -1;
+			margin-bottom: 0;
+		}
+		#toc ol,
+		#toc li,
+		#toc a {
+			display: contents;
+			/* Switch <a> to subgrid when supported */
+		}
+		#toc span {
+			margin: 0;
+		}
+		#toc > .toc > li > a > span {
+			/* The spans of the top-level list,
+			   comprising the first items of each top-level section. */
+			margin-top: 1.1rem;
+		}
+		#toc .secno {
+			grid-column: 1;
+			width: auto;
+		}
+		#toc .content {
+			grid-column: 2;
+			width: auto;
+			margin-right: 1rem;
+		}
+		#toc .content:hover {
+			background: rgba(75%, 75%, 75%, .25);
+			border-bottom: 3px solid #054572;
+			margin-bottom: -3px;
+		}
+		#toc li li li .content {
+			margin-left: 1rem;
+		}
+		#toc li li li li .content {
+			margin-left: 2rem;
+		}
 	}
 
 
@@ -1177,7 +1211,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 037ac0b2610b36fde9d953e80d8379e67f7551ad" name="generator">
+  <meta content="Bikeshed version 1f4a4b952431d6724ed533ed07cbd743ad77352b" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1388,7 +1422,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-05-07">7 May 2018</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-05-14">14 May 2018</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1403,7 +1437,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 7 May 2018,
+In addition, as of 14 May 2018,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1482,13 +1516,13 @@ Parts of this work may be from another specification document.  If so, those par
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>There are currently many tools available which aid their users in testing web content for conformance to accessibility standards such as the <a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a> <a data-link-type="biblio" href="#biblio-wcag20">[WCAG20]</a>. As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.</p>
+   <p>There are currently many tools available which aid their users in testing web content for conformance to accessibility standards such as the <a href="https://www.w3.org/TR/WCAG/">Web Content Accessibility Guidelines (WCAG)</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.</p>
    <p>This format is intended to enable a consistent interpretation of how to test for <a href="#structure-accessibility-requirements">accessibility requirements</a> to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools (ATTs).</p>
    <p>Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).</p>
    <h2 class="heading settled" data-level="2" id="scope"><span class="secno">2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h2>
-   <p>The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as <a href="https://www.w3.org/TR/html5/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html5">[HTML5]</a>, <a href="https://www.w3.org/TR/CSS2/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css21">[CSS21]</a>, <a href="https://www.w3.org/TR/wai-aria-1.1/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria-11">[WAI-ARIA-1.1]</a>, <a href="https://www.w3.org/TR/SVG2/">Scaleable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2">[SVG2]</a> and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
+   <p>The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>, <a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scaleable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2">[SVG2]</a> and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
    <p>For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a href="#structure-accessibility-requirements">accessibility requirements</a> defined in WCAG, which are specifically designed for web content.</p>
-   <p>Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/TR/UAAG20/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20">[UAAG20]</a>. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.</p>
+   <p>Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/intro/uaag">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20">[UAAG20]</a>. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.</p>
    <h2 class="heading settled" data-level="3" id="structure"><span class="secno">3. </span><span class="content">ACT Rule Structure</span><a class="self-link" href="#structure"></a></h2>
    <h3 class="heading settled" data-level="3.1" id="structure-outline"><span class="secno">3.1. </span><span class="content">Rule Outline</span><a class="self-link" href="#structure-outline"></a></h3>
    <p>An ACT Rule MUST be written in plain language. It MUST consist of the following items:</p>
@@ -1526,25 +1560,25 @@ Parts of this work may be from another specification document.  If so, those par
    <p>To support users of ACT Rules in properly defining their test scenarios, an ACT Rule SHOULD include a warning if there are significant accessibility support concerns known about a rule.</p>
    <h2 class="heading settled" data-level="5" id="input-aspects"><span class="secno">5. </span><span class="content">Aspects Under Test</span><a class="self-link" href="#input-aspects"></a></h2>
    <p>ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol</a> <a data-link-type="biblio" href="#biblio-http11">[http11]</a> messages exchanged between a server and a client, while others need to operate on the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.</p>
-   <p>An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css21">[CSS21]</a>, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.</p>
+   <p>An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.</p>
    <h3 class="heading settled" data-level="5.1" id="input-aspects-common"><span class="secno">5.1. </span><span class="content">Common Aspects</span><a class="self-link" href="#input-aspects-common"></a></h3>
    <h4 class="heading settled" data-level="5.1.1" id="input-aspects-http"><span class="secno">5.1.1. </span><span class="content">HTTP Messages</span><a class="self-link" href="#input-aspects-http"></a></h4>
-   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html5">[HTML5]</a> and CSS <a data-link-type="biblio" href="#biblio-css21">[CSS21]</a>.</p>
+   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> and CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>.</p>
    <h4 class="heading settled" data-level="5.1.2" id="input-aspects-dom"><span class="secno">5.1.2. </span><span class="content">DOM Tree</span><a class="self-link" href="#input-aspects-dom"></a></h4>
-   <p>The DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree constructed from parsing HTML <a data-link-type="biblio" href="#biblio-html5">[HTML5]</a>, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.</p>
+   <p>The DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree constructed from parsing HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.</p>
    <p>The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom">[DOM]</a>.</p>
    <h4 class="heading settled" data-level="5.1.3" id="input-aspects-css"><span class="secno">5.1.3. </span><span class="content">CSS Styling</span><a class="self-link" href="#input-aspects-css"></a></h4>
-   <p>The computed CSS <a data-link-type="biblio" href="#biblio-css21">[CSS21]</a> styling resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
+   <p>The computed CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
    <p>The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/cssom/">CSS Object Model</a> <a data-link-type="biblio" href="#biblio-cssom">[CSSOM]</a>.</p>
    <h4 class="heading settled" data-level="5.1.4" id="input-aspects-accessibility"><span class="secno">5.1.4. </span><span class="content">Accessibility Tree</span><a class="self-link" href="#input-aspects-accessibility"></a></h4>
-   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree and the CSS <a data-link-type="biblio" href="#biblio-css21">[CSS21]</a> styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
+   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree and the CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
    <p>The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a> <a data-link-type="biblio" href="#biblio-core-aam-11">[CORE-AAM-1.1]</a>.</p>
    <h4 class="heading settled" data-level="5.1.5" id="input-aspects-text"><span class="secno">5.1.5. </span><span class="content">Language</span><a class="self-link" href="#input-aspects-text"></a></h4>
    <p>Language, either written or spoken, contained in nodes of the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.</p>
    <p>The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in <a href="https://www.w3.org/TR/wcag2-tech-req/#humantestable">Requirements for WCAG 2.0 Checklists and Techniques §humantestable</a> <a data-link-type="biblio" href="#biblio-wcag20">[WCAG20]</a>.</p>
    <h2 class="heading settled" data-level="6" id="test-def"><span class="secno">6. </span><span class="content">ACT Test Definition</span><a class="self-link" href="#test-def"></a></h2>
    <h3 class="heading settled" data-level="6.1" id="test-applicability"><span class="secno">6.1. </span><span class="content">Applicability</span><a class="self-link" href="#test-applicability"></a></h3>
-   <p>The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the <a href="#output-test-subject">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html5">[HTML5]</a> document. These are known as the <a href="#output-test-target">test targets</a>. The applicability MUST only use information provided through <a href="#input-aspects">test aspects</a> of the same rule. No other information should be used in the applicability.</p>
+   <p>The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the <a href="#output-test-subject">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> document. These are known as the <a href="#output-test-target">test targets</a>. The applicability MUST only use information provided through <a href="#input-aspects">test aspects</a> of the same rule. No other information should be used in the applicability.</p>
    <p>Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax, such as a <a href="https://www.w3.org/TR/selectors-3/">CSS selector</a> <a data-link-type="biblio" href="#biblio-css3-selectors">[css3-selectors]</a> or <a href="https://www.w3.org/TR/xpath/">XML Path Language</a> <a data-link-type="biblio" href="#biblio-xpath">[XPATH]</a>, can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is <code>inapplicable</code>.</p>
    <p>An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it’s purpose in the web page? The latter of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.</p>
    <div class="example" id="example-f0e2a050">
@@ -1570,7 +1604,7 @@ Parts of this work may be from another specification document.  If so, those par
    </div>
    <p>An expectation MUST only use information available in the test aspects, and from the applicability and other expectations of the same rule. No other information should be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can’t be "Rule XYZ passed and ...". This ensures the rule is encapsulated.</p>
    <h2 class="heading settled" data-level="7" id="grouping"><span class="secno">7. </span><span class="content">Rule Grouping</span><a class="self-link" href="#grouping"></a></h2>
-   <p>In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML <a data-link-type="biblio" href="#biblio-html5">[HTML5]</a> tables can be indicated through the <code>scope</code> attribute, by using the <code>headers</code> attribute, or by using ARIA <a data-link-type="biblio" href="#biblio-wai-aria-11">[WAI-ARIA-1.1]</a> labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.</p>
+   <p>In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> tables can be indicated through the <code>scope</code> attribute, by using the <code>headers</code> attribute, or by using ARIA <a data-link-type="biblio" href="#biblio-wai-aria">[WAI-ARIA]</a> labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.</p>
    <p>To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for <code>scope</code>, one for <code>headers</code> + <code>id</code> and one for ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.</p>
    <p class="note" role="note"> Editor note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering whether a group should be allowed to have a single rule. Though it adds some complexity, it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. As an example, this may be particularly useful for <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0 Success Criterion 2.4.5 Multiple ways</a>.
   For details, see <a href="https://github.com/w3c/wcag-act/issues/161">Github issue #161</a>. </p>
@@ -1593,8 +1627,8 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md="">
      <p><a href="#output-outcome">Outcome</a> (<code>Passed</code>, <code>Failed</code>, or <code>Inapplicable</code>)</p>
    </ul>
-   <div class="example" id="example-40a30590">
-    <a class="self-link" href="#example-40a30590"></a> Output data using EARL and JSON-LD. (See <a href="https://www.w3.org/TR/EARL10-Schema/">Evaluation and Report Language (EARL) 1.0</a> <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> and <a href="https://www.json.org">Java Script Object Notation (JSON)</a>.) 
+   <div class="example" id="example-a764f595">
+    <a class="self-link" href="#example-a764f595"></a> Output data using EARL and JSON-LD. (See <a href="https://www.w3.org/WAI/intro/earl">Evaluation and Report Language</a> <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> and <a href="https://www.json.org">Java Script Object Notation (JSON)</a>.) 
 <pre class="language-javascript highlight"><span class="p">{</span>
   <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
   <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
@@ -1634,7 +1668,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h2 class="heading settled" data-level="9" id="quality"><span class="secno">9. </span><span class="content">Rule Quality Assurance</span><a class="self-link" href="#quality"></a></h2>
    <h3 class="heading settled" data-level="9.1" id="quality-implement"><span class="secno">9.1. </span><span class="content">Implementation Validation</span><a class="self-link" href="#quality-implement"></a></h3>
    <p>Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. An ACT rule MUST have implementation tests for the <a href="#test-applicability">applicability</a>, as well as for each <a href="#expectations">expectation</a> in the rule.</p>
-   <p>An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule’s test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of <a href="#output-test-target">pointers</a> and the expected <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable) of the evaluation.</p>
+   <p>An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule’s test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of <a href="#output-test-target">test targets</a> and the expected <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable) of the evaluation.</p>
    <h3 class="heading settled" data-level="9.2" id="quality-accuracy"><span class="secno">9.2. </span><span class="content">Accuracy Benchmarking</span><a class="self-link" href="#quality-accuracy"></a></h3>
    <p>The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.</p>
    <p>This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing its results to those obtained through accessibility expert testing.</p>
@@ -1913,7 +1947,7 @@ Parts of this work may be from another specification document.  If so, those par
    <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/accname-1.1/">Accessible Name and Description Computation 1.1</a>. 20 March 2018. WD. URL: <a href="https://www.w3.org/TR/accname-1.1/">https://www.w3.org/TR/accname-1.1/</a>
    <dt id="biblio-core-aam-11">[CORE-AAM-1.1]
    <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a>
-   <dt id="biblio-css21">[CSS21]
+   <dt id="biblio-css2">[CSS2]
    <dd>Bert Bos; et al. <a href="https://www.w3.org/TR/CSS2/">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a>. 7 June 2011. REC. URL: <a href="https://www.w3.org/TR/CSS2/">https://www.w3.org/TR/CSS2/</a>
    <dt id="biblio-css3-selectors">[CSS3-SELECTORS]
    <dd>Tantek Çelik; et al. <a href="https://www.w3.org/TR/selectors-3/">Selectors Level 3</a>. 30 January 2018. CR. URL: <a href="https://www.w3.org/TR/selectors-3/">https://www.w3.org/TR/selectors-3/</a>
@@ -1923,8 +1957,8 @@ Parts of this work may be from another specification document.  If so, those par
    <dd>Anne van Kesteren. <a href="https://dom.spec.whatwg.org/">DOM Standard</a>. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
    <dt id="biblio-earl10-schema">[EARL10-Schema]
    <dd>Shadi Abou-Zahra. <a href="https://www.w3.org/TR/EARL10-Schema/">Evaluation and Report Language (EARL) 1.0 Schema</a>. 2 February 2017. NOTE. URL: <a href="https://www.w3.org/TR/EARL10-Schema/">https://www.w3.org/TR/EARL10-Schema/</a>
-   <dt id="biblio-html5">[HTML5]
-   <dd>Ian Hickson; et al. <a href="https://www.w3.org/TR/html5/">HTML5</a>. 27 March 2018. REC. URL: <a href="https://www.w3.org/TR/html5/">https://www.w3.org/TR/html5/</a>
+   <dt id="biblio-html">[HTML]
+   <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-http11">[HTTP11]
    <dd>R. Fielding, Ed.; J. Reschke, Ed.. <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>. June 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7230">https://tools.ietf.org/html/rfc7230</a>
    <dt id="biblio-pointers-in-rdf">[Pointers-in-RDF]
@@ -1933,8 +1967,12 @@ Parts of this work may be from another specification document.  If so, those par
    <dd>Nikos Andronikos; et al. <a href="https://www.w3.org/TR/SVG2/">Scalable Vector Graphics (SVG) 2</a>. 15 September 2016. CR. URL: <a href="https://www.w3.org/TR/SVG2/">https://www.w3.org/TR/SVG2/</a>
    <dt id="biblio-uaag20">[UAAG20]
    <dd>James Allan; et al. <a href="https://www.w3.org/TR/UAAG20/">User Agent Accessibility Guidelines (UAAG) 2.0</a>. 15 December 2015. NOTE. URL: <a href="https://www.w3.org/TR/UAAG20/">https://www.w3.org/TR/UAAG20/</a>
+   <dt id="biblio-wai-aria">[WAI-ARIA]
+   <dd>James Craig; Michael Cooper; et al. <a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a>. 20 March 2014. REC. URL: <a href="https://www.w3.org/TR/wai-aria/">https://www.w3.org/TR/wai-aria/</a>
    <dt id="biblio-wai-aria-11">[WAI-ARIA-1.1]
    <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/wai-aria-1.1/">Accessible Rich Internet Applications (WAI-ARIA) 1.1</a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/wai-aria-1.1/">https://www.w3.org/TR/wai-aria-1.1/</a>
+   <dt id="biblio-wcag">[WCAG]
+   <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">Web Content Accessibility Guidelines 1.0</a>. 5 May 1999. REC. URL: <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">https://www.w3.org/TR/WAI-WEBCONTENT/</a>
    <dt id="biblio-wcag20">[WCAG20]
    <dd>Ben Caldwell; et al. <a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a>. 11 December 2008. REC. URL: <a href="https://www.w3.org/TR/WCAG20/">https://www.w3.org/TR/WCAG20/</a>
    <dt id="biblio-xpath">[XPATH]
