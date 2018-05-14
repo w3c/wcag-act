@@ -208,7 +208,7 @@ This will mean that every time a rule is executed on a page, it will return a se
 - [Outcome](#output-outcome) (`Passed`, `Failed`, or `Inapplicable`)
 
 <div class=example>
-Output data using EARL and JSON-LD. (See [Evaluation and Report Language (EARL) 1.0](https://www.w3.org/TR/EARL10-Schema/) [[EARL10-Schema]] and [Java Script Object Notation (JSON)](https://www.json.org).) 
+Output data using EARL and JSON-LD. (See [Evaluation and Report Language](https://www.w3.org/WAI/intro/earl) [[EARL]] and [Java Script Object Notation (JSON)](https://www.json.org).) 
 
 ```javascript
 {
