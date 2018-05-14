@@ -29,7 +29,7 @@ The ACT Rules Format defined in this specification is focused on the description
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the [accessibility requirements](#structure-accessibility-requirements) defined in WCAG, which are specifically designed for web content.
 
-Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/TR/UAAG20/) [[UAAG20]]. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
+Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/TR/UAAG/) [[UAAG]]. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
 
 
 ACT Rule Structure {#structure}
@@ -92,7 +92,7 @@ Aspects Under Test {#input-aspects}
 
 ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.
 
-An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS21]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
+An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
 
 
 Common Aspects {#input-aspects-common}
@@ -100,23 +100,23 @@ Common Aspects {#input-aspects-common}
 
 ### HTTP Messages ### {#input-aspects-http}
 
-The HTTP messages [[http11]] exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML [[HTML5]] and CSS [[CSS21]].
+The HTTP messages [[http11]] exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML [[HTML]] and CSS [[CSS2]].
 
 ### DOM Tree ### {#input-aspects-dom}
 
-The DOM [[DOM]] tree constructed from parsing HTML [[HTML5]], and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
+The DOM [[DOM]] tree constructed from parsing HTML [[HTML]], and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
 The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]].
 
 ### CSS Styling ### {#input-aspects-css}
 
-The computed CSS [[CSS21]] styling resulting from parsing CSS and applying it to the DOM [[DOM]] may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.
+The computed CSS [[CSS2]] styling resulting from parsing CSS and applying it to the DOM [[DOM]] may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.
 
 The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the [CSS Object Model](https://www.w3.org/TR/cssom/) [[CSSOM]].
 
 ### Accessibility Tree ### {#input-aspects-accessibility}
 
-The accessibility tree constructed from extracting information from both the DOM [[DOM]] tree and the CSS [[CSS21]] styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
+The accessibility tree constructed from extracting information from both the DOM [[DOM]] tree and the CSS [[CSS2]] styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.
 
 The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the [Core Accessibility API Mappings 1.1](https://www.w3.org/TR/core-aam-1.1/) [[CORE-AAM-1.1]].
 
@@ -133,7 +133,7 @@ ACT Test Definition {#test-def}
 Applicability {#test-applicability}
 -------------
 
-The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the [test subject](#output-test-subject) to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML5]] document. These are known as the [test targets](#output-test-target). The applicability MUST only use information provided through [test aspects](#input-aspects) of the same rule. No other information should be used in the applicability.
+The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the [test subject](#output-test-subject) to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [test targets](#output-test-target). The applicability MUST only use information provided through [test aspects](#input-aspects) of the same rule. No other information should be used in the applicability.
 
 Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax, such as a [CSS selector](https://www.w3.org/TR/selectors-3/) [[css3-selectors]] or [XML Path Language](https://www.w3.org/TR/xpath/) [[XPATH]], can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is `inapplicable`.
 
@@ -173,7 +173,7 @@ An expectation MUST only use information available in the test aspects, and from
 Rule Grouping {#grouping}
 ===================
 
-In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML [[HTML5]] tables can be indicated through the `scope` attribute, by using the `headers` attribute, or by using ARIA [[WAI-ARIA-1.1]] labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.
+In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML [[HTML]] tables can be indicated through the `scope` attribute, by using the `headers` attribute, or by using ARIA [[WAI-ARIA]] labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.
 
 To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for `scope`, one for `headers` + `id` and one for ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.
 
