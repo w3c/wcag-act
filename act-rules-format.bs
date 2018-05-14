@@ -29,7 +29,7 @@ The ACT Rules Format defined in this specification is focused on the description
 
 For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the [accessibility requirements](#structure-accessibility-requirements) defined in WCAG, which are specifically designed for web content.
 
-Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/TR/UAAG/) [[UAAG20]]. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
+Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/WAI/intro/uaag) [[UAAG20]]. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.
 
 
 ACT Rule Structure {#structure}
