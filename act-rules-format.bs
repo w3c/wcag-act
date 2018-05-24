@@ -106,7 +106,7 @@ The HTTP messages exchanged between a client and a server as part of requesting 
 
 The DOM tree constructed from parsing HTML, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
-The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as [[DOM]].
+The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows [[DOM]].
 
 ### CSS Styling ### {#input-aspects-css}
 
