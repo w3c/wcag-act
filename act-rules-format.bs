@@ -76,6 +76,8 @@ Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-excep
 
 An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.
 
+Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if UTF emoji characters should be considered "text" or "non-text content" under WCAG 2.0. Whatever the interpretation here is, this MUST be documented in the rule.
+
 
 Accessibility Support {#acc-support}
 ===========================
