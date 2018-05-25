@@ -74,7 +74,7 @@ The actual definition of specific accessibility requirements is beyond the scope
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule for Success Criterion 1.4.1: Use of Color has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
+An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.
 
 
 Accessibility Support {#acc-support}
