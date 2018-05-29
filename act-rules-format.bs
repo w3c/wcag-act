@@ -66,7 +66,9 @@ Accessibility Requirements {#structure-accessibility-requirements}
 
 An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, WCAG 2.0 Success Criterion 1.1.1. An ACT Rule is a complete or partial test for one or more accessibility requirements.
 
-Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
+Outcomes from an ACT Rule that is not part of an [aggregation group](#grouping) MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
+
+For ACT Rules that are part of aggregation groups, the aggregated outcome of the aggregation group MUST be consistent with the accessibility requirement. For this to be possible, ACT Rules in an aggregation group MUST share at least one common accessibility requirement.
 
 The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG, Success Criteria are considered to be accessibility requirements. Some organizations have additional accessibility requirements, such as specific implementation techniques to meet WCAG Success Criteria.
 
@@ -82,7 +84,7 @@ Accessibility Support {#acc-support}
 
 ACT Rules are designed to test accessible uses of a web technology. However, not every part of a web technology is implemented in all assistive technologies a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
 
-Even within a rules group, certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
+Even within an aggregation group, certain individual rules are not always applicable. This leaves one fewer solution for passing that particular aggregation group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
 
 To support users of ACT Rules in properly defining their test scenarios, an ACT Rule SHOULD include a warning if there are significant accessibility support concerns known about a rule.
 
@@ -158,7 +160,7 @@ An ACT Rule MUST contain one or more expectations. An expectation is an assertio
   For details, see [Github issue #173](https://github.com/w3c/wcag-act/issues/173).
 </p>
 
-When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of a rule group, a *test target* that `failed` a rule may still meet the requirement (see Rule Grouping for details).
+When all expectations are true for a *test target* it `passed` the rule. If one or more expectations is false, the *test target* `failed` the rule. If the rule is part of an aggregation group, a *test target* that `failed` a rule may still meet the requirement (see Aggregation Groups for details).
 
 <div class=example>
   <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
@@ -170,22 +172,48 @@ When all expectations are true for a *test target* it `passed` the rule. If one 
 
 An expectation MUST only use information available in the test aspects, and from the applicability and other expectations of the same rule. No other information should be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures the rule is encapsulated.
 
-Rule Grouping {#grouping}
+Aggregation Groups {#grouping}
 ===================
 
-In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML tables can be indicated through the `scope` attribute, by using the `headers` attribute, or by using ARIA labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule-group instead.
+In accessibility testing, there are often different ways to make the same type of content accessible. These different techniques could be described in one big rule. This however creates large, and often difficult to maintain rules.
 
-To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for scope, one for headers+id and one ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.
+Rules are kept small and atomic. If there are multiple ways of passing the same accessibility requirement for the same content, these SHOULD be written as separate rules and be put into an aggregation group instead. A rule MAY be part of multiple aggregation groups.
+
+An aggregation group MUST define how the outcomes from rules that are part of the group are aggregated into a single outcome for each applicable test target across the different rules. Note that rules in a group MAY have different applicability. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
 
 <p class="note">
-  Editor note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering whether a group should be allowed to have a single rule. Though it adds some complexity, it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. As an example, this may be particularly useful for <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0 Success Criterion 2.4.5 Multiple ways</a>.
+  While aggregation groups deal with accessibility requirements that can be passed in multiple ways, many accessibility requirements can also be failed in multiple ways. This is instead covered by [rule aggregation](#output-aggregation).
+</p>
+
+<p class="note">
+  Editor note - The ACT Task Force is looking for feedback about the use of aggregation groups. We are considering whether a group should be allowed to have a single rule. Though it adds some complexity, it minimizes change if rules are added in the future.
   For details, see [Github issue #161](https://github.com/w3c/wcag-act/issues/161).
 </p>
 
-A *test target* will pass a rule group if it passes at least one of the applicable rules within that group. Likewise, a *test target* will fail the rule group, if it does not pass any of the applicable rules in the group. In the example of HTML Tables, passing the table scope rule, and failing the ARIA label and headers+id rule, would mean the *test target* passed this group of rules.
+<div class="example">
+  <p>Aggregation group: Header cells in HTML tables (WCAG 2 Success Criterion 1.3.1)</p>
+  <p>Examples of rules in aggregation group:</p>
+  <ul>
+    <li>Header indicated through the `scope` attribute</li>
+    <li>Header indicated by using the `headers` attribute</li>
+    <li>Header indicated by using ARIA labels</li>
+  </ul>
+  <p>Aggregation logic for group: for a given test target to pass the group, any of the rules within the group must output a passed result for the test target.</p>
+</div>
 
-Note that rules in a group MAY have different applicability. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
-
+<div class="example">
+  <p>Aggregation group: Multiple ways to locate content on a web site (WCAG 2 Success criterion 2.4.5)</p>
+  <p>Examples of rules in aggregation group:</p>
+  <ul>
+    <li>Providing links to navigate to related Web pages</li>
+    <li>Providing a Table of Contents</li>
+    <li>Providing a site map</li>
+    <li>Providing a search function to help users find content</li>
+    <li>Providing a list of links to all other Web pages</li>
+    <li>Linking to all of the pages on the site from the home page</li>
+  </ul>
+  <p>Aggregation logic for group: for a given test target to pass the group, two of the rules within the group must output a passed result for the test target.</p>
+</div>
 
 ACT Data Format (Output Data) {#output}
 =======================================
