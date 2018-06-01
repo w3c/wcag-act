@@ -74,13 +74,15 @@ The actual definition of specific accessibility requirements is beyond the scope
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule for [WCAG 2.0 Success Criterion 1.4.1: Use of Color](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-without-color) [[WCAG20]] has to make an assumption that CSS is used to make a link visually evident - typically by using CSS background, border, color, font, or text-decoration properties.
+An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.
+
+Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters should be considered "text" or "non-text content" under WCAG 2.0. Whatever the interpretation is, this MUST be documented in the rule.
 
 
 Accessibility Support {#acc-support}
 ===========================
 
-ACT Rules are designed to test accessible uses of a web technology. However, not every part of a web technology is implemented in all assistive technologies a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA-1.1]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
+ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA-1.1]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
 
 Even within a [rules group](#grouping), certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
 
@@ -106,7 +108,7 @@ The HTTP messages [[http11]] exchanged between a client and a server as part of 
 
 The DOM [[DOM]] tree constructed from parsing HTML [[HTML]], and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.
 
-The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]].
+The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]].
 
 ### CSS Styling ### {#input-aspects-css}
 
