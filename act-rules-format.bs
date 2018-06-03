@@ -293,7 +293,7 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 --------------------------------------
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#unique-identifier), 2) the test subject(#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#unique-identifier), 2) the [test subject](#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
 
