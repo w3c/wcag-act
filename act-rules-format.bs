@@ -64,7 +64,7 @@ An ACT Rule MUST have a description that is in plain language and provides a bri
 Accessibility Requirements {#structure-accessibility-requirements}
 -------------------------------------------------------------------
 
-An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, [WCAG 2.0 Success Criterion 1.1.1](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#text-equiv-all) [[WCAG20]]. An ACT Rule is a complete or partial test for one or more accessibility requirements.
+An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, [WCAG 2.0 Success Criterion 1.1.1](https://www.w3.org/WAI/WCAG20/quickref/#text-equiv) [[WCAG]]. An ACT Rule is a complete or partial test for one or more accessibility requirements.
 
 Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.
 
@@ -74,7 +74,7 @@ The actual definition of specific accessibility requirements is beyond the scope
 Limitations, Assumptions or Exceptions {#structure-limitations-assumptions-exceptions}
 -------------------------------------------------------------------
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.
+An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast) based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.
 
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters should be considered "text" or "non-text content" under WCAG 2.0. Whatever the interpretation is, this MUST be documented in the rule.
 
@@ -82,7 +82,7 @@ Sometimes there are multiple plausible ways that an accessibility requirement ca
 Accessibility Support {#acc-support}
 ===========================
 
-ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in [[WCAG20]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA-1.1]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
+ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in WCAG [[WCAG]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA-1.1]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
 
 Even within a [rules group](#grouping), certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.
 
@@ -126,7 +126,7 @@ The means by which the accessibility tree is constructed, be it by a web browser
 
 Language, either written or spoken, contained in nodes of the DOM [[DOM]] or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.
 
-The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG20]].
+The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
 
 
 ACT Test Definition {#test-def}
