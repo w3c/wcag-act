@@ -1,0 +1,1978 @@
+<!doctype html><html lang="en">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <title>Accessibility Conformance Testing Rules Format</title>
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+<style data-fill-with="stylesheet">
+/******************************************************************************
+ *                   Style sheet for the W3C specifications                   *
+ *
+ * Special classes handled by this style sheet include:
+ *
+ * Indices
+ *   - .toc for the Table of Contents (<ol class="toc">)
+ *     + <span class="secno"> for the section numbers
+ *   - #toc for the Table of Contents (<nav id="toc">)
+ *   - ul.index for Indices (<a href="#ref">term</a><span>, in §N.M</span>)
+ *   - table.index for Index Tables (e.g. for properties or elements)
+ *
+ * Structural Markup
+ *   - table.data for general data tables
+ *     -> use 'scope' attribute, <colgroup>, <thead>, and <tbody> for best results !
+ *     -> use <table class='complex data'> for extra-complex tables
+ *     -> use <td class='long'> for paragraph-length cell content
+ *     -> use <td class='pre'> when manual line breaks/indentation would help readability
+ *   - dl.switch for switch statements
+ *   - ol.algorithm for algorithms (helps to visualize nesting)
+ *   - .figure and .caption (HTML4) and figure and figcaption (HTML5)
+ *     -> .sidefigure for right-floated figures
+ *   - ins/del
+ *
+ * Code
+ *   - pre and code
+ *
+ * Special Sections
+ *   - .note       for informative notes             (div, p, span, aside, details)
+ *   - .example    for informative examples          (div, p, pre, span)
+ *   - .issue      for issues                        (div, p, span)
+ *   - .assertion  for assertions                    (div, p, span)
+ *   - .advisement for loud normative statements     (div, p, strong)
+ *   - .annoying-warning for spec obsoletion notices (div, aside, details)
+ *
+ * Definition Boxes
+ *   - pre.def   for WebIDL definitions
+ *   - table.def for tables that define other entities (e.g. CSS properties)
+ *   - dl.def    for definition lists that define other entitles (e.g. HTML elements)
+ *
+ * Numbering
+ *   - .secno for section numbers in .toc and headings (<span class='secno'>3.2</span>)
+ *   - .marker for source-inserted example/figure/issue numbers (<span class='marker'>Issue 4</span>)
+ *   - ::before styled for CSS-generated issue/example/figure numbers:
+ *     -> Documents wishing to use this only need to add
+ *        figcaption::before,
+ *        .caption::before { content: "Figure "  counter(figure) " ";  }
+ *        .example::before { content: "Example " counter(example) " "; }
+ *        .issue::before   { content: "Issue "   counter(issue) " ";   }
+ *
+ * Header Stuff (ignore, just don't conflict with these classes)
+ *   - .head for the header
+ *   - .copyright for the copyright
+ *
+ * Miscellaneous
+ *   - .overlarge for things that should be as wide as possible, even if
+ *     that overflows the body text area. This can be used on an item or
+ *     on its container, depending on the effect desired.
+ *     Note that this styling basically doesn't help at all when printing,
+ *     since A4 paper isn't much wider than the max-width here.
+ *     It's better to design things to fit into a narrower measure if possible.
+ *   - js-added ToC jump links (see fixup.js)
+ *
+ ******************************************************************************/
+
+/******************************************************************************/
+/*                                   Body                                     */
+/******************************************************************************/
+
+	body {
+		counter-reset: example figure issue;
+
+		/* Layout */
+		max-width: 50em;               /* limit line length to 50em for readability   */
+		margin: 0 auto;                /* center text within page                     */
+		padding: 1.6em 1.5em 2em 50px; /* assume 16px font size for downlevel clients */
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag     */
+
+		/* Typography */
+		line-height: 1.5;
+		font-family: sans-serif;
+		widows: 2;
+		orphans: 2;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		hyphens: auto;
+
+		/* Colors */
+		color: black;
+		background: white top left fixed no-repeat;
+		background-size: 25px auto;
+	}
+
+
+/******************************************************************************/
+/*                         Front Matter & Navigation                          */
+/******************************************************************************/
+
+/** Header ********************************************************************/
+
+	div.head { margin-bottom: 1em }
+	div.head hr { border-style: solid; }
+
+	div.head h1 {
+		font-weight: bold;
+		margin: 0 0 .1em;
+		font-size: 220%;
+	}
+
+	div.head h2 { margin-bottom: 1.5em;}
+
+/** W3C Logo ******************************************************************/
+
+	.head .logo {
+		float: right;
+		margin: 0.4rem 0 0.2rem .4rem;
+	}
+
+	.head img[src*="logos/W3C"] {
+		display: block;
+		border: solid #1a5e9a;
+		border-width: .65rem .7rem .6rem;
+		border-radius: .4rem;
+		background: #1a5e9a;
+		color: white;
+		font-weight: bold;
+	}
+
+	.head a:hover > img[src*="logos/W3C"],
+	.head a:focus > img[src*="logos/W3C"] {
+		opacity: .8;
+	}
+
+	.head a:active > img[src*="logos/W3C"] {
+		background: #c00;
+		border-color: #c00;
+	}
+
+	/* see also additional rules in Link Styling section */
+
+/** Copyright *****************************************************************/
+
+	p.copyright,
+	p.copyright small { font-size: small }
+
+/** Back to Top / ToC Toggle **************************************************/
+
+	@media print {
+		#toc-nav {
+			display: none;
+		}
+	}
+	@media not print {
+		#toc-nav {
+			position: fixed;
+			z-index: 2;
+			bottom: 0; left: 0;
+			margin: 0;
+			min-width: 1.33em;
+			border-top-right-radius: 2rem;
+			box-shadow: 0 0 2px;
+			font-size: 1.5em;
+			color: black;
+		}
+		#toc-nav > a {
+			display: block;
+			white-space: nowrap;
+
+			height: 1.33em;
+			padding: .1em 0.3em;
+			margin: 0;
+
+			background: white;
+			box-shadow: 0 0 2px;
+			border: none;
+			border-top-right-radius: 1.33em;
+			background: white;
+		}
+		#toc-nav > #toc-jump {
+			padding-bottom: 2em;
+			margin-bottom: -1.9em;
+		}
+
+		#toc-nav > a:hover,
+		#toc-nav > a:focus {
+			background: #f8f8f8;
+		}
+		#toc-nav > a:not(:hover):not(:focus) {
+			color: #707070;
+		}
+
+		/* statusbar gets in the way on keyboard focus; remove once browsers fix */
+		#toc-nav > a[href="#toc"]:not(:hover):focus:last-child {
+			padding-bottom: 1.5rem;
+		}
+
+		#toc-nav:not(:hover) > a:not(:focus) > span + span {
+			/* Ideally this uses :focus-within on #toc-nav */
+			display: none;
+		}
+		#toc-nav > a > span + span {
+			padding-right: 0.2em;
+		}
+
+		#toc-toggle-inline {
+			vertical-align: 0.05em;
+			font-size: 80%;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+			border-style: none;
+			background: transparent;
+			position: relative;
+		}
+		#toc-toggle-inline:hover:not(:active),
+		#toc-toggle-inline:focus:not(:active) {
+			text-shadow: 1px 1px silver;
+			top: -1px;
+			left: -1px;
+		}
+
+		#toc-nav :active {
+			color: #C00;
+		}
+	}
+
+/** ToC Sidebar ***************************************************************/
+
+	/* Floating sidebar */
+	@media screen {
+		body.toc-sidebar #toc {
+			position: fixed;
+			top: 0; bottom: 0;
+			left: 0;
+			width: 23.5em;
+			max-width: 80%;
+			max-width: calc(100% - 2em - 26px);
+			overflow: auto;
+			padding: 0 1em;
+			padding-left: 42px;
+			padding-left: calc(1em + 26px);
+			background: inherit;
+			background-color: #f7f8f9;
+			z-index: 1;
+			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+		}
+		body.toc-sidebar #toc h2 {
+			margin-top: .8rem;
+			font-variant: small-caps;
+			font-variant: all-small-caps;
+			text-transform: lowercase;
+			font-weight: bold;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+		}
+		body.toc-sidebar #toc-jump:not(:focus) {
+			width: 0;
+			height: 0;
+			padding: 0;
+			position: absolute;
+			overflow: hidden;
+		}
+	}
+	/* Hide main scroller when only the ToC is visible anyway */
+	@media screen and (max-width: 28em) {
+		body.toc-sidebar {
+			overflow: hidden;
+		}
+	}
+
+	/* Sidebar with its own space */
+	@media screen and (min-width: 78em) {
+		body:not(.toc-inline) #toc {
+			position: fixed;
+			top: 0; bottom: 0;
+			left: 0;
+			width: 23.5em;
+			overflow: auto;
+			padding: 0 1em;
+			padding-left: 42px;
+			padding-left: calc(1em + 26px);
+			background: inherit;
+			background-color: #f7f8f9;
+			z-index: 1;
+			box-shadow: -.1em 0 .25em rgba(0,0,0,.1) inset;
+		}
+		body:not(.toc-inline) #toc h2 {
+			margin-top: .8rem;
+			font-variant: small-caps;
+			font-variant: all-small-caps;
+			text-transform: lowercase;
+			font-weight: bold;
+			color: gray;
+			color: hsla(203,20%,40%,.7);
+		}
+
+		body:not(.toc-inline) {
+			padding-left: 29em;
+		}
+		/* See also Overflow section at the bottom */
+
+		body:not(.toc-inline) #toc-jump:not(:focus) {
+			width: 0;
+			height: 0;
+			padding: 0;
+			position: absolute;
+			overflow: hidden;
+		}
+	}
+	@media screen and (min-width: 90em) {
+		body:not(.toc-inline) {
+			margin: 0 4em;
+		}
+	}
+
+/******************************************************************************/
+/*                                Sectioning                                  */
+/******************************************************************************/
+
+/** Headings ******************************************************************/
+
+	h1, h2, h3, h4, h5, h6, dt {
+		page-break-after: avoid;
+		page-break-inside: avoid;
+		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
+		font-family: inherit;    /* Inherit the font family. */
+		line-height: 1.2;        /* Keep wrapped headings compact */
+		hyphens: manual;         /* Hyphenated headings look weird */
+	}
+
+	h2, h3, h4, h5, h6 {
+		margin-top: 3rem;
+	}
+
+	h1, h2, h3 {
+		color: #005A9C;
+		background: transparent;
+	}
+
+	h1 { font-size: 170%; }
+	h2 { font-size: 140%; }
+	h3 { font-size: 120%; }
+	h4 { font-weight: bold; }
+	h5 { font-style: italic; }
+	h6 { font-variant: small-caps; }
+	dt { font-weight: bold; }
+
+/** Subheadings ***************************************************************/
+
+	h1 + h2,
+	#subtitle {
+		/* #subtitle is a subtitle in an H2 under the H1 */
+		margin-top: 0;
+	}
+	h2 + h3,
+	h3 + h4,
+	h4 + h5,
+	h5 + h6 {
+		margin-top: 1.2em; /* = 1 x line-height */
+	}
+
+/** Section divider ***********************************************************/
+
+	:not(.head) > hr {
+		font-size: 1.5em;
+		text-align: center;
+		margin: 1em auto;
+		height: auto;
+		border: transparent solid 0;
+		background: transparent;
+	}
+	:not(.head) > hr::before {
+		content: "\2727\2003\2003\2727\2003\2003\2727";
+	}
+
+/******************************************************************************/
+/*                            Paragraphs and Lists                            */
+/******************************************************************************/
+
+	p {
+		margin: 1em 0;
+	}
+
+	dd > p:first-child,
+	li > p:first-child {
+		margin-top: 0;
+	}
+
+	ul, ol {
+		margin-left: 0;
+		padding-left: 2em;
+	}
+
+	li {
+		margin: 0.25em 0 0.5em;
+		padding: 0;
+	}
+
+	dl dd {
+		margin: 0 0 .5em 2em;
+	}
+
+	.head dd + dd { /* compact for header */
+		margin-top: -.5em;
+	}
+
+	/* Style for algorithms */
+	ol.algorithm ol:not(.algorithm),
+	.algorithm > ol ol:not(.algorithm) {
+	 border-left: 0.5em solid #DEF;
+	}
+
+	/* Put nice boxes around each algorithm. */
+	[data-algorithm]:not(.heading) {
+	  padding: .5em;
+	  border: thin solid #ddd; border-radius: .5em;
+	  margin: .5em calc(-0.5em - 1px);
+	}
+	[data-algorithm]:not(.heading) > :first-child {
+	  margin-top: 0;
+	}
+	[data-algorithm]:not(.heading) > :last-child {
+	  margin-bottom: 0;
+	}
+
+	/* Style for switch/case <dl>s */
+	dl.switch > dd > ol.only,
+	dl.switch > dd > .only > ol {
+	 margin-left: 0;
+	}
+	dl.switch > dd > ol.algorithm,
+	dl.switch > dd > .algorithm > ol {
+	 margin-left: -2em;
+	}
+	dl.switch {
+	 padding-left: 2em;
+	}
+	dl.switch > dt {
+	 text-indent: -1.5em;
+	 margin-top: 1em;
+	}
+	dl.switch > dt + dt {
+	 margin-top: 0;
+	}
+	dl.switch > dt::before {
+	 content: '\21AA';
+	 padding: 0 0.5em 0 0;
+	 display: inline-block;
+	 width: 1em;
+	 text-align: right;
+	 line-height: 0.5em;
+	}
+
+/** Terminology Markup ********************************************************/
+
+
+/******************************************************************************/
+/*                                 Inline Markup                              */
+/******************************************************************************/
+
+/** Terminology Markup ********************************************************/
+	dfn   { /* Defining instance */
+		font-weight: bolder;
+	}
+	a > i { /* Instance of term */
+		font-style: normal;
+	}
+	dt dfn code, code.idl {
+		font-size: medium;
+	}
+	dfn var {
+		font-style: normal;
+	}
+
+/** Change Marking ************************************************************/
+
+	del { color: red;  text-decoration: line-through; }
+	ins { color: #080; text-decoration: underline;    }
+
+/** Miscellaneous improvements to inline formatting ***************************/
+
+	sup {
+		vertical-align: super;
+		font-size: 80%
+	}
+
+/******************************************************************************/
+/*                                    Code                                    */
+/******************************************************************************/
+
+/** General monospace/pre rules ***********************************************/
+
+	pre, code, samp {
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", Monaco, monospace;
+		font-size: .9em;
+		page-break-inside: avoid;
+		hyphens: none;
+		text-transform: none;
+	}
+	pre code,
+	code code {
+		font-size: 100%;
+	}
+
+	pre {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		overflow: auto;
+	}
+
+/** Inline Code fragments *****************************************************/
+
+  /* Do something nice. */
+
+/******************************************************************************/
+/*                                    Links                                   */
+/******************************************************************************/
+
+/** General Hyperlinks ********************************************************/
+
+	/* We hyperlink a lot, so make it less intrusive */
+	a[href] {
+		color: #034575;
+		text-decoration: none;
+		border-bottom: 1px solid #707070;
+		/* Need a bit of extending for it to look okay */
+		padding: 0 1px 0;
+		margin: 0 -1px 0;
+	}
+	a:visited {
+		border-bottom-color: #BBB;
+	}
+
+	/* Use distinguishing colors when user is interacting with the link */
+	a[href]:focus,
+	a[href]:hover {
+		background: #f8f8f8;
+		background: rgba(75%, 75%, 75%, .25);
+		border-bottom-width: 3px;
+		margin-bottom: -2px;
+	}
+	a[href]:active {
+		color: #C00;
+		border-color: #C00;
+	}
+
+	/* Backout above styling for W3C logo */
+	.head .logo,
+	.head .logo a {
+		border: none;
+		text-decoration: none;
+		background: transparent;
+	}
+
+/******************************************************************************/
+/*                                    Images                                  */
+/******************************************************************************/
+
+	img {
+		border-style: none;
+	}
+
+	/* For autogen numbers, add
+	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
+	*/
+
+	figure, .figure, .sidefigure {
+		page-break-inside: avoid;
+		text-align: center;
+		margin: 2.5em 0;
+	}
+	.figure img,    .sidefigure img,    figure img,
+	.figure object, .sidefigure object, figure object {
+		max-width: 100%;
+		margin: auto;
+	}
+	.figure pre, .sidefigure pre, figure pre {
+		text-align: left;
+		display: table;
+		margin: 1em auto;
+	}
+	.figure table, figure table {
+		margin: auto;
+	}
+	@media screen and (min-width: 20em) {
+		.sidefigure {
+			float: right;
+			width: 50%;
+			margin: 0 0 0.5em 0.5em
+		}
+	}
+	.caption, figcaption, caption {
+		font-style: italic;
+		font-size: 90%;
+	}
+	.caption::before, figcaption::before, figcaption > .marker {
+		font-weight: bold;
+	}
+	.caption, figcaption {
+		counter-increment: figure;
+	}
+
+	/* DL list is indented 2em, but figure inside it is not */
+	dd > .figure, dd > figure { margin-left: -2em }
+
+/******************************************************************************/
+/*                             Colored Boxes                                  */
+/******************************************************************************/
+
+	.issue, .note, .example, .assertion, .advisement, blockquote {
+		padding: .5em;
+		border: .5em;
+		border-left-style: solid;
+		page-break-inside: avoid;
+	}
+	span.issue, span.note {
+		padding: .1em .5em .15em;
+		border-right-style: solid;
+	}
+
+	.issue,
+	.note,
+	.example,
+	.advisement,
+	.assertion,
+	blockquote {
+		margin: 1em auto;
+	}
+	.note  > p:first-child,
+	.issue > p:first-child,
+	blockquote > :first-child {
+		margin-top: 0;
+	}
+	blockquote > :last-child {
+		margin-bottom: 0;
+	}
+
+/** Blockquotes ***************************************************************/
+
+	blockquote {
+		border-color: silver;
+	}
+
+/** Open issue ****************************************************************/
+
+	.issue {
+		border-color: #E05252;
+		background: #FBE9E9;
+		counter-increment: issue;
+		overflow: auto;
+	}
+	.issue::before, .issue > .marker {
+		text-transform: uppercase;
+		color: #AE1E1E;
+		padding-right: 1em;
+		text-transform: uppercase;
+	}
+	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
+	   or use class="marker" to mark up the issue number in source. */
+
+/** Example *******************************************************************/
+
+	.example {
+		border-color: #E0CB52;
+		background: #FCFAEE;
+		counter-increment: example;
+		overflow: auto;
+		clear: both;
+	}
+	.example::before, .example > .marker {
+		text-transform: uppercase;
+		color: #827017;
+		min-width: 7.5em;
+		display: block;
+	}
+	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
+	   or use class="marker" to mark up the example number in source. */
+
+/** Non-normative Note ********************************************************/
+
+	.note {
+		border-color: #52E052;
+		background: #E9FBE9;
+		overflow: auto;
+	}
+
+	.note::before, .note > .marker,
+	details.note > summary::before,
+	details.note > summary > .marker {
+		text-transform: uppercase;
+		display: block;
+		color: hsl(120, 70%, 30%);
+	}
+	/* Add .note::before { content: "Note"; } for autogen label,
+	   or use class="marker" to mark up the label in source. */
+
+	details.note > summary {
+		display: block;
+		color: hsl(120, 70%, 30%);
+	}
+	details.note[open] > summary {
+		border-bottom: 1px silver solid;
+	}
+
+/** Assertion Box *************************************************************/
+	/*  for assertions in algorithms */
+
+	.assertion {
+		border-color: #AAA;
+		background: #EEE;
+	}
+
+/** Advisement Box ************************************************************/
+	/*  for attention-grabbing normative statements */
+
+	.advisement {
+		border-color: orange;
+		border-style: none solid;
+		background: #FFEECC;
+	}
+	strong.advisement {
+		display: block;
+		text-align: center;
+	}
+	.advisement > .marker {
+		color: #B35F00;
+	}
+
+/** Spec Obsoletion Notice ****************************************************/
+	/* obnoxious obsoletion notice for older/abandoned specs. */
+
+	details {
+		display: block;
+	}
+	summary {
+		font-weight: bolder;
+	}
+
+	.annoying-warning:not(details),
+	details.annoying-warning:not([open]) > summary,
+	details.annoying-warning[open] {
+		background: #fdd;
+		color: red;
+		font-weight: bold;
+		padding: .75em 1em;
+		border: thick red;
+		border-style: solid;
+		border-radius: 1em;
+	}
+	.annoying-warning :last-child {
+		margin-bottom: 0;
+	}
+
+@media not print {
+	details.annoying-warning[open] {
+		position: fixed;
+		left: 1em;
+		right: 1em;
+		bottom: 1em;
+		z-index: 1000;
+	}
+}
+
+	details.annoying-warning:not([open]) > summary {
+		text-align: center;
+	}
+
+/** Entity Definition Boxes ***************************************************/
+
+	.def {
+		padding: .5em 1em;
+		background: #DEF;
+		margin: 1.2em 0;
+		border-left: 0.5em solid #8CCBF2;
+	}
+
+/******************************************************************************/
+/*                                    Tables                                  */
+/******************************************************************************/
+
+	th, td {
+		text-align: left;
+		text-align: start;
+	}
+
+/** Property/Descriptor Definition Tables *************************************/
+
+	table.def {
+		/* inherits .def box styling, see above */
+		width: 100%;
+		border-spacing: 0;
+	}
+
+	table.def td,
+	table.def th {
+		padding: 0.5em;
+		vertical-align: baseline;
+		border-bottom: 1px solid #bbd7e9;
+	}
+
+	table.def > tbody > tr:last-child th,
+	table.def > tbody > tr:last-child td {
+		border-bottom: 0;
+	}
+
+	table.def th {
+		font-style: italic;
+		font-weight: normal;
+		padding-left: 1em;
+		width: 3em;
+	}
+
+	/* For when values are extra-complex and need formatting for readability */
+	table td.pre {
+		white-space: pre-wrap;
+	}
+
+	/* A footnote at the bottom of a def table */
+	table.def           td.footnote {
+		padding-top: 0.6em;
+	}
+	table.def           td.footnote::before {
+		content: " ";
+		display: block;
+		height: 0.6em;
+		width: 4em;
+		border-top: thin solid;
+	}
+
+/** Data tables (and properly marked-up index tables) *************************/
+	/*
+		 <table class="data"> highlights structural relationships in a table
+		 when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
+
+		 Use class="complex data" for particularly complicated tables --
+		 (This will draw more lines: busier, but clearer.)
+
+		 Use class="long" on table cells with paragraph-like contents
+		 (This will adjust text alignment accordingly.)
+		 Alternately use class="longlastcol" on tables, to have the last column assume "long".
+	*/
+
+	table {
+		word-wrap: normal;
+		overflow-wrap: normal;
+		hyphens: manual;
+	}
+
+	table.data,
+	table.index {
+		margin: 1em auto;
+		border-collapse: collapse;
+		border: hidden;
+		width: 100%;
+	}
+	table.data caption,
+	table.index caption {
+		max-width: 50em;
+		margin: 0 auto 1em;
+	}
+
+	table.data td,  table.data th,
+	table.index td, table.index th {
+		padding: 0.5em 1em;
+		border-width: 1px;
+		border-color: silver;
+		border-top-style: solid;
+	}
+
+	table.data thead td:empty {
+		padding: 0;
+		border: 0;
+	}
+
+	table.data  thead,
+	table.index thead,
+	table.data  tbody,
+	table.index tbody {
+		border-bottom: 2px solid;
+	}
+
+	table.data colgroup,
+	table.index colgroup {
+		border-left: 2px solid;
+	}
+
+	table.data  tbody th:first-child,
+	table.index tbody th:first-child  {
+		border-right: 2px solid;
+		border-top: 1px solid silver;
+		padding-right: 1em;
+	}
+
+	table.data th[colspan],
+	table.data td[colspan] {
+		text-align: center;
+	}
+
+	table.complex.data th,
+	table.complex.data td {
+		border: 1px solid silver;
+		text-align: center;
+	}
+
+	table.data.longlastcol td:last-child,
+	table.data td.long {
+	 vertical-align: baseline;
+	 text-align: left;
+	}
+
+	table.data img {
+		vertical-align: middle;
+	}
+
+
+/*
+Alternate table alignment rules
+
+	table.data,
+	table.index {
+		text-align: center;
+	}
+
+	table.data  thead th[scope="row"],
+	table.index thead th[scope="row"] {
+		text-align: right;
+	}
+
+	table.data  tbody th:first-child,
+	table.index tbody th:first-child  {
+		text-align: right;
+	}
+
+Possible extra rowspan handling
+
+	table.data  tbody th[rowspan]:not([rowspan='1']),
+	table.index tbody th[rowspan]:not([rowspan='1']),
+	table.data  tbody td[rowspan]:not([rowspan='1']),
+	table.index tbody td[rowspan]:not([rowspan='1']) {
+		border-left: 1px solid silver;
+	}
+
+	table.data  tbody th[rowspan]:first-child,
+	table.index tbody th[rowspan]:first-child,
+	table.data  tbody td[rowspan]:first-child,
+	table.index tbody td[rowspan]:first-child{
+		border-left: 0;
+		border-right: 1px solid silver;
+	}
+*/
+
+/******************************************************************************/
+/*                                  Indices                                   */
+/******************************************************************************/
+
+
+/** Table of Contents *********************************************************/
+
+	.toc a {
+		/* More spacing; use padding to make it part of the click target. */
+		padding-top: 0.1rem;
+		/* Larger, more consistently-sized click target */
+		display: block;
+		/* Reverse color scheme */
+		color: black;
+		border-color: #3980B5;
+		border-bottom-width: 3px !important;
+		margin-bottom: 0px !important;
+	}
+	.toc a:visited {
+		border-color: #054572;
+	}
+	.toc a:not(:focus):not(:hover) {
+		/* Allow colors to cascade through from link styling */
+		border-bottom-color: transparent;
+	}
+
+	.toc, .toc ol, .toc ul, .toc li {
+		list-style: none; /* Numbers must be inlined into source */
+		/* because generated content isn't search/selectable and markers can't do multilevel yet */
+		margin:  0;
+		padding: 0;
+		line-height: 1.1rem; /* consistent spacing */
+	}
+
+	/* ToC not indented until third level, but font style & margins show hierarchy */
+	.toc > li             { font-weight: bold;   }
+	.toc > li li          { font-weight: normal; }
+	.toc > li li li       { font-size:   95%;    }
+	.toc > li li li li    { font-size:   90%;    }
+	.toc > li li li li .secno { font-size: 85%; }
+	.toc > li li li li li { font-size:   85%;    }
+	.toc > li li li li li .secno { font-size: 100%; }
+
+	/* @supports not (display:grid) { */
+		.toc > li             { margin: 1.5rem 0;    }
+		.toc > li li          { margin: 0.3rem 0;    }
+		.toc > li li li       { margin-left: 2rem;   }
+
+		/* Section numbers in a column of their own */
+		.toc .secno {
+			float: left;
+			width: 4rem;
+			white-space: nowrap;
+		}
+
+		.toc li {
+			clear: both;
+		}
+
+		:not(li) > .toc              { margin-left:  5rem; }
+		.toc .secno                  { margin-left: -5rem; }
+		.toc > li li li .secno       { margin-left: -7rem; }
+		.toc > li li li li .secno    { margin-left: -9rem; }
+		.toc > li li li li li .secno { margin-left: -11rem; }
+
+		/* Tighten up indentation in narrow ToCs */
+		@media (max-width: 30em) {
+			:not(li) > .toc              { margin-left:  4rem; }
+			.toc .secno                  { margin-left: -4rem; }
+			.toc > li li li              { margin-left:  1rem; }
+			.toc > li li li .secno       { margin-left: -5rem; }
+			.toc > li li li li .secno    { margin-left: -6rem; }
+			.toc > li li li li li .secno { margin-left: -7rem; }
+		}
+	/* } */
+
+	@supports (display:grid) {
+		/* Use #toc over .toc to override non-@supports rules. */
+		#toc {
+			display: grid;
+			align-content: start;
+			grid-template-columns: auto 1fr;
+			grid-column-gap: 1rem;
+			column-gap: 1rem;
+			grid-row-gap: .6rem;
+			row-gap: .6rem;
+		}
+		#toc h2 {
+			grid-column: 1 / -1;
+			margin-bottom: 0;
+		}
+		#toc ol,
+		#toc li,
+		#toc a {
+			display: contents;
+			/* Switch <a> to subgrid when supported */
+		}
+		#toc span {
+			margin: 0;
+		}
+		#toc > .toc > li > a > span {
+			/* The spans of the top-level list,
+			   comprising the first items of each top-level section. */
+			margin-top: 1.1rem;
+		}
+		#toc .secno {
+			grid-column: 1;
+			width: auto;
+		}
+		#toc .content {
+			grid-column: 2;
+			width: auto;
+			margin-right: 1rem;
+		}
+		#toc .content:hover {
+			background: rgba(75%, 75%, 75%, .25);
+			border-bottom: 3px solid #054572;
+			margin-bottom: -3px;
+		}
+		#toc li li li .content {
+			margin-left: 1rem;
+		}
+		#toc li li li li .content {
+			margin-left: 2rem;
+		}
+	}
+
+
+/** Index *********************************************************************/
+
+	/* Index Lists: Layout */
+	ul.index       { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
+	ul.index li    { margin-left: 0; list-style: none; break-inside: avoid; }
+	ul.index li li { margin-left: 1em }
+	ul.index dl    { margin-top: 0; }
+	ul.index dt    { margin: .2em 0 .2em 20px;}
+	ul.index dd    { margin: .2em 0 .2em 40px;}
+	/* Index Lists: Typography */
+	ul.index ul,
+	ul.index dl { font-size: smaller; }
+	@media not print {
+		ul.index li span {
+			white-space: nowrap;
+			color: transparent; }
+		ul.index li a:hover + span,
+		ul.index li a:focus + span {
+			color: #707070;
+		}
+	}
+
+/** Index Tables *****************************************************/
+	/* See also the data table styling section, which this effectively subclasses */
+
+	table.index {
+		font-size: small;
+		border-collapse: collapse;
+		border-spacing: 0;
+		text-align: left;
+		margin: 1em 0;
+	}
+
+	table.index td,
+	table.index th {
+		padding: 0.4em;
+	}
+
+	table.index tr:hover td:not([rowspan]),
+	table.index tr:hover th:not([rowspan]) {
+		background: #f7f8f9;
+	}
+
+	/* The link in the first column in the property table (formerly a TD) */
+	table.index th:first-child a {
+		font-weight: bold;
+	}
+
+/******************************************************************************/
+/*                                    Print                                   */
+/******************************************************************************/
+
+	@media print {
+		/* Pages have their own margins. */
+		html {
+			margin: 0;
+		}
+		/* Serif for print. */
+		body {
+			font-family: serif;
+		}
+	}
+	@page {
+		margin: 1.5cm 1.1cm;
+	}
+
+/******************************************************************************/
+/*                                    Legacy                                  */
+/******************************************************************************/
+
+	/* This rule is inherited from past style sheets. No idea what it's for. */
+	.hide { display: none }
+
+
+
+/******************************************************************************/
+/*                             Overflow Control                               */
+/******************************************************************************/
+
+	.figure .caption, .sidefigure .caption, figcaption {
+		/* in case figure is overlarge, limit caption to 50em */
+		max-width: 50rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.overlarge > table {
+		/* limit preferred width of table */
+		max-width: 50em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (min-width: 55em) {
+		.overlarge {
+			margin-left: calc(13px + 26.5rem - 50vw);
+			margin-right: calc(13px + 26.5rem - 50vw);
+			max-width: none;
+		}
+	}
+	@media screen and (min-width: 78em) {
+		body:not(.toc-inline) .overlarge {
+			/* 30.5em body padding 50em content area */
+			margin-left: calc(40em - 50vw) !important;
+			margin-right: calc(40em - 50vw) !important;
+		}
+	}
+	@media screen and (min-width: 90em) {
+		body:not(.toc-inline) .overlarge {
+			/* 4em html margin 30.5em body padding 50em content area */
+			margin-left: 0 !important;
+			margin-right: calc(84.5em - 100vw) !important;
+		}
+	}
+
+	@media not print {
+		.overlarge {
+			overflow-x: auto;
+			/* See Lea Verou's explanation background-attachment:
+			 * http://lea.verou.me/2012/04/background-attachment-local/
+			 *
+			background: top left  / 4em 100% linear-gradient(to right,  #ffffff, rgba(255, 255, 255, 0)) local,
+			            top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
+			            top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+			            top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+			            white;
+			background-repeat: no-repeat;
+			*/
+		}
+	}
+</style>
+  <meta content="Bikeshed version 6bebf68aed1298eb5349b6cdea3fab1e79551a6f" name="generator">
+  <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
+<style>/* style-md-lists */
+
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}</style>
+<style>/* style-counters */
+
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
+
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}</style>
+<style>/* style-syntax-highlighting */
+
+.highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+.highlight .c { color: #708090 } /* Comment */
+.highlight .k { color: #990055 } /* Keyword */
+.highlight .l { color: #000000 } /* Literal */
+.highlight .n { color: #0077aa } /* Name */
+.highlight .o { color: #999999 } /* Operator */
+.highlight .p { color: #999999 } /* Punctuation */
+.highlight .cm { color: #708090 } /* Comment.Multiline */
+.highlight .cp { color: #708090 } /* Comment.Preproc */
+.highlight .c1 { color: #708090 } /* Comment.Single */
+.highlight .cs { color: #708090 } /* Comment.Special */
+.highlight .kc { color: #990055 } /* Keyword.Constant */
+.highlight .kd { color: #990055 } /* Keyword.Declaration */
+.highlight .kn { color: #990055 } /* Keyword.Namespace */
+.highlight .kp { color: #990055 } /* Keyword.Pseudo */
+.highlight .kr { color: #990055 } /* Keyword.Reserved */
+.highlight .kt { color: #990055 } /* Keyword.Type */
+.highlight .ld { color: #000000 } /* Literal.Date */
+.highlight .m { color: #000000 } /* Literal.Number */
+.highlight .s { color: #a67f59 } /* Literal.String */
+.highlight .na { color: #0077aa } /* Name.Attribute */
+.highlight .nc { color: #0077aa } /* Name.Class */
+.highlight .no { color: #0077aa } /* Name.Constant */
+.highlight .nd { color: #0077aa } /* Name.Decorator */
+.highlight .ni { color: #0077aa } /* Name.Entity */
+.highlight .ne { color: #0077aa } /* Name.Exception */
+.highlight .nf { color: #0077aa } /* Name.Function */
+.highlight .nl { color: #0077aa } /* Name.Label */
+.highlight .nn { color: #0077aa } /* Name.Namespace */
+.highlight .py { color: #0077aa } /* Name.Property */
+.highlight .nt { color: #669900 } /* Name.Tag */
+.highlight .nv { color: #222222 } /* Name.Variable */
+.highlight .ow { color: #999999 } /* Operator.Word */
+.highlight .mb { color: #000000 } /* Literal.Number.Bin */
+.highlight .mf { color: #000000 } /* Literal.Number.Float */
+.highlight .mh { color: #000000 } /* Literal.Number.Hex */
+.highlight .mi { color: #000000 } /* Literal.Number.Integer */
+.highlight .mo { color: #000000 } /* Literal.Number.Oct */
+.highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+.highlight .sc { color: #a67f59 } /* Literal.String.Char */
+.highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+.highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+.highlight .se { color: #a67f59 } /* Literal.String.Escape */
+.highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+.highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+.highlight .sx { color: #a67f59 } /* Literal.String.Other */
+.highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+.highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+.highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+.highlight .vc { color: #0077aa } /* Name.Variable.Class */
+.highlight .vg { color: #0077aa } /* Name.Variable.Global */
+.highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+.highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+</style>
+<style>/* style-selflinks */
+
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: gray;
+    color: white;
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: black;
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-autolinks */
+
+.css.css, .property.property, .descriptor.descriptor {
+    color: #005a9c;
+    font-size: inherit;
+    font-family: inherit;
+}
+.css::before, .property::before, .descriptor::before {
+    content: "‘";
+}
+.css::after, .property::after, .descriptor::after {
+    content: "’";
+}
+.property, .descriptor {
+    /* Don't wrap property and descriptor names */
+    white-space: nowrap;
+}
+.type { /* CSS value <type> */
+    font-style: italic;
+}
+pre .property::before, pre .property::after {
+    content: "";
+}
+[data-link-type="property"]::before,
+[data-link-type="propdesc"]::before,
+[data-link-type="descriptor"]::before,
+[data-link-type="value"]::before,
+[data-link-type="function"]::before,
+[data-link-type="at-rule"]::before,
+[data-link-type="selector"]::before,
+[data-link-type="maybe"]::before {
+    content: "‘";
+}
+[data-link-type="property"]::after,
+[data-link-type="propdesc"]::after,
+[data-link-type="descriptor"]::after,
+[data-link-type="value"]::after,
+[data-link-type="function"]::after,
+[data-link-type="at-rule"]::after,
+[data-link-type="selector"]::after,
+[data-link-type="maybe"]::after {
+    content: "’";
+}
+
+[data-link-type].production::before,
+[data-link-type].production::after,
+.prod [data-link-type]::before,
+.prod [data-link-type]::after {
+    content: "";
+}
+
+[data-link-type=element],
+[data-link-type=element-attr] {
+    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    font-size: .9em;
+}
+[data-link-type=element]::before { content: "<" }
+[data-link-type=element]::after  { content: ">" }
+
+[data-link-type=biblio] {
+    white-space: pre;
+}</style>
+ <body class="h-entry">
+  <div class="head">
+   <p data-fill-with="logo"></p>
+   <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-06-03">3 June 2018</time></span></h2>
+   <div data-fill-with="spec-metadata">
+    <dl>
+     <dt>This version:
+     <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
+     <dt>Previous Versions:
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2018-03-04.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2018-03-04.html</a>
+     <dt class="editor">Editors:
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
+    </dl>
+   </div>
+   <div data-fill-with="warning"></div>
+   <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
+and related or neighboring rights to this work.
+In addition, as of 3 June 2018,
+the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
+which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
+Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
+   <hr title="Separator for header">
+  </div>
+  <div class="p-summary" data-fill-with="abstract">
+   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+   <p>The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These rules can be carried out fully-automatically, semi-automatically, and manually. This common format allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.</p>
+  </div>
+  <div data-fill-with="at-risk"></div>
+  <nav data-fill-with="table-of-contents" id="toc">
+   <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
+   <ol class="toc" role="directory">
+    <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
+    <li><a href="#scope"><span class="secno">2</span> <span class="content">Scope</span></a>
+    <li>
+     <a href="#structure"><span class="secno">3</span> <span class="content">ACT Rule Structure</span></a>
+     <ol class="toc">
+      <li><a href="#structure-outline"><span class="secno">3.1</span> <span class="content">Rule Outline</span></a>
+      <li><a href="#unique-identifier"><span class="secno">3.2</span> <span class="content">Unique Identifier</span></a>
+      <li><a href="#structure-description"><span class="secno">3.3</span> <span class="content">Rule Description</span></a>
+      <li><a href="#structure-accessibility-requirements"><span class="secno">3.4</span> <span class="content">Accessibility Requirements</span></a>
+      <li><a href="#structure-limitations-assumptions-exceptions"><span class="secno">3.5</span> <span class="content">Limitations, Assumptions or Exceptions</span></a>
+     </ol>
+    <li><a href="#acc-support"><span class="secno">4</span> <span class="content">Accessibility Support</span></a>
+    <li>
+     <a href="#input-aspects"><span class="secno">5</span> <span class="content">Aspects Under Test</span></a>
+     <ol class="toc">
+      <li>
+       <a href="#input-aspects-common"><span class="secno">5.1</span> <span class="content">Common Aspects</span></a>
+       <ol class="toc">
+        <li><a href="#input-aspects-http"><span class="secno">5.1.1</span> <span class="content">HTTP Messages</span></a>
+        <li><a href="#input-aspects-dom"><span class="secno">5.1.2</span> <span class="content">DOM Tree</span></a>
+        <li><a href="#input-aspects-css"><span class="secno">5.1.3</span> <span class="content">CSS Styling</span></a>
+        <li><a href="#input-aspects-accessibility"><span class="secno">5.1.4</span> <span class="content">Accessibility Tree</span></a>
+        <li><a href="#input-aspects-text"><span class="secno">5.1.5</span> <span class="content">Language</span></a>
+       </ol>
+     </ol>
+    <li>
+     <a href="#test-def"><span class="secno">6</span> <span class="content">ACT Test Definition</span></a>
+     <ol class="toc">
+      <li><a href="#test-applicability"><span class="secno">6.1</span> <span class="content">Applicability</span></a>
+      <li><a href="#expectations"><span class="secno">6.2</span> <span class="content">Expectations</span></a>
+     </ol>
+    <li><a href="#grouping"><span class="secno">7</span> <span class="content">Rule Grouping</span></a>
+    <li>
+     <a href="#output"><span class="secno">8</span> <span class="content">ACT Data Format (Output Data)</span></a>
+     <ol class="toc">
+      <li><a href="#output-test-subject"><span class="secno">8.1</span> <span class="content">Test Subject</span></a>
+      <li><a href="#output-test-target"><span class="secno">8.2</span> <span class="content">Test Target</span></a>
+      <li><a href="#output-outcome"><span class="secno">8.3</span> <span class="content">Outcome</span></a>
+      <li><a href="#output-comparable"><span class="secno">8.4</span> <span class="content">Ensure Comparable Results</span></a>
+     </ol>
+    <li>
+     <a href="#quality"><span class="secno">9</span> <span class="content">Rule Quality Assurance</span></a>
+     <ol class="toc">
+      <li><a href="#quality-implement"><span class="secno">9.1</span> <span class="content">Implementation Validation</span></a>
+      <li><a href="#quality-accuracy"><span class="secno">9.2</span> <span class="content">Accuracy Benchmarking</span></a>
+      <li><a href="#output-aggregation"><span class="secno">9.3</span> <span class="content">Rule Aggregation</span></a>
+      <li>
+       <a href="#quality-updates"><span class="secno">9.4</span> <span class="content">Update Management</span></a>
+       <ol class="toc">
+        <li><a href="#quality-updates-changes"><span class="secno">9.4.1</span> <span class="content">Change Log</span></a>
+        <li><a href="#quality-updates-issues"><span class="secno">9.4.2</span> <span class="content">Issues List</span></a>
+       </ol>
+     </ol>
+    <li><a href="#appendix-data-example"><span class="secno"></span> <span class="content">Appendix 1: Aggregation examples, using JSON-LD and EARL</span></a>
+    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+    <li>
+     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
+     <ol class="toc">
+      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
+     </ol>
+   </ol>
+  </nav>
+  <main>
+   <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <p>There are currently many tools available which aid their users in testing web content for conformance to accessibility standards such as the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG)</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. As the web develops in both size and complexity, these tools are essential for managing the resources available on the web.</p>
+   <p>This format is intended to enable a consistent interpretation of how to test for <a href="#structure-accessibility-requirements">accessibility requirements</a> to avoid conflicting results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools (ATTs).</p>
+   <p>Describing how to test certain accessibility requirements will result in accessibility tests that are transparent with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).</p>
+   <h2 class="heading settled" data-level="2" id="scope"><span class="secno">2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h2>
+   <p>The ACT Rules Format defined in this specification is focused on the description of rules applicable to content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>, <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scaleable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2">[SVG2]</a> and more, including digital publishing. The ACT Rules Format, however, is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
+   <p>For instance, the ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a href="#structure-accessibility-requirements">accessibility requirements</a> defined in WCAG, which are specifically designed for web content.</p>
+   <p>Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/standards-guidelines/uaag/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20">[UAAG20]</a>. However, the ACT Rules Format would not necessarily be suitable to describe tests for the conformance of a non-web-based user agent.</p>
+   <h2 class="heading settled" data-level="3" id="structure"><span class="secno">3. </span><span class="content">ACT Rule Structure</span><a class="self-link" href="#structure"></a></h2>
+   <h3 class="heading settled" data-level="3.1" id="structure-outline"><span class="secno">3.1. </span><span class="content">Rule Outline</span><a class="self-link" href="#structure-outline"></a></h3>
+   <p>An ACT Rule MUST be written in plain language. It MUST consist of the following items:</p>
+   <ul>
+    <li data-md="">
+     <p>Descriptive title</p>
+    <li data-md="">
+     <p><a href="#unique-identifier">Unique identifier</a></p>
+    <li data-md="">
+     <p><a href="#structure-description">Rule Description</a></p>
+    <li data-md="">
+     <p><a href="#structure-accessibility-requirements">Accessibility Requirements</a></p>
+    <li data-md="">
+     <p><a href="#structure-limitations-assumptions-exceptions">Limitations, Assumptions or Exceptions</a>, if any</p>
+    <li data-md="">
+     <p><a href="#acc-support">Accessibility Support</a> (optional)</p>
+    <li data-md="">
+     <p><a href="#input-aspects">Aspects Under Test</a></p>
+    <li data-md="">
+     <p><a href="#test-def">Test Definition</a></p>
+   </ul>
+   <h3 class="heading settled" data-level="3.2" id="unique-identifier"><span class="secno">3.2. </span><span class="content">Unique Identifier</span><a class="self-link" href="#unique-identifier"></a></h3>
+   <p>An ACT Rule MUST have a unique identifier that can be any unique text value, such as plain text, URL or a database identifier.</p>
+   <h3 class="heading settled" data-level="3.3" id="structure-description"><span class="secno">3.3. </span><span class="content">Rule Description</span><a class="self-link" href="#structure-description"></a></h3>
+   <p>An ACT Rule MUST have a description that is in plain language and provides a brief explanation of what the rule does.</p>
+   <h3 class="heading settled" data-level="3.4" id="structure-accessibility-requirements"><span class="secno">3.4. </span><span class="content">Accessibility Requirements</span><a class="self-link" href="#structure-accessibility-requirements"></a></h3>
+   <p>An ACT Rule MUST identify the accessibility requirements to which the rule maps. For example, <a href="https://www.w3.org/WAI/WCAG20/quickref/#text-equiv">WCAG 2.0 Success Criterion 1.1.1</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. An ACT Rule is a complete or partial test for one or more accessibility requirements.</p>
+   <p>Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise.</p>
+   <p>The actual definition of specific accessibility requirements is beyond the scope of ACT Rules and of this document. For WCAG, Success Criteria are considered to be accessibility requirements. Some organizations have additional accessibility requirements, such as specific implementation techniques to meet WCAG Success Criteria.</p>
+   <h3 class="heading settled" data-level="3.5" id="structure-limitations-assumptions-exceptions"><span class="secno">3.5. </span><span class="content">Limitations, Assumptions or Exceptions</span><a class="self-link" href="#structure-limitations-assumptions-exceptions"></a></h3>
+   <p>An ACT Rule MUST list any limitations, assumptions or any exceptions for the test, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast">WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS and does not support images of text.</p>
+   <p>Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters should be considered "text" or "non-text content" under WCAG 2.0. Whatever the interpretation is, this MUST be documented in the rule.</p>
+   <h2 class="heading settled" data-level="4" id="acc-support"><span class="secno">4. </span><span class="content">Accessibility Support</span><a class="self-link" href="#acc-support"></a></h2>
+   <p>ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of <a href="https://www.w3.org/TR/WCAG20/#accessibility-supporteddef">accessibility supported</a> use of a Web technology is defined in WCAG <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA <a data-link-type="biblio" href="#biblio-wai-aria">[WAI-ARIA]</a> support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.</p>
+   <p>Even within a <a href="#grouping">rules group</a>, certain individual rules are not always applicable. This leaves one fewer solution for passing that particular rule group. Because of this, ACT Rules have to be atomic, meaning an ACT Rule MUST NOT rely on other rules to be part of the same test scenario.</p>
+   <p>To support users of ACT Rules in properly defining their test scenarios, an ACT Rule SHOULD include a warning if there are significant accessibility support concerns known about a rule.</p>
+   <h2 class="heading settled" data-level="5" id="input-aspects"><span class="secno">5. </span><span class="content">Aspects Under Test</span><a class="self-link" href="#input-aspects"></a></h2>
+   <p>ACT Rules can operate on different aspects of the subject being tested. An aspect is a distinct part of the test subject itself or its underlying implementation. For example, rendering a web page to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol</a> <a data-link-type="biblio" href="#biblio-http11">[http11]</a> messages exchanged between a server and a client, while others need to operate on the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree exposed by a web browser. Some rules may even need to operate on several aspects simultaneously such as both the HTTP messages and the DOM tree.</p>
+   <p>An ACT Rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>, and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.</p>
+   <h3 class="heading settled" data-level="5.1" id="input-aspects-common"><span class="secno">5.1. </span><span class="content">Common Aspects</span><a class="self-link" href="#input-aspects-common"></a></h3>
+   <h4 class="heading settled" data-level="5.1.1" id="input-aspects-http"><span class="secno">5.1.1. </span><span class="content">HTTP Messages</span><a class="self-link" href="#input-aspects-http"></a></h4>
+   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> and CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>.</p>
+   <h4 class="heading settled" data-level="5.1.2" id="input-aspects-dom"><span class="secno">5.1.2. </span><span class="content">DOM Tree</span><a class="self-link" href="#input-aspects-dom"></a></h4>
+   <p>The DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree constructed from parsing HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.</p>
+   <p>The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom">[DOM]</a>.</p>
+   <h4 class="heading settled" data-level="5.1.3" id="input-aspects-css"><span class="secno">5.1.3. </span><span class="content">CSS Styling</span><a class="self-link" href="#input-aspects-css"></a></h4>
+   <p>The computed CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
+   <p>The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/cssom/">CSS Object Model</a> <a data-link-type="biblio" href="#biblio-cssom">[CSSOM]</a>.</p>
+   <h4 class="heading settled" data-level="5.1.4" id="input-aspects-accessibility"><span class="secno">5.1.4. </span><span class="content">Accessibility Tree</span><a class="self-link" href="#input-aspects-accessibility"></a></h4>
+   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree and the CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
+   <p>The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a> <a data-link-type="biblio" href="#biblio-core-aam-11">[CORE-AAM-1.1]</a>.</p>
+   <h4 class="heading settled" data-level="5.1.5" id="input-aspects-text"><span class="secno">5.1.5. </span><span class="content">Language</span><a class="self-link" href="#input-aspects-text"></a></h4>
+   <p>Language, either written or spoken, contained in nodes of the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.</p>
+   <p>The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in <a href="https://www.w3.org/TR/wcag2-tech-req/#humantestable">Requirements for WCAG 2.0 Checklists and Techniques §humantestable</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>.</p>
+   <h2 class="heading settled" data-level="6" id="test-def"><span class="secno">6. </span><span class="content">ACT Test Definition</span><a class="self-link" href="#test-def"></a></h2>
+   <h3 class="heading settled" data-level="6.1" id="test-applicability"><span class="secno">6.1. </span><span class="content">Applicability</span><a class="self-link" href="#test-applicability"></a></h3>
+   <p>The applicability section is a required part of an ACT rule. It MUST contain a precise description of the parts of the <a href="#output-test-subject">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> document. These are known as the <a href="#output-test-target">test targets</a>. The applicability MUST only use information provided through <a href="#input-aspects">test aspects</a> of the same rule. No other information should be used in the applicability.</p>
+   <p>Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax, such as a <a href="https://www.w3.org/TR/selectors-3/">CSS selector</a> <a data-link-type="biblio" href="#biblio-css3-selectors">[css3-selectors]</a> or <a href="https://www.w3.org/TR/xpath/">XML Path Language</a> <a data-link-type="biblio" href="#biblio-xpath">[XPATH]</a>, can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description. While testing, if nothing within the test subject matches the applicability of the rule, the result is <code>inapplicable</code>.</p>
+   <p>An objective description is one that can be resolved without uncertainty in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. Is this talking about the tag name, the accessibility role, it’s purpose in the web page? The latter of which is almost impossible to define with objectivity. When used in applicability, these concepts MUST have an objective definition. This definition can be part of a larger glossary shared between rules.</p>
+   <div class="example" id="example-f0e2a050">
+    <a class="self-link" href="#example-f0e2a050"></a> 
+    <p>A rule for labels of HTML <code>input</code> elements may have the following <a href="#expectations">expectations</a>:</p>
+    <ol>
+     <li>The test target has an accessible name (as described in <a href="https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>) <a data-link-type="biblio" href="#biblio-accname-aam-11">[accname-aam-1.1]</a>.
+     <li>The accessible name describes the purpose of the test target.
+    </ol>
+   </div>
+   <h3 class="heading settled" data-level="6.2" id="expectations"><span class="secno">6.2. </span><span class="content">Expectations</span><a class="self-link" href="#expectations"></a></h3>
+   <p>An ACT Rule MUST contain one or more expectations. An expectation is an assertion that must be true about each <a href="#output-test-target">test target</a> (see <a href="#test-applicability">Applicability</a>). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn’t fully quantifiable.</p>
+   <p class="note" role="note"> Editor note - The task force is looking for feedback about whether expectations should be allowed to reference each other, or if each must be testable independently of the others.
+  For details, see <a href="https://github.com/w3c/wcag-act/issues/173">Github issue #173</a>. </p>
+   <p>When all expectations are true for a test target, the test target <code>passed</code> the rule. If one or more expectations is false, the test target <code>failed</code> the rule. If the rule is part of a rule group, a test target that <code>failed</code> a rule may still meet the requirement (see <a href="#grouping">Rule Grouping</a> for details).</p>
+   <div class="example" id="example-e0c518dc">
+    <a class="self-link" href="#example-e0c518dc"></a> 
+    <p>A rule for labels of HTML <code>input</code> elements may have the following expectations:</p>
+    <ol>
+     <li>The test target has an accessible name (as described in <a href="https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>). <a data-link-type="biblio" href="#biblio-accname-aam-11">[accname-aam-1.1]</a>
+     <li>The accessible name describes the purpose of the test target.
+    </ol>
+   </div>
+   <p>An expectation MUST only use information available in the test aspects, and from the applicability and other expectations of the same rule. No other information should be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can’t be "Rule XYZ passed and ...". This ensures the rule is encapsulated.</p>
+   <h2 class="heading settled" data-level="7" id="grouping"><span class="secno">7. </span><span class="content">Rule Grouping</span><a class="self-link" href="#grouping"></a></h2>
+   <p>In accessibility testing, there are often multiple ways to solve the same problem. For instance, header cells in HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> tables can be indicated through the <code>scope</code> attribute, by using the <code>headers</code> attribute, or by using ARIA <a data-link-type="biblio" href="#biblio-wai-aria">[WAI-ARIA]</a> labels. All of these separate techniques could be described in one big rule. But this creates a large, and often difficult to maintain rule. To ensure rules are kept small and atomic, they SHOULD be put into a rule group instead.</p>
+   <p>To meet the accessibility requirement, only one rule in a rule group has to pass. For our table example, one could write three separate rules, one for <code>scope</code>, one for <code>headers</code> + <code>id</code> and one for ARIA labels. If a table meets any of these rules, it automatically passes the group. The failed results of the other rules can be ignored.</p>
+   <p class="note" role="note"> Editor note - The ACT Task Force is looking for feedback about the use of Rule groups. We are considering whether a group should be allowed to have a single rule. Though it adds some complexity, it minimizes change if rules are added in the future. Additionally, we are considering allowing a group to require more than one pass, before the group passes. As an example, this may be particularly useful for <a href="https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc">WCAG 2.0 Success Criterion 2.4.5 Multiple ways</a>.
+  For details, see <a href="https://github.com/w3c/wcag-act/issues/161">Github issue #161</a>. </p>
+   <p>A <a href="#output-test-target">test target</a> will pass a rule group if it passes at least one of the applicable rules within that group. Likewise, a test target will fail the rule group, if it does not pass any of the applicable rules in the group. In the example of HTML Tables, passing the table <code>scope</code> rule, and failing the ARIA label and <code>headers</code> + <code>id</code> rule, would mean the test target passed this group of rules.</p>
+   <p>Note that rules in a group MAY have different <a href="#test-applicability">applicability</a>. Because of this, not every element applicable within the group is tested by every rule. Rules MAY also be disabled during a test run due to accessibility support concerns. See <a href="#acc-support">Accessibility Support</a> for details.</p>
+   <h2 class="heading settled" data-level="8" id="output"><span class="secno">8. </span><span class="content">ACT Data Format (Output Data)</span><a class="self-link" href="#output"></a></h2>
+   <p>With ACT Rules, it is important that data coming from different sources can be compared. By having a shared vocabulary, accessibility data that is produced by different auditors can be compared and, where necessary, aggregated. Therefore, every ACT Rule MUST express the output in a format that has all of the features described in the ACT Data Format.</p>
+   <p>Rules are tested in two steps. Firstly, the applicability is used to find a list of <a href="#output-test-target">Test Targets</a> (elements, tags or other "components") within the web page or other <a href="#output-test-subject">test subject</a>. Then each test target is tested to see if all of the <a href="#expectations">expectations</a> are true. This will give the outcome for each test target. For contextual information, the output data must also include test subject and the <a href="#unique-identifier">rule identifier</a>.</p>
+   <p class="note" role="note"> Editor note - The ACT Task Force is investigating to what extent a shared data format may
+  or may not be necessary for the rules output format. If it is necessary, how in depth it should be?
+  For details, see <a href="https://github.com/w3c/wcag-act/issues/162">Github issue #162</a>. </p>
+   <p>This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:</p>
+   <ul>
+    <li data-md="">
+     <p><a href="#unique-identifier">Rule Identifier</a> (test)</p>
+    <li data-md="">
+     <p><a href="#output-test-subject">Test Subject</a> (Web page)</p>
+    <li data-md="">
+     <p><a href="#output-test-target">Test Target</a> (pointer)</p>
+    <li data-md="">
+     <p><a href="#output-outcome">Outcome</a> (<code>Passed</code>, <code>Failed</code>, or <code>Inapplicable</code>)</p>
+   </ul>
+   <div class="example" id="example-a764f595">
+    <a class="self-link" href="#example-a764f595"></a> Output data using EARL and JSON-LD. (See <a href="https://www.w3.org/WAI/standards-guidelines/earl/">Evaluation and Report Language</a> <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> and <a href="https://www.json.org">Java Script Object Notation (JSON)</a>.) 
+<pre class="language-javascript highlight"><span class="p">{</span>
+  <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
+  <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
+  <span class="s2">"subject"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span><span class="p">,</span>
+  <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:rules/SC1-1-1-css-image.html"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+    <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:first-child"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <h3 class="heading settled" data-level="8.1" id="output-test-subject"><span class="secno">8.1. </span><span class="content">Test Subject</span><a class="self-link" href="#output-test-subject"></a></h3>
+   <p>When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.</p>
+   <h3 class="heading settled" data-level="8.2" id="output-test-target"><span class="secno">8.2. </span><span class="content">Test Target</span><a class="self-link" href="#output-test-target"></a></h3>
+   <p>When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other <a href="#output-test-subject">test subject</a>. There are a variety of pointer methods available, such as those defined in <a href="https://www.w3.org/TR/Pointers-in-RDF/">Pointer Methods in RDF 1.0</a> <a data-link-type="biblio" href="#biblio-pointers-in-rdf">[Pointers-in-RDF]</a>.</p>
+   <p>The pointer method used in the output data of an ACT Rule MUST include the pointer method used in <a href="#quality-implement">Implementation Validation</a>.</p>
+   <h3 class="heading settled" data-level="8.3" id="output-outcome"><span class="secno">8.3. </span><span class="content">Outcome</span><a class="self-link" href="#output-outcome"></a></h3>
+   <p>The procedure of a rule MUST always return one of the following outcomes:</p>
+   <ul>
+    <li data-md="">
+     <p><strong>Passed</strong>: All <a href="#expectations">expectations</a> for the <a href="#output-test-target">Test Target</a> were true</p>
+    <li data-md="">
+     <p><strong>Failed</strong>: One or more expectations for the Test Target was false</p>
+    <li data-md="">
+     <p><strong>Inapplicable</strong>: There were no Test Targets in the <a href="#output-test-subject">Test Subject</a></p>
+   </ul>
+   <div class="note" role="note"> While <em>inapplicable</em> is a valid result for ACT Rules, it may not be a valid result for all <a href="#structure-accessibility-requirements">accessibility requirements</a>. Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to true (passed) or false (failed). This translation of results is part of <a href="#output-aggregation">output aggregation</a> </div>
+   <h3 class="heading settled" data-level="8.4" id="output-comparable"><span class="secno">8.4. </span><span class="content">Ensure Comparable Results</span><a class="self-link" href="#output-comparable"></a></h3>
+   <p>In addition to the <a href="#output-test-target">Test Target</a> and the <a href="#output-outcome">Outcome</a>, ACT Rule output data MUST include the following contextual information:</p>
+   <ul>
+    <li data-md="">
+     <p>the Web page, file or other <a href="#output-test-subject">test subject</a> the rule was applied to and</p>
+    <li data-md="">
+     <p>an <a href="#unique-identifier">identifier</a> of the rule itself.</p>
+   </ul>
+   <h2 class="heading settled" data-level="9" id="quality"><span class="secno">9. </span><span class="content">Rule Quality Assurance</span><a class="self-link" href="#quality"></a></h2>
+   <h3 class="heading settled" data-level="9.1" id="quality-implement"><span class="secno">9.1. </span><span class="content">Implementation Validation</span><a class="self-link" href="#quality-implement"></a></h3>
+   <p>Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. An ACT rule MUST have implementation tests for the <a href="#test-applicability">applicability</a>, as well as for each <a href="#expectations">expectation</a> in the rule.</p>
+   <p>An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule’s test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of <a href="#output-test-target">test targets</a> and the expected <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable) of the evaluation.</p>
+   <h3 class="heading settled" data-level="9.2" id="quality-accuracy"><span class="secno">9.2. </span><span class="content">Accuracy Benchmarking</span><a class="self-link" href="#quality-accuracy"></a></h3>
+   <p>The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.</p>
+   <p>This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing its results to those obtained through accessibility expert testing.</p>
+   <p>The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:</p>
+   <ul>
+    <li data-md="">
+     <p><strong>False positives</strong>: This is the percentage of <a href="#output-test-target">test targets</a>, that were failed by the rule, but were not failed by an accessibility expert.</p>
+    <li data-md="">
+     <p><strong>False negatives</strong>: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.</p>
+   </ul>
+   <p>There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, <a href="#output-aggregation">data aggregation</a> may be necessary.</p>
+   <h3 class="heading settled" data-level="9.3" id="output-aggregation"><span class="secno">9.3. </span><span class="content">Rule Aggregation</span><a class="self-link" href="#output-aggregation"></a></h3>
+   <p>As described in section <a href="#output">§8 ACT Data Format (Output Data)</a> a rule will return a list of results, each of which contain 1) the <a href="#unique-identifier">Rule ID</a>, 2) the <a href="#output-test-subject">test subject</a>, 3) the <a href="#output-test-target">test target</a>, and 4) an <a href="#output-outcome">outcome</a> (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.</p>
+   <p>Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.</p>
+   <p>When all rules pass, that does not mean that all <a href="#structure-accessibility-requirements">accessibility requirements</a> are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criterion is inconclusive.</p>
+   <p><strong>Example:</strong> An expert evaluates a success criterion to fail on a specific page. When testing that page using ACT Rules, there are two rules that map to this criterion. The first rule returns no results. The second rule finds 2 test targets that pass, and a 3rd test target that fails.</p>
+   <p>In this example, the first rule is inapplicable (0 results), and the second rule has failed (1 fail, 2 pass). Combining this inapplicable and fail, means the success criterion has failed.</p>
+   <p>See <a href="#appendix-data-example">Appendix 1: Aggregation examples, using JSON-LD and EARL</a> on how this could be expressed using JSON-LD and EARL.</p>
+   <h3 class="heading settled" data-level="9.4" id="quality-updates"><span class="secno">9.4. </span><span class="content">Update Management</span><a class="self-link" href="#quality-updates"></a></h3>
+   <h4 class="heading settled" data-level="9.4.1" id="quality-updates-changes"><span class="secno">9.4.1. </span><span class="content">Change Log</span><a class="self-link" href="#quality-updates-changes"></a></h4>
+   <p>It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the <a href="#output-outcome">outcome</a> of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.</p>
+   <p>Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.</p>
+   <p><strong>Example:</strong> An example of when a new rule should be created is when a rule that tests for the use of a <code>blink</code> element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow <code>blink</code> elements positioned off screen should be done by updating the existing rule.</p>
+   <h4 class="heading settled" data-level="9.4.2" id="quality-updates-issues"><span class="secno">9.4.2. </span><span class="content">Issues List</span><a class="self-link" href="#quality-updates-issues"></a></h4>
+   <p>An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There are several reasons why this might occur, including:</p>
+   <ul>
+    <li data-md="">
+     <p>Certain scenarios or the use of technologies that are very rare and were not included in the rule for that reason.</p>
+    <li data-md="">
+     <p>Certain accessibility features are impossible to test within the test environment. For instance, they might only be testable by accessing the accessibility API, require screen capturing, etc.</p>
+    <li data-md="">
+     <p>The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.</p>
+   </ul>
+   <p>The issues list serves two purposes. For users of ACT Rules, the issues list may give insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.</p>
+   <h2 class="heading settled" id="appendix-data-example"><span class="content">Appendix 1: Aggregation examples, using JSON-LD and EARL</span><a class="self-link" href="#appendix-data-example"></a></h2>
+   <p><strong>Example:</strong></p>
+<pre class="language-javascript highlight"><span class="p">{</span>
+  <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
+  <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
+  <span class="s2">"subject"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span><span class="p">,</span>
+  <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+    <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+        <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:first-child"</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
+        <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:nth-child(2)"</span>
+      <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+   <p><strong>Example:</strong> Aggregate rules to a WCAG success criterion</p>
+<pre class="language-javascript highlight"><span class="p">{</span>
+  <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
+  <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
+  <span class="s2">"subject"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span><span class="p">,</span>
+  <span class="s2">"test"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"@id"</span><span class="o">:</span> <span class="s2">"wcag20:#text-equiv-all"</span><span class="p">,</span>
+    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"1.1.1 Non-text Content"</span>
+  <span class="p">},</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+    <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-css-image.html"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+        <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > h1:first-child"</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"auto-wcag:SC1-1-1-longdesc.html"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
+        <span class="s2">"pointer"</span><span class="o">:</span> <span class="s2">"html > body > img:nth-child(2)"</span>
+      <span class="p">}</span>
+    <span class="p">}]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+   <p><strong>Example:</strong> Aggregate a list of results to a result for the website</p>
+<pre class="language-javascript highlight"><span class="p">{</span>
+  <span class="s2">"@context"</span><span class="o">:</span> <span class="s2">"https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json"</span><span class="p">,</span>
+  <span class="s2">"@type"</span><span class="o">:</span> <span class="s2">"Assertion"</span><span class="p">,</span>
+  <span class="s2">"subject"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"@type"</span><span class="o">:</span> <span class="p">[</span><span class="s2">"WebSite"</span><span class="p">,</span> <span class="s2">"TestSubject"</span><span class="p">],</span>
+    <span class="s2">"@value"</span><span class="o">:</span> <span class="s2">"https://example.org/"</span>
+  <span class="p">}</span>
+  <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"http://www.w3.org/WAI/WCAG2A-Conformance"</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+    <span class="s2">"source"</span><span class="o">:</span> <span class="p">[{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:text-equiv-all"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Failed"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:media-equiv-av-only-alt"</span><span class="p">,</span>
+      <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Passed"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span> <span class="p">{</span>
+      <span class="s2">"test"</span><span class="o">:</span> <span class="s2">"wcag20:media-equiv-captions"</span><span class="p">,</span>
+      <span class="s2">"result"</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"outcome"</span><span class="o">:</span> <span class="s2">"Inapplicable"</span><span class="p">,</span>
+        <span class="s2">"source"</span><span class="o">:</span> <span class="p">[</span> … <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">},</span> … <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+  </main>
+  <div data-fill-with="conformance">
+   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
+   <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
+            The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
+            in the normative parts of this document
+            are to be interpreted as described in RFC 2119.
+            However, for readability,
+            these words do not appear in all uppercase letters in this specification. </p>
+   <p> All of the text of this specification is normative
+            except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a> </p>
+   <p> Examples in this specification are introduced with the words “for example”
+            or are set apart from the normative text with <code>class="example"</code>, like this: </p>
+   <div class="example" id="example-example"><a class="self-link" href="#example-example"></a> This is an example of an informative example. </div>
+   <p> Informative notes begin with the word “Note”
+            and are set apart from the normative text with <code>class="note"</code>, like this: </p>
+   <p class="note" role="note"> Note, this is an informative note. </p>
+  </div>
+<script>
+(function() {
+  "use strict";
+  var collapseSidebarText = '<span aria-hidden="true">←</span> '
+                          + '<span>Collapse Sidebar</span>';
+  var expandSidebarText   = '<span aria-hidden="true">→</span> '
+                          + '<span>Pop Out Sidebar</span>';
+  var tocJumpText         = '<span aria-hidden="true">↑</span> '
+                          + '<span>Jump to Table of Contents</span>';
+
+  var sidebarMedia = window.matchMedia('screen and (min-width: 78em)');
+  var autoToggle   = function(e){ toggleSidebar(e.matches) };
+  if(sidebarMedia.addListener) {
+    sidebarMedia.addListener(autoToggle);
+  }
+
+  function toggleSidebar(on) {
+    if (on == undefined) {
+      on = !document.body.classList.contains('toc-sidebar');
+    }
+
+    /* Don’t scroll to compensate for the ToC if we’re above it already. */
+    var headY = 0;
+    var head = document.querySelector('.head');
+    if (head) {
+      // terrible approx of "top of ToC"
+      headY += head.offsetTop + head.offsetHeight;
+    }
+    var skipScroll = window.scrollY < headY;
+
+    var toggle = document.getElementById('toc-toggle');
+    var tocNav = document.getElementById('toc');
+    if (on) {
+      var tocHeight = tocNav.offsetHeight;
+      document.body.classList.add('toc-sidebar');
+      document.body.classList.remove('toc-inline');
+      toggle.innerHTML = collapseSidebarText;
+      if (!skipScroll) {
+        window.scrollBy(0, 0 - tocHeight);
+      }
+      tocNav.focus();
+      sidebarMedia.addListener(autoToggle); // auto-collapse when out of room
+    }
+    else {
+      document.body.classList.add('toc-inline');
+      document.body.classList.remove('toc-sidebar');
+      toggle.innerHTML = expandSidebarText;
+      if (!skipScroll) {
+        window.scrollBy(0, tocNav.offsetHeight);
+      }
+      if (toggle.matches(':hover')) {
+        /* Unfocus button when not using keyboard navigation,
+           because I don’t know where else to send the focus. */
+        toggle.blur();
+      }
+    }
+  }
+
+  function createSidebarToggle() {
+    /* Create the sidebar toggle in JS; it shouldn’t exist when JS is off. */
+    var toggle = document.createElement('a');
+      /* This should probably be a button, but appearance isn’t standards-track.*/
+    toggle.id = 'toc-toggle';
+    toggle.class = 'toc-toggle';
+    toggle.href = '#toc';
+    toggle.innerHTML = collapseSidebarText;
+
+    sidebarMedia.addListener(autoToggle);
+    var toggler = function(e) {
+      e.preventDefault();
+      sidebarMedia.removeListener(autoToggle); // persist explicit off states
+      toggleSidebar();
+      return false;
+    }
+    toggle.addEventListener('click', toggler, false);
+
+
+    /* Get <nav id=toc-nav>, or make it if we don’t have one. */
+    var tocNav = document.getElementById('toc-nav');
+    if (!tocNav) {
+      tocNav = document.createElement('p');
+      tocNav.id = 'toc-nav';
+      /* Prepend for better keyboard navigation */
+      document.body.insertBefore(tocNav, document.body.firstChild);
+    }
+    /* While we’re at it, make sure we have a Jump to Toc link. */
+    var tocJump = document.getElementById('toc-jump');
+    if (!tocJump) {
+      tocJump = document.createElement('a');
+      tocJump.id = 'toc-jump';
+      tocJump.href = '#toc';
+      tocJump.innerHTML = tocJumpText;
+      tocNav.appendChild(tocJump);
+    }
+
+    tocNav.appendChild(toggle);
+  }
+
+  var toc = document.getElementById('toc');
+  if (toc) {
+    createSidebarToggle();
+    toggleSidebar(sidebarMedia.matches);
+
+    /* If the sidebar has been manually opened and is currently overlaying the text
+       (window too small for the MQ to add the margin to body),
+       then auto-close the sidebar once you click on something in there. */
+    toc.addEventListener('click', function(e) {
+      if(e.target.tagName.toLowerCase() == "a" && document.body.classList.contains('toc-sidebar') && !sidebarMedia.matches) {
+        toggleSidebar(false);
+      }
+    }, false);
+  }
+  else {
+    console.warn("Can’t find Table of Contents. Please use <nav id='toc'> around the ToC.");
+  }
+
+  /* Wrap tables in case they overflow */
+  var tables = document.querySelectorAll(':not(.overlarge) > table.data, :not(.overlarge) > table.index');
+  var numTables = tables.length;
+  for (var i = 0; i < numTables; i++) {
+    var table = tables[i];
+    var wrapper = document.createElement('div');
+    wrapper.className = 'overlarge';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  }
+
+})();
+</script>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+  <dl>
+   <dt id="biblio-rfc2119">[RFC2119]
+   <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+  </dl>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-accname-aam-11">[ACCNAME-AAM-1.1]
+   <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/accname-1.1/">Accessible Name and Description Computation 1.1</a>. 20 March 2018. WD. URL: <a href="https://www.w3.org/TR/accname-1.1/">https://www.w3.org/TR/accname-1.1/</a>
+   <dt id="biblio-core-aam-11">[CORE-AAM-1.1]
+   <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a>
+   <dt id="biblio-css2">[CSS2]
+   <dd>Bert Bos; et al. <a href="https://www.w3.org/TR/CSS2/">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a>. 7 June 2011. REC. URL: <a href="https://www.w3.org/TR/CSS2/">https://www.w3.org/TR/CSS2/</a>
+   <dt id="biblio-css3-selectors">[CSS3-SELECTORS]
+   <dd>Tantek Çelik; et al. <a href="https://www.w3.org/TR/selectors-3/">Selectors Level 3</a>. 30 January 2018. CR. URL: <a href="https://www.w3.org/TR/selectors-3/">https://www.w3.org/TR/selectors-3/</a>
+   <dt id="biblio-cssom">[CSSOM]
+   <dd>Simon Pieters; Glenn Adams. <a href="https://www.w3.org/TR/cssom-1/">CSS Object Model (CSSOM)</a>. 17 March 2016. WD. URL: <a href="https://www.w3.org/TR/cssom-1/">https://www.w3.org/TR/cssom-1/</a>
+   <dt id="biblio-dom">[DOM]
+   <dd>Anne van Kesteren. <a href="https://dom.spec.whatwg.org/">DOM Standard</a>. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
+   <dt id="biblio-earl10-schema">[EARL10-Schema]
+   <dd>Shadi Abou-Zahra. <a href="https://www.w3.org/TR/EARL10-Schema/">Evaluation and Report Language (EARL) 1.0 Schema</a>. 2 February 2017. NOTE. URL: <a href="https://www.w3.org/TR/EARL10-Schema/">https://www.w3.org/TR/EARL10-Schema/</a>
+   <dt id="biblio-html">[HTML]
+   <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+   <dt id="biblio-http11">[HTTP11]
+   <dd>R. Fielding, Ed.; J. Reschke, Ed.. <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>. June 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7230">https://tools.ietf.org/html/rfc7230</a>
+   <dt id="biblio-pointers-in-rdf">[Pointers-in-RDF]
+   <dd>Carlos Iglesias. <a href="https://www.w3.org/TR/Pointers-in-RDF10/">Pointer Methods in RDF 1.0</a>. 2 February 2017. NOTE. URL: <a href="https://www.w3.org/TR/Pointers-in-RDF10/">https://www.w3.org/TR/Pointers-in-RDF10/</a>
+   <dt id="biblio-svg2">[SVG2]
+   <dd>Nikos Andronikos; et al. <a href="https://www.w3.org/TR/SVG2/">Scalable Vector Graphics (SVG) 2</a>. 15 September 2016. CR. URL: <a href="https://www.w3.org/TR/SVG2/">https://www.w3.org/TR/SVG2/</a>
+   <dt id="biblio-uaag20">[UAAG20]
+   <dd>James Allan; et al. <a href="https://www.w3.org/TR/UAAG20/">User Agent Accessibility Guidelines (UAAG) 2.0</a>. 15 December 2015. NOTE. URL: <a href="https://www.w3.org/TR/UAAG20/">https://www.w3.org/TR/UAAG20/</a>
+   <dt id="biblio-wai-aria">[WAI-ARIA]
+   <dd>James Craig; Michael Cooper; et al. <a href="https://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a>. 20 March 2014. REC. URL: <a href="https://www.w3.org/TR/wai-aria/">https://www.w3.org/TR/wai-aria/</a>
+   <dt id="biblio-wcag">[WCAG]
+   <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">Web Content Accessibility Guidelines 1.0</a>. 5 May 1999. REC. URL: <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">https://www.w3.org/TR/WAI-WEBCONTENT/</a>
+   <dt id="biblio-xpath">[XPATH]
+   <dd>James Clark; Steven DeRose. <a href="https://www.w3.org/TR/xpath/">XML Path Language (XPath) Version 1.0</a>. 16 November 1999. REC. URL: <a href="https://www.w3.org/TR/xpath/">https://www.w3.org/TR/xpath/</a>
+  </dl>
