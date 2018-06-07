@@ -301,7 +301,7 @@ When a single URL can be used to reference the web page, or other test subject, 
 
 
 Test Target {#output-test-target}
-------------------------------
+---------------------------------
 
 When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other [test subject](#output-test-subject). There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/) [[Pointers-in-RDF]].
 
@@ -309,7 +309,7 @@ The pointer method used in the output data of an ACT Rule MUST include the point
 
 
 Outcome {#output-outcome}
-------------------
+-------------------------
 
 The definition of a rule MUST always result in one of the following outcomes:
 
@@ -329,12 +329,12 @@ The definition of a rule MUST always result in one of the following outcomes:
 Rule Quality Assurance {#quality}
 =================================
 
-Implementation Validation {#quality-implement}
-----------------------------------------------
+Test Cases (Atomic rules only) {#quality-test-cases}
+----------------------------------------------------
 
-Implementation tests are tests for accessibility test tools. These tests enable the developers and users of ATTs to validate the implementation of an ACT Rule. An ACT rule MUST have implementation tests for the [applicability](#test-applicability), as well as for each [expectation](#expectations) in the rule.
+Test cases are (snippets of) content that can be used to validate the implementation of an Atomic rule. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the an [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
-An implementation test consists of two parts: a piece of input data and an expected result. When applying the test, the piece of input data, for instance an HTML code snippet, is evaluated by following the rule's test procedure. The result is then compared to the expected result of the test. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
+When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's test definition. The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
@@ -354,11 +354,11 @@ There are several ways this can be done. For instance, accessibility test tools 
 
 
 Rule Aggregation {#output-aggregation}
---------------------------------------
+======================================
 
 As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#unique-identifier), 2) the [test subject](#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
-Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules should be combined, so that they are at the same level.
+Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules can be combined, so that they are at the same level.
 
 When all rules pass, that does not mean that all [accessibility requirements](#structure-accessibility-requirements) are met. Only if the rules can test 100% of what should be tested, can this claim be made. Otherwise the outcome for a criterion is inconclusive.
 
@@ -370,9 +370,10 @@ See [[#appendix-data-example]] on how this could be expressed using JSON-LD and 
 
 
 Update Management {#quality-updates}
-------------------------------------
+====================================
 
-### Change Log ### {#quality-updates-changes}
+Change Log {#quality-updates-changes}
+-------------------------------------
 
 It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the [outcome](#output-outcome) of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
 
@@ -381,7 +382,8 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 **Example:** An example of when a new rule should be created is when a rule that tests for the use of a `blink` element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow `blink` elements positioned off screen should be done by updating the existing rule.
 
 
-### Issues List ### {#quality-updates-issues}
+Issues List {#quality-updates-issues}
+-------------------------------------
 
 An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There are several reasons why this might occur, including:
 
@@ -393,7 +395,7 @@ The issues list serves two purposes. For users of ACT Rules, the issues list may
 
 
 Appendix 1: Aggregation examples, using JSON-LD and EARL {#appendix-data-example}
-========================================================
+=================================================================================
 
 **Example:**
 
