@@ -32,6 +32,32 @@ The ACT Rules Format can be used to describe ACT Rules dedicated to testing the 
 Because ACT Rules rarely test the entirety of an accessibility requirement, passing ACT rules does not necessarily mean that an accessibility requirement is met. It is important to understand that **ACT Rules test non-conformance**. In some cases conformance can be inferred from the absence of failures, unlike WCAG sufficient techniques, ACT Rules should not be used for conformance claims unless the rule explicitly states it can be used that way. See [Rule Aggregation](#output-aggregation) for details.
 
 
+ACT Rule Types {#rule-types}
+============================
+
+In accessibility testing, there are often different ways to make the same type of content accessible. These different techniques could be described in a single big rule. Rules like that tend to be quite complex, making them difficult to reason about and to maintain. The ACT Rules Format solves this by providing two types of rules:
+
+- **Atomic rules** describe what to test about a particular type of content. It contains a precise definition of what elements, nodes or other "parts" of a web page are to be tested, and when those elements are considered to fail the rule. These rules should be kept small and atomic. Meaning that atomic rules test a single "pass condition", and do so without using results from other rules.
+
+- **Composed rules**, describe how results from atomic rules should be used to decide if a an accessibility requirement was failed. If there are multiple failures necessary for an accessibility requirement to fail, each "type" of failure should be written as separate atomic rules and be aggregated by a composed rule. 
+
+The separation between atomic rules and composed rules creates a division of responsibly. Atomic rules test if web content correctly implemented a particular solution. Composed rules test if a combination of `pass` outcomes from atomic rules is sufficient for an accessibility requirement not to `fail`. Not all atomic rules have to be part of a composed rule. Only if failing that atomic rule does not directly fail an [Accessibility Requirements](#structure-accessibility-requirements). An atomic rule MAY be part of multiple composed rules.
+
+A composed rule define how the outcomes from its atomic rules are aggregated into a single outcome for each applicable test target. Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility support](#acc-support) for details.
+
+<div class="example">
+  <p>Composed rule: Header cells in HTML tables (WCAG 2 Success Criterion 1.3.1)</p>
+  <p>This rule would use results from the following atomic rules:</p>
+  <ul>
+    <li>Header indicated through implicit scope</li>
+    <li>Header indicated through the `scope` attribute</li>
+    <li>Header indicated by using the `headers` attribute</li>
+    <li>Header indicated by using ARIA labels</li>
+  </ul>
+  <p>If any one of these rules passes, the table cell can pass the composed rule.</p>
+</div>
+
+
 ACT Rule Structure {#structure}
 ==============================
 
