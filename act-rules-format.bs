@@ -85,7 +85,7 @@ An Composed ACT Rule MUST consist of the following items:
 * [Rule Description](#structure-description)
 * [Aggregated Rules](#aggregated-rules)
 * [Accessibility Requirements](#structure-accessibility-requirements)
-* [Aggregation Definition](#aggregation-def)
+* [Aggregation Definition](#aggregation-definition)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
 
@@ -267,11 +267,11 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it is important that data coming from different sources can be compared. By having a shared vocabulary, accessibility data that is produced by different auditors can be compared and, where necessary, aggregated. Therefore, every ACT Rule MUST express the output in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#test-expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#unique-identifier).
+Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#test-expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#rule-identifier).
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
-- [Rule Identifier](#unique-identifier) (test)
+- [Rule Identifier](#rule-identifier) (test)
 - [Test Subject](#output-test-subject) (Web page)
 - [Test Target](#output-test-target) (pointer)
 - [Outcome](#output-outcome) (`Passed`, `Failed`, or `Inapplicable`)
@@ -305,7 +305,7 @@ Test Target {#output-test-target}
 
 When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other [test subject](#output-test-subject). There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/) [[Pointers-in-RDF]].
 
-The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Implementation Validation](#quality-implement).
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Test cases](#quality-test-cases).
 
 
 Outcome {#output-outcome}
@@ -356,7 +356,7 @@ There are several ways this can be done. For instance, accessibility test tools 
 Rule Aggregation {#output-aggregation}
 ======================================
 
-As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#unique-identifier), 2) the [test subject](#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
+As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#rule-identifier), 2) the [test subject](#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
 
 Most expert evaluations do not report results at this level of detail. Often reports are limited to giving a single outcome (Passed, Failed, Inapplicable) per page, for each success criteria (or other accessibility requirement). To compare the data, results from rules can be combined, so that they are at the same level.
 
