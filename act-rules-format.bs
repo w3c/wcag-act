@@ -280,13 +280,6 @@ The procedure of a rule MUST always return one of the following outcomes:
   While *inapplicable* is a valid result for ACT Rules, it may not be a valid result for all [accessibility requirements](#structure-accessibility-requirements). Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to true (passed) or false (failed). This translation of results is part of [output aggregation](#output-aggregation)
 </div>
 
-Ensure Comparable Results {#output-comparable}
--------------------------
-
-In addition to the [Test Target](#output-test-target) and the [Outcome](#output-outcome), ACT Rule output data MUST include the following contextual information:
-
-- the Web page, file or other [test subject](#output-test-subject) the rule was applied to and
-- an [identifier](#unique-identifier) of the rule itself.
 
 
 Rule Quality Assurance {#quality}
