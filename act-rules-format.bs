@@ -280,6 +280,9 @@ The procedure of a rule MUST always return one of the following outcomes:
   While *inapplicable* is a valid result for ACT Rules, it may not be a valid result for all [accessibility requirements](#structure-accessibility-requirements). Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to true (passed) or false (failed). This translation of results is part of [output aggregation](#output-aggregation)
 </div>
 
+<div class="note">
+  In addition to `Passed` `Failed` and `Inapplicable`, [[EARL10-Schema]] also defined an `Incomplete` outcome. While this should never be the outcome of a rule when applied in its entirety, it often happens that rules are only partially executed. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the "Incomplete" outcome.
+</div>
 
 
 Rule Quality Assurance {#quality}
