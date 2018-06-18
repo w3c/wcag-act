@@ -46,7 +46,7 @@ The separation between atomic rules and composed rules creates a division of res
 A composed rule defines how the outcomes from its atomic rules are aggregated into a single outcome for each applicable test target. Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
 
 <div class="example">
-  <p>Composed rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>)</p>
+  <p>Composed rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>).</p>
   <p>This rule uses results from the following atomic rules:</p>
   <ul>
     <li>Header indicated through implicit scope</li>
