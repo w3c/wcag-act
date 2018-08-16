@@ -129,6 +129,14 @@ A list of common aspects for reference in ACT rules can be found in [Common Aspe
   </li>
 </div>
 
+<div class=example>
+  <p>Test aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</p>
+    <li>
+    <ul>DOM Tree</ul
+    <ul>CSS Styling</ul
+    <ul>Language</ul
+  </li>
+</div>
 
 Test Definition (Atomic rules only) {#test-def}
 ===============================================
