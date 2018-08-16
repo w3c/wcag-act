@@ -68,7 +68,8 @@ An ACT Rule MUST consist of the following items
 * [Rule Description](#structure-description)
 * [Accessibility Requirements](#structure-accessibility-requirements), if any
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composed rules)
-* [Test Definition](#test-def) (for atomic rules) OR [Aggregation Definition](#aggregation-definition) (for composed rules)
+* [Applicability](#applicability)
+* [Expectations](#expectations)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
 
