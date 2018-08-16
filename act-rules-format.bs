@@ -154,7 +154,7 @@ Applicability {#applicability}
 The applicability describes "what" (parts of) the [test subject](#output-test-subject) should be tested (the test target).
 
 
-Applicability for atomic rules {#applicability-atomic}
+Applicability for Atomic Rules {#applicability-atomic}
 ------------------------------------------------------
 
 The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [test subject](#output-test-subject) to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [test targets](#output-test-target). The applicability MUST only use information provided through [test aspects](#input-aspects) of the same rule. No other information should be used in the applicability.
@@ -171,7 +171,7 @@ An objective description is one that can be resolved without uncertainty in a gi
 </div>
 
 
-Applicability for composed rules {#applicability-composed}
+Applicability for Composed Rules {#applicability-composed}
 ----------------------------------------------------------
 
 The applicability of a [=composed rule=] is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composed rule can be inferred from the atomic rules it uses results from. Since the applicability can be inferred, rule authors MAY omit applicability for a composed rule. This can be useful if it is difficult to express the combined applicability in plain language.
@@ -195,7 +195,7 @@ Expectations {#expectations}
 The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the accplicability section.
 
 
-Expectations for atomic rules {#expectations-atomic}
+Expectations for Atomic Rules {#expectations-atomic}
 ----------------------------------------------------
 
 An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
@@ -213,7 +213,7 @@ When all expectations are true for a test target, the test target `passed` the r
 An atomic rule expectation MUST only use information available in the [test aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures the rule is encapsulated.
 
 
-Expectations for composed rules {#expectations-composed}
+Expectations for Composed Rules {#expectations-composed}
 --------------------------------------------------------
 
 A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [atomic rules list](#atomic-rules-list). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
