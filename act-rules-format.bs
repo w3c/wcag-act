@@ -142,6 +142,13 @@ Language, either written or spoken, contained in nodes of the DOM [[DOM]] or acc
 
 The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
 
+
+Atomic Rules List (Composed rules only) {#atomic-rules-list}
+==========================================================
+
+A [=composed rule=] uses results from [=atomic rules=] and aggregates them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [aggregation definition](#aggregation-definition) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+
+
 Applicability {#applicability}
 ==============================
 The applicability describes "what" (parts of) the [test subject](#output-test-subject) should be tested (the test target).
@@ -210,42 +217,6 @@ Expectations for composed rules {#expectations-composed}
 --------------------------------------------------------
 
 A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [aggregated rules](#aggregation-definition). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
-
-When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules.
-
-<div class="example">
-  <p>A composed rule for <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 Audio Description or Media Alternative</a> aggregates three atomic rules. The expectation of the composed rule is as follows:</p>
-  <blockquote>
-    <p>For each test target, the outcome of one of the following rules is `passed`:</p>
-    <ul>
-      <li>Video elements have an audio description</li>
-      <li>Video elements have a media alternative</li>
-      <li>Video elements have a media alternative</li>
-    </ul>
-  </blockquote>
-</div>
-
-
-Atomic Rules List (Composed rules only) {#atomic-rules-list}
-==========================================================
-
-A [=composed rule=] uses results from [=atomic rules=] and aggregates them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [aggregation definition](#aggregation-definition) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
-
-
-Aggregation Definition (Composed rules only) {#aggregation-definition}
-======================================================================
-
-
-Aggregation Applicability {#aggregation-applicability}
-------------------------------------------
-
-
-
-
-Aggregation Expectations {#aggregation-expectations}
-----------------------------------------
-
-A [=composed rule=] MUST contain one or more expectations. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [aggregated rules](#aggregation-definition). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules.
 
