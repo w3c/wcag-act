@@ -39,11 +39,11 @@ In accessibility, there are often different technical solutions to make the same
 
 - <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other parts of a web page are to be tested, and when those elements are considered to fail the rule. These rules should be kept small and atomic. Meaning that atomic rules test a single "failure condition", and do so without using results from other rules.
 
-- <dfn>Composed rules</dfn> describe how results from atomic rules should be used to decide if an accessibility requirement was failed. If there are multiple failures necessary for an accessibility requirement to fail, each "type" of failure should be written as separate atomic rules and be aggregated by a composed rule.
+- <dfn>Composed rules</dfn> describe how results from atomic rules should be used to decide if an accessibility requirement was failed. If there are multiple failures necessary for an accessibility requirement to fail, each "type" of failure should be written as separate atomic rules, and the logic for determining the ´pass´ or ´fail´ for the accessibility requirement, across the atomic rules, should be handled by a composed rule.
 
 The separation between atomic rules and composed rules creates a division of responsibility. Atomic rules test if web content is correctly implemented in a particular solution. Composed rules test if a combination of `pass` outcomes from atomic rules is sufficient for an accessibility requirement not to `fail`. Not all atomic rules have to be part of a composed rule. Atomic rules only have to be part of a composed rule if failing that atomic rule does not directly fail [Accessibility Requirements](#structure-accessibility-requirements). An atomic rule MAY be part of multiple composed rules.
 
-A composed rule defines how the outcomes from its atomic rules are aggregated into a single outcome for each applicable test target. Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
+A composed rule defines how the outcomes from its atomic rules are used to determine a single outcome for each applicable test target. Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
 
 <div class="example">
   <p>Composed rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>).</p>
@@ -146,7 +146,7 @@ The means by which the language is assessed, whether by a person or a machine, i
 Atomic Rules List (Composed rules only) {#atomic-rules-list}
 ==========================================================
 
-A [=composed rule=] uses results from [=atomic rules=] and aggregates them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [aggregation definition](#aggregation-definition) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+A [=composed rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
@@ -174,10 +174,10 @@ An objective description is one that can be resolved without uncertainty in a gi
 Applicability for composed rules {#applicability-composed}
 ----------------------------------------------------------
 
-The applicability of a [=composed rule=] is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composed rule can be inferred from the atomic rules it aggregates. Since the applicability can be inferred, rule authors MAY omit applicability from the aggregation definition. This can be useful if it is difficult to express the combined applicability in plain language.
+The applicability of a [=composed rule=] is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composed rule can be inferred from the atomic rules it uses results from. Since the applicability can be inferred, rule authors MAY omit applicability for a composed rule. This can be useful if it is difficult to express the combined applicability in plain language.
 
 <div class=example>
-  <p>A composed rule about `img` elements aggregates results from atomic rules that have the following applicability:</p>
+  <p>A composed rule about `img` elements uses results from atomic rules that have the following applicability:</p>
   <ul>
     <li><strong>Atomic rule1</strong>: All `img` element with an `alt` attribute</li>
     <li><strong>Atomic rule1</strong>: All `img` element without an `alt` attribute</li>
@@ -200,7 +200,7 @@ Expectations for atomic rules {#expectations-atomic}
 
 An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
-When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. If the atomic rule is used in a [=composed rule=], the composed rule may be `passed` when the atomic rule `failed`, depending on the [aggregation definition](#aggregation-definition) of the composed rule.
+When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. If the atomic rule is used in a [=composed rule=], the composed rule may be `passed` when the atomic rule `failed`, depending on the [applicability](#applicability-composed) and [exxpectations-composed] of the composed rule.
 
 <div class=example>
   <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
@@ -216,12 +216,12 @@ An atomic rule expectation MUST only use information available in the [test aspe
 Expectations for composed rules {#expectations-composed}
 --------------------------------------------------------
 
-A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [aggregated rules](#aggregation-definition). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
+A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [atomic rules list](#atomic-rules-list). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules.
 
 <div class="example">
-  <p>A composed rule for <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 Audio Description or Media Alternative</a> aggregates three atomic rules. The expectation of the composed rule is as follows:</p>
+  <p>A composed rule for <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 Audio Description or Media Alternative</a> applies a logic across results from three atomic rules. The expectation of the composed rule is as follows:</p>
   <blockquote>
     <p>For each test target, the outcome of one of the following rules is `passed`:</p>
     <ul>
