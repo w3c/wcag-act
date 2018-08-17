@@ -43,8 +43,6 @@ In accessibility, there are often different technical solutions to make the same
 
 The separation between atomic rules and composed rules creates a division of responsibility. Atomic rules test if web content is correctly implemented in a particular solution. Composed rules test if a combination of `pass` outcomes from atomic rules is sufficient for an accessibility requirement not to `fail`. Not all atomic rules have to be part of a composed rule. Atomic rules only have to be part of a composed rule if failing that atomic rule does not directly fail [Accessibility Requirements](#structure-accessibility-requirements). An atomic rule MAY be part of multiple composed rules.
 
-A composed rule defines how the outcomes from its atomic rules are used to determine a single outcome for each applicable test target. Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
-
 <div class="example">
   <p>Composed rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>).</p>
   <p>This rule uses results from the following atomic rules:</p>
@@ -174,7 +172,11 @@ An objective description is one that can be resolved without uncertainty in a gi
 Applicability for Composed Rules {#applicability-composed}
 ----------------------------------------------------------
 
-The applicability of a [=composed rule=] is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composed rule can be inferred from the atomic rules it uses results from. Since the applicability can be inferred, rule authors MAY omit applicability for a composed rule. This can be useful if it is difficult to express the combined applicability in plain language.
+A [=composed rule=] rule defines how the outcomes from its atomic rules are used to determine a single outcome for each applicable test target. 
+
+The applicability of a composed rule is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composed rule can be inferred from the atomic rules it uses results from. Since the applicability can be inferred, rule authors MAY omit applicability for a composed rule. This can be useful if it is difficult to express the combined applicability in plain language.
+
+Note that atomic rules in a composed rule MAY have different applicability. Because of this, not every element applicable within the composed rule is tested by every atomic rule.
 
 <div class=example>
   <p>A composed rule about `img` elements uses results from atomic rules that have the following applicability:</p>
