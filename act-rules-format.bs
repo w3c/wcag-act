@@ -104,7 +104,7 @@ Aspects Under Test (Atomic rules only) {#input-aspects}
 
 An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
-[=Atomic rules=] MUST list the aspects used in the [Test Definition](#test-def). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. Since there is no Test Definition in Composed rules, there SHOULD NOT be an aspects under test list for composed rules.
+[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. There SHOULD NOT be an aspects under test list for composed rules.
 
 An atomic rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
 
@@ -323,7 +323,8 @@ Test Cases (Atomic rules only) {#quality-test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of an [=atomic rule=]. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
-When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's test definition. The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
+When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's [applicability](#applicability) and [expectations](#ex
+pectations). The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
@@ -339,7 +340,8 @@ The accuracy of a rule is the average between the false positives and false nega
 
 - **False negatives**: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.
 
-There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-aggregation) may be necessary.
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-
+tion) may be necessary.
 
 
 Rule Aggregation {#output-aggregation}
