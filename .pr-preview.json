@@ -2,6 +2,6 @@
     "src_file": "act-rules-format.bs",
     "type": "bikeshed",
     "params": {
-        "branch": "w3c:master"
+        "branch": "master"
     }
 }
