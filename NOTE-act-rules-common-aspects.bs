@@ -5,7 +5,7 @@ URL: https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-format/NOTE-act-rules-common-aspects.html
 Level: 1.0
 Status: WG-NOTE
-TR: https://w3c.github.io/wcag-act/act-rules-format.html
+TR: https://www.w3.org/TR/
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
@@ -17,7 +17,7 @@ Introduction {#intro}
 =====================
 
 <p class="note" role="note">
-"Editor's note: This note captures Common Aspects Under Test"
+"Editor's note: This note captures Common Aspects Under Test. The TR metadata needs to be updated when ACT rules has a TR url."
 </p>
 
 
