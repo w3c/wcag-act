@@ -17,7 +17,7 @@ Introduction {#intro}
 =====================
 
 <p class="note" role="note">
-"Editor's note: This note captures Common Aspects Under Test. The TR metadata needs to be updated when ACT rules has a TR url."
+"Editor's note: **DRAFT** This note captures Common Aspects Under Test. The TR metadata needs to be updated when ACT rules has a TR url."
 </p>
 
 
