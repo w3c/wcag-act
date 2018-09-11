@@ -256,7 +256,7 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it is important that data coming from different sources can be compared. By having a shared vocabulary, accessibility data that is produced by different auditors can be compared and, where necessary, aggregated. Therefore, every ACT Rule MUST express the output in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#test-expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#rule-identifier).
+Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#rule-identifier).
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
@@ -302,7 +302,7 @@ Outcome {#output-outcome}
 
 The definition of a rule MUST always result in one of the following outcomes:
 
-- **Passed**: All [expectations](#test-expectations) for the [Test Target](#output-test-target) were true
+- **Passed**: All [expectations](#expectations) for the [Test Target](#output-test-target) were true
 - **Failed**: One or more expectations for the Test Target was false
 - **Inapplicable**: There were no Test Targets in the [Test Subject](#output-test-subject)
 
