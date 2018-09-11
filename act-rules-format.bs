@@ -218,7 +218,7 @@ An atomic rule expectation MUST only use information available in the [test aspe
 Expectations for Composed Rules {#expectations-composed}
 --------------------------------------------------------
 
-A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [atomic rules list](#atomic-rules-list). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
+A [=composed rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [atomic rules list](#atomic-rules-list). A composed rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#applicability).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules.
 
