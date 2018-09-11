@@ -200,7 +200,7 @@ The expectations describe what the requirements are for the [test targets](#outp
 Expectations for Atomic Rules {#expectations-atomic}
 ----------------------------------------------------
 
-An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. If the atomic rule is used in a [=composed rule=], the composed rule may be `passed` when the atomic rule `failed`, depending on the [applicability](#applicability-composed) and [exxpectations-composed] of the composed rule.
 
