@@ -338,8 +338,7 @@ The accuracy of a rule is the average between the false positives and false nega
 
 - **False negatives**: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.
 
-There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-
-tion) may be necessary.
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-aggregation) may be necessary.
 
 
 Rule Aggregation {#output-aggregation}
