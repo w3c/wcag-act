@@ -113,29 +113,29 @@ A list of common aspects for reference in ACT rules can be found in [Common Aspe
 
 <div class=example>
   <p>Test aspects for a rule that checks if images have an accessible name:</p>
-  <li>
-    <ul>DOM Tree</ul>
-    <ul>CSS Styling</ul>
-  </li>
+  <ul>
+    <li>DOM Tree</li>
+    <li>CSS Styling</li>
+  </ul>
 </div>
 
 <div class=example>
   <p>Test aspects for a rule that checks if a transcript is available for videos:</p>
-    <li>
-    <ul>DOM Tree</ul
-    <ul>CSS Styling</ul
-    <ul>Audio output</ul
-    <ul>Visual output</ul
-  </li>
+  <ul>
+    <li>DOM Tree</li>
+    <li>CSS Styling</li>
+    <li>Audio output</li>
+    <li>Visual output</li>
+  </ul>
 </div>
 
 <div class=example>
   <p>Test aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</p>
-    <li>
-    <ul>DOM Tree</ul
-    <ul>CSS Styling</ul
-    <ul>Language</ul
-  </li>
+    <ul>
+    <li>DOM Tree</li>
+    <li>CSS Styling</li>
+    <li>Language</li>
+  </ul>
 </div>
 
 Test Definition (Atomic rules only) {#test-def}
