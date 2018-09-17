@@ -39,11 +39,9 @@ In accessibility, there are often different technical solutions to make the same
 
 - <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other parts of a web page are to be tested, and when those elements are considered to fail the rule. These rules should be kept small and atomic. Meaning that atomic rules test a single "failure condition", and do so without using results from other rules.
 
-- <dfn>Composite rules</dfn> describe how results from atomic rules should be used to decide if an accessibility requirement was failed. If there are multiple failures necessary for an accessibility requirement to fail, each "type" of failure should be written as separate atomic rules and be aggregated by a composite rule.
+- <dfn>Composite rules</dfn> describe how results from atomic rules should be used to decide if an accessibility requirement was failed. If there are multiple failures necessary for an accessibility requirement to fail, each "type" of failure should be written as separate atomic rules, and the logic for determining the ´pass´ or ´fail´ for the accessibility requirement, across the atomic rules, should be handled by a composite rule.
 
 The separation between atomic rules and composite rules creates a division of responsibility. Atomic rules test if web content is correctly implemented in a particular solution. Composite rules test if a combination of `pass` outcomes from atomic rules is sufficient for an accessibility requirement not to `fail`. Not all atomic rules have to be part of a composite rule. Atomic rules only have to be part of a composite rule if failing that atomic rule does not directly fail [Accessibility Requirements](#structure-accessibility-requirements). An atomic rule MAY be part of multiple composite rules.
-
-A composite rule defines how the outcomes from its atomic rules are aggregated into a single outcome for each applicable test target. Note that atomic rules in a composite rule MAY have different applicability. Because of this, not every element applicable within the composite rule is tested by every atomic rule. Atomic rules MAY also be disabled during a test run due to accessibility support concerns. See [Accessibility Support](#acc-support) for details.
 
 <div class="example">
   <p>Composite rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>).</p>
@@ -68,7 +66,8 @@ An ACT Rule MUST consist of the following items
 * [Rule Description](#structure-description)
 * [Accessibility Requirements](#structure-accessibility-requirements), if any
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
-* [Test Definition](#test-def) (for atomic rules) OR [Aggregation Definition](#aggregation-definition) (for composite rules)
+* [Applicability](#applicability)
+* [Expectations](#expectations)
 * [Limitations, Assumptions or Exceptions](#structure-limitations-assumptions-exceptions), if any
 * [Accessibility Support](#acc-support) (optional)
 
@@ -105,7 +104,7 @@ Aspects Under Test (Atomic rules only) {#input-aspects}
 
 An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
-[=Atomic rules=] MUST list the aspects used in the [Test Definition](#test-def). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. Since there is no Test Definition in Composite rules, there SHOULD NOT be an aspects under test list for composite rules.
+[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. There SHOULD NOT be an aspects under test list for composite rules.
 
 An atomic rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
 
@@ -138,13 +137,18 @@ A list of common aspects for reference in ACT rules can be found in [Common Aspe
   </ul>
 </div>
 
-Test Definition (Atomic rules only) {#test-def}
-===============================================
+Atomic Rules List (Composite rules only) {#atomic-rules-list}
+==========================================================
 
-The test definition of [=atomic rules=] describes "what" (parts of) the [test subject](#output-test-subject) should be tested (the test target), and what the requirements for those [test targets](#output-test-target) are. Instead of a [test description](#structure-description), a [=composite rule=] has an [aggregation definition](#aggregation-definition).
+A [=composite rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
 
-Applicability {#test-applicability}
------------------------------------
+Applicability {#applicability}
+==============================
+The applicability describes "what" (parts of) the [test subject](#output-test-subject) should be tested (the test target).
+
+
+Applicability for Atomic Rules {#applicability-atomic}
+------------------------------------------------------
 
 The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [test subject](#output-test-subject) to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [test targets](#output-test-target). The applicability MUST only use information provided through [test aspects](#input-aspects) of the same rule. No other information should be used in the applicability.
 
@@ -160,46 +164,17 @@ An objective description is one that can be resolved without uncertainty in a gi
 </div>
 
 
-Expectations {#test-expectations}
----------------------------------
+Applicability for Composite Rules {#applicability-composed}
+----------------------------------------------------------
 
-An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#test-applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+A [=composite rule=] defines how the outcomes from its atomic rules are used to determine a single outcome for each applicable test target. 
 
-When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. If the atomic rule is used in a [=composite rule=], the composite rule may be `passed` when the atomic rule `failed`, depending on the [aggregation definition](#aggregation-definition) of the composite rule.
+The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composite rule can be inferred from the atomic rules it uses results from. Since the applicability can be inferred, rule authors MAY omit applicability for a composite rule. This can be useful if it is difficult to express the combined applicability in plain language.
 
-<div class=example>
-  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
-  <ol>
-    <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)). [[accname-aam-1.1]]</li>
-    <li>The accessible name describes the purpose of the test target.</li>
-  </ol>
-</div>
-
-An atomic rule expectation MUST only use information available in the [test aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures the rule is encapsulated.
-
-
-Atomic Rules List (Composite rules only) {#atomic-rules-list}
-==========================================================
-
-A [=composite rule=] uses results from [=atomic rules=] and aggregates them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [aggregation definition](#aggregation-definition) MUST be listed in the composite rule. The atomic rules list describes the input for composite rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
-
-
-Aggregation Definition (Composite rules only) {#aggregation-definition}
-======================================================================
-
-[=Composite rules=] MUST describe how results from [=atomic rules=] should be aggregated to determine a single `pass` or `fail` result. This is done in the aggregation definition. Only composite rules contain an aggregation definition, since atomic rules are encapsulated and do not use results from other rules.
-
-<p class="note" role="note">
-"Editor's note: We are considering merging this definition with test definition. We are looking for feedback."
-</p>
-
-Aggregation Applicability {#aggregation-applicability}
-------------------------------------------
-
-The applicability of a [=composite rule=] is defined as the union of all the applicability sections of its [=atomic rules=]. Because of this, applicability of a composite rule can be inferred from the atomic rules it aggregates. Since the applicability can be inferred, rule authors MAY omit applicability from the aggregation definition. This can be useful if it is difficult to express the combined applicability in plain language.
+Note that atomic rules in a composite rule MAY have different applicability. Because of this, not every element applicable within the composite rule is tested by every atomic rule.
 
 <div class=example>
-  <p>A composite rule about `img` elements aggregates results from atomic rules that have the following applicability:</p>
+  <p>A composite rule about `img` elements uses results from atomic rules that have the following applicability:</p>
   <ul>
     <li><strong>Atomic rule1</strong>: All `img` element with an `alt` attribute</li>
     <li><strong>Atomic rule1</strong>: All `img` element without an `alt` attribute</li>
@@ -212,21 +187,43 @@ The applicability of a [=composite rule=] is defined as the union of all the app
 </div>
 
 
-Aggregation Expectations {#aggregation-expectations}
-----------------------------------------
+Expectations {#expectations}
+==============================
+The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the accplicability section.
 
-A [=composite rule=] MUST contain one or more expectations. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [aggregated rules](#aggregation-definition). A composite rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#test-applicability).
+
+Expectations for Atomic Rules {#expectations-atomic}
+----------------------------------------------------
+
+An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that must be true about each [test target](#output-test-target) (see [Applicability](#applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning isn't fully quantifiable.
+
+When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. If the atomic rule is used in a [=composed rule=], the composed rule may be `passed` when the atomic rule `failed`, depending on the [applicability](#applicability-composed) and [exxpectations-composed] of the composed rule.
+
+<div class=example>
+  <p>A rule for labels of HTML `input` elements may have the following expectations:</p>
+  <ol>
+    <li>The test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)). [[accname-aam-1.1]]</li>
+    <li>The accessible name describes the purpose of the test target.</li>
+  </ol>
+</div>
+
+An atomic rule expectation MUST only use information available in the [test aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures the rule is encapsulated.
+
+
+Expectations for Composite Rules {#expectations-composed}
+--------------------------------------------------------
+
+A [=composite rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `pass` or `fail` result based on the results of its [=atomic rules=]. An expectation is an assertion, written in plain language, that must be true about the outcomes of [=atomic rules=] listed in [atomic rules list](#atomic-rules-list). A composite rule expectation MUST NOT use information from [test aspects](#input-aspects) or from the [test applicability](#applicability).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules.
 
 <div class="example">
-  <p>A composite rule for <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 Audio Description or Media Alternative</a> aggregates three atomic rules. The expectation of the composite rule is as follows:</p>
+  <p>A composite rule for <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 Audio Description or Media Alternative</a> applies a logic across results from three atomic rules. The expectation of the composite rule is as follows:</p>
   <blockquote>
     <p>For each test target, the outcome of one of the following rules is `passed`:</p>
     <ul>
-      <li>Video elements have an audio description</li>
-      <li>Video elements have a media alternative</li>
-      <li>Video elements have a media alternative</li>
+      <li>Video elements have an audio description (video-audio-desc)</li>
+      <li>Video elements have a media alternative (video-text-alt)</li>
     </ul>
   </blockquote>
 </div>
@@ -253,7 +250,7 @@ ACT Data Format (Output Data) {#output}
 
 With ACT Rules, it is important that data coming from different sources can be compared. By having a shared vocabulary, accessibility data that is produced by different auditors can be compared and, where necessary, aggregated. Therefore, every ACT Rule MUST express the output in a format that has all of the features described in the ACT Data Format.
 
-Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#test-expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#rule-identifier).
+Rules are tested in two steps. Firstly, the applicability is used to find a list of [Test Targets](#output-test-target) (elements, tags or other "components") within the web page or other [test subject](#output-test-subject). Then each test target is tested to see if all of the [expectations](#expectations) are true. This will give the outcome for each test target. For contextual information, the output data must also include [test subject](#output-test-subject) and the [rule identifier](#rule-identifier).
 
 This will mean that every time a rule is executed on a page, it will return a set with zero or more results, each of which MUST have at least the following properties:
 
@@ -299,7 +296,7 @@ Outcome {#output-outcome}
 
 The definition of a rule MUST always result in one of the following outcomes:
 
-- **Passed**: All [expectations](#test-expectations) for the [Test Target](#output-test-target) were true
+- **Passed**: All [expectations](#expectations) for the [Test Target](#output-test-target) were true
 - **Failed**: One or more expectations for the Test Target was false
 - **Inapplicable**: There were no Test Targets in the [Test Subject](#output-test-subject)
 
@@ -320,7 +317,7 @@ Test Cases (Atomic rules only) {#quality-test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of an [=atomic rule=]. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
-When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's test definition. The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
+When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's [applicability](#applicability) and [expectations](#expectations). The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
 Accuracy Benchmarking {#quality-accuracy}
