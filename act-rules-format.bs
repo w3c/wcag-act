@@ -228,7 +228,6 @@ When all expectations are true for a test target, the test target `passed` the r
     <ul>
       <li>Video elements have an audio description</li>
       <li>Video elements have a media alternative</li>
-      <li>Video elements have a media alternative</li>
     </ul>
   </blockquote>
 </div>
