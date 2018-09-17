@@ -226,8 +226,8 @@ When all expectations are true for a test target, the test target `passed` the r
   <blockquote>
     <p>For each test target, the outcome of one of the following rules is `passed`:</p>
     <ul>
-      <li>Video elements have an audio description</li>
-      <li>Video elements have a media alternative</li>
+      <li>Video elements have an audio description (video-audio-desc)</li>
+      <li>Video elements have a media alternative (video-text-alt)</li>
     </ul>
   </blockquote>
 </div>
