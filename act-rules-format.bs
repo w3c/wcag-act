@@ -52,7 +52,7 @@ The separation between atomic rules and composite rules creates a division of re
     <li>Header indicated by using the `headers` attribute</li>
     <li>Header indicated by using ARIA labels</li>
   </ul>
-  <p>If any one of these rules passes, the table cell can pass the composite rule.</p>
+  <p>If any one of these rules passes, the test result of the composite rule for the table cell is "passed".</p>
 </div>
 
 
