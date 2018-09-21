@@ -104,7 +104,7 @@ Aspects Under Test (Atomic rules only) {#input-aspects}
 
 An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
-[=Atomic rules=] MUST list the aspects used in the [Applicability](#test-applicability) and the [Expectations](#test-expectations) sections of its [Test Definition](#test-def).
+[=Atomic rules=] MUST list the aspects used in the [Applicability](#applicability) and the [Expectations](#test-expectations) sections of its [Test Definition](#test-def).
 
 Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.
 
