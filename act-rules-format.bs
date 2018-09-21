@@ -106,7 +106,7 @@ An aspect is a distinct part of the [test subject](#output-test-subject) or its 
 
 [=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. There SHOULD NOT be an aspects under test list for composite rules.
 
-An atomic rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
+An atomic rule MUST include a description of all the aspects under test by the rule. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
 
 A list of common aspects for reference in ACT rules can be found in [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html).
 
