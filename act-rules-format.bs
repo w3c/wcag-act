@@ -143,7 +143,7 @@ A list of common aspects for reference in [=atomic rules=] can be found in [Comm
 Atomic Rules List (Composite rules only) {#atomic-rules-list}
 ==========================================================
 
-A [=composite rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. The identifiers of each atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
