@@ -285,7 +285,7 @@ Output data using EARL and JSON-LD. (See [Evaluation and Report Language](https:
 Test Subject {#output-test-subject}
 -----------------------------------
 
-When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
+When a single URL can be used to reference the web page, or other test subject, this URL MAY be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
 
 
 Test Target {#output-test-target}
