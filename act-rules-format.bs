@@ -312,10 +312,10 @@ The definition of a rule MUST always result in one of the following outcomes:
 Rule Quality Assurance {#quality}
 =================================
 
-Test Cases (Atomic rules only) {#quality-test-cases}
+Test Cases {#quality-test-cases}
 ----------------------------------------------------
 
-Test cases are (snippets of) content that can be used to validate the implementation of an [=atomic rule=]. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
+Test cases are (snippets of) content that can be used to validate the implementation of an ACT Rules. Each rule MUST have test cases for passed, failed and inapplicable scenarios. A test case consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
 When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's [applicability](#applicability) and [expectations](#expectations). The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
