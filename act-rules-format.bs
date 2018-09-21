@@ -66,6 +66,7 @@ An ACT Rule MUST consist of the following items.
 * Descriptive Title
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#structure-description)
+* [Rule type](#rule-types)
 * [Accessibility Requirements](#structure-accessibility-requirements), if any
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
 * [Applicability](#applicability)
