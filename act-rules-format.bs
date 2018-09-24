@@ -93,7 +93,21 @@ Accessibility requirements are just that: A requirement that a particular web pa
 
 [=Atomic rules=] and [=composite rules=] SHOULD identify the accessibility requirements that are *not satisfied* when the outcome of a rule is Fail. An ACT Rule is a complete or partial test for one or more accessibility requirements. This means that most ACT rules test only part of an accessibility requirement, but it MUST NOT test more than the accessibility requirement it lists.
 
-Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement is *satisfied*. ACT Rules MUST indicate whether or not they can be used to determine that the accessibility requirement passed.
+Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement is *satisfied*. ACT Rules MUST indicate whether or not they can be used to determine that the accessibility requirement is *satisfied*.
+
+<div class=example>
+  <p>The following rule could **not** be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
+  <blockquote>
+    <p>This rule tests that an HTML page has a `title` element.</p>
+  </blockquote>
+</div>
+
+<div class=example>
+  <p>The following rule could be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
+  <blockquote>
+    <p>This rule tests that the first `title` element of an HTML page describes the topic or purpose of that page.</p>
+  </blockquote>
+</div>
 
 Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content does *not satisfy* the accessibility requirement. If an ACT Rule indicates it can be used to satisfy the accessibility requirement, a Pass or Inapplicable result for that rule MUST satisfy the accessibility requirement.
 
