@@ -89,17 +89,40 @@ An ACT Rule MUST have a description that is in plain language and provides a bri
 Accessibility Requirements {#structure-accessibility-requirements}
 ==================================================================
 
-<div class=note>
-  **Editor's note:** The ACT Task Force is looking for feedback about the use of the term "pass" in relation to rules. While rules can "pass", their corresponding accessibility requirement can fail. A section has been added to make this explicit in the rule, but we would like to know if this is sufficient.
+Accessibility requirements are just that: A requirement that a particular web page must conform to for it to be considered accessible. This can (and usually does) include the WCAG success criteria. Often organizations have additional requirements which may come from different sources, such as laws, internal standards, etc. These too are considered accessibility requirements and can be tested using the ACT Rules Format. What the precise requirements are for any test is beyond the scope of the ACT Rules Format.
+
+[=Atomic rules=] and [=composite rules=] SHOULD identify the accessibility requirements that are *not satisfied* when the outcome of a rule is Fail. An ACT Rule is a complete or partial test for one or more accessibility requirements. This means that most ACT rules test only part of an accessibility requirement, but it MUST NOT test more than the accessibility requirement it lists.
+
+Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement is *satisfied*. ACT Rules MUST indicate whether or not they can be used to determine that the accessibility requirement is *satisfied*.
+
+<div class=example>
+  <p>The following rule could **not** be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
+  <blockquote>
+    <p>This rule tests that an HTML page has a `title` element.</p>
+  </blockquote>
 </div>
 
-Accessibility requirements are just that: A requirement that a particular web page must conform to for it to be considered accessible. This can (and usually does) include the WCAG success criteria. Often organizations have additional requirements which may come from different sources, such as local laws, internal standards, etc. These too are considered accessibility requirements and can be tested using the ACT Rules Format. What the precise requirements are for any test is beyond the scope of the ACT Rules Format.
+<div class=example>
+  <p>The following rule could be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
+  <blockquote>
+    <p>This rule tests that the first `title` element of an HTML page describes the topic or purpose of that page.</p>
+  </blockquote>
+</div>
 
-[=Atomic rules=] and [=composite rules=] SHOULD identify the accessibility requirements that fail when the outcome of a rule is Fail. An ACT Rule is a complete or partial test for one or more accessibility requirements. This means that most ACT rules test only part of an accessibility requirement, but it MUST NOT test more than the accessibility requirement it lists.
+Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content does *not satisfy* the accessibility requirement. If an ACT Rule indicates it can be used to satisfy the accessibility requirement, a Pass or Inapplicable result for that rule MUST satisfy the accessibility requirement.
 
-Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement has passed. ACT Rules MUST indicate when they can not be used to determine that the accessibility requirement passed.
+This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise. Because of this, atomic rules used in composite rules often do not map to any accessibility requirement. Failing the composite rule fails the accessibility requirement, but failing any of its atomic rules may not. In such cases the atomic rules MUST NOT list the accessibility requirements. These could be provided as background information instead.
 
-Outcomes from an ACT Rule SHOULD be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise. Because of this, atomic rules used in composite rules often do not map to any accessibility requirement. Failing the composite rule fails the accessibility requirement, but failing any of its atomic rules may not. In such cases the atomic rules MUST NOT list the accessibility requirements. These could be provided as background information instead.
+<div class=note>
+  There are two reasons why an ACT Rule might not list any accessibility requirements:
+
+  1. The ACT Rule is a best practice that is not required by any accessibility standard
+  2. The ACT Rule is an [=atomic rule=] and its result is used in a [=composite rule=] that does map to an accessibility requirement. See: [ACT Rule Types](#rule-types)
+</div>
+
+<div class=note>
+  In WCAG 2, success criteria do not evaluate to Pass, Fail or Inapplicable. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) A Fail result from an ACT Rule means the success criteria listed as "accessibility requirements" were not satisfied for the particular page. A page may still conform to WCAG 2 if a conforming alternative version is provided, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
+</div>
 
 
 Aspects Under Test (Atomic rules only) {#input-aspects}
