@@ -326,7 +326,7 @@ When executing a test, the test aspect(s), for instance an HTML code snippet, is
 Rule Accuracy {#accuracy}
 -------------------------
 
-This section is non-normative.
+This section is *non-normative*.
 
 The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked during the design of a rule, or that new technologies will emerge that introduce exceptions.
 
