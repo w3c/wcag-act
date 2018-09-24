@@ -315,31 +315,28 @@ The definition of a rule MUST always result in one of the following outcomes:
 </div>
 
 
-Rule Quality Assurance {#quality}
-=================================
+Test Cases {#test-cases}
+========================
 
-Test Cases (Atomic rules only) {#quality-test-cases}
-----------------------------------------------------
-
-Test cases are (snippets of) content that can be used to validate the implementation of an [=atomic rule=]. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
+Test cases are (snippets of) content that can be used to validate the implementation of an ACT Rules. Each rule MUST have tefst cases for passed, failed and inapplicable scenarios. A test case consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
 When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's [applicability](#applicability) and [expectations](#expectations). The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
-Accuracy Benchmarking {#quality-accuracy}
------------------------------------------
+Rule Accuracy {#accuracy}
+-------------------------
 
-The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.
+This section is non-normative.
 
-This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing its results to those obtained through accessibility expert testing.
+The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked during the design of a rule, or that new technologies will emerge that introduce exceptions.
 
-The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
+When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from expert accessibility evaluations:
 
-- **False positives**: This is the percentage of [test targets](#output-test-target), that were failed by the rule, but were not failed by an accessibility expert.
+- **False positives**: This is the percentage of [test targets](#output-test-target), that were failed by the rule, but were conformanct to the [accessibility requirements](#structure-accessibility-requirements).
 
-- **False negatives**: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.
+- **False negatives**: This is the percentage of test targets, that were passed by the rule, but were non-conformant to the [accessibility requirements](#structure-accessibility-requirements).
 
-There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-aggregation) may be necessary.
+The possibility of false positives and false negatives with ACT rules makes it important to have a process in place for designing and maintaining accurate rules. An example of such a process is the [ACT Review Process](https://w3c.github.io/wcag-act-rules/review-process.html). 
 
 
 Rule Aggregation {#rule-aggregation}
