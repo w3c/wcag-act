@@ -29,7 +29,7 @@ The ACT Rules Format defined in this specification is focused on the description
 
 The ACT Rules Format can be used to describe ACT Rules dedicated to testing the [accessibility requirements](#structure-accessibility-requirements) defined in Web Content Accessibility Guidelines [[WCAG]], which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/uaag/) [[UAAG20]]. However, the ACT Rules Format may not always be suitable to describe tests for other types of accessibility requirements.
 
-Because ACT Rules rarely test the entirety of an accessibility requirement, passing ACT rules does not necessarily mean that an accessibility requirement is met. It is important to understand that **ACT Rules test non-conformance** to accessibility requirements. In some cases conformance can be inferred from the absence of failures. Unlike WCAG sufficient techniques, ACT Rules should not be used for conformance claims unless the rule explicitly states it can be used that way. See [Rule Aggregation](#output-aggregation) for details.
+Because ACT Rules rarely test the entirety of an accessibility requirement, passing ACT rules does not necessarily mean that an accessibility requirement is met. It is important to understand that **ACT Rules test non-conformance** to accessibility requirements. In some cases conformance can be inferred from the absence of failures. Unlike WCAG sufficient techniques, ACT Rules can not be used for conformance claims unless the rule explicitly states it can be used that way. See [Rule Aggregation](#rule-aggregation) for details.
 
 
 ACT Rule Types {#rule-types}
@@ -52,18 +52,21 @@ The separation between atomic rules and composite rules creates a division of re
     <li>Header indicated by using the `headers` attribute</li>
     <li>Header indicated by using ARIA labels</li>
   </ul>
-  <p>If any one of these rules passes, the table cell can pass the composite rule.</p>
+  <p>If any one of these rules passes, the test result of the composite rule for the table cell is "passed".</p>
 </div>
 
 
 ACT Rule Structure {#act-rule-structure}
 ===============================
 
-An ACT Rule MUST consist of the following items
+ACT Rules MUST be written in an format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comperable accessibility guidelines recommendation. ACT test cases are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessibility format supports people with disabilities. It also makes internationalisation of ACT rules easier.
+
+An ACT Rule MUST consist of the following items.
 
 * Descriptive Title
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#structure-description)
+* [Rule type](#rule-types)
 * [Accessibility Requirements](#structure-accessibility-requirements), if any
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
 * [Applicability](#applicability)
@@ -102,13 +105,13 @@ Outcomes from an ACT Rule SHOULD be consistent with the accessibility requiremen
 Aspects Under Test (Atomic rules only) {#input-aspects}
 =======================================================
 
-An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
+An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser. Rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.
 
-[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. There SHOULD NOT be an aspects under test list for composite rules.
+[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic).
 
-An atomic rule MUST include a description of all the aspects under test by the rule. Each aspect MUST be discrete with no overlap between the aspects. Some aspects are already well defined within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an ACT Rule SHOULD include either a detailed description of the aspect in question or a reference to that description.
+Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]]. These do not warrant a detailed description further than a reference to the corresponding section in this specification (see [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html)). 
 
-A list of common aspects for reference in ACT rules can be found in [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html).
+For other aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question or a reference to to a well defined description.
 
 <div class=example>
   <p>Test aspects for a rule that checks if images have an accessible name:</p>
@@ -137,13 +140,16 @@ A list of common aspects for reference in ACT rules can be found in [Common Aspe
   </ul>
 </div>
 
+
 Atomic Rules List (Composite rules only) {#atomic-rules-list}
 ==========================================================
 
-A [=composite rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. All atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses results from [=atomic rules=] and applies a logic to them so that for each [test target](#output-test-target) a single [outcome](#output-outcome) can be determined. The identifiers of each atomic rules used in the [expectations](#expectations-composed) MUST be listed in the composed rule. The atomic rules list describes the input for composed rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+
 
 Applicability {#applicability}
 ==============================
+
 The applicability describes "what" (parts of) the [test subject](#output-test-subject) should be tested (the test target).
 
 
@@ -189,7 +195,7 @@ Note that atomic rules in a composite rule MAY have different applicability. Bec
 
 Expectations {#expectations}
 ==============================
-The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the accplicability section.
+The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the applicability section.
 
 
 Expectations for Atomic Rules {#expectations-atomic}
@@ -240,7 +246,7 @@ Sometimes there are multiple plausible ways that an accessibility requirement ca
 Accessibility Support {#acc-support}
 ====================================
 
-ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in WCAG [[WCAG]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this could lead to false positive results.
+ACT Rules are designed to test the conformance of content using web technologies to accessibility requirements. However, not every feature of a web technology is implemented in all assistive technologies or user agents that a website may need to support. The concept of [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology is defined in WCAG [[WCAG]]. Because of this, ACT Rules are not necessarily applicable in all test scenarios. For instance, a web page that has to work in assistive technologies that have no WAI-ARIA [[WAI-ARIA]] support, wouldn’t be tested with an ACT Rule that relies on WAI-ARIA support, since this rule could give results that are inconsistent with the accessibility experience of users of those assistive technologies.
 
 Even within a [=composite rule=], some [=atomic rules=] may not always be applicable. This leaves one fewer solution for passing that particular composite rule. To support users of ACT Rules in properly defining the [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) in their test scenarios, an ACT Rule SHOULD include a warning if there are significant accessibility support concerns known about a rule.
 
@@ -280,7 +286,7 @@ Output data using EARL and JSON-LD. (See [Evaluation and Report Language](https:
 Test Subject {#output-test-subject}
 -----------------------------------
 
-When a single URL can be used to reference the web page, or other test subject, this URL MUST be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
+When a single URL can be used to reference the web page, or other test subject, this URL MAY be used. In scenarios where more complex actions are required to obtain the test subject (in the state that it is to be tested), it is left to ATT developers to determine which method is best used to express the test subject.
 
 
 Test Target {#output-test-target}
@@ -288,7 +294,7 @@ Test Target {#output-test-target}
 
 When representing the test target in the output data, it is often impractical or impossible to serialize the test target as a whole. Instead of this, a pointer can be used to indicate where the test target exists within the web page or other [test subject](#output-test-subject). There are a variety of pointer methods available, such as those defined in [Pointer Methods in RDF 1.0](https://www.w3.org/TR/Pointers-in-RDF/) [[Pointers-in-RDF]].
 
-The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Test cases](#quality-test-cases).
+The pointer method used in the output data of an ACT Rule MUST include the pointer method used in [Test cases](#test-cases).
 
 
 Outcome {#output-outcome}
@@ -301,7 +307,7 @@ The definition of a rule MUST always result in one of the following outcomes:
 - **Inapplicable**: There were no Test Targets in the [Test Subject](#output-test-subject)
 
 <div class="note">
-  While *inapplicable* is a valid result for ACT Rules, it may not be a valid result for all [accessibility requirements](#structure-accessibility-requirements). Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to true (passed) or false (failed). This translation of results is part of [output aggregation](#output-aggregation)
+  While *inapplicable* is a valid result for ACT Rules, it may not be a valid result for all [accessibility requirements](#structure-accessibility-requirements). Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to true (passed) or false (failed). This translation of results is part of [rule aggregation](#rule-aggregation)
 </div>
 
 <div class="note">
@@ -336,7 +342,7 @@ The accuracy of a rule is the average between the false positives and false nega
 There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-aggregation) may be necessary.
 
 
-Rule Aggregation {#output-aggregation}
+Rule Aggregation {#rule-aggregation}
 ======================================
 
 As described in section [[#output]] a rule will return a list of results, each of which contain 1) the [Rule ID](#rule-identifier), 2) the [test subject](#output-test-subject), 3) the [test target](#output-test-target), and 4) an [outcome](#output-outcome) (Passed, Failed, Inapplicable). Data expressed this way has a great deal of detail, as it gives multiple pass / fail results for each rule.
@@ -352,10 +358,10 @@ In this example, the first rule is inapplicable (0 results), and the second rule
 See [[#appendix-data-example]] on how this could be expressed using JSON-LD and EARL.
 
 
-Update Management {#quality-updates}
+Update Management {#updates}
 ====================================
 
-Change Log {#quality-updates-changes}
+Change Log {#updates-changes}
 -------------------------------------
 
 It is important to keep track of changes to the ACT rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, rather than changes in the content itself. All changes to an ACT Rule that can change the [outcome](#output-outcome) of a test MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
@@ -365,7 +371,7 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 **Example:** An example of when a new rule should be created is when a rule that tests for the use of a `blink` element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow `blink` elements positioned off screen should be done by updating the existing rule.
 
 
-Issues List {#quality-updates-issues}
+Issues List {#updates-issues}
 -------------------------------------
 
 An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases in which the ACT Rule might return a failure where it should have returned a pass or vice versa. There are several reasons why this might occur, including:
