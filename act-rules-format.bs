@@ -105,13 +105,13 @@ Outcomes from an ACT Rule SHOULD be consistent with the accessibility requiremen
 Aspects Under Test (Atomic rules only) {#input-aspects}
 =======================================================
 
-An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser. Other rules need to operate on several aspects simultaneously, such as both the DOM tree in combination with CSS styles.
+An aspect is a distinct part of the [test subject](#output-test-subject) or its underlying implementation. For example, rendering a particular piece of content to an end user involves multiple different technologies, some or all of which may be of interest to an ACT Rule. Some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser. Rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.
 
-[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic). Some rules may need to operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.
+[=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic).
 
-Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]], and do not warrant a detailed description. Other aspects may not be well defined or even specific to web content. In these cases, an [=atomic rule=] MUST include either a detailed description of the aspect in question or a reference to that description.
+Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]]. These do not warrant a detailed description further than a reference to the corresponding section in this specification (see [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html)). 
 
-A list of common aspects for reference in [=atomic rules=] can be found in [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html).
+For other aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question or a reference to to a well defined description.
 
 <div class=example>
   <p>Test aspects for a rule that checks if images have an accessible name:</p>
@@ -195,7 +195,7 @@ Note that atomic rules in a composite rule MAY have different applicability. Bec
 
 Expectations {#expectations}
 ==============================
-The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the accplicability section.
+The expectations describe what the requirements are for the [test targets](#output-test-target) defined in the applicability section.
 
 
 Expectations for Atomic Rules {#expectations-atomic}
