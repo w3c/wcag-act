@@ -89,40 +89,17 @@ An ACT Rule MUST have a description that is in plain language and provides a bri
 Accessibility Requirements {#structure-accessibility-requirements}
 ==================================================================
 
-Accessibility requirements are just that: A requirement that a particular web page must conform to for it to be considered accessible. This can (and usually does) include the WCAG success criteria. Often organizations have additional requirements which may come from different sources, such as laws, internal standards, etc. These too are considered accessibility requirements and can be tested using the ACT Rules Format. What the precise requirements are for any test is beyond the scope of the ACT Rules Format.
-
-[=Atomic rules=] and [=composite rules=] SHOULD identify the accessibility requirements that are *not satisfied* when the outcome of a rule is Fail. An ACT Rule is a complete or partial test for one or more accessibility requirements. This means that most ACT rules test only part of an accessibility requirement, but it MUST NOT test more than the accessibility requirement it lists.
-
-Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement is *satisfied*. ACT Rules MUST indicate whether or not they can be used to determine that the accessibility requirement is *satisfied*.
-
-<div class=example>
-  <p>The following rule could **not** be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
-  <blockquote>
-    <p>This rule tests that an HTML page has a `title` element.</p>
-  </blockquote>
-</div>
-
-<div class=example>
-  <p>The following rule could be used to satisfy [WCAG 2.1 Success criterion 2.4.2 Page Titled](https://www.w3.org/TR/WCAG21/#page-titled)</p>
-  <blockquote>
-    <p>This rule tests that the first `title` element of an HTML page describes the topic or purpose of that page.</p>
-  </blockquote>
-</div>
-
-Outcomes from an ACT Rule MUST be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content does *not satisfy* the accessibility requirement. If an ACT Rule indicates it can be used to satisfy the accessibility requirement, a Pass or Inapplicable result for that rule MUST satisfy the accessibility requirement.
-
-This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise. Because of this, atomic rules used in composite rules often do not map to any accessibility requirement. Failing the composite rule fails the accessibility requirement, but failing any of its atomic rules may not. In such cases the atomic rules MUST NOT list the accessibility requirements. These could be provided as background information instead.
-
 <div class=note>
-  There are two reasons why an ACT Rule might not list any accessibility requirements:
-
-  1. The ACT Rule is a best practice that is not required by any accessibility standard
-  2. The ACT Rule is an [=atomic rule=] and its result is used in a [=composite rule=] that does map to an accessibility requirement. See: [ACT Rule Types](#rule-types)
+  **Editor's note:** The ACT Task Force is looking for feedback about the use of the term "pass" in relation to rules. While rules can "pass", their corresponding accessibility requirement can fail. A section has been added to make this explicit in the rule, but we would like to know if this is sufficient.
 </div>
 
-<div class=note>
-  In WCAG 2, success criteria do not evaluate to Pass, Fail or Inapplicable. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) A Fail result from an ACT Rule means the success criteria listed as "accessibility requirements" were not satisfied for the particular page. A page may still conform to WCAG 2 if a conforming alternative version is provided, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
-</div>
+Accessibility requirements are just that: A requirement that a particular web page must conform to for it to be considered accessible. This can (and usually does) include the WCAG success criteria. Often organizations have additional requirements which may come from different sources, such as local laws, internal standards, etc. These too are considered accessibility requirements and can be tested using the ACT Rules Format. What the precise requirements are for any test is beyond the scope of the ACT Rules Format.
+
+[=Atomic rules=] and [=composite rules=] SHOULD identify the accessibility requirements that fail when the outcome of a rule is Fail. An ACT Rule is a complete or partial test for one or more accessibility requirements. This means that most ACT rules test only part of an accessibility requirement, but it MUST NOT test more than the accessibility requirement it lists.
+
+Because ACT Rules often have a smaller scope than the accessibility requirement they test, passing a rule does not necessarily mean that the accessibility requirement has passed. ACT Rules MUST indicate when they can not be used to determine that the accessibility requirement passed.
+
+Outcomes from an ACT Rule SHOULD be consistent with the accessibility requirement, e.g. a rule only returns the outcome Fail when the content fails the accessibility requirement. This means that the rule maps to the accessibility requirement, as opposed to it merely being related to the requirement, thematically or otherwise. Because of this, atomic rules used in composite rules often do not map to any accessibility requirement. Failing the composite rule fails the accessibility requirement, but failing any of its atomic rules may not. In such cases the atomic rules MUST NOT list the accessibility requirements. These could be provided as background information instead.
 
 
 Aspects Under Test (Atomic rules only) {#input-aspects}
@@ -338,28 +315,31 @@ The definition of a rule MUST always result in one of the following outcomes:
 </div>
 
 
-Test Cases {#test-cases}
-========================
+Rule Quality Assurance {#quality}
+=================================
 
-Test cases are (snippets of) content that can be used to validate the implementation of an ACT Rules. Each rule MUST have tefst cases for passed, failed and inapplicable scenarios. A test case consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
+Test Cases (Atomic rules only) {#quality-test-cases}
+----------------------------------------------------
+
+Test cases are (snippets of) content that can be used to validate the implementation of an [=atomic rule=]. They consist of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the [expected result](#output) that should come from that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. But also for developers and users of automated accessibility test tools to validate that a rule is correctly implemented.
 
 When executing a test, the test aspect(s), for instance an HTML code snippet, is evaluated by applying the rule's [applicability](#applicability) and [expectations](#expectations). The result is then compared to the expected result of the test case. The expected result consists of a list of [test targets](#output-test-target) and the expected [outcome](#output-outcome) (Passed, Failed, Inapplicable) of the evaluation.
 
 
-Rule Accuracy {#accuracy}
--------------------------
+Accuracy Benchmarking {#quality-accuracy}
+-----------------------------------------
 
-This section is non-normative.
+The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that exceptions will be overlooked during the design of a rule, or that new technologies will emerge that introduce new exceptions.
 
-The web is ever changing, and technologies are used in such diverse and creative ways that it is impossible to predict in advance, all the ways that accessibility issues can occur and all the ways they can be solved for. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked during the design of a rule, or that new technologies will emerge that introduce exceptions.
+This makes it important to be able to regularly test if the rule has the accuracy that is expected of it. This can be done by benchmark testing. In benchmark testing, the accuracy of a rule is measured by comparing its results to those obtained through accessibility expert testing.
 
-When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from expert accessibility evaluations:
+The accuracy of a rule is the average between the false positives and false negatives, which are in turn calculated as follows:
 
-- **False positives**: This is the percentage of [test targets](#output-test-target), that were failed by the rule, but were conformanct to the [accessibility requirements](#structure-accessibility-requirements).
+- **False positives**: This is the percentage of [test targets](#output-test-target), that were failed by the rule, but were not failed by an accessibility expert.
 
-- **False negatives**: This is the percentage of test targets, that were passed by the rule, but were non-conformant to the [accessibility requirements](#structure-accessibility-requirements).
+- **False negatives**: This is the percentage of test targets, that were passed by the rule, but were failed by an accessibility expert.
 
-The possibility of false positives and false negatives with ACT rules makes it important to have a process in place for designing and maintaining accurate rules. An example of such a process is the [ACT Review Process](https://w3c.github.io/wcag-act-rules/review-process.html). 
+There are several ways this can be done. For instance, accessibility test tools can implement a feature which lets users indicate that a result is in error, or pages that for which accessibility results are known, can be tested using ATT, and the results are compared. To compare results from ACT Rules to those of expert evaluations, [data aggregation](#output-aggregation) may be necessary.
 
 
 Rule Aggregation {#rule-aggregation}
