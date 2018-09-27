@@ -59,7 +59,7 @@ The separation between atomic rules and composite rules creates a division of re
 ACT Rule Structure {#act-rule-structure}
 ===============================
 
-ACT Rules MUST be written in an format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comperable accessibility guidelines recommendation. ACT test cases are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessibility format supports people with disabilities. It also makes internationalisation of ACT rules easier.
+ACT Rules MUST be written in an format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility guidelines recommendation. ACT test cases are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessibility format supports people with disabilities. It also makes internationalization of ACT rules easier.
 
 An ACT Rule MUST consist of the following items.
 
