@@ -51,7 +51,7 @@ In accessibility, there are often different technical solutions to make the same
   <p>If any one of these rules passes, the outcome of the composite rule for the table cell is "passed".</p>
 </div>
 
-The separation between atomic rules and composite rules can be seen as a division of responsibility. Atomic rules typically test if web content is correctly implemented in a particular solution. Composite rules would test if a combination of outcomes from atomic rules satisfy the accessibility requirement, in part or as a whole.
+The separation between atomic rules and composite rules can be seen as a division of responsibility. Atomic rules typically test if web content is correctly implemented in a particular solution. Composite rules can test if a combination of outcomes from atomic rules satisfy the accessibility requirement, in part or as a whole.
 
 Not all atomic rules have to be part of a composite rule. Composite rules are used when the outcome of multiple atomic rules needs to be combined in order to determine (non-)conformance of a test subject to the [Accessibility Requirements](#accessibility-requirements)
 
@@ -219,7 +219,7 @@ Applicability for Composite Rules {#applicability-composite}
 
 A [=composite rule=] defines how the [=outcomes=] from rules in its [atomic rules list](#atomic-rules-list) are used to determine a single outcome. 
 
-The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=]. This can be inferred from the [list of atomic rules](#atomic-rules-list). Rule authors MAY describe the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicbility, it MUST be the union of all the applicability sections of the atomic rules.
+The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=]. This can be inferred from the [list of atomic rules](#atomic-rules-list). Rule authors MAY describe the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability sections of the atomic rules.
 
 Note that atomic rules in a composite rule MAY have different applicability. Because of this, not every element applicable within the composite rule is tested by every atomic rule.
 
