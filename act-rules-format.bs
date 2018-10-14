@@ -83,11 +83,11 @@ Rule Identifier {#rule-identifier}
 An ACT Rule MUST have a unique identifier that can be any unique text, such as plain text, URL or a database identifier.
 
 <div class=example>
-  <p><strong>Example</strong>: ACT Rules in the Auto-WCAG community groups use file names as identifiers. They include a number for a WCAG 2.1 success criterion, and a handle that includes an element name or attribute:</p>
+  <p><strong>Example</strong>: ACT Rules may use file names as identifiers. They include a technology directory, followed by a handle that includes an element name or attribute:</p>
   <ul>
-    <li>SC1-2-3-video-alternative</li>
-    <li>SC2-2-1+SC3-2-5-meta-refresh</li>
-    <li>SC4-1-1-unique-id</li>
+    <li>html+svg/video-alternative</li>
+    <li>html+svg/meta-no-refresh</li>
+    <li>html+svg/unique-id</li>
   </ul>
 </div>
 
@@ -118,7 +118,7 @@ Accessibility Requirements List {#accessibility-requirements-list}
 An ACT Rule SHOULD list an identifier and reference for each accessibility requirement that it maps to.
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule effects conformance to the following WCAG 2.1 success criteria:</p>
+  <p><strong>Example</strong>: The outcome of this rule affects conformance to the following WCAG 2.1 success criteria:</p>
   <ul>
     <li>[1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)</li>
     <li>[4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)</li>
@@ -134,7 +134,7 @@ Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 If any accessibility requirements are listed, the ACT Rule MUST indicate how each outcome impacts the conformance to the listed accessibility requirements. For WCAG 2.1 Success Criteria, this means indicating whether or not the success criterion can be satisfied, or if further testing is needed.
 
 <div class=example>
-  <p><strong>Example</strong>: Outcome of this rule map to the accessibility requirements in the following manner:</p>
+  <p><strong>Example</strong>: The outcome of this rule maps to the accessibility requirements in the following manner:</p>
   <ul>
     <li>`failed`: The success criteria are *not satisfied*</li>
     <li>`passed` or `inapplicable`: Further testing is necessary to determine if the success criteria are satisfied</li>
@@ -364,7 +364,7 @@ Harmonization occurs when a group of rule implementors collectively accept the v
   <p><strong>Example</strong>: The ACT EPUB group might have the following acceptance criteria:</p>
   <ul>
     <li>An ACT EPUB Rule is harmonized when it was approved members of 3 organisations, AND</li>
-    <li>An ACT EPUB Rule is harmonized when it has 2 independent implementation</li>
+    <li>An ACT EPUB Rule is harmonized when it has 2 independent implementations</li>
   </ul>
 </div>
 
@@ -387,7 +387,7 @@ Definitions {#definitions}
       </ul>
     </div>
     <div class=note>
-      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the test subject on the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
+      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
     </div>
   </dd>
 
@@ -403,7 +403,7 @@ Definitions {#definitions}
       </ul>
     </div>
     <div class=note>
-      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the test target on the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
+      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
     </div>
   </dd>
 
@@ -413,13 +413,13 @@ Definitions {#definitions}
     <ul>
       <li>**Inapplicable**: No part of the test subject matches the applicability</li>
       <li>**Passed**: The test subject meets all expectations</li>
-      <li>**Failed**: The test subject does not meets all expectations</li>
+      <li>**Failed**: The test subject does not meet all expectations</li>
     </ul>
     <div class="note">
       <p><strong>Note</strong>: While *inapplicable* is a valid outcome for ACT Rules, it might not be a valid result for all [accessibility requirements](#accessibility-requirements). Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to satisfied (passed and inapplicable) or not satisfied (failed).</p>
     </div>
     <div class="note">
-      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the outcome on the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed` `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this can not be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
+      <p><strong>Note</strong>: Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed` `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this can not be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
     </div>
   </dd>
 </dl>
