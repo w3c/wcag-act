@@ -106,43 +106,64 @@ An ACT Rule MUST have a description that is in plain language, and provides a br
 </div>
 
 
+Accessibility References {#accessibility-references}
+====================================================
+
+Accessibility references are conformance requirements, good practices, or other related provisions that the rule relates to. For example, this could be WCAG 2.1 success criteria when the rule is written to help determine conformance, or advisory techniques when the rule is written to help determine good practice implementation.
+
+Accessibility references can be [accessibility requirements](#accessibility-requirements) or [related references](#related-references). Rule authors MAY list any number of accessibility references that the rule has been written to test. Accessibility references are omitted when rules do not directly relate to particular accessibility references but can be used together with other rules as input, or when rules are designed to be part of a [=composite rule=]. This listing can be extended when rules are applied in other contexts.
+
+
 Accessibility Requirements {#accessibility-requirements}
-========================================================
+--------------------------------------------------------
 
-Accessibility requirements are just that: A requirement that a particular web page conforms to for it to be considered accessible. A common example of accessibility requirements are the WCAG 2.1 success criteria. Some organizations have additional requirements that come from different sources, such as laws, internal standards, etc. These too are considered accessibility requirements which can be tested using the ACT Rules Format.
+Accessibility requirements are normative requirements for conformance, such as WCAG 2.1 Success Criteria. Some organizations have additional requirements, such as laws and internal standards. These too are considered accessibility requirements.
 
-
-Accessibility Requirements List {#accessibility-requirements-list}
-------------------------------------------------------------------
-
-An ACT Rule SHOULD list an identifier and reference for each accessibility requirement that it maps to.
+An ACT Rule MUST list an identifier and reference for each accessibility requirement that it is written to directly test. That is, when the outcome of a rule determines meeting or not meeting the accessibility requirement it has been written for. This MAY be omitted when rules are designed to be part of a [=composite rule=].
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule affects conformance to the following WCAG 2.1 success criteria:</p>
+  <p><strong>Example</strong>: The outcome of this rule indicates conformance to the following WCAG 2.1 success criteria:</p>
   <ul>
     <li>[1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)</li>
     <li>[4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)</li>
   </ul>
 </div>
 
-One reason why an [=atomic rule=] might not list accessibility requirements is because it is part of a [=composite rule=], and only a `failed` [=outcome=] in the composite rule would mean not satisfying the accessibility requirement. Another reason might be that an ACT Rule is designed to evaluate a best practice that is not part of any accessibility standard.
 
+Related References {#related-references}
+----------------------------------------
 
-Accessibility Requirements Mapping {#accessibility-requirements-mapping}
-------------------------------------------------------------------------
+Related references are non-normative accessibility practices, such as Advisory Techniques that enhance accessibility beyond minimum conformance. In some cases related references could imply conformance with a related accessibility requirement.
 
-If any accessibility requirements are listed, the ACT Rule MUST indicate how each outcome impacts the conformance to the listed accessibility requirements. For WCAG 2.1 Success Criteria, this means indicating whether or not the success criterion can be satisfied, or if further testing is needed.
+An ACT Rule MUST list an identifier and reference for each related reference that it is written to directly test. When related references are listed, the rule MUST indicate that these are not required for conformance. This MAY be omitted when rules are designed to be part of a [=composite rule=].
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule maps to the accessibility requirements in the following manner:</p>
+  <p><strong>Example</strong>: The outcome of this rule indicates conformance beyond the related WCAG 2.1 success criteria:</p>
   <ul>
-    <li>`failed`: The success criteria are *not satisfied*</li>
-    <li>`passed` or `inapplicable`: Further testing is necessary to determine if the success criteria are satisfied</li>
+    <li>[G127: Identifying a Web page's relationship to a larger collection of Web pages](https://www.w3.org/TR/WCAG20-TECHS/G127.html)</li>
+  </ul>
+</div>
+
+
+Rule Mapping {#rule-mapping}
+----------------------------
+
+For all [accessibility requirements](#accessibility-requirements) and [related references](#related-references) listed, the ACT Rule MUST indicate how each outcome relates to the listed accessibility references. That is, the rule specifies if each accessibility reference is `satisfied`, `not satisfied`, or `undetermined` for the rule outcomes `passed`, `failed`, and `inapplicable`. This mapping MUST be consistent with the accessibility references.
+
+<div class=example>
+  <p><strong>Example</strong>: The outcome of this rule maps to the listed accessibility requirements in the following manner:</p>
+  <ul>
+    <li>`failed`: *not satisfied* (the success criteria are not met)</li>
+    <li>`passed` or `inapplicable`: *undetermined* (further testing is necessary to determine if the success criteria are satisfied)</li>
   </ul>
 </div>
 
 <div class=note>
   **Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
+</div>
+
+<div class=note>
+  **Note**: ACT Rules are commonly partial tests for accessibility references. That is, the outcomes `passed`, `failed`, and `inapplicable` map to `undetermined`. A rule is a complete test when the outcomes only map to `satisfied` and `not satisfied`.
 </div>
 
 
