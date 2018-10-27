@@ -148,7 +148,9 @@ An ACT Rule MUST list an identifier and reference for each related reference tha
 Rule Mapping {#rule-mapping}
 ----------------------------
 
-For all [accessibility requirements](#accessibility-requirements) and [related references](#related-references) listed, the ACT Rule MUST indicate how each outcome relates to the listed accessibility references. That is, the rule specifies if each accessibility reference is `satisfied`, `not satisfied`, or `undetermined` for the rule outcomes `passed`, `failed`, and `inapplicable`. This mapping MUST be consistent with the accessibility references.
+For all [accessibility requirements](#accessibility-requirements) and [related references](#related-references) listed, the ACT Rule MUST indicate how each outcome relates to the listed accessibility references. That is, the rule specifies if each accessibility reference is `satisfied`, `not satisfied`, or `undetermined` for the rule outcomes `passed`, `failed`, and `inapplicable`.
+
+Every mapping MUST be consistent with the related accessibility references. When rules refer to accessibility requirements, the mapping MUST result in either `satisfied` or `not satisfied` for any of the rule outcomes. That is, the mapping is not `undetermined` for all outcomes when mapping to accessibility requirements. Such mappings indicate related references rather than requirements.
 
 <div class=example>
   <p><strong>Example</strong>: The outcome of this rule maps to the listed accessibility requirements in the following manner:</p>
