@@ -111,18 +111,18 @@ Accessibility References {#accessibility-references}
 
 Accessibility references are conformance requirements, good practices, or other related provisions that the rule relates to. For example, this could be WCAG 2.1 success criteria when the rule is written to help determine conformance, or advisory techniques when the rule is written to help determine good practice implementation.
 
-Accessibility references can be [accessibility requirements](#accessibility-requirements) or [related references](#related-references). Rule authors MAY list any number of accessibility references that the rule has been written to test. Accessibility references are omitted when rules do not directly relate to particular accessibility references but can be used together with other rules as input, or when rules are designed to be part of a [=composite rule=]. This listing can be extended when rules are applied in other contexts.
+Accessibility references can be [accessibility requirements](#accessibility-requirements) or [related references](#related-references). Rule authors MAY list any number of accessibility references that the rule has been written for. Accessibility references are omitted when rules do not directly relate to particular accessibility references but can be used together with other rules as input, or when rules are designed to be part of a [=composite rule=]. This listing can be extended when rules are applied in other contexts. For example, a rule initially written for evaluating the accessibility of web content could be reused for digital publications.
 
 
 Accessibility Requirements {#accessibility-requirements}
 --------------------------------------------------------
 
-Accessibility requirements are normative requirements for conformance, such as WCAG 2.1 Success Criteria. Some organizations have additional requirements, such as laws and internal standards. These too are considered accessibility requirements.
+Accessibility requirements are required for conformance, such as WCAG 2.1 Success Criteria. Organizations can be subject to requirements other than WCAG, such as laws and internal standards. These too are considered accessibility requirements.
 
-An ACT Rule MUST list an identifier and reference for each accessibility requirement that it is written to directly test. That is, when the outcome of a rule determines meeting or not meeting the accessibility requirement it has been written for. This MAY be omitted when rules are designed to be part of a [=composite rule=].
+An ACT Rule MUST list an identifier and reference for each accessibility requirement that it is written for. That is, when the outcome of a rule determines satisfying or not satisfying the accessibility requirement it has been written for. Listing accessibility requirements MAY be omitted when rules are designed to be part of a [=composite rule=].
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule indicates conformance to the following WCAG 2.1 success criteria:</p>
+  <p><strong>Example</strong>: The outcome of this rule helps evaluate conformance to the following WCAG 2.1 success criteria:</p>
   <ul>
     <li>[1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)</li>
     <li>[4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)</li>
@@ -133,12 +133,12 @@ An ACT Rule MUST list an identifier and reference for each accessibility require
 Related References {#related-references}
 ----------------------------------------
 
-Related references are non-normative accessibility practices, such as Advisory Techniques that enhance accessibility beyond minimum conformance. In some cases related references could imply conformance with a related accessibility requirement.
+Related references are accessibility practices not required for conformace, such as Advisory Techniques that enhance accessibility beyond the minimum. In some cases related references could imply conformance with a related accessibility requirement.
 
-An ACT Rule MUST list an identifier and reference for each related reference that it is written to directly test. When related references are listed, the rule MUST indicate that these are not required for conformance. This MAY be omitted when rules are designed to be part of a [=composite rule=].
+An ACT Rule MUST list an identifier and reference for each related reference that it is written for. When related references are listed, the rule MUST indicate that these are not required for conformance. Listing related references MAY be omitted when rules are designed to be part of a [=composite rule=].
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule indicates conformance beyond the related WCAG 2.1 success criteria:</p>
+  <p><strong>Example</strong>: The outcome of this rule helps evaluate conformance beyond the related WCAG 2.1 success criteria:</p>
   <ul>
     <li>[G127: Identifying a Web page's relationship to a larger collection of Web pages](https://www.w3.org/TR/WCAG20-TECHS/G127.html) (not required for conformance with WCAG)</li>
   </ul>
@@ -165,7 +165,7 @@ Every mapping MUST be consistent with the related accessibility references. When
 </div>
 
 <div class=note>
-  **Note**: ACT Rules are commonly partial tests for accessibility references. That is, the outcomes `passed`, `failed`, and `inapplicable` map to `undetermined`. A rule is a complete test when the outcomes only map to `satisfied` and `not satisfied`.
+  **Note**: ACT Rules are commonly partial tests for accessibility references. That is, the outcomes `passed`, `failed`, and `inapplicable` map to `undetermined`. A rule is a complete test when none of the rule outcomes maps to `undetermined`.
 </div>
 
 
