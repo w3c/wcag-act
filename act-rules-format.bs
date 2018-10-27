@@ -140,7 +140,7 @@ An ACT Rule MUST list an identifier and reference for each related reference tha
 <div class=example>
   <p><strong>Example</strong>: The outcome of this rule indicates conformance beyond the related WCAG 2.1 success criteria:</p>
   <ul>
-    <li>[G127: Identifying a Web page's relationship to a larger collection of Web pages](https://www.w3.org/TR/WCAG20-TECHS/G127.html)</li>
+    <li>[G127: Identifying a Web page's relationship to a larger collection of Web pages](https://www.w3.org/TR/WCAG20-TECHS/G127.html) (not required for conformance with WCAG)</li>
   </ul>
 </div>
 
