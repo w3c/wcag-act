@@ -74,7 +74,7 @@ An ACT Rule MUST consist of the following items:
 * [Test Cases](#test-cases)
 * ACT Rules Format [=outcome=] definition
 
-ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comperable comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessibility format supports people with disabilities. It also makes internationalisation of ACT rules easier.
+ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessibility format supports people with disabilities. It also makes internationalisation of ACT rules easier.
 
 
 Rule Identifier {#rule-identifier}
