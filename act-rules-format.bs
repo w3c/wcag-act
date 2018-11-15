@@ -248,7 +248,7 @@ Expectations for Atomic Rules {#expectations-atomic}
 
 An [=atomic rule=] MUST contain one or more expectations. An expectation is an assertion that is true about each [=test target=] (see [Applicability](#applicability)). Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning MAY not fully quantifiable.
 
-When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. When atomic rules are used in composite rules, the outcome of the composite rules can be `passed` even if the outcome of one of its constituant atomic rule is `failed`, depending on the [expectations](#expectations-composite) of the composite rule.
+When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations are false, the test target `failed` the rule. When atomic rules are used in composite rules, the outcome of the composite rules can be `passed` even if the outcome of one of its constituent atomic rule is `failed`, depending on the [expectations](#expectations-composite) of the composite rule.
 
 <div class=example>
   <p><strong>Example</strong>: A rule for labels of HTML `input` elements might have the following expectations:</p>
@@ -293,7 +293,7 @@ Accessibility Support {#accessibility-support}
 
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
 
-An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known to not be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
+An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
 
 <div class=note>
   **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
@@ -363,7 +363,7 @@ Harmonization occurs when a group of rule implementors collectively accept the v
 <div class=example>
   <p><strong>Example</strong>: The ACT EPUB group might have the following acceptance criteria:</p>
   <ul>
-    <li>An ACT EPUB Rule is harmonized when it was approved by members of 3 organizations, AND</li>
+    <li>An ACT EPUB Rule is harmonized when it is approved by members of 3 organizations, AND</li>
     <li>An ACT EPUB Rule is harmonized when it has 2 independent implementations</li>
   </ul>
 </div>
