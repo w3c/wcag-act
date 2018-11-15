@@ -74,7 +74,7 @@ An ACT Rule MUST consist of the following items:
 * [Test Cases](#test-cases)
 * ACT Rules Format [=outcome=] definition
 
-ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessible format supports people with disabilities. It also makes internationalization of ACT rules easier.
+ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessible format supports people with disabilities. It also makes internationalization of ACT Rules easier.
 
 
 Rule Identifier {#rule-identifier}
@@ -153,7 +153,7 @@ An aspect is a distinct part of the [=test subject=]. For example, rendering a p
 
 [=Atomic rules=] MUST list the aspects used in the [applicability](#applicability-atomic) and [expectations](#expectations-atomic).
 
-Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]]. These do not warrant a detailed description further than a reference to the corresponding section in this specification (see [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html)). 
+Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[CSS2]]. These do not warrant a detailed description further than a reference to the corresponding section in this specification (see [Common Aspects under Test](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html)).
 
 For other aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question or a reference to a well defined description.
 
@@ -217,7 +217,7 @@ An objective description is one that can be resolved without uncertainty, in a g
 Applicability for Composite Rules {#applicability-composite}
 ----------------------------------------------------------
 
-A [=composite rule=] defines how the [=outcomes=] from rules in its [atomic rules list](#atomic-rules-list) are used to determine a single outcome. 
+A [=composite rule=] defines how the [=outcomes=] from rules in its [atomic rules list](#atomic-rules-list) are used to determine a single outcome.
 
 The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=]. This can be inferred from the [list of atomic rules](#atomic-rules-list). Rule authors MAY describe the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability sections of the atomic rules.
 
@@ -264,7 +264,7 @@ An atomic rule expectation MUST only use information available in the [test aspe
 Expectations for Composite Rules {#expectations-composite}
 --------------------------------------------------------
 
-A [=composite rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `passed` or `failed` [=outcome=] for each [=test target=], based on the outcomes of [=atomic rules=] listed in its [atomic rules list](#atomic-rules-list). 
+A [=composite rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `passed` or `failed` [=outcome=] for each [=test target=], based on the outcomes of [=atomic rules=] listed in its [atomic rules list](#atomic-rules-list).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules. A composite rule expectation MUST NOT use information from [test aspects](#input-aspects).
 
@@ -340,7 +340,7 @@ This section is *non-normative*.
 
 While [test cases](#test-cases) can be used to determine if an ACT Rule was correctly implemented, they do not guarantee that implementations will never produce incorrect results. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked. Technologies are always evolving, and content authors are constantly coming up with new and unexpected ways to use those.
 
-There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the **implementation** can be addressed with test cases, but inaccuracies in the **ACT Rule** itself can not. After all, rule inaccuracies come from the rule author being unaware of a particular edge case. 
+There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the **implementation** can be addressed with test cases, but inaccuracies in the **ACT Rule** itself can not. After all, rule inaccuracies come from the rule author being unaware of a particular edge case.
 
 When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from an accessibility audit:
 
@@ -348,7 +348,7 @@ When a test result incorrectly indicates non-conformance to an accessibility req
 
 - **False negatives**: This is the percentage of [=test subjects=], that were `passed` by the rule, but were non-conformant to the [accessibility requirements](#accessibility-requirements).
 
-The possibility of false positives and false negatives with ACT rules mean they will likely require ongoing maintainence. Designing a process for maintaining ACT rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Neverthless, it is suggested that rule authors work out a process for maintaining their rules.
+The possibility of false positives and false negatives with ACT Rules mean they will likely require ongoing maintainence. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Neverthless, it is suggested that rule authors work out a process for maintaining their rules.
 
 
 Harmonization {#harmonization}
@@ -444,7 +444,7 @@ This section is *non-normative*.
 }
 ```
 
-**Example:** 
+**Example:**
 
 ```javascript
 {
