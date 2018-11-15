@@ -202,7 +202,7 @@ Applicability for Atomic Rules {#applicability-atomic}
 
 The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability MUST only use information provided through [test aspects](#input-aspects) of the same rule. No other information can be used in the applicability.
 
-Applicability MUST be described objectively, unambiguously and in plain language. When a formal syntax, such as a [CSS selector](https://www.w3.org/TR/selectors-3/) [[css3-selectors]] or [XML Path Language](https://www.w3.org/TR/xpath/) [[XPATH]], can be used, that (part of the) applicability MAY use that syntax in addition to the plain language description.
+Applicability MUST be described objectively, unambiguously and in plain language.
 
 An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are element names, their computed role, the spacing between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. For example, describing that the rule examines the tag name, the accessibility role, or the element's purpose on the web page. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. This definition can be part of a larger glossary shared between rules.
 
