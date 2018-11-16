@@ -301,7 +301,7 @@ Test Cases {#test-cases}
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcome=]. A test case consists of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the expected result from evaluating that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
 
-Change Log {#changes-log}
+Change Log {#change-log}
 =============================
 
 It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcome=] of a evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
