@@ -71,13 +71,15 @@ An ACT Rule MUST consist of the following items:
 * [Expectations](#expectations)
 * [Assumptions](#assumptions), if any
 * [Test Cases](#test-cases)
+* [Change Log](#change-log)
 * ACT Rules Format [=outcome=] definition
 
 An ACT Rule MAY include one or more of the following [optional items](#optional-items):
  
-* Accessibility Support {#accessibility-support} (optional)
-* Background {#Background} (optional)
-* Acknowledgements {#acknowledgements} (optional)
+* [Accessibility Support](#accessibility-support) (optional)
+* [Acknowledgements](#acknowledgements) (optional)
+* [Background](#background) (optional)
+* [Issues List](#issues-list)
 
 ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessible format supports people with disabilities. It also makes internationalization of ACT Rules easier.
 
@@ -293,22 +295,22 @@ An ACT Rule MUST list any assumptions, limitations or any exceptions for the eva
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" under WCAG 2.1. Whatever the interpretation is, this MUST be documented in the rule.
 
 
-Accessibility Support {#accessibility-support}
-====================================
-
-Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
-
-An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
-
-<div class=note>
-  **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
-</div>
-
-
 Test Cases {#test-cases}
 ========================
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcome=]. A test case consists of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the expected result from evaluating that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
+
+
+Change Log {#changes-log}
+=============================
+
+It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcome=] of a evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
+
+Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.
+
+<div class=example>
+  **Example**: An example of when a new rule ought to be created is when a rule that tests for the use of a `blink` element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow `blink` elements positioned off screen can be done by updating the existing rule.
+</div>
 
 
 Optional items {#optional-items}
@@ -328,11 +330,6 @@ An ACT Rule SHOULD include known limitations on accessibility support. For examp
 </div>
 
 
-Background {#background}
------------------------
-An ACT Rule can contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
-
-
 Acknowledgements {#acknowledgements}
 ------------------------------------
 
@@ -340,24 +337,14 @@ An ACT Rule can contain acknowledgements. This may include, but is not limited t
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
- 
- 
-Update Management {#updates}
-============================
-
-Change Log {#updates-changes}
--------------------------------------
-
-It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcome=] of a evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
-
-Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.
-
-<div class=example>
-  **Example**: An example of when a new rule ought to be created is when a rule that tests for the use of a `blink` element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow `blink` elements positioned off screen can be done by updating the existing rule.
-</div>
 
 
-Issues List {#updates-issues}
+Background {#background}
+-----------------------
+An ACT Rule can contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
+
+
+Issues List {#issues-list}
 -------------------------------------
 
 An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases when the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed`, or vice versa. There are several reasons why this might occur, including:
