@@ -69,10 +69,15 @@ An ACT Rule MUST consist of the following items:
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
 * [Applicability](#applicability)
 * [Expectations](#expectations)
-* [Limitations, Assumptions or Exceptions](#limitations-assumptions-exceptions), if any
-* [Accessibility Support](#accessibility-support) (optional)
+* [Assumptions](#assumptions), if any
 * [Test Cases](#test-cases)
 * ACT Rules Format [=outcome=] definition
+
+An ACT Rule MAY include one or more of the following [optional items](#optional-items)
+ 
+* Accessibility Support {#accessibility-support} (optional)
+* Background {#Background} (optional)
+* Acknowledgements {#acknowledgements} (optional)
 
 ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessible format supports people with disabilities. It also makes internationalization of ACT Rules easier.
 
@@ -280,10 +285,10 @@ When all expectations are true for a test target, the test target `passed` the r
 </div>
 
 
-Limitations, Assumptions or Exceptions {#limitations-assumptions-exceptions}
-======================================================================================
+Assumptions {#assumptions}
+==========================
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast" target="_blank">WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS, and that the rule does not support images of text.
+An ACT Rule MUST list any assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast" target="_blank">WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS, and that the rule does not support images of text.
 
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" under WCAG 2.1. Whatever the interpretation is, this MUST be documented in the rule.
 
@@ -306,6 +311,37 @@ Test Cases {#test-cases}
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcome=]. A test case consists of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the expected result from evaluating that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
 
+Optional items {#optional-items}
+================================
+
+An ACT Rule can contain additional information that is useful, but not critical, for the reader to understand the background and context of a rule, or any information that is relevant. This can include, but is not limited to, one or more of the following:
+
+
+Accessibility Support {#accessibility-support}
+----------------------------------------------
+Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
+ 
+An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
+ 
+<div class=note>
+  **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
+</div>
+
+
+Background {#Background}
+-----------------------
+An ACT Rule can contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
+
+
+Acknowledgements {#acknowledgements}
+------------------------------------
+
+An ACT Rule can contain acknowledgements. This may include, but is not limited to:
+* List of rule authors
+* List of rule reviewers/contributors
+* Funding or other support
+ 
+ 
 Update Management {#updates}
 ============================
 
