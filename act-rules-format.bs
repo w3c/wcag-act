@@ -328,7 +328,7 @@ An ACT Rule SHOULD include known limitations on accessibility support. For examp
 </div>
 
 
-Background {#Background}
+Background {#background}
 -----------------------
 An ACT Rule can contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
 
