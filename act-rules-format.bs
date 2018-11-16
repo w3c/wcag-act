@@ -73,7 +73,7 @@ An ACT Rule MUST consist of the following items:
 * [Test Cases](#test-cases)
 * ACT Rules Format [=outcome=] definition
 
-An ACT Rule MAY include one or more of the following [optional items](#optional-items)
+An ACT Rule MAY include one or more of the following [optional items](#optional-items):
  
 * Accessibility Support {#accessibility-support} (optional)
 * Background {#Background} (optional)
