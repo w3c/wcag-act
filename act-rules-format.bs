@@ -106,45 +106,120 @@ An ACT Rule MUST have a description that is in plain language, and provides a br
 </div>
 
 
-Accessibility Requirements {#accessibility-requirements}
+Accessibility Requirements Mapping {#accessibility-requirements}
 ========================================================
 
-Accessibility requirements are just that: A requirement that a particular web page conforms to for it to be considered accessible. A common example of accessibility requirements are the WCAG 2.1 success criteria. Some organizations have additional requirements that come from different sources, such as laws, internal standards, etc. These too are considered accessibility requirements which can be tested using the ACT Rules Format.
+Accessibility requirements are testable statements that must be true about a piece of content for it to live up to a specific accessibility standard, guideline or policy.  
+ACT Rules are descriptions of how to decide if a piece of content conforms to such accessibility requirements.
+A common example of accessibility requirements is the WCAG 2.1 success criteria. 
+Some organizations have additional requirements that come from different sources, such as laws, internal standards, etc. These are also considered accessibility requirements, for which rules can be written using the ACT Rules Format.
+ACT Rules can also test accessibility best practices. An accessibility requirement just has to be a testable statement regarding the accessibility of a piece of content.
 
+An ACT Rule SHOULD list each accessibility requirement  to which it has an explicit relationship. with an identifier and a reference for both the accessibility standard and the specific testable statement that the rule is directly related to.
 
-Accessibility Requirements List {#accessibility-requirements-list}
-------------------------------------------------------------------
+ACT Rules can have different types of relationships to accessibility requirements. Making these relationships explicit makes it easier to interpret and use the outcomes when testing with ACT Rules.
 
-An ACT Rule SHOULD list an identifier and reference for each accessibility requirement that it maps to.
+For each accessibility requirement listed, an ACT Rule MUST indicate the relationship between the outcome of the rule and the conformance of the content to the accessibility requirement, using the following taxonomy for describing the type of relationship:
+
+•	Passed condition: <satisfied | further testing needed>
+•	Failed condition: <not-satisfied | further testing needed>
+•	Inapplicable condition: <satisfied | not-satisfied | further testing needed>
+•	Partial test: <yes | no>
+If none of the possible outcomes of an ACT Rule has a direct relation to the conformance of the content to a specific accessibility requirement, this accessibility requirement MUST NOT be listed in this section as a related accessibility requirement. The optional Background section could be used to indicate relations for an ACT Rule that does not have explicit accessibility requirements mappings.
+
+The accessibility requirements mapping section MAY be left blank. 
+
+**Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
+
+**Note**: When the `failed` condition is mapped to `not-satisfied` for an ACT Rule, this indicates that the test can be used for non-conformance evaluation. This will be the indicative mapping for e.g. WCAG Failure Techniques.
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule affects conformance to the following WCAG 2.1 success criteria:</p>
-  <ul>
-    <li>[1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)</li>
-    <li>[4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)</li>
+<p><strong>Example:</strong> Accessibility Requirements Mapping for a rule that tests if form fields have name:
+
+<ul>
+  <li>WCAG 2.0 / WCAG 2.0, Success Criterion 3.3.2 Labels or Instructions:
+    <ul>
+      <li>Passed condition: further testing needed
+      <li>Failed condition: not-satisfied 
+      <li>Inapplicable condition: further testing needed
+      <li>Partial test: yes 
+    </ul>
+  <li>WCAG 2.0 / WCAG 2.0, Success Criterion 4.1.2 Name, Role, Value:
+      <li>Passed condition: further testing needed
+      <li>Failed condition: not-satisfied 
+      <li>Inapplicable condition: further testing needed
+      <li>Partial test: yes</li>
+    </ul>
   </ul>
-</div>
-
-One reason why an [=atomic rule=] might not list accessibility requirements is because it is part of a [=composite rule=], and only a `failed` [=outcome=] in the composite rule would mean not satisfying the accessibility requirement. Another reason might be that an ACT Rule is designed to evaluate a best practice that is not part of any accessibility standard.
-
-
-Accessibility Requirements Mapping {#accessibility-requirements-mapping}
-------------------------------------------------------------------------
-
-If any accessibility requirements are listed, the ACT Rule MUST indicate how each outcome impacts the conformance to the listed accessibility requirements. For WCAG 2.1 Success Criteria, this means indicating whether or not the success criterion can be satisfied, or if further testing is needed.
+ 
+ </div>
 
 <div class=example>
-  <p><strong>Example</strong>: The outcome of this rule maps to the accessibility requirements in the following manner:</p>
-  <ul>
-    <li>`failed`: The success criteria are *not satisfied*</li>
-    <li>`passed` or `inapplicable`: Further testing is necessary to determine if the success criteria are satisfied</li>
+<p><strong>Example:</strong> 
+
+Accessibility Requirements Mapping for an atomic rule that tests if a page has a link at the top to go directly to the main content area.
+
+<ul>
+  <li>WCAG 2.0 / WCAG 2.0, Success Criterion 2.4.1 Bypass Blocks:
+    <ul>
+      <li>Passed condition: satisfied
+      <li>Failed condition: further testing needed
+      <li>Inapplicable condition: satisfied
+      <li>Partial test: yes
+    </ul>
   </ul>
-</div>
 
-<div class=note>
-  **Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
-</div>
+Accessibility Requirements Mapping for a composite rule that includes all possible ways to satisfy Success Criterion 2.4.1 Bypass Blocks.
 
+<ul>
+  <li>WCAG 2.0 / WCAG 2.0, Success Criterion 2.4.1 Bypass Blocks:
+    <ul>
+      <li>Passed condition: satisfied
+      <li>Failed condition: not-satisfied
+      <li>Inapplicable condition: satisfied
+      <li>Partial test: no</li>
+    </ul>
+</ul>
+ 
+ </div>
+
+<div class=example>
+<p><strong>Example:</strong> Accessibility Requirements Mapping for a rule that tests that valid HTML is used, which goes above the minimum requirements for the related accessibility requirement:</p>
+
+<ul>
+  <li>WCAG 2.0 / WCAG 2.0, Success Criterion 4.1.1 Parsing:
+    <ul>
+      <li>Passed condition: satisfied
+       <li>Failed condition: further testing needed
+       <li>Inapplicable condition: satisfied
+       <li>Partial test: yes</li>
+    </ul>
+</ul>
+ 
+ </div>
+
+
+<div class=example>
+<p><strong>Example:</strong>Accessibility Requirements Mapping for a rule that tests that each img tag has an alt attribute</p>
+
+<ul>
+  <li>RGAA 3, Test 1.1.1 Does each image have a text alternative?</li>
+    <ul>
+      <li>Passed condition: satisfied</li>
+      <li>Failed condition: not-satisfied</li>
+      <li>Inapplicable condition: satisfied</li>
+      <li>Partial test: no</li>
+     </ul>
+  <li>Technique H37 (non-normative WCAG 2.0 / 2.1 technique): Using alt attributes on img elements</li>
+    <ul>
+      <li>Passed condition: satisfied</li>
+      <li>Failed condition: not-satisfied</li>
+      <li>Inapplicable condition: satisfied</li>
+      <li>Partial test: no</li>
+    </ul>
+</ul>
+ 
+ </div>
 
 Aspects Under Test (Atomic rules only) {#input-aspects}
 =======================================================
