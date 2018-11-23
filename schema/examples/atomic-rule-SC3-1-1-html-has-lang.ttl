@@ -1,0 +1,52 @@
+#------------------------------------
+# Atomic rule: SC3-1-1-html-has-lang
+#------------------------------------
+
+@prefix act: <https://w3c.github.io/wcag-act/schema/act-schema.ttl#> .
+@prefix autowcag: <https://w3c.github.io/wcag-act/schema/autowcag-schema.ttl#> .
+@prefix wcag21: <https://w3c.github.io/wcag-act/schema/wcag21.ttl#> .
+
+wcag21:SuccessCriterion 
+  rdfs:subClassOf act:AccessibilityRequirement .
+
+<https://auto-wcag.github.io/auto-wcag/rules/SC3-1-1-html-has-lang.html>
+  a act:AtomicRule ;
+  act:title "HTML has lang attribute"@en;
+  act:identifier "SC3-1-1-html-has-lang";
+  act:description "This rule checks that the `html` element has a non-empty `lang` or `xml:lang` attribute."@en;
+  act:limitations "";
+  act:assumptions "There are currently no assumptions"@en;
+  act:exceptions "";
+  act:accessibilitySupport "There are known combinations of a popular operating system with browsers and assistive technologies that do not support the lang and xml:lang attributes."@en;
+  autowcag:author "Annika Nietzio", "Jey Nandakumar";
+  act:accessibilityRequirement wcag21:SC311;
+  act:aspectUnderTest act:domTree;
+  act:testDefinition [a act:TestDefinition;
+                      act:applicability "The root element of the page, if it is an html element."@en;
+                      act:expectation "The test target has a non-empty lang or xml:lang attribute. Note: HTML5 recommends using lang instead of xml:lang. This is not known to impact accessibility, which is why use of both is permitted by this rule."@en;];
+  autowcag:background <https://www.w3.org/TR/2014/NOTE-WCAG20-TECHS-20140408/H57>,
+                      <https://www.ietf.org/rfc/bcp/bcp47.txt>,
+                      <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang>,
+                      <https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xml:lang>,
+                      <https://www.w3.org/TR/WCAG20-TECHS/H57.html>;
+  autowcag:testCase [ a autowcag:TestCasePassed;
+                      autowcag:testCaseTitle "Pass example 1"@en;
+                      autowcag:testCaseDescription "The lang attribute specified has a non-empty value."@en;
+                      autowcag:testCaseSourceCode "<html lang='en'>"],
+                    [ a autowcag:TestCasePassed;
+                      autowcag:testCaseTitle "Pass example 2"@en;
+                      autowcag:testCaseDescription "The xml:lang attribute specified has a non-empty value."@en;
+                      autowcag:testCaseSourceCode "<html xml:lang='en'>"],
+                    [ a autowcag:TestCaseFailed;
+                      autowcag:testCaseTitle "Fail example 1"@en;
+                      autowcag:testCaseDescription "There were no lang or xml:lang attribute specified."@en;
+                      autowcag:testCaseSourceCode "<html>"], 
+                    [ a autowcag:TestCaseFailed;
+                      autowcag:testCaseTitle "Fail example 2"@en;
+                      autowcag:testCaseDescription "The xml:lang attribute specified has an empty value."@en;
+                      autowcag:testCaseSourceCode "<html xml:lang=''>"],                     
+                    [ a autowcag:TestCaseInapplicable;
+                      autowcag:testCaseTitle "Inapplicable example 1"@en;
+                      autowcag:testCaseDescription "The rule does not apply to svg element."@en;
+                      autowcag:testCaseSourceCode "<svg lang='en'></svg>"] .
+

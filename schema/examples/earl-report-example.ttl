@@ -1,0 +1,14 @@
+#-------------------------
+# Example of EARL report
+#-------------------------
+
+@prefix earl: <http://www.w3.org/TR/EARL10/#> .
+@prefix ptr: <http://www.w3.org/2009/pointers#> .
+@prefix schema: <http://schema.org/> .
+
+[]
+  a earl:Assertion ;
+  earl:result [ earl:outcome earl:failed ;
+                earl:pointer "html[lang]"^^ptr:CSSSelectorPointer ] ;
+  earl:subject "https://example.org/"^^schema:WebPage ;
+  earl:test <https://auto-wcag.github.io/auto-wcag/rules/SC3-1-1-html-has-lang.html> .

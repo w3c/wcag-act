@@ -1,0 +1,31 @@
+#-------------------------
+# Composed rule: SC3-1-1
+#-------------------------
+
+@prefix act: <https://w3c.github.io/wcag-act/schema/act-schema.ttl#> .
+@prefix autowcag: <https://w3c.github.io/wcag-act/schema/autowcag-schema.ttl#> .
+@prefix wcag21: <https://w3c.github.io/wcag-act/schema/wcag21.ttl#> .
+
+wcag21:SuccessCriterion 
+  rdfs:subClassOf act:AccessibilityRequirement .
+
+<https://example.org/composed-rule/SC3-1-1>
+  a act:ComposedRule ;
+  act:title "The default human language of a Web page can be programmatically determined"@en;
+  act:identifier "SC3-1-1";
+  act:description "This rule checks if the default human language of a Web page can be programmatically determined."@en;
+  act:limitations "";
+  act:assumptions "";
+  act:exceptions "";
+  act:accessibilitySupport "";
+  autowcag:author "";
+  act:accessibilityRequirement wcag21:SC311;
+  act:atomicRulesList <https://github.com/auto-wcag/auto-wcag/blob/master/_rules/SC3-1-1-html-has-lang.md>,
+                      <https://github.com/auto-wcag/auto-wcag/blob/master/_rules/SC3-1-1-html-lang-valid.md>,
+                      <https://github.com/auto-wcag/auto-wcag/blob/master/_rules/SC3-1-1-html-xml-lang-match.md>;
+  act:agregationDefinition [a act:AgregationDefinition;
+                            act:agregationApplicability "The applicability can be easily inferred as the union of the applicability sections of the atomic rules."@en];
+                            act:agregationExpectations  "The web page has a non-empty lang or xml:lang attribute."@en, 
+                                                        "The lang and xml:lang attributes have a valid language subtag."@en,
+                                                        "The value of the primary language subtag (characters before the first dash) for the lang and xml:lang attributes are the same."@en.
+

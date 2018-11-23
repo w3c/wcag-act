@@ -1,0 +1,86 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix earl: <http://www.w3.org/TR/EARL10/#> .
+
+@prefix act: <https://w3c.github.io/wcag-act/schema/act-schema.ttl#> .
+@prefix autowcag: <https://w3c.github.io/wcag-act/schema/autowcag-schema.ttl#> .
+
+
+# ******************
+# Auto-WCAG Schema
+# ******************
+
+# Classes
+
+autowcag:TestCase
+  a rdfs:Class ;
+  rdfs:label "Test Case"@en ;   
+  rdfs:comment "An test case example."@en .
+
+autowcag:TestCasePassed
+  a rdfs:Class ;
+  rdfs:label "Test Case Passed"@en ;   
+  rdfs:comment "An example of test case that passes an accessibility requirement."@en ;
+  rdfs:subClassOf autowcag:TestCase .
+
+autowcag:TestCaseFailed
+  a rdfs:Class ;
+  rdfs:label "Test Case Failed"@en ;   
+  rdfs:comment "An example of test case that does not pass an accessibility requirement."@en ;
+  rdfs:subClassOf autowcag:TestCase .
+
+autowcag:TestCaseInapplicable
+  a rdfs:Class ;
+  rdfs:label "Test Case Inapplicable"@en ;   
+  rdfs:comment "An example of test case that does not apply to an accessibility requirement."@en ;
+  rdfs:subClassOf autowcag:TestCase .
+
+
+# Datatype Properties
+
+autowcag:author 
+  a rdfs:Property ;
+  rdfs:label "Author"@en ;   
+  rdfs:comment "Author of a rule. A rule can have several authors."@en ;
+  rdfs:domain act:Rule ;
+  rdfs:range rdfs:Literal .
+
+autowcag:testCaseTitle 
+  a rdfs:Property ;
+  rdfs:label "Test Case Title"@en ;   
+  rdfs:comment "Title of a test case example about a rule."@en ;
+  rdfs:domain autowcag:TestCase ;
+  rdfs:range rdfs:Literal .
+
+autowcag:testCaseDescription 
+  a rdfs:Property ;
+  rdfs:label "Test Case Description"@en ;   
+  rdfs:comment "Description of a test case example about a rule."@en ;
+  rdfs:domain autowcag:TestCase ;
+  rdfs:range rdfs:Literal .
+
+autowcag:testCaseSourceCode 
+  a rdfs:Property ;
+  rdfs:label "Test Case Source Code"@en ;   
+  rdfs:comment "Source code of a test case example about a rule."@en ;
+  rdfs:domain autowcag:TestCase ;
+  rdfs:range rdfs:Literal .
+
+
+# Object Properties
+
+autowcag:background 
+  a rdfs:Property ;
+  rdfs:label "Background"@en ;   
+  rdfs:comment "A list of resources that support the workings of the rule."@en ;
+  rdfs:domain act:Rule ;
+  rdfs:range rdfs:Resource .
+
+autowcag:testCase 
+  a rdfs:Property ;
+  rdfs:label "Test Case"@en ;   
+  rdfs:comment "A test case example about a rule."@en ;
+  rdfs:domain act:AtomicRule ;
+  rdfs:range autowcag:TestCase .
+
+

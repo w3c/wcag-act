@@ -1,0 +1,18 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix earl: <http://www.w3.org/TR/EARL10/#> 
+prefix act: <https://w3c.github.io/wcag-act/schema/act-schema.ttl#> 
+prefix autowcag: <https://w3c.github.io/wcag-act/schema/autowcag-schema.ttl#> 
+
+
+SELECT DISTINCT ?pointer ?expectation ?goodExampleCode
+WHERE { ?a a earl:Assertion .
+?a earl:result ?res .
+?res earl:outcome earl:failed .
+?res earl:pointer ?pointer .
+?a earl:test ?rule .
+?rule act:testDefinition ?def .
+?def act:expectation ?expectation.
+?rule autowcag:testCase ?testCase.
+?goodExample rdf:type autowcag:TestCasePassed.
+?goodExample autowcag:testCaseSourceCode ?goodExampleCode.
+}
