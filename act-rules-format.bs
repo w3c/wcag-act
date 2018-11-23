@@ -296,7 +296,7 @@ Accessibility Support {#accessibility-support}
 ==============================================
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
  
-An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
+An ACT Rule MUST include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
  
 <div class=note>
   **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
@@ -322,9 +322,9 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 
 
 Issues List (optional) {#issues-list}
-==========================
+=====================================
 
-An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases when the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed`, or vice versa. There are several reasons why this might occur, including:
+An ACT Rule MUST include a list or a reference to a list of any known issues. The issues list MUST be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur, including:
 
 - Certain scenarios or the use of technologies that are very rare and were not included in the rule for that reason.
 - Certain accessibility features are impossible to test within the test environment. For instance, they might only be testable by accessing the accessibility API, require screen capturing, etc.
@@ -334,17 +334,17 @@ The issues list serves two purposes. For users of ACT Rules, the issues list giv
 
 
 Acknowledgements (optional) {#acknowledgements}
-====================================
+===============================================
 
-An ACT Rule can contain acknowledgements. This may include, but is not limited to:
+An ACT Rule MAY contain acknowledgements. This may include, but is not limited to:
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
 
 
 Background (optional) {#background}
-========================
-An ACT Rule can contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
+===================================
+An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
 
 
 Rule Accuracy {#accuracy}
