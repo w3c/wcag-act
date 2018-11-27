@@ -341,7 +341,7 @@ This section can be left blank.
 Acknowledgements (optional) {#acknowledgements}
 ===============================================
 
-An ACT Rule MAY contain acknowledgements. This may include, but is not limited to:
+An ACT Rule MAY contain acknowledgements. This can include, but is not limited to:
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
