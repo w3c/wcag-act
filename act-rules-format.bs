@@ -73,7 +73,7 @@ An ACT Rule MUST consist of at least the following items:
 * [Accessibility Support](#accessibility-support)
 * [Test Cases](#test-cases)
 * [Change Log](#change-log)
-* [Issues List](#issues-list) (optional)
+* [Issues List](#issues-list)
 * [Acknowledgements](#acknowledgements) (optional)
 * [Background](#background) (optional)
 * ACT Rules Format [=outcome=] definition
@@ -130,8 +130,6 @@ An ACT Rule SHOULD list an identifier and reference for each accessibility requi
 </div>
 
 One reason why an [=atomic rule=] might not list accessibility requirements is because it is part of a [=composite rule=], and only a `failed` [=outcome=] in the composite rule would mean not satisfying the accessibility requirement. Another reason might be that an ACT Rule is designed to evaluate a best practice that is not part of any accessibility standard.
-
-This section MAY be left blank.
 
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
@@ -292,7 +290,7 @@ An ACT Rule MUST list any assumptions, limitations or any exceptions for the eva
 
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" under WCAG 2.1. Whatever the interpretation is, this MUST be documented in the rule.
 
-This section MAY be left blank.
+While this item MUST be included in the ACT Rule, it MAY be empty when there are no known assumptions, limitations or exceptions.
 
 Accessibility Support {#accessibility-support}
 ==============================================
@@ -300,7 +298,7 @@ Content can be designed to rely on the support for particular accessibility feat
  
 An ACT Rule MUST include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
 
-This section MAY be left blank.
+While this item MUST be included in the ACT Rule, it MAY be empty.
  
 <div class=note>
   **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
@@ -325,7 +323,7 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 </div>
 
 
-Issues List (optional) {#issues-list}
+Issues List {#issues-list}
 =====================================
 
 An ACT Rule MUST include a list or a reference to a list of any known issues. The issues list MUST be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur, including:
@@ -336,7 +334,7 @@ An ACT Rule MUST include a list or a reference to a list of any known issues. Th
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
 
-This section can be left blank.
+While this item MUST be included in the ACT Rule document, it MAY be empty.
 
 Acknowledgements (optional) {#acknowledgements}
 ===============================================
