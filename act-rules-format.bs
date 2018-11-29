@@ -323,18 +323,16 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 </div>
 
 
-Issues List {#issues-list}
+Issues List (optional) {#issues-list}
 =====================================
 
-An ACT Rule MUST include a list or a reference to a list of any known issues. The issues list MUST be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur, including:
+An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur, including:
 
 - Certain scenarios or the use of technologies that are very rare and were not included in the rule for that reason.
 - Certain accessibility features are impossible to test within the test environment. For instance, they might only be testable by accessing the accessibility API, require screen capturing, etc.
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
-
-While this item MUST be included in the ACT Rule document, it MAY be empty when there are no known issues.
 
 Acknowledgements (optional) {#acknowledgements}
 ===============================================
