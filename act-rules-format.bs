@@ -4,7 +4,7 @@ Shortname: ACT-Rules-Format
 URL: https://w3c.github.io/wcag-act/act-rules-format.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2018-09-18.html
 Level: 1.0
-Status: W3C/ED
+Status: ED
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
