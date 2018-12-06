@@ -59,19 +59,23 @@ Not all atomic rules have to be part of a composite rule. Composite rules are us
 ACT Rule Structure {#act-rule-structure}
 ===============================
 
-An ACT Rule MUST consist of the following items:
+An ACT Rule MUST consist of at least the following items:
 
 * Descriptive Title
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#rule-description)
 * [Rule type](#rule-types)
-* [Accessibility Requirements](#accessibility-requirements), if any
+* [Accessibility Requirements](#accessibility-requirements)
 * [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
 * [Applicability](#applicability)
 * [Expectations](#expectations)
-* [Limitations, Assumptions or Exceptions](#limitations-assumptions-exceptions), if any
-* [Accessibility Support](#accessibility-support) (optional)
+* [Assumptions](#assumptions)
+* [Accessibility Support](#accessibility-support)
 * [Test Cases](#test-cases)
+* [Change Log](#change-log)
+* [Issues List](#issues-list)
+* [Acknowledgements](#acknowledgements) (optional)
+* [Background](#background) (optional)
 * ACT Rules Format [=outcome=] definition
 
 ACT Rules MUST be written in a format that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. Using an accessible format supports people with disabilities. It also makes internationalization of ACT Rules easier.
@@ -126,7 +130,6 @@ An ACT Rule SHOULD list an identifier and reference for each accessibility requi
 </div>
 
 One reason why an [=atomic rule=] might not list accessibility requirements is because it is part of a [=composite rule=], and only a `failed` [=outcome=] in the composite rule would mean not satisfying the accessibility requirement. Another reason might be that an ACT Rule is designed to evaluate a best practice that is not part of any accessibility standard.
-
 
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
@@ -280,21 +283,23 @@ When all expectations are true for a test target, the test target `passed` the r
 </div>
 
 
-Limitations, Assumptions or Exceptions {#limitations-assumptions-exceptions}
-======================================================================================
+Assumptions {#assumptions}
+==========================
 
-An ACT Rule MUST list any limitations, assumptions or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast" target="_blank">WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS, and that the rule does not support images of text.
+An ACT Rule MUST list any assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG20/quickref/#visual-audio-contrast-contrast" target="_blank">WCAG 2.0 Success Criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content stylable with CSS, and that the rule does not support images of text.
 
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" under WCAG 2.1. Whatever the interpretation is, this MUST be documented in the rule.
 
+While this item MUST be included in the ACT Rule, it MAY be empty when there are no known assumptions, limitations or exceptions.
 
 Accessibility Support {#accessibility-support}
-====================================
-
+==============================================
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
+ 
+An ACT Rule MUST include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
 
-An ACT Rule SHOULD include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
-
+While this item MUST be included in the ACT Rule, it MAY be empty when there are no known accessibility support issues.
+ 
 <div class=note>
   **Note:** WCAG Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.
 </div>
@@ -306,11 +311,8 @@ Test Cases {#test-cases}
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcome=]. A test case consists of two pieces of data, a snippet of each [test aspect](#input-aspects) for a rule, and the expected result from evaluating that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
 
-Update Management {#updates}
-============================
-
-Change Log {#updates-changes}
--------------------------------------
+Change Log {#change-log}
+========================
 
 It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcome=] of a evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
 
@@ -321,16 +323,30 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 </div>
 
 
-Issues List {#updates-issues}
--------------------------------------
+Issues List (optional) {#issues-list}
+=====================================
 
-An ACT Rule MAY include an issues list. When included, the issues list MUST be used to record cases when the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed`, or vice versa. There are several reasons why this might occur, including:
+An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur, including:
 
 - Certain scenarios or the use of technologies that are very rare and were not included in the rule for that reason.
 - Certain accessibility features are impossible to test within the test environment. For instance, they might only be testable by accessing the accessibility API, require screen capturing, etc.
 - The scenario did not exist (due to changing technologies) or was overlooked during the initial design of the rule.
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
+
+Acknowledgements (optional) {#acknowledgements}
+===============================================
+
+An ACT Rule MAY contain acknowledgements. This can include, but is not limited to:
+* List of rule authors
+* List of rule reviewers/contributors
+* Funding or other support
+
+
+Background (optional) {#background}
+===================================
+
+An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[CSS]], or HTML [[HTML]] specifications.
 
 
 Rule Accuracy {#accuracy}
