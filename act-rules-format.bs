@@ -110,42 +110,86 @@ An ACT Rule MUST have a description that is in plain language, and provides a br
 </div>
 
 
-Accessibility Requirements {#accessibility-requirements}
+Accessibility Requirements Mapping {#accessibility-requirements}
 ========================================================
 
-Accessibility requirements are just that: A requirement that a particular web page conforms to for it to be considered accessible. A common example of accessibility requirements are the WCAG 2.1 success criteria. Some organizations have additional requirements that come from different sources, such as laws, internal standards, etc. These too are considered accessibility requirements which can be tested using the ACT Rules Format.
+An accessibility requirement is a requirement related to accessibility, that must be satisfied in order to conform to a standard, or to comply with a contract, policy or regulation. A common example of accessibility requirements are the WCAG 2.1 success criteria. There are other standards, including W3C standards that include recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation. An example of a legislation is the European Web Accessibility Directive.
 
+An ACT Rule SHOULD list each accessibility requirement that is not satisfied when the outcome of the rule is `failed`. Each accessibility requirement listed this way MUST include the following:
 
-Accessibility Requirements List {#accessibility-requirements-list}
-------------------------------------------------------------------
+1. the name, title or summary of the accessibility requirement, and
+2. the name of the standard or policy that includes the accessibility, and
+3. the conformance level associated with the accessibility requirement, if one exists.
 
-An ACT Rule SHOULD list an identifier and reference for each accessibility requirement that it maps to.
-
-<div class=example>
-  <p><strong>Example</strong>: The outcome of this rule affects conformance to the following WCAG 2.1 success criteria:</p>
-  <ul>
-    <li>[1.3.1 Info and Relationships](https://www.w3.org/TR/WCAG21/#info-and-relationships)</li>
-    <li>[4.1.2 Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)</li>
-  </ul>
-</div>
-
-One reason why an [=atomic rule=] might not list accessibility requirements is because it is part of a [=composite rule=], and only a `failed` [=outcome=] in the composite rule would mean not satisfying the accessibility requirement. Another reason might be that an ACT Rule is designed to evaluate a best practice that is not part of any accessibility standard.
-
-Accessibility Requirements Mapping {#accessibility-requirements-mapping}
-------------------------------------------------------------------------
-
-If any accessibility requirements are listed, the ACT Rule MUST indicate how each outcome impacts the conformance to the listed accessibility requirements. For WCAG 2.1 Success Criteria, this means indicating whether or not the success criterion can be satisfied, or if further testing is needed.
-
-<div class=example>
-  <p><strong>Example</strong>: The outcome of this rule maps to the accessibility requirements in the following manner:</p>
-  <ul>
-    <li>`failed`: The success criteria are *not satisfied*</li>
-    <li>`passed` or `inapplicable`: Further testing is necessary to determine if the success criteria are satisfied</li>
-  </ul>
-</div>
+For each accessibility requirement listed, an ACT Rule MUST indicate what the outcome means for satisfying the accessibility requirement. When the outcome of a rule is `failed`, the accessibility requirements are *<dfn>not satisfied</dfn>*. When the outcome of a rule is `passed` or `inapplicable`, the accessibility requirements could be *<dfn>satisfied</dfn>*, or *<dfn>further testing could be necessary</dfn>*. Rules that can be used to determine if an accessibility requirement is *satisfied* are considered <dfn>satisfying tests</dfn>.
 
 <div class=note>
-  **Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
+**Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
+</div>
+
+<div class=example>
+  <p><strong>Example:</strong> Accessibility Requirements Mapping for a rule that tests if an image button has an accessible name:
+  <blockquote>
+    <ul>
+      <li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">
+          WCAG 2.1, Level A, Success Criterion 1.1.1: Non-text content</a>
+        <ul>
+          <li>Failed outcome: not satisfied</li>
+          <li>Passed outcome: further testing is needed</li>
+          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Satisfying test: no</li>
+        </ul>
+      </li>
+      <li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">
+          WCAG 2.1, Level A, Success Criterion 4.1.2: Name, Role, Value</a>
+        <ul>
+          <li>Failed outcome: not satisfied</li>
+          <li>Passed outcome: further testing is needed</li>
+          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Satisfying test: no</li>
+        </ul>
+      </li>
+    </ul>
+  </blockquote>
+</div>
+
+ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as WCAG advisory techniques, or a testing methodology like RGAA. When an ACT Rule is not required for conformance to a W3C accessibility standard, the rule MUST indicate this as part of its accessibility requirements mapping. 
+
+<div class=example>
+  <p><strong>Example:</strong>Accessibility Requirements Mapping for a rule that tests that each `img` element has an `alt` attribute</p>
+  <blockquote>
+    <p>This rule is <strong>not reuqired</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
+    <ul>
+      <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">
+          Technique H37: Using alt attributes on img elements
+        </a>
+        <ul>
+          <li>Passed outcome: satisfied</li>
+          <li>Failed outcome: not satisfied</li>
+          <li>Inapplicable outcome: satisfied</li>
+          <li>Satisfying test: yes</li>
+        </ul>
+      </li>
+      <li><a href="https://disic.github.io/rgaa_referentiel_en/criteria.html#test-1-1-1">
+          RGAA 3, Test 1.1.1: Does each image have a text alternative</a>
+        <ul>
+          <li>Passed outcome: satisfied</li>
+          <li>Failed outcome: not satisfied</li>
+          <li>Inapplicable outcome: satisfied</li>
+          <li>Satisfying test: yes</li>
+        </ul>
+      </li>
+    </ul>
+  </blockquote>
+</div>
+
+If the `failed` outcome can not be mapped to *not satisfied* for an accessibility requirement, that requirement MUST NOT be listed under the accessibility requirements mapping. The optional Background section could be used to list accessibility requirements and standards that may be thematically related, but for which the rule is not a failure test. If the rule does not map to any known standard, the accessibility requirement section will only contain the explainer that it is not required for conformance to a W3C accessibility standard.
+
+<div class=example>
+  <p><strong>Example:</strong> An ACT Rule that tests a best practice not included in any accessibility standard:</p>
+  <blockquote>
+    <p>This rule is <strong>not reuqired</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
+  </blockquote>
 </div>
 
 
@@ -553,17 +597,17 @@ This section is *non-normative*.
 }
 ```
 
-Appendix 2: Acknowledgments
+Appendix 2: Acknowledgments {#Acknowledgments}
 ===========================
 
 This section is *non-normative*.
 
-Participants of the AG WG active in the development of this document
+Participants of the AG WG active in the development of this document {#participants}
 --------------------------------------------------------------------
 
 Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
 
-Enabling funders
+Enabling funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
