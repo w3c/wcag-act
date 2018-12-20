@@ -158,7 +158,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
 <div class=example>
   <p><strong>Example:</strong>Accessibility Requirements Mapping for a rule that tests that each `img` element has an `alt` attribute</p>
   <blockquote>
-    <p>This rule is <strong>not reuqired</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
+    <p>This rule is <strong>not required</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
     <ul>
       <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">
           Technique H37: Using alt attributes on img elements
@@ -188,7 +188,7 @@ If the `failed` outcome can not be mapped to *not satisfied* for an accessibilit
 <div class=example>
   <p><strong>Example:</strong> An ACT Rule that tests a best practice not included in any accessibility standard:</p>
   <blockquote>
-    <p>This rule is <strong>not reuqired</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
+    <p>This rule is <strong>not required</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
   </blockquote>
 </div>
 
