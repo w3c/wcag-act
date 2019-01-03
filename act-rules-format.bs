@@ -129,58 +129,60 @@ For each accessibility requirement listed, an ACT Rule MUST indicate what the ou
 
 <div class=example>
   <p><strong>Example:</strong> Accessibility Requirements Mapping for a rule that tests if an image button has an accessible name:
-  <blockquote>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">
-          WCAG 2.1, Level A, Success Criterion 1.1.1: Non-text content</a>
-        <ul>
+  <blockquote><ul>
+    <li><a href="https://www.w3.org/TR/WCAG21/#non-text-content">
+        Success Criterion 1.1.1: Non-text content
+      </a><ul>
+        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.1 level A</li>
+        <li>Outcome mapping: <ul>
           <li>Failed outcome: not satisfied</li>
           <li>Passed outcome: further testing is needed</li>
           <li>Inapplicable outcome: further testing is needed</li>
-          <li>Satisfying test: no</li>
-        </ul>
-      </li>
-      <li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">
-          WCAG 2.1, Level A, Success Criterion 4.1.2: Name, Role, Value</a>
-        <ul>
+        </ul></li>
+      </ul>
+    </li>
+    <li><a href="https://www.w3.org/TR/WCAG21/#name-role-value">
+        WCAG 2.1, Level A, Success Criterion 4.1.2: Name, Role, Value
+      </a><ul>
+        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.1 level A</li>
+        <li>Outcome mapping:<ul>
           <li>Failed outcome: not satisfied</li>
           <li>Passed outcome: further testing is needed</li>
           <li>Inapplicable outcome: further testing is needed</li>
-          <li>Satisfying test: no</li>
-        </ul>
-      </li>
-    </ul>
-  </blockquote>
+        </ul></li>
+      </ul>
+    </li>
+  </ul></blockquote>
 </div>
 
-ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as WCAG advisory techniques, or a testing methodology like RGAA. When an ACT Rule is not required for conformance to a W3C accessibility standard, the rule MUST indicate this as part of its accessibility requirements mapping. 
+ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as WCAG advisory techniques, or a testing methodology like RGAA. When an ACT Rule is used to test something not required by its accompanying standard, the rule MUST indicate this as part of its accessibility requirements mapping. Examples of this are WCAG sufficient techniques, which are not required for WCAG conformance, or a company style guide which includes both requirements and optional "best practices". That distinction between what is required what is optional has to be made clear.
 
 <div class=example>
   <p><strong>Example:</strong>Accessibility Requirements Mapping for a rule that tests that each `img` element has an `alt` attribute</p>
-  <blockquote>
-    <p>This rule is <strong>not reuqired</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
-    <ul>
-      <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">
-          Technique H37: Using alt attributes on img elements
-        </a>
-        <ul>
-          <li>Passed outcome: satisfied</li>
+  <blockquote><ul>
+    <li><a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">
+      Technique H37: Using alt attributes on img elements
+      </a><ul>
+        <li><strong>Not required</strong> for conformance to WCAG 2.0 and WCAG 2.1 at any level</li>
+        <li>Outcome mapping: <ul>
           <li>Failed outcome: not satisfied</li>
-          <li>Inapplicable outcome: satisfied</li>
-          <li>Satisfying test: yes</li>
-        </ul>
-      </li>
-      <li><a href="https://disic.github.io/rgaa_referentiel_en/criteria.html#test-1-1-1">
-          RGAA 3, Test 1.1.1: Does each image have a text alternative</a>
-        <ul>
           <li>Passed outcome: satisfied</li>
-          <li>Failed outcome: not satisfied</li>
           <li>Inapplicable outcome: satisfied</li>
-          <li>Satisfying test: yes</li>
-        </ul>
-      </li>
-    </ul>
-  </blockquote>
+        </ul></li>
+      </ul>
+    </li>
+    <li><a href="https://disic.github.io/rgaa_referentiel_en/criteria.html#test-1-1-1">
+      RGAA 3, Test 1.1.1: Does each image have a text alternative
+      </a><ul>
+        <li><strong>Required for conformance</strong> to RGAA 3 level A</li>
+        <li>Outcome mapping: <ul>
+          <li>Failed outcome: not satisfied</li>
+          <li>Passed outcome: satisfied</li>
+          <li>Inapplicable outcome: satisfied</li>
+        </ul></li>
+      </ul>
+    </li>
+  </ul></blockquote>
 </div>
 
 If the `failed` outcome can not be mapped to *not satisfied* for an accessibility requirement, that requirement MUST NOT be listed under the accessibility requirements mapping. The optional Background section could be used to list accessibility requirements and standards that may be thematically related, but for which the rule is not a failure test. If the rule does not map to any known standard, the accessibility requirement section will only contain the explainer that it is not required for conformance to a W3C accessibility standard.
