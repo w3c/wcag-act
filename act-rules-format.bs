@@ -17,7 +17,7 @@ Introduction {#intro}
 
 There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the web.
 
-This format is intended to enable a consistent interpretation of how to test [=accessibility requirements documents=] and promote consistent results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools.
+This format is intended to enable a consistent interpretation of how to test conformance to [=accessibility requirements documents=] and promote consistent results of accessibility tests. It is intended to be used to describe both manual accessibility tests as well as automated tests performed by accessibility testing tools.
 
 Describing how to test certain accessibility requirements will result in accessibility tests that are transparent, with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
@@ -118,10 +118,11 @@ When an ACT Rule is designed to test the conformance to one or more [=Accessibil
 Each [=accessibility requirement=] in the mapping MUST include the following:
 
 1. the name, title or summary of the accessibility requirement, and
-2. the name of the standard or policy that includes the accessibility, and
-3. the conformance level associated with the accessibility requirement, if one exists.
+2. the name of the [=accessibility requirements document=], and
+3. a link to the [=accessibility requirements document=] if one exists, and
+4. the conformance level associated with the accessibility requirement, if one exists.
 
-For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the outcome means for satisfying that accessibility requirement. When the outcome of a rule is `failed`, the accessibility requirements are *<dfn>not satisfied</dfn>*. When the outcome of a rule is `passed` or `inapplicable`, the accessibility requirements could be *<dfn>satisfied</dfn>*, or *<dfn>further testing could be necessary</dfn>*. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcome=] of the rule means for satisfying that accessibility requirement. When the outcome is `failed`, the accessibility requirements are *<dfn>not satisfied</dfn>*. When the outcome is `passed` or `inapplicable`, the accessibility requirements could be *<dfn>satisfied</dfn>*, or *<dfn>further testing could be necessary</dfn>*. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
 **Note**: In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
@@ -185,15 +186,19 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
   </ul></blockquote>
 </div>
 
-If the `failed` outcome can not be mapped to *not satisfied* for an accessibility requirement, that requirement MUST NOT be included in the accessibility requirements mapping. The optional Background section could be used to list accessibility requirements and standards that may be thematically related, but for which the rule is not a failure test.
+If the `failed` outcome can not be mapped to *not satisfied* for an accessibility requirement, that requirement MUST NOT be included in the accessibility requirements mapping. The optional [Background section](#background) could be used to list accessibility requirements and standards that may be thematically related, but for which the rule is not a failure test.
 
-If the rule does not map to any [=accessibility requirement=], the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the [=accessibility requirements document=]. This is common with atomic rules used in composite rules, where accessibility requirements are only not satisfied with multiple atomic rules have `failed`.
+If the rule does not map to any [=accessibility requirement=], the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the [=accessibility requirements document=]. This is common with atomic rules used in composite rules, where accessibility requirements are only not satisfied with multiple atomic rules have the outcome`failed`.
 
 <div class=example>
   <p><strong>Example:</strong> An ACT Rule that tests a best practice not included in any accessibility standard:</p>
   <blockquote>
     <p>This rule is <strong>not required</strong> for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
   </blockquote>
+</div>
+
+<div class=note>
+**Note**: While rules are often designed for one, or possibly a small collection of [=accessibility requirements document=], it is likely that other accessibility requirements documents also map to those rules. For example, rules may be written for WCAG 2.1, but many of those may map to a company's internal accessibility policy. In such a scenario, an external accessibility requirements mapping could be created. An external accessibility requirements mapping ammend the accessibility requirements mapping of a rule by adding mapping to a different accessibility requirements document. An external accessibility requirements mapping avoids duplication of a rule, for the sole purpose of changing the mapping.
 </div>
 
 
