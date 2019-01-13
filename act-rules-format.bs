@@ -156,7 +156,7 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
   </ul></blockquote>
 </div>
 
-ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as WCAG advisory techniques, or a testing methodology like RGAA. When an ACT Rule is used to test something not required by its accompanying standard, the rule MUST indicate this as part of its accessibility requirements mapping. Examples of this are WCAG sufficient techniques, which are not required for WCAG conformance, or a company style guide which includes both requirements and optional "best practices". That distinction between what is required and what is optional has to be made clear.
+ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as [[WAI-ARIA]] requirements, or a testing methodology like [RGAA 3](https://disic.github.io/rgaa_referentiel_en/criteria.html). An ACT Rule MUST indictate whether or not the [=accessibility requirement=] it maps to is required for conformance in its [=accessibility requirements document=]. Examples of accessibility requirements that are not required for conformance are WCAG sufficient techniques, or a company style guide which includes both requirements and optional "best practices". That distinction between what is required and what is optional has to be made clear.
 
 <div class=example>
   <p><strong>Example:</strong>Accessibility Requirements Mapping for a rule that tests that each `img` element has an `alt` attribute</p>
