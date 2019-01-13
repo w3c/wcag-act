@@ -37,11 +37,11 @@ In accessibility, there are often different technical solutions to make the same
 
 - <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other parts of a [=test subject=] are to be tested, and when those elements are considered to fail the rule. These rules are to be kept small and *atomic*. Meaning that atomic rules test a single "failure condition", and do so without using the [=outcome=] of other rules.
 
-- <dfn>Composite rules</dfn> describe how the [=outcomes=] of multiple [=atomic rules=] can be combined into a single outcome. A composite rule can have multiple "satisfying conditions", each of these provided in a separate atomic rule. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them is used to determine a single outcome.
+- <dfn>Composite rules</dfn> describe how the [=outcomes=] of multiple [=atomic rules=] or composite rules can be combined into a single outcome. A composite rule can have multiple "satisfying conditions", each of these provided in separate atomic or composite rules. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them is used to determine a single outcome.
 
 <div class="example">
   <p>Composite rule: Header cells in HTML tables (<a href="https://www.w3.org/WAI/WCAG21/quickref/#info-and-relationships" target="_blank">WCAG 2 Success Criterion 1.3.1</a>).</p>
-  <p>This rule uses results from the following atomic rules:</p>
+  <p>This rule uses outcomes from the following rules:</p>
   <ul>
     <li>Header indicated through implicit scope</li>
     <li>Header indicated through the `scope` attribute</li>
@@ -51,9 +51,9 @@ In accessibility, there are often different technical solutions to make the same
   <p>If any one of these rules passes, the outcome of the composite rule for the table cell is "passed".</p>
 </div>
 
-The separation between atomic rules and composite rules can be seen as a division of responsibility. Atomic rules typically test if web content is correctly implemented in a particular solution. Composite rules can test if a combination of outcomes from atomic rules satisfy the accessibility requirement, in part or as a whole.
+The separation between atomic rules and composite rules can be seen as a division of responsibility. Atomic rules typically test if web content is correctly implemented in a particular solution. Composite rules can test if a combination of outcomes from other rules satisfy the accessibility requirement, in part or as a whole.
 
-Not all atomic rules have to be part of a composite rule. Composite rules are used when the outcomes of multiple atomic rules need to be combined in order to determine (non-)conformance of a test subject to an [=accessibility requirement=].
+Not all atomic rules have to be part of a composite rule. Composite rules are used when the outcomes of multiple rules need to be combined in order to determine (non-)conformance of a test subject to an [=accessibility requirement=].
 
 
 ACT Rule Structure {#act-rule-structure}
@@ -66,7 +66,7 @@ An ACT Rule MUST consist of at least the following items:
 * [Rule Description](#rule-description)
 * [Rule type](#rule-types)
 * [Accessibility Requirements Mapping](#accessibility-requirements-mapping)
-* [Aspects Under Test](#input-aspects) (for atomic rules) OR [Atomic Rules List](#atomic-rules-list) (for composite rules)
+* [Aspects Under Test](#input-aspects) (for atomic rules) OR [Input Rules List](#input-rules-list) (for composite rules)
 * [Applicability](#applicability)
 * [Expectations](#expectations)
 * [Assumptions](#assumptions)
@@ -241,10 +241,10 @@ For other aspects that are not well defined, an ACT Rule MUST include either a d
 </div>
 
 
-Atomic Rules List (Composite rules only) {#atomic-rules-list}
+Input Rules List (Composite rules only) {#input-rules-list}
 ==========================================================
 
-A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies a logic to them so that a single outcome can be determined for each [=test target=]. The identifiers of all the atomic rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The atomic rules list describes the input for composite rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses [=outcomes=] from [=atomic rules=] or other composite rules and applies a logic to them so that a single outcome can be determined for each [=test target=]. The identifiers of all rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The rules list describes the input for composite rules, similar to how [aspects under test](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
@@ -273,9 +273,9 @@ An objective description is one that can be resolved without uncertainty, in a g
 Applicability for Composite Rules {#applicability-composite}
 ----------------------------------------------------------
 
-A [=composite rule=] defines how the [=outcomes=] from rules in its [atomic rules list](#atomic-rules-list) are used to determine a single outcome.
+A [=composite rule=] defines how the [=outcomes=] from rules in its [input rules list](#input-rules-list) are used to determine a single outcome.
 
-The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=]. This can be inferred from the [list of atomic rules](#atomic-rules-list). Rule authors MAY describe the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability sections of the atomic rules.
+The applicability of a composite rule is defined as the union of all the applicability sections of its [=atomic rules=] as well as atomic rules that make up any composite rules in the [input rules list](#input-rules-list). Rule authors MAY describe the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability sections of the atomic rules.
 
 Note that atomic rules in a composite rule MAY have different applicability. Because of this, not every element applicable within the composite rule is tested by every atomic rule.
 
@@ -320,7 +320,7 @@ An atomic rule expectation MUST only use information available in the [test aspe
 Expectations for Composite Rules {#expectations-composite}
 --------------------------------------------------------
 
-A [=composite rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `passed` or `failed` [=outcome=] for each [=test target=], based on the outcomes of [=atomic rules=] listed in its [atomic rules list](#atomic-rules-list).
+A [=composite rule=] MUST contain one or more expectations that describes the logic that is used to determine a single `passed` or `failed` [=outcome=] for each [=test target=], based on the outcomes of [=atomic rules=] or [=composite rules=] listed in its [input rules list](#input-rules-list).
 
 When all expectations are true for a test target, the test target `passed` the rule. If one or more expectations is false, the test target `failed` the rule. This works the same way for atomic rules. A composite rule expectation MUST NOT use information from [test aspects](#input-aspects).
 
@@ -349,7 +349,7 @@ Accessibility Support {#accessibility-support}
 ==============================================
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular WAI-ARIA [[WAI-ARIA]] feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. WCAG [[WCAG]] provides a definition for [accessibility supported](https://www.w3.org/TR/WCAG20/#accessibility-supporteddef) use of a Web technology.
  
-An ACT Rule MUST include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that includes atomic rules with known accessibility support limitations.
+An ACT Rule MUST include known limitations on accessibility support. For example, an atomic rule that checks for a particular accessibility feature that is known not to be widely supported by assistive technologies and web browsers, or a composite rule that lists rules with known accessibility support limitations.
 
 While this item MUST be included in the ACT Rule, it MAY be empty when there are no known accessibility support issues.
  
