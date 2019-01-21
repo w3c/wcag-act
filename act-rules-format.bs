@@ -77,10 +77,10 @@ An ACT Rule MUST consist of at least the following items:
 * [Accessibility Support](#accessibility-support)
 * [Test Cases](#test-cases)
 * [Change Log](#change-log)
-* [Issues List](#issues-list)
-* [Acknowledgements](#acknowledgements) (optional)
+* [Glossary](#glossary)
+* [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
-* ACT Rules Format [=outcome=] definition
+* [Acknowledgements](#acknowledgements) (optional)
 
 The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules MUST be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
 
@@ -276,7 +276,7 @@ The applicability section is a required part of an [=atomic rule=]. It MUST cont
 
 Applicability MUST be described objectively, unambiguously and in plain language.
 
-An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. This definition can be part of a larger glossary shared between rules.
+An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. These definitions MUST be put in the rule's [glossary](#glossary).
 
 <div class=example>
   <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
@@ -384,6 +384,24 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcome=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when a rule passes, when it fails, and when it is inapplicable. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
+<div class="example">
+  <p>**Example:** HTML test cases for a rule that checks if `img` elements have a text alternative.</p>
+  <blockquote>
+    <p>Example of a `passed` outcome:</p>
+    ```html
+<img alt="W3C Logo" src="image/w3c.png">
+    ```
+    <p>Example of a `failed` outcome:</p>
+    ```html
+<img src="image/w3c.png">
+    ```
+    <p>Example of an `inapplicable` outcome:</p>
+    ```html
+<input type="image" alt="W3C Logo" src="image/w3c.png">
+    ```
+  </blockquote>
+</div>
+
 
 Change Log {#change-log}
 ------------------------
@@ -397,12 +415,24 @@ Each new release of an ACT Rule MUST be identifiable with either a date or a ver
 </div>
 
 
+Glossary {#glossary}
+--------------------
+
+ACT Rules MUST have a glossary section. The glossary MUST contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions can not be maintained independently of the rule. If a shared glossary is used for rules, any definition changes MUST be included in the [change log](#change-log) of all rules that use that definition.
+
+
 Issues List (optional) {#issues-list}
 -------------------------------------
 
 An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur. See [rule accuracy](#rule-accuracy) for more information.
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
+
+
+Background (optional) {#background}
+-----------------------------------
+
+An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Acknowledgements (optional) {#acknowledgements}
@@ -412,12 +442,6 @@ An ACT Rule MAY contain acknowledgements. This can include, but is not limited t
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
-
-
-Background (optional) {#background}
------------------------------------
-
-An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a WCAG [[WCAG]] success criterion could be [Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or WAI-ARIA [[WAI-ARIA]], CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Rule Accuracy {#accuracy}
