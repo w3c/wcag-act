@@ -9,16 +9,19 @@ TR: https://www.w3.org/TR/
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: Working Group note to identify common aspects under test.
+Abstract: This document is a companion to the Accessibility Conformance Testing (ACT) Rules Format 1.0 [[ACT-format]] specification. It lists Aspects Under Test, as defined by the ACT Rules Format 1.0 specification, that are commonly used in the development of ACT Rules. This document is non-normative and it is not required to follow it to conform to the ACT Rules Format 1.0 specification. It provides a set of references to help authors of ACT Rules and to support consistency of ACT Rules.
 Markup Shorthands: markdown yes
 </pre>
 
 Introduction {#intro}
 =====================
 
-<p class="note" role="note">
-"Editor's note: **DRAFT** This note captures Common Aspects Under Test. The TR metadata needs to be updated when ACT rules has a TR url."
-</p>
+The term [Aspects Under Test](https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects) is defined by the Accessibility Conformance Testing (ACT) Rules Format 1.0 [[ACT-format]] Specification. It is a required part of Atomic Rules, to identify the particular parts of Test Subjects that are being considered by the rule.
+
+To support flexibility, the normative ACT Rules Format 1.0 specification does not define particular Aspects Under Test. Instead, these are listed in this informative document, which can be updated more easily. Using these listed aspects is not a requirement for conforming to the ACT Rules Format 1.0 specification. Examples of ACT Rules can be in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
+
+The aspects listed in this document can be used by authors of ACT Rules, to refer to common types more easily. This improves the development process and supports consistency across rules. This list could be extended and refined at any time, for example to include popular aspects or to provide clarification. Existing aspects could also be marked as obsoleted, if needed.
+
 
 
 
