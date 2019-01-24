@@ -16,12 +16,13 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-The term [Aspects Under Test](https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects) is defined by the Accessibility Conformance Testing (ACT) Rules Format 1.0 [[ACT-format]] Specification. It is a required part of Atomic Rules, to identify the particular parts of Test Subjects that are being considered by the rule.
+The term [Aspects Under Test](https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects) is defined by the [Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification](https://w3c.github.io/wcag-act/act-framework.html). An aspect is a distinct part of a [test subject](https://w3c.github.io/wcag-act/act-rules-format.html#test-subject). Atomic rules are required to list aspects under test in the [applicability](https://w3c.github.io/wcag-act/act-rules-format.html#applicability) and [expectations](https://w3c.github.io/wcag-act/act-rules-format.html#expectations). 
 
-To support flexibility, the normative ACT Rules Format 1.0 specification does not define particular Aspects Under Test. Instead, these are listed in this informative document, which can be updated more easily. Using these listed aspects is not a requirement for conforming to the ACT Rules Format 1.0 specification. Examples of ACT Rules can be in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
+Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [css-2018]. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common aspects under test, however, these common aspects are not required to conform to the ACT Rules Format 1.0 specification.
+
+Examples of ACT Rules can be in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
 
 The aspects listed in this document can be used by authors of ACT Rules, to refer to common types more easily. This improves the development process and supports consistency across rules. This list could be extended and refined at any time, for example to include popular aspects or to provide clarification. Existing aspects could also be marked as obsoleted, if needed.
-
 
 
 
