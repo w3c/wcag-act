@@ -9,7 +9,7 @@ TR: https://www.w3.org/TR/
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: This document is a companion to the Accessibility Conformance Testing (ACT) Rules Format 1.0 [[ACT-format]] specification. It lists Aspects Under Test, as defined by the ACT Rules Format 1.0 specification, that are commonly used in the development of ACT Rules. This document is non-normative and it is not required to follow it to conform to the ACT Rules Format 1.0 specification. It provides a set of references to help authors of ACT Rules and to support consistency of ACT Rules.
+Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://w3c.github.io/wcag-act/act-framework.html) specification. It lists Common Aspects Under Test as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules. 
 Markup Shorthands: markdown yes
 </pre>
 
