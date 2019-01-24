@@ -23,7 +23,7 @@ Documenting how to test [=accessibility requirements=] will result in accessibil
 
 An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions must be true about the applicable elements for them to meet all expectations of the rule.
 
-The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [=act-rule-structure=] section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
+The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
   
 
 Scope {#scope}
@@ -39,7 +39,7 @@ ACT Rule Types {#rule-types}
 
 In accessibility, there are often different technical solutions to make the same type of content accessible. For example, there are multiple methods for giving an `img` element in HTML an accessible name. Multiple solutions could be tested in a single rule; however, such a rule tends to be quite complex, making it difficult to understand and maintain. The ACT Rules Format solves this by providing two types of rules:
 
-- <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other "parts" of a [=test subject=] are to be tested, and when the test subject is considered to fail the rule. These rules are to be kept small and *atomic*, this means that atomic rules test a single "failure condition", and do so without using the [=findings=] from other rules.
+- <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other "parts" of a [=test subject=] are to be tested, and when the test subject is considered to fail the rule. These rules are to be kept small and *atomic*. This means that atomic rules test a single "failure condition", and do so without using the [=findings=] from other rules.
 
 - <dfn>Composite rules</dfn> describe how the [=findings=] of multiple [=atomic rules=] or composite rules can be combined into a single [=outcome=]. A composite rule can have multiple "satisfying conditions", each of these tested in separate rules. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.
 
@@ -63,7 +63,7 @@ ACT Rule Structure {#act-rule-structure}
 
 An ACT Rule MUST consist of at least the following items:
 
-* Descriptive Title
+* <dfn>Descriptive Title</dfn>
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#rule-description)
 * [Rule type](#rule-types)
@@ -198,7 +198,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
 If the rule does not map to any [=accessibility requirement=], the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the [=accessibility requirements document=]. This is common with atomic rules used in composite rules.
 
 <div class=example>
-  <p>**Example:** An ACT Rule for WCAG 2.1 that tests if landmarks used to satsify [WCAG 2.1, success criterion 2.4.1 bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks):</p>
+  <p>**Example:** An ACT Rule for WCAG 2.1 that tests if landmarks are used to satsify [WCAG 2.1, success criterion 2.4.1 bypass blocks](https://www.w3.org/TR/WCAG21/#bypass-blocks):</p>
   <blockquote>
     <p>This rule is **not required** for conformance to WCAG 2.0 or WCAG 2.1 at any level.</p>
   </blockquote>
@@ -261,22 +261,22 @@ Some input aspects are well defined in a formal specification, such as HTTP mess
 
 ### Input Rules (Composite rules only) ### {#input-rules}
 
-A [=composite rule=] uses [=findings=] from [=atomic rules=] or other composite rules and applies a logic to them so that a single [=outcome=] can be determined for the [=test subject=]. The [identifier](#rule-identifier) and [description](#rule-description) of all rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describes the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses [=findings=] from [=atomic rules=] or other composite rules and applies a logic to them so that a single [=outcome=] can be determined for the [=test subject=]. The [identifier](#rule-identifier) and [=descriptive title=] of all rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describes the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
 ------------------------------
 
-The applicability describes what (parts of the) [=test subject=] are tested.
+The applicability describes what parts of the [=test subject=] are tested.
 
 
 ### Applicability for Atomic Rules ### {#applicability-atomic}
 
-The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability MUST only use information listed as an [input aspects](#input-aspects) in the rule. No other information can be used in the applicability.
+The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability MUST only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability.
 
 Applicability MUST be described objectively, unambiguously and in plain language.
 
-An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. These definitions MUST be put in the rule's [glossary](#glossary).
+An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section they are used.
 
 <div class=example>
   <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
@@ -293,7 +293,7 @@ A [=composite rule=] defines how the [=findings=] from rules in its [input rules
 
 The applicability of a composite rule is defined as the union of all the applicability sections of rules in the [input rules](#input-rules). This includes [=atomic rules=], and [=composite rules=] which themselves have a union applicability. Rule authors MAY ommit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability in the [input rules](#input-rules).
 
-Note that input rules in a composite rule MAY have different applicability. Because of this, not every element applicable within the composite rule is tested by every input rule.
+Note that input rules in a composite rule MAY have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
 
 <div class=example>
   <p>**Example:** A composite rule about `img` elements uses results from rules that have the following applicability:</p>
@@ -315,7 +315,7 @@ An ACT Rule MUST contain one or more expectations. The expectations describe wha
 
 Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning MAY not fully quantifiable.
 
-Commonly, an expectation comes in the form of an "Each test target has ..." statement. In such an expectation, all test targets need to <dfn>meet the expectations</dfn> for the rule to pass. It is also possible to have an expectation where not all test targets meet the expectations. For example: "85% of all test targets have an accessible name" is an expectation that is true even when 15% of the test targets do not meet the expectations.
+Commonly, an expectation comes in the form of an "Each test target has ..." statement. In such an expectation, all test targets need to [=meet expectations|meet all expectations=] for the rule to pass. It is also possible to have an expectation where not all test targets meet all expectations. For example: "85% of all test targets have an accessible name" is an expectation that is true even when 15% of the test targets do not meet the expectations.
 
 
 ### Expectations for Atomic Rules ### {#expectations-atomic}
@@ -339,7 +339,7 @@ The expectations of a composite rule can produce a `passed` outcome, even if the
 
 <div class="example">
   <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
-  <p>Each HTML `video` element meets expectations from at least one of the following rules:</p>
+  <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>video elements have a transcript</li>
     <li>video elements have an audio description</li>
@@ -512,13 +512,33 @@ Definitions {#definitions}
     </ul>
   </dd>
 
+  <dt><dfn>meet expectations</dfn></dt>
+  <dd>
+    <p>A [=test target=] meets an expectation, when that expectation is true for the test target individually, or when the test target increases a count that is required for the expectation to be true.</p>
+    <div class=example>
+      <p>**Example:** An HTML `img` element an `alt` attribute meet the following expectation:</p>
+      <blockquote>Each test target has an alt attribute</blockquote>
+    </div>
+    <div class=example>
+      <p>**Example:** An HTML element with a duplicate ID does not meet the following expectation:</p>
+      <blockquote>No test target has the same ID</blockquote>
+    </div>
+    <div class=example>
+      <p>**Example:** An HTML `video` element without captions does not meet the following expectation:</p>
+      <blockquote>80% of all test targets has a caption</blockquote>
+    </div>
+    <div class=note>
+      <p>Expectations are true or false assertions about a test subject. Individual test targets can meet all expectations, even if some expectations are false about the test subject as a whole</p>
+    </div>
+  </dd>
+
   <dt><dfn>Outcome</dfn></dt>
   <dd>
     <p>One of three types of conclusions that come from evaluating an ACT Rule on a [=test subject=]. An outcome can be:<p>
     <ul>
       <li>**Inapplicable:** No part of the test subject matches the applicability</li>
-      <li>**Passed:** The test subject meets all expectations</li>
-      <li>**Failed:** The test subject does not meet all expectations</li>
+      <li>**Passed:** All expectations are true for the test subject</li>
+      <li>**Failed:** Some expectations are false for the test subject</li>
     </ul>
     <div class="note">
       <p>**Note:** While *inapplicable* is a valid outcome for ACT Rules, it might not be a valid result for all [=accessibility requirements=]. Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to satisfied (passed and inapplicable) or not satisfied (failed).</p>
