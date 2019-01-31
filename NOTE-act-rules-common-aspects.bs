@@ -20,7 +20,7 @@ The term [Input Aspects](https://w3c.github.io/wcag-act/act-rules-format.html#in
 
 Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [[css-2018]]. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.
 
-Examples of ACT Rules can be in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
+Examples of ACT Rules can be found in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
 
 The input aspects listed in this document can be used by authors of ACT Rules to refer to common types more easily. This improves the development process and supports consistency across rules. This list can be extended and refined at any time, for example, to include popular input aspects or to provide clarification. Existing input aspects can also be marked as obsoleted, if needed.
 
