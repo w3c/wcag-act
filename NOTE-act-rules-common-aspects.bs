@@ -1,5 +1,5 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing Rules: Common Aspects
+Title: Accessibility Conformance Testing Rules: Common Input Aspects
 Shortname: ACT-Common-Aspects
 URL: https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-format/NOTE-act-rules-common-aspects.html
@@ -9,24 +9,24 @@ TR: https://www.w3.org/TR/
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://w3c.github.io/wcag-act/act-framework.html) specification. It lists Common Aspects Under Test as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules. 
+Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://w3c.github.io/wcag-act/act-framework.html) specification. It lists Common Input Aspects Under Test as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules. 
 Markup Shorthands: markdown yes
 </pre>
 
 Introduction {#intro}
 =====================
 
-The term [Aspects Under Test](https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects) is defined by the [Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification](https://w3c.github.io/wcag-act/act-framework.html). An aspect is a distinct part of a [test subject](https://w3c.github.io/wcag-act/act-rules-format.html#test-subject). Atomic rules are required to list aspects under test in the [applicability](https://w3c.github.io/wcag-act/act-rules-format.html#applicability) and [expectations](https://w3c.github.io/wcag-act/act-rules-format.html#expectations). 
+The term [Input Aspects Under Test](https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects) is defined by the [Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification](https://w3c.github.io/wcag-act/act-framework.html). An input aspect is a distinct part of a [test subject](https://w3c.github.io/wcag-act/act-rules-format.html#test-subject). Atomic rules are required to list input aspects in the [applicability](https://w3c.github.io/wcag-act/act-rules-format.html#applicability) and [expectations](https://w3c.github.io/wcag-act/act-rules-format.html#expectations). 
 
-Some aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [css-2018]. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common aspects under test, however, these common aspects are not required to conform to the ACT Rules Format 1.0 specification.
+Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling [css-2018]. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.
 
 Examples of ACT Rules can be in the [ACT Rules Repository](https://w3c.github.io/wcag-act-rules/).
 
-The aspects listed in this document can be used by authors of ACT Rules, to refer to common types more easily. This improves the development process and supports consistency across rules. This list could be extended and refined at any time, for example to include popular aspects or to provide clarification. Existing aspects could also be marked as obsoleted, if needed.
+The input aspects listed in this document can be used by authors of ACT Rules to refer to common types more easily. This improves the development process and supports consistency across rules. This list can be extended and refined at any time, for example, to include popular input aspects or to provide clarification. Existing input aspects can also be marked as obsoleted, if needed.
 
 
 
-Common Aspects {#input-aspects-common}
+Common Input Aspects {#input-aspects-common}
 --------------------------------------
 
 ### HTTP Messages ### {#input-aspects-http}
