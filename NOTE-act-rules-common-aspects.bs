@@ -29,7 +29,7 @@ The input aspects listed in this document can be used by authors of ACT Rules to
 Common Input Aspects {#input-aspects-common}
 ============================================
 
-### HTTP Messages {#input-aspects-http}.
+### HTTP Messages {#input-aspects-http}
 
 The HTTP messages [[http11]] exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML [[HTML]] and CSS [[CSS2]].
 
