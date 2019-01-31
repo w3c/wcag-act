@@ -9,7 +9,7 @@ TR: https://www.w3.org/TR/
 Group: act-framework
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
-Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://w3c.github.io/wcag-act/act-framework.html) specification. It lists Common Input Aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules. 
+Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://w3c.github.io/wcag-act/act-framework.html) specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules. 
 Markup Shorthands: markdown yes
 </pre>
 
