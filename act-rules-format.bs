@@ -39,13 +39,15 @@ ACT Rule Types {#rule-types}
 
 In accessibility, there are often different technical solutions to make the same type of content accessible. For example, there are multiple methods for giving an `img` element in HTML an accessible name. Multiple solutions could be tested in a single rule; however, such a rule tends to be quite complex, making it difficult to understand and maintain. The ACT Rules Format solves this by providing two types of rules:
 
-- <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other "parts" of a [=test subject=] are to be tested, and when the test subject is considered to fail the rule. These rules are to be kept small and *atomic*. This means that atomic rules test a single "failure condition", and do so without using the [=findings=] from other rules.
+- <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other "parts" of a [=test subject=] are to be tested, and when those test targets are considered to fail the rule. These rules are to be kept small and *atomic*. This means that atomic rules test a single "condition", and do so without using the [=outcomes=] from other rules.
 
-- <dfn>Composite rules</dfn> describe how the [=findings=] of multiple [=atomic rules=] or composite rules can be combined into a single [=outcome=]. A composite rule can have multiple "satisfying conditions", each of these tested in separate rules. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.
+- <dfn>Composite rules</dfn> describe how the [=outcomes=] of multiple [=atomic rules=] can be combined into a single [=outcome=]. A composite rule can have multiple "conditions", each of these tested in a separate atomic rule. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.
+
+Composite rules cannot contain other composite rules, as there is no use case for it. Any time a nested composite rule is needed, all of the atomic rules can be combined into a single composite rule.
 
 <div class="example">
-  <p>Composite rule: video elements have an audio description or media alternative (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative</a>).</p>
-  <p>Each HTML `video` element meets the expectations from at least one of the following rules:</p>
+  <p>Composite rule: Video elements have an audio description or media alternative (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative</a>).</p>
+  <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>Video elements have a transcript</li>
     <li>Video elements have an audio description</li>
@@ -53,9 +55,9 @@ In accessibility, there are often different technical solutions to make the same
   </ul>
 </div>
 
-Not all atomic rules have to be part of a composite rule. Composite rules are used when the [=findings=] of multiple rules need to be combined in order to determine if a [=test subject=] does not satisfy an [=accessibility requirement=].
+Not all atomic rules have to be part of a composite rule. Composite rules are used when the [=outcomes=] of multiple atomic rules need to be combined to determine if a [=test subject=] does not satisfy an [=accessibility requirement=].
 
-The separation between atomic rules and composite rules creates a division of responsibilities. Atomic rules test if web content is correctly implemented in a particular solution. Composite rules can test if a combination of [=findings=] from other rules satisfy the accessibility requirement, in part or as a whole.
+The separation between atomic rules and composite rules creates a division of responsibilities. Atomic rules test if web content is correctly implemented in a particular solution. Composite rules can test if a combination of [=outcomes=] from other atomic rules satisfy the accessibility requirement, in part or as a whole.
 
 
 ACT Rule Structure {#act-rule-structure}
@@ -113,19 +115,19 @@ An ACT Rule MUST have a description that is in plain language, and provides a br
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
-When an ACT Rule is designed to test one or more [=Accessibility requirements documents=], the rule MUST list all [=accessibility requirements=] from those documents that are not satisfied when the [=outcome=] of the rule is `failed`. For example, when designing a rule for WCAG 2.1 that tests if image buttons have an alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
+When an ACT Rule is designed to test one or more [=Accessibility requirements documents=], the rule MUST list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. For example, when designing a rule for WCAG 2.1 that tests if image buttons have an alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
 
 Each [=accessibility requirement=] in the mapping MUST include the following:
 
-1. the name, title or summary of the accessibility requirement, and
+1. the name, title, identifier or summary of the accessibility requirement, and
 2. the name of the [=accessibility requirements document=], and
-3. a link to the [=accessibility requirements document=] if one exists, and
+3. a link or reference to the [=accessibility requirements document=] if one exists, and
 4. the conformance level associated with the accessibility requirement, if one exists.
 
 
 ### Outcome Mapping ### {#outcome-mapping}
 
-For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcome=] of the rule means for satisfying that accessibility requirement. When the outcome is `failed`, the accessibility requirements are *<dfn>not satisfied</dfn>*. When the outcome is `passed` or `inapplicable`, the accessibility requirements could be *<dfn>satisfied</dfn>*, or *<dfn>further testing could be necessary</dfn>*. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcomes=] of the rule means for satisfying that accessibility requirement. When one or more of the [=outcomes=] is `failed`, the accessibility requirements are *<dfn>not satisfied</dfn>*. When all of the [=outcomes=] are `passed` or `inapplicable`, the accessibility requirements could be *<dfn>satisfied</dfn>*, or *<dfn>further testing could be necessary</dfn>*. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
 **Note:** In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied* a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).
@@ -139,9 +141,9 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping: <ul>
-          <li>Failed outcome: not satisfied</li>
-          <li>Passed outcome: further testing is needed</li>
-          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Any failed outcomes: not satisfied</li>
+          <li>All passed outcomes: further testing is needed</li>
+          <li>Any inapplicable outcomes: further testing is needed</li>
         </ul></li>
       </ul>
     </li>
@@ -150,9 +152,9 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping:<ul>
-          <li>Failed outcome: not satisfied</li>
-          <li>Passed outcome: further testing is needed</li>
-          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Any failed outcomes: not satisfied</li>
+          <li>All passed outcomes: further testing is needed</li>
+          <li>Any inapplicable outcomes: further testing is needed</li>
         </ul></li>
       </ul>
     </li>
@@ -172,9 +174,9 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
       <ul>
         <li>**Not required** for conformance to WCAG 2.0 and WCAG 2.1 at any level</li>
         <li>Outcome mapping: <ul>
-          <li>Failed outcome: not satisfied</li>
-          <li>Passed outcome: satisfied</li>
-          <li>Inapplicable outcome: satisfied</li>
+          <li>Any failed outcomes: not satisfied</li>
+          <li>All passed outcomes: satisfied</li>
+          <li>Any inapplicable outcomes: satisfied</li>
         </ul></li>
       </ul>
     </li>
@@ -183,9 +185,9 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
       <ul>
         <li>**Required for conformance** to RGAA 3 level A</li>
         <li>Outcome mapping: <ul>
-          <li>Failed outcome: not satisfied</li>
-          <li>Passed outcome: satisfied</li>
-          <li>Inapplicable outcome: satisfied</li>
+          <li>Any failed outcomes: not satisfied</li>
+          <li>All passed outcomes: satisfied</li>
+          <li>Any inapplicable outcomes: satisfied</li>
         </ul></li>
       </ul>
     </li>
@@ -261,7 +263,7 @@ Some input aspects are well defined in a formal specification, such as HTTP mess
 
 ### Input Rules (Composite rules only) ### {#input-rules}
 
-A [=composite rule=] uses [=findings=] from [=atomic rules=] or other composite rules and applies a logic to them so that a single [=outcome=] can be determined for the [=test subject=]. The [identifier](#rule-identifier) and [=descriptive title=] of all rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describes the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies logic to them so that a single [=outcome=] can be determined for each [=test target=]. The [identifier](#rule-identifier) and [=descriptive title=] of all the atomic rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describe the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
@@ -282,16 +284,16 @@ An objective description is one that can be resolved without uncertainty, in a g
   <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
   <blockquote>
     <p>Each `video` or `audio` element with the `autoplay` attribute, as well as each `object` element that is used for automatically playing video or audio when the web page loads.</p>
-    <p>**Note: A web page is considerd "loaded" when the `document.readySate` is set to `complete`.</p>
+    <p>**Note: A web page is considered "loaded" when the `document.readyState` is set to `complete`.</p>
   </blockquote>
 </div>
 
 
 ### Applicability for Composite Rules ### {#applicability-composite}
 
-A [=composite rule=] defines how the [=findings=] from rules in its [input rules](#input-rules) are used to determine a single [=outcome=].
+A [=composite rule=] defines how the [=outcomes=] from atomic rules in its [input rules](#input-rules) are used to determine a single [=outcome=].
 
-The applicability of a composite rule is defined as the union of all the applicability sections of rules in the [input rules](#input-rules). This includes [=atomic rules=], and [=composite rules=] which themselves have a union applicability. Rule authors MAY ommit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability in the [input rules](#input-rules).
+The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors MAY omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability in the [input rules](#input-rules).
 
 Note that input rules in a composite rule MAY have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
 
@@ -311,11 +313,9 @@ Note that input rules in a composite rule MAY have different applicability. Beca
 Expectations {#expectations}
 ----------------------------
 
-An ACT Rule MUST contain one or more expectations. The expectations describe what the requirements are for [=test targets=] derived from the [applicability](#applicability). An expectation is an assertion about all [=test targets=] that is true if the [=test subject=] satisfies the [=accessibility requirement=]. When all expectations are true for a test subject, the test subject `passed` the rule. If one or more expectations are false, the test subject `failed` the rule. If there are no test targets, the [=outcome=] for the test subject is `inapplicable`.
+An ACT Rule MUST contain one or more expectations. The expectations describe what the requirements are for the [=test targets=] derived from the [applicability](#applicability). Each expectation MUST be distinct, unambiguous, and be written in plain language. 
 
-Each expectation MUST be distinct, unambiguous, and be written in plain language. Unlike in applicability, a certain level of subjectivity is allowed in expectations. Meaning that the expectation has only one possible meaning, but that meaning MAY not fully quantifiable.
-
-Commonly, an expectation comes in the form of an "Each test target has ..." statement. In such an expectation, all test targets need to [=meet expectations|meet all expectations=] for the rule to pass. It is also possible to have an expectation where not all test targets meet all expectations. For example: "85% of all test targets have an accessible name" is an expectation that is true even when 15% of the test targets do not meet the expectations.
+**Note:** Atomic rules can be used for aggregation, but this isn't the primary use case. The logic for the aggregation would be described in the expectations for the rule.
 
 
 ### Expectations for Atomic Rules ### {#expectations-atomic}
@@ -333,7 +333,7 @@ An [=atomic rule=] expectation MUST only use information available in the [input
 
 ### Expectations for Composite Rules ### {#expectations-composite}
 
-All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test subject=], based on the [=findings=] of rules in its [input rules](#input-rules). The outcome for a test target is `inapplicable` when all input rules are inapplicable. 
+All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test subject=], based on the [=outcomes=] of rules in its [input rules](#input-rules). The outcome for a test target is `inapplicable` when all input rules are inapplicable. 
 
 The expectations of a composite rule can produce a `passed` outcome, even if the outcome of one of its input rules is `failed`. A composite rule expectation MUST NOT use information from [input aspects](#input-aspects).
 
@@ -500,16 +500,6 @@ Definitions {#definitions}
   <dt><dfn>Accessibility requirements document</dfn><dt>
   <dd>
     <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, BBC HTML Accessibility Standards v2.0</p>
-  </dd>
-
-  <dt><dfn>Finding</dfn></dt>
-  <dd>
-    <p>When evaluating a [=test subject=] using a rule, the findings of that rule are:</p>
-    <ul>
-      <li>All [=test targets=] in the test subject</li>
-      <li>Which test targets met which [expectations](#expectations) in the test subject</li>
-      <li>The [=outcome=] (passed, failed or inapplicble) for the test subject</li>
-    </ul>
   </dd>
 
   <dt><dfn>meet expectations</dfn></dt>
