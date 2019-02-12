@@ -8,6 +8,8 @@ Status: w3c/ED
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
+Editor: Mary Jo Mueller, IBM Corp.
+Editor: Shadi Abou-Zahra, W3C
 Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These rules can be carried out fully-automatically, semi-automatically, and manually. This common format allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
@@ -313,7 +315,9 @@ Note that input rules in a composite rule MAY have different applicability. Beca
 Expectations {#expectations}
 ----------------------------
 
-An ACT Rule MUST contain one or more expectations. The expectations describe what the requirements are for the [=test targets=] derived from the [applicability](#applicability). Each expectation MUST be distinct, unambiguous, and be written in plain language. 
+An ACT Rule MUST contain one or more expectations. The expectations describe what the requirements are for the [=test targets=] derived from the [applicability](#applicability). An expectation is an assertion about a [=test target=]. This assertion is true when the [=test subject=] satisfies the [=accessibility requirement=]. When a test target meets all expectations, the test target `passed` the rule. If the test target does not meet one or more expectations, the test target `failed` the rule. If there are no test targets, the [=outcome=] for the rule is `inapplicable`.
+
+Each expectation MUST be distinct, unambiguous, and be written in plain language. 
 
 **Note:** Atomic rules can be used for aggregation, but this isn't the primary use case. The logic for the aggregation would be described in the expectations for the rule.
 
@@ -333,9 +337,7 @@ An [=atomic rule=] expectation MUST only use information available in the [input
 
 ### Expectations for Composite Rules ### {#expectations-composite}
 
-All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test subject=], based on the [=outcomes=] of rules in its [input rules](#input-rules). The outcome for a test target is `inapplicable` when all input rules are inapplicable. 
-
-The expectations of a composite rule can produce a `passed` outcome, even if the outcome of one of its input rules is `failed`. A composite rule expectation MUST NOT use information from [input aspects](#input-aspects).
+All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the [=outcomes=] of rules in its [input rules](#input-rules). A composite rule expectation MUST NOT use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable. 
 
 <div class="example">
   <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
@@ -424,7 +426,7 @@ ACT Rules MUST have a glossary section. The glossary MUST contain the [=outcome=
 Issues List (optional) {#issues-list}
 -------------------------------------
 
-An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where the [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur. See [rule accuracy](#rule-accuracy) for more information.
+An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where an [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur. See [rule accuracy](#rule-accuracy) for more information.
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
 
@@ -502,36 +504,19 @@ Definitions {#definitions}
     <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, BBC HTML Accessibility Standards v2.0</p>
   </dd>
 
-  <dt><dfn>meet expectations</dfn></dt>
-  <dd>
-    <p>A [=test target=] meets an expectation, when that expectation is true for the test target individually, or when the test target increases a count that is required for the expectation to be true.</p>
-    <div class=example>
-      <p>**Example:** An HTML `img` element an `alt` attribute meet the following expectation:</p>
-      <blockquote>Each test target has an alt attribute</blockquote>
-    </div>
-    <div class=example>
-      <p>**Example:** An HTML element with a duplicate ID does not meet the following expectation:</p>
-      <blockquote>No test target has the same ID</blockquote>
-    </div>
-    <div class=example>
-      <p>**Example:** An HTML `video` element without captions does not meet the following expectation:</p>
-      <blockquote>80% of all test targets has a caption</blockquote>
-    </div>
-    <div class=note>
-      <p>Expectations are true or false assertions about a test subject. Individual test targets can meet all expectations, even if some expectations are false about the test subject as a whole</p>
-    </div>
-  </dd>
-
   <dt><dfn>Outcome</dfn></dt>
   <dd>
     <p>One of three types of conclusions that come from evaluating an ACT Rule on a [=test subject=]. An outcome can be:<p>
     <ul>
       <li>**Inapplicable:** No part of the test subject matches the applicability</li>
-      <li>**Passed:** All expectations are true for the test subject</li>
-      <li>**Failed:** Some expectations are false for the test subject</li>
+      <li>**Passed:** The [=test target=] meets all expectations</li>
+      <li>**Failed:** The [=test target=] does not meet all expectations</li>
     </ul>
     <div class="note">
       <p>**Note:** While *inapplicable* is a valid outcome for ACT Rules, it might not be a valid result for all [=accessibility requirements=]. Notably the success criteria of WCAG 2.0 and WCAG 2.1 can only be evaluated to satisfied (passed and inapplicable) or not satisfied (failed).</p>
+    </div>
+    <div class="note">
+      <p>**Note:** A rule has one passed or failed outcome for every [=test target=]. When there are no test targets the rule has one inappliable outcome. This means that each [=test subject=] will have one or more [=outcomes=].</p>
     </div>
     <div class="note">
       <p>**Note:** Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed` `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this can not be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
@@ -556,7 +541,7 @@ Definitions {#definitions}
 
   <dt><dfn>Test Target</dfn></dt>
   <dd>
-    <p>A distinct part of the [=test subject=].</p>
+    <p>A distinct part of the [=test subject=], as defined by the [applicability](#applicability).</p>
     <div class=example>
       <p>**Example:**</p>
       <ul>
