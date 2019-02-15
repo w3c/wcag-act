@@ -114,6 +114,18 @@ An ACT Rule MUST have a description that is in plain language which provides a b
 </div>
 
 
+Rule Type {#rule-type}
+------------------------------------
+
+An ACT Rule MUST have a rule type which is one of the following:
+<ul>
+  <li>Atomic rule</li>
+  <li>Composite rule</li>
+</ul>
+
+Refer to the [=rule types=] section for detailed definitions of the rule types. 
+
+
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
