@@ -621,7 +621,23 @@ This section is *non-normative*.
 }
 ```
 
-Appendix 2: Acknowledgments {#Acknowledgments}
+Appendix 2: Change History {#Change_History}
+==========================
+The following updates have been made since the last public working draft:
+<ul>
+  <li>Introduction: Added an overview explanation of what is an ACT rule.</li>
+  <li>Moved the Common Aspects section into a Working Group Note.</li>
+  <li>Did a major update to the Accessibility Requirements Mapping section with examples</li>
+  <li>Changed concept/terminology from Test Definition (for atomic rules) and Aggregation definition (for composed rules) to be Applicability and Expectations as applied to both atomic and composite rules.</li>
+  <li>Added the following parts to the rule structure: Rule type, glossary, background and acknowledgements.  Some of these are optional, which are clearly marked.</li>
+  <li>Added several examples to illustrate the various parts of a rule.</li>
+  <li>Added a section of definitions of terms used in the document.</li>
+  <li>Added an acknowledgements section to acknowledge contributors to the ACT Rules Format.</li>
+</ul>
+
+
+
+Appendix 3: Acknowledgments {#Acknowledgments}
 ===========================
 
 This section is *non-normative*.
