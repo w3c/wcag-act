@@ -693,3 +693,20 @@ Enabling funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
+
+
+Appendix 3: Change History {#Change_History}
+==========================
+The following updates have been made since the last public working draft:
+<ul>
+  <li>Introduction: Added an overview explanation of what is an ACT rule.</li>
+  <li>Moved the Common Aspects section into a Working Group Note.</li>
+  <li>Did a major update to the Accessibility Requirements Mapping section with examples</li>
+  <li>Changed concept/terminology from Test Definition (for atomic rules) and Aggregation definition (for composed rules) to be Applicability and Expectations as applied to both atomic and composite rules.</li>
+  <li>Added the following parts to the rule structure: Rule type, glossary, background and acknowledgements.  Some of these are optional, which are clearly marked.</li>
+  <li>Added several examples to illustrate the various parts of a rule.</li>
+  <li>Added a section of definitions of terms used in the document.</li>
+  <li>Added an acknowledgements section to acknowledge contributors to the ACT Rules Format.</li>
+</ul>
+<p>All changes from the previous published version can be viewed using the [July 2018 to February 2019 diff link](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2Fact-rules-format%2F&doc2=https%3A%2F%2Fpr-preview.s3.amazonaws.com%2Fw3c%2Fwcag-act%2Fpull%2F328.html)</p>
+
