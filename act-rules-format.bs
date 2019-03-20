@@ -418,7 +418,7 @@ It is important to keep track of changes to the ACT Rules so that users of the r
 Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.
 
 <div class=example>
-  **Example:** An example of when a new rule ought to be created is when a rule that tests for the use of a `blink` element changes to instead look for any animated style changes. This potentially adds several new failures that were previously out of scope. Using that same rule as an example, adding an exception to allow `blink` elements positioned off screen can be done by updating the existing rule.
+  **Example:** An example of when a new rule ought to be created is when updating a rule that is about buttons, to now also be about links, menu items and tabs. In that case, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.
 </div>
 
 
