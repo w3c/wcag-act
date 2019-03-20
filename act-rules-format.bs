@@ -336,6 +336,13 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
   </ol>
 </div>
 
+<div class=example>
+  <p>**Example:** A rule to test if a `role` attribute is valid:</p>
+  <ol>
+    <li>Each `role` attribute has a value that corresponds to a non-abstract [WAI-ARIA](https://www.w3.org/TR/wai-aria/) role.</li>
+  </ol>
+</div>
+
 <div class="note">
   <p>**Note:** Rules can be used to do complex aggregation by describing the logic in the expectations. e.g. "The test target (the page) has a text alternative for 80% of all img elements".</p>
 </div>
@@ -351,6 +358,15 @@ All expectations of a [=composite rule=] MUST describe the logic that is used to
     <li>video elements have a transcript</li>
     <li>video elements have an audio description</li>
     <li>video elements have a description track</li>
+  </ul>
+</div>
+
+<div class="example">
+  <p>Composite rule: This rule checks that a mechanism is available to escape a keyboard trap. Either through a standard mechanism, or one for which instructions are available.</p>
+  <p>For each focusable element, the outcome of one of the following rules is “passed”:</p>
+  <ul>
+    <li>Keyboard trap with standard escape mechanism</li>
+    <li>Keyboard trap with escape instructions</li>
   </ul>
 </div>
 
