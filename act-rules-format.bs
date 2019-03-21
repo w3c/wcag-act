@@ -329,10 +329,10 @@ Each expectation MUST be distinct, unambiguous, and be written in plain language
 All expectations of an [=atomic rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=]. The expectation MUST only use information available in the [input aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.
 
 <div class=example>
-  <p>**Example:** A rule for labels of HTML `input` elements might have the following expectations:</p>
+  <p>**Example:** A rule to test for accessible names of HTML `input` elements might have the following expectations:</p>
   <ol>
-    <li>Each test target has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)). [[accname-aam-1.1]]</li>
-    <li>The accessible name describes the purpose of each test target.</li>
+    <li>Each HTML `input` element has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)). [[accname-aam-1.1]]</li>
+    <li>The accessible name describes the purpose of each HTML `input` element.</li>
   </ol>
 </div>
 
