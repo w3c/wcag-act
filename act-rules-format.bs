@@ -43,7 +43,7 @@ In accessibility, there are often different technical solutions to make the same
 
 - <dfn>Atomic rules</dfn> describe how to test a specific type of solution. It contains a precise definition of what elements, nodes or other "parts" of a [=test subject=] are to be tested, and when those test targets are considered to pass or fail the rule. These rules are to be kept small and *atomic*. This means that atomic rules test a single "condition" and do so without using the [=outcomes=] from other rules.
 
-- <dfn>Composite rules</dfn> describe how the [=outcomes=] of multiple [=atomic rules=] can be combined into a single [=outcome=] for each [=test target=]. A composite rule can have multiple "conditions", each of these tested in a separate atomic rule. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.
+- <dfn>Composite rules</dfn> describe how the [=outcomes=] of multiple [=atomic rules=] can be combined into a single outcome for each [=test target=]. A composite rule can have multiple "conditions", each of these tested in a separate atomic rule. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.
 
 Composite rules cannot contain other composite rules. Any time a nested composite rule would be needed, all of the relevant atomic rules can be combined directly into the new composite rule.
 
@@ -141,7 +141,7 @@ Each [=accessibility requirement=] in the mapping MUST include the following:
 
 ### Outcome Mapping ### {#outcome-mapping}
 
-For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the [=outcomes=] for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the [=outcomes=] are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
   <p>**Note:** In WCAG 2.1, success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
@@ -220,7 +220,7 @@ If the rule does not map to any [=accessibility requirement=], the accessibility
   </blockquote>
 </div>
 
-If the `failed` outcome cannot be mapped to an [=accessibility requirement=], there MUST NOT be an accessibility requirement in the accessibility requirements mapping. The optional [Background section](#background) could be used to list [=accessibility requirements documents=] when they are thematically related, but for which the rule is not a failure test.
+If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=], there MUST NOT be an accessibility requirement in the accessibility requirements mapping. The optional [Background section](#background) could be used to list [=accessibility requirements documents=] when they are thematically related, but for which the rule is not a failure test.
 
 
 ### External Accessibility Requirements Mapping ### {#external-accessibility-requirements-mapping}
@@ -269,7 +269,7 @@ Some input aspects are well defined in a formal specification, such as HTTP mess
 
 ### Input Rules (Composite rules only) ### {#input-rules}
 
-A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies logic to them so that a single [=outcome=] can be determined for each [=test target=]. The [identifier](#rule-identifier) and [=descriptive title=] of all the atomic rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describe the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies logic to them so that a single outcome can be determined for each [=test target=]. The [identifier](#rule-identifier) and [=descriptive title=] of all the atomic rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describe the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
@@ -342,7 +342,7 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
 
 ### Expectations for Composite Rules ### {#expectations-composite}
 
-All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the [=outcomes=] of rules in its [input rules](#input-rules). A composite rule expectation MUST NOT use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable.
+All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the outcomes of rules in its [input rules](#input-rules). A composite rule expectation MUST NOT use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable.
 
 <div class="example">
   <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
@@ -518,7 +518,7 @@ Definitions {#definitions}
       <li>**Failed:** A [=test target=] does not meet all expectations</li>
     </ul>
     <div class="note">
-      <p>**Note:** A rule has one passed or failed outcome for every [=test target=]. When there are no test targets the rule has one inapplicable outcome. This means that each [=test subject=] will have one or more [=outcomes=].</p>
+      <p>**Note:** A rule has one passed or failed outcome for every [=test target=]. When there are no test targets the rule has one inapplicable outcome. This means that each [=test subject=] will have one or more outcomes.</p>
     </div>
     <div class="note">
       <p>**Note:** Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
