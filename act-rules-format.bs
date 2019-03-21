@@ -248,7 +248,7 @@ An aspect is a distinct part of the [=test subject=]. Rendering a particular pie
 Some input aspects are well defined in a formal specification, such as HTTP messages, DOM tree, and CSS styling [[css-2018]]. For these, a reference to the corresponding section in the [Common Input Aspects note](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html) is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question, or a reference to a well defined description.
 
 <div class=example>
-  <p>**Example:** Test aspects for a rule that checks if a transcript is available for videos:</p>
+  <p>**Example:** Input aspects for a rule that checks if a transcript is available for videos:</p>
   <ul>
     <li>DOM Tree</li>
     <li>CSS Styling</li>
@@ -258,7 +258,7 @@ Some input aspects are well defined in a formal specification, such as HTTP mess
 </div>
 
 <div class=example>
-  <p>**Example:** Test aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</p>
+  <p>**Example:** Input aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</p>
   <ul>
     <li>DOM Tree</li>
     <li>CSS Styling</li>
