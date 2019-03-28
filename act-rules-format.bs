@@ -48,7 +48,7 @@ In accessibility, there are often different technical solutions to make the same
 Composite rules cannot contain other composite rules. Any time a nested composite rule would be needed, all of the relevant atomic rules can be combined directly into the new composite rule.
 
 <div class="example">
-  <p>Composite rule: Video elements have an audio description or media alternative (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative</a>).</p>
+  <p>Composite rule: Video elements have an audio description or media alternative (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative</a>).</p>
   <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>Video elements have a transcript</li>
@@ -151,7 +151,7 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
   <p>**Example:** Accessibility Requirements Mapping for a rule that tests if an image button has an accessible name:
   <blockquote><ul>
     <li>
-      [Success Criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
+      [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping: <ul>
@@ -162,7 +162,7 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       </ul>
     </li>
     <li>
-      [Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
+      [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping:<ul>
@@ -214,7 +214,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
 If the rule does not map to any [=accessibility requirement=], the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the [=accessibility requirements document=]. This is common with atomic rules used in composite rules.
 
 <div class=example>
-  <p>**Example:** An ACT Rule for WCAG 2.1 that tests if `role=alert` is used to satisfy [WCAG 2.1, success criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages):</p>
+  <p>**Example:** An ACT Rule for WCAG 2.1 that tests if `role=alert` is used to satisfy [WCAG 2.1 success criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages):</p>
   <blockquote>
     <p>This rule is **not required** for conformance to WCAG 2.1 at any level.</p>
   </blockquote>
@@ -287,7 +287,7 @@ An objective description is one that can be resolved without uncertainty, in a g
 Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
 <div class=example>
-  <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
+  <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
   <blockquote>
     <p>Each `video` or `audio` element with the `autoplay` attribute, as well as each `object` element that is used for automatically playing video or audio when the web page loads.</p>
     <div class="note">
@@ -352,7 +352,7 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
 All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the outcomes of rules in its [input rules](#input-rules). A composite rule expectation MUST NOT use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable.
 
 <div class="example">
-  <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1, success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
+  <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
   <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>video elements have a transcript</li>
@@ -374,7 +374,7 @@ All expectations of a [=composite rule=] MUST describe the logic that is used to
 Assumptions {#assumptions}
 --------------------------
 
-An ACT Rule MUST list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 Success Criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
+An ACT Rule MUST list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
 
 Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. Whatever the interpretation is, this MUST be documented in the rule.
 
