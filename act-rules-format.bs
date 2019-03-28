@@ -296,6 +296,19 @@ Even concepts like headings and images can be misunderstood. These terms could r
   </blockquote>
 </div>
 
+<div class=example>
+  <p>**Example:** The applicability of a rule with the page as a test target</a></p>
+  <blockquote>
+    <p>The rule applies to any page where the document element is an `html` element, and the `html` element is rendered in a top-level context (i.e. the `html` element is not embedded in another page, such as through `iframe` or `object` elements). </p>
+  </blockquote>
+</div>
+
+<div class=example>
+  <p>**Example:** The applicability of a rule with a DOM attribute as a test target</a></p>
+  <blockquote>
+    <p>The rule applies to any `role` attribute that is specified on an HTML or SVG element.</p>
+  </blockquote>
+</div>
 
 ### Applicability for Composite Rules ### {#applicability-composite}
 
