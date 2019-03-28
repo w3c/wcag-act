@@ -306,7 +306,7 @@ Even concepts like headings and images can be misunderstood. These terms could r
 <div class=example>
   <p>**Example:** The applicability of a rule with a DOM attribute as a test target</a></p>
   <blockquote>
-    <p>Any `role` attribute that is specified on an HTML or SVG element.</p>
+    <p>The rule applies to any `role` attribute that is specified on an HTML or SVG element.</p>
   </blockquote>
 </div>
 
