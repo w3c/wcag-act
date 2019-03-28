@@ -517,7 +517,7 @@ Definitions {#definitions}
   <dt><dfn>Accessibility requirement</dfn><dt>
   <dd>
     <p>A requirement is a condition that has to be satisfied in order to conform to a standard, or to comply with a contract, policy or regulation. An accessibility requirement is a requirement aimed at improving access for people with disabilities to an ICT product.</p>
-    <p>A common example of accessibility requirements are the WCAG 2.1 success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
+    <p>A common example of accessibility requirements are the WCAG success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
   </dd>
 
   <dt><dfn>Accessibility requirements document</dfn><dt>
