@@ -155,9 +155,9 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping: <ul>
-          <li>Any failed outcomes: not satisfied</li>
-          <li>All passed outcomes: further testing is needed</li>
-          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: further testing is needed</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
     </li>
@@ -166,9 +166,9 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
         <li>Outcome mapping:<ul>
-          <li>Any failed outcomes: not satisfied</li>
-          <li>All passed outcomes: further testing is needed</li>
-          <li>Inapplicable outcome: further testing is needed</li>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: further testing is needed</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
     </li>
@@ -188,9 +188,9 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
       <ul>
         <li>**Not required** for conformance to WCAG 2.0 and WCAG 2.1 at any level</li>
         <li>Outcome mapping: <ul>
-          <li>Any failed outcomes: not satisfied</li>
-          <li>All passed outcomes: satisfied</li>
-          <li>Inapplicable outcome: satisfied</li>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: satisfied</li>
+          <li>An `inapplicable` outcome: satisfied</li>
         </ul></li>
       </ul>
     </li>
@@ -199,9 +199,9 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
       <ul>
         <li>**Required for conformance** to RGAA 3 level A</li>
         <li>Outcome mapping: <ul>
-          <li>Any failed outcomes: not satisfied</li>
-          <li>All passed outcomes: satisfied</li>
-          <li>Inapplicable outcome: satisfied</li>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: satisfied</li>
+          <li>An `inapplicable` outcome: satisfied</li>
         </ul></li>
       </ul>
     </li>
@@ -376,7 +376,7 @@ All expectations of a [=composite rule=] MUST describe the logic that is used to
 
 <div class="example">
   <p>Composite rule: This rule checks that a mechanism is available to escape a keyboard trap. Either through a standard mechanism, or one for which instructions are available.</p>
-  <p>For each focusable element, the outcome of one of the following rules is “passed”:</p>
+  <p>For each focusable element, the outcome of one of the following rules is `passed`:</p>
   <ul>
     <li>Keyboard trap with standard escape mechanism</li>
     <li>Keyboard trap with escape instructions</li>
@@ -547,7 +547,7 @@ Definitions {#definitions}
       <li>**Failed:** A [=test target=] does not meet all expectations</li>
     </ul>
     <div class="note">
-      <p>**Note:** A rule has one passed or failed outcome for every [=test target=]. When there are no test targets the rule has one inapplicable outcome. This means that each [=test subject=] will have one or more outcomes.</p>
+      <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When there are no test targets the rule has one `inapplicable` outcome. This means that each [=test subject=] will have one or more outcomes.</p>
     </div>
     <div class="note">
       <p>**Note:** Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
