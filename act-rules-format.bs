@@ -352,7 +352,7 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
 <div class=example>
   <p>**Example:** A rule to test if a `role` attribute is valid:</p>
   <ol>
-    <li>Each `role` attribute has a value that corresponds to a non-abstract [WAI-ARIA](https://www.w3.org/TR/wai-aria/) role.</li>
+    <li>Each `role` attribute has a value that corresponds to a non-abstract [ARIA](https://www.w3.org/TR/wai-aria/) role.</li>
   </ol>
 </div>
 
@@ -397,7 +397,7 @@ While the assumptions MUST be included in the ACT Rule, it MAY be empty when the
 Accessibility Support {#accessibility-support}
 ----------------------------------------------
 
-Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a Web technology.
+Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [ARIA](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a Web technology.
 
 An ACT Rule MUST include known limitations on accessibility support.
 
@@ -468,7 +468,7 @@ The issues list serves two purposes. For users of ACT Rules, the issues list giv
 Background (optional) {#background}
 -----------------------------------
 
-An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA](https://www.w3.org/TR/wai-aria/) , CSS [[css-2018]], or HTML [[HTML]] specifications.
+An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [ARIA](https://www.w3.org/TR/wai-aria/) , CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Acknowledgements (optional) {#acknowledgements}
