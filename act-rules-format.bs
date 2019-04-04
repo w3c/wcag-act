@@ -822,8 +822,6 @@ Acknowledgements
 Implementations and data format
 -------------------------------
 
-* [C24] At least two fully automated independent implementations of the same ACT rule
-   (All test cases that should pass are passing, all test cases that should fail are failing)  
-* [C25] At least two semi-automated independent implementations of the same ACT rule
-   (Some results running against test cases are inconclusive, none of the results contradict the test cases)  
+* [C24] At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)  
+* [C25] At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)  
 * [C26] At least two independent implementations of the same ACT rule in manual testing methodologies
