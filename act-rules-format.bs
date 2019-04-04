@@ -352,7 +352,7 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
 <div class=example>
   <p>**Example:** A rule to test if a `role` attribute is valid:</p>
   <ol>
-    <li>Each `role` attribute has a value that corresponds to a non-abstract [WAI-ARIA](https://www.w3.org/TR/wai-aria/) role.</li>
+    <li>Each `role` attribute has a value that corresponds to a non-abstract [[WAI-ARIA]](https://www.w3.org/TR/wai-aria/) role.</li>
   </ol>
 </div>
 
