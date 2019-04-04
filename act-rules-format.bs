@@ -746,82 +746,82 @@ Appendix 4: Exit Criteria {#Exit_Criteria}
 General
 -------
 
-* [C1] All rules must conform to the ACT Rules Format
+* C1: All rules must conform to the ACT Rules Format
 
 Accessibility requirements mapping
 ----------------------------------
 
 Each rule implemented in plain English form, as listed below:
-* [C2] At least one atomic rule that has a requirement in WCAG 2
-* [C3] At least one composite rule that has a requirement in WCAG 2
-* [C4] At least one rule that is a satisfying test, and one rule that is not
-* [C5] At least one rule that has a accessibility requirement that is not part of WCAG
-* [C6] At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
+* C2: At least one atomic rule that has a requirement in WCAG 2
+* C3: At least one composite rule that has a requirement in WCAG 2
+* C4: At least one rule that is a satisfying test, and one rule that is not
+* C5: At least one rule that has a accessibility requirement that is not part of WCAG
+* C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
 
 Rule Input
 ----------
 
-* [C7] At least two different input aspects are used
-* [C8] At least two different web content technologies
+* C7: At least two different input aspects are used
+* C8: At least two different web content technologies
 
 Applicability
 -------------
 
-* [C9] At least one atomic rule has an applicability different from the composite rule it is used in
+* C9: At least one atomic rule has an applicability different from the composite rule it is used in
 
 Expectations
 ------------
 
-* [C10] At least one rule with one expectation
-* [C11] At least one rule with more than one expectation
+* C10: At least one rule with one expectation
+* C11: At least one rule with more than one expectation
 
 Assumptions
 -----------
 
-* [C12] At least one rule without assumptions
-* [C13] At least one rule where exceptions are documented in an assumption
-* [C14] At least one rule where interpretation is documented in an assumption
+* C12: At least one rule without assumptions
+* C13: At least one rule where exceptions are documented in an assumption
+* C14: At least one rule where interpretation is documented in an assumption
 
 Accessibility Support
 ---------------------
 
-* [C15] At least one rule where no accessibility support information was necessary
-* [C16] At least one rule where accessibility support information was included
+* C15: At least one rule where no accessibility support information was necessary
+* C16: At least one rule where accessibility support information was included
 
 Changelog
 ---------
 
-* [C17] At least two rules that include a changelog
+* C17: At least two rules that include a changelog
 
 Glossary
 --------
 
-* [C18] At least two rules with more than one definition
+* C18: At least two rules with more than one definition
 
 Issues list
 -----------
 
-* [C19] At least two rules that include an issues list
+* C19: At least two rules that include an issues list
 
 Test cases
 ----------
 
-* [C20] Every applicability must have at least one inapplicable test case
-* [C21] Every expectation must have at least one pass and one fail test case
+* C20: Every applicability must have at least one inapplicable test case
+* C21: Every expectation must have at least one pass and one fail test case
 
 Background
 ----------
 
-* [C22] At least two rules with a background section
+* C22: At least two rules with a background section
 
 Acknowledgements
 ----------------
 
-* [C23] At least two rules with an acknowledgements section
+* C23: At least two rules with an acknowledgements section
 
 Implementations and data format
 -------------------------------
 
-* [C24] At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)
-* [C25] At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)
-* [C26] At least two independent implementations of the same ACT rule in manual testing methodologies
+* C24: At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)
+* C25: At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)
+* C26: At least two independent implementations of the same ACT rule in manual testing methodologies
