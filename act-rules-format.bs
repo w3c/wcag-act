@@ -640,28 +640,22 @@ This section is *non-normative*.
   "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
   "@type": "Assertion",
   "subject": {
-    "@type": ["WebSite", "TestSubject"],
-    "@value": "https://example.org/"
+    "@type": ["WebPage", "TestSubject"],
+    "@value": "https://example.org/page1.html"
   }
-  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+  "test": "wcag21:captions-prerecorded",
   "result": {
     "outcome": "earl:failed",
     "source": [{
-      "test": "wcag20:text-equiv-all",
+      "test": "auto-wcag:media-equiv-av-only-alt",
       "result": {
         "outcome": "earl:failed",
         "source": [ … ]
       }
     }, {
-      "test": "wcag20:media-equiv-av-only-alt",
-      "result": {
-        "outcome": "earl:passed",
-        "source": [ … ]
-      }
-    }, {
-      "test": "wcag20:media-equiv-captions",
+      "test": "auto-wcag:media-equiv-captions",
       "result" : {
-        "outcome": "earl:inapplicable",
+        "outcome": "earl:failed",
         "source": [ … ]
       }
     }, … ]
