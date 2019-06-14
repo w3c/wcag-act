@@ -82,6 +82,9 @@ An ACT Rule MUST consist of at least the following items:
 * [Test Cases](#test-cases)
 * [Change Log](#change-log)
 * [Glossary](#glossary)
+
+An ACT Rule could also contain:
+
 * [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
 * [Acknowledgements](#acknowledgements) (optional)
