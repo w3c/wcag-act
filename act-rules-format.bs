@@ -17,7 +17,7 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the web.
+There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.
 
 This format is intended to enable a consistent interpretation of how to test conformance to WCAG and other [=accessibility requirements documents=] and promote consistent results in accessibility testing. The rules format is designed to describe both manual accessibility tests, as well as automated tests as performed by accessibility testing tools.
 
@@ -397,7 +397,7 @@ While the assumptions MUST be included in the ACT Rule, it MAY be empty when the
 Accessibility Support {#accessibility-support}
 ----------------------------------------------
 
-Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a Web technology.
+Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a web technology.
 
 An ACT Rule MUST include known limitations on accessibility support.
 
