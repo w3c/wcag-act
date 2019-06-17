@@ -235,17 +235,15 @@ Rule Input {#input}
 
 To evaluate content using an ACT Rule, the rule requires some information from the [=test subject=]. This is the input for the rule. What input is required is made explicit, to help testers understand what capabilities are required to use a rule. [=Atomic rules=] and [=composite rules=] have different input.
 
-- Atomic rules have an [Input Aspects](#input-aspects)
-- Composite rules have an [Input Rules](#input-rules)
+- Atomic rules have [Input Aspects](#input-aspects)
+- Composite rules have [Input Rules](#input-rules)
 
 
 ### Input Aspects (Atomic rules only) ### {#input-aspects}
 
-An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
+An input aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
-[=Atomic rules=] MUST list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
-
-Some input aspects are well defined in a formal specification, such as HTTP messages, DOM tree, and CSS styling [[css-2018]]. For these, a reference to the corresponding section in the [Common Input Aspects note](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html) is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question, or a reference to a well defined description.
+Some input aspects are well defined in a formal specification, such as HTTP messages,the DOM tree, and CSS styling [[css-2018]]. For these, a reference to the corresponding section in the [Common Input Aspects note](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html) is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question, or a reference to a well defined description.
 
 <div class=example>
   <p>**Example:** Input aspects for a rule that checks if a transcript is available for videos:</p>
@@ -265,6 +263,8 @@ Some input aspects are well defined in a formal specification, such as HTTP mess
     <li>Language</li>
   </ul>
 </div>
+
+[=Atomic rules=] MUST list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
 
 
 ### Input Rules (Composite rules only) ### {#input-rules}
