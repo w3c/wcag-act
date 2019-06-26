@@ -92,7 +92,7 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule MUST have a unique identifier that can be any unique text, such as plain text, URL or a database identifier.
+An ACT Rule MUST have an identifier, that if the rule is part of a ruleset is unique within that set. The unique identifier can be any unique text, such as plain text, URL or a database identifier.
 
 <div class=example>
   <p>**Example:** ACT Rules can use identifiers that can also be used as a file name. They include a technology directory, followed by a handle that includes an element name or attribute:</p>
