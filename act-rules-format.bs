@@ -70,7 +70,7 @@ An ACT Rule MUST consist of at least the following items:
 * <dfn>Descriptive Title</dfn>
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#rule-description)
-* [Rule Type](#rule-types)
+* [Rule Type](#rule-type)
 * [Accessibility Requirements Mapping](#accessibility-requirements-mapping)
 * [Rule Input](#input), which is one of the following:
     * [Input Aspects](#input-aspects) (for atomic rules) OR
