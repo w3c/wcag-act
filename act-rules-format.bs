@@ -562,7 +562,7 @@ Definitions {#definitions}
       <ul>
         <li>An HTML page, including all embedded scripts, style and images</li>
         <li>An EPUB publication</li>
-        <li>A Vue component file</li>
+        <li>A web component file</li>
       </ul>
     </div>
     <div class=note>
