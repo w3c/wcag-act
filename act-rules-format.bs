@@ -92,7 +92,7 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule MUST have a unique identifier, that if the rule is part of a ruleset is unique within that set. The unique identifier can be any unique text, such as plain text, URL or a database identifier.
+An ACT Rule MUST have an identifier. This identifier MUST be unique when the rule is part of a ruleset.  The identifier can be any text, such as plain text, URL or a database identifier.
 
 <div class=example>
   <p>**Example:** ACT Rules can use identifiers that can also be used as a file name. They include a technology directory, followed by a handle that includes an element name or attribute:</p>
@@ -103,7 +103,7 @@ An ACT Rule MUST have a unique identifier, that if the rule is part of a ruleset
   </ul>
 </div>
 
-In addition to the unique identifier, each new release of an ACT Rule MUST be identifiable with either a date or a version number. A reference to the previous version of that rule MUST be available. The unique identifier MUST NOT be changed when the rule is updated. For extensive changes, a new rule SHOULD be created with a new unique identifier, and the old rule SHOULD be deprecated.
+In addition to the identifier, each new release of an ACT Rule MUST be versioned with either a date or a number. A reference to the previous version of that rule MUST be available. The identifier MUST NOT be changed when the rule is updated. For substantial changes, a new rule SHOULD be created with a new identifier, and the old rule SHOULD be deprecated.]]
 
 <div class=example>
   **Example:** When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.
