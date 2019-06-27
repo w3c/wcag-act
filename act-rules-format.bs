@@ -92,7 +92,7 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule MUST have a unique identifier that can be any unique text, such as plain text, URL or a database identifier.
+An ACT Rule MUST have an identifier. This identifier MUST be unique when the rule is part of a ruleset.  The identifier can be any text, such as plain text, URL or a database identifier.
 
 <div class=example>
   <p>**Example:** ACT Rules can use identifiers that can also be used as a file name. They include a technology directory, followed by a handle that includes an element name or attribute:</p>
@@ -101,6 +101,12 @@ An ACT Rule MUST have a unique identifier that can be any unique text, such as p
     <li>html+svg/meta-no-refresh</li>
     <li>html+svg/unique-id</li>
   </ul>
+</div>
+
+In addition to the identifier, each new release of an ACT Rule MUST be versioned with either a date or a number. A reference to the previous version of that rule MUST be available. The identifier MUST NOT be changed when the rule is updated. For substantial changes, a new rule SHOULD be created with a new identifier, and the old rule SHOULD be deprecated.]]
+
+<div class=example>
+  **Example:** When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.
 </div>
 
 
@@ -443,12 +449,6 @@ Change Log {#change-log}
 ------------------------
 
 It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcomes=] of an evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
-
-Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.
-
-<div class=example>
-  **Example:** When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.
-</div>
 
 
 Glossary {#glossary}
