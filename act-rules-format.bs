@@ -363,7 +363,7 @@ All expectations of an [=atomic rule=] MUST describe the logic that is used to d
 </div>
 
 <div class="note">
-  <p>**Note:** Rules can be used to do complex aggregation by describing the logic in the expectations. e.g. "The test target (the page) has a text alternative for 80% of all img elements".</p>
+  <p>**Note:** Sometimes there is the need for rules with more complex aggregation, for example that X% of all images on a web page are expected to have text alternatives. In this case, the page itself needs to become the test target. The expectation would then be "The test target (the page) has a text alternative for X% of all img elements". The logic for calculating the expectations in such rules is left to the implementations, to avoid over-complexity of this rules format.</p>
 </div>
 
 ### Expectations for Composite Rules ### {#expectations-composite}
