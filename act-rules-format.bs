@@ -619,7 +619,7 @@ Examples in this section include:
     "outcome": "earl:failed",
     "pointer": {
       "@type": "ptr:CSSSelectorPointer",
-      "html > body > h1:first-child"
+      "@value": "html > body > h1:first-child"
     }
   }
 }
@@ -642,7 +642,7 @@ Examples in this section include:
       "outcome": "earl:failed",
       "pointer": {
         "@type": "ptr:CSSSelectorPointer",
-        "html > body > h1:first-child"
+        "@value": "html > body > h1:first-child"
       }
     }
   }, {
@@ -657,7 +657,7 @@ Examples in this section include:
       "outcome": "earl:passed",
       "pointer": {
         "@type": "ptr:CSSSelectorPointer",
-        "html > body > h1:nth-child(2)"
+        "@value": "html > body > h1:nth-child(2)"
       }
     }
   }]
@@ -690,7 +690,7 @@ Examples in this section include:
         "outcome": "earl:failed",
         "pointer": {
           "@type": "ptr:CSSSelectorPointer",
-          "html > body > h1:first-child"
+          "@value": "html > body > h1:first-child"
         }
       }
     }, {
@@ -699,7 +699,7 @@ Examples in this section include:
         "outcome": "earl:passed",
         "pointer": {
           "@type": "ptr:CSSSelectorPointer",
-          "html > body > h1:nth-child(2)"
+          "@value": "html > body > h1:nth-child(2)"
         }
       }
     }]
