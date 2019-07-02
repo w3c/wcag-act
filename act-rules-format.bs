@@ -609,11 +609,11 @@ Examples in this section include:
 {
   "@context": "context.json",
   "@type": "Assertion",
-  "assertedBy": "MyTool",
+  "assertedBy": "https://example.org/MyTool",
   "subject": "https://example.org/",
   "test": {
     "@type": "earl:TestCase",
-    "@value": "ACT-CG:rules/23a2a8"
+    "@id": "ACT-CG:rules/23a2a8"
   },
   "result": {
     "outcome": "earl:failed",
@@ -632,11 +632,11 @@ Examples in this section include:
   "@context": "context.json",
   "@graph": [{
     "@type": "Assertion",
-    "assertedBy": "MyTool",
+    "assertedBy": "https://example.org/MyTool",
     "subject": "https://example.org/",
     "test": {
       "@type": "earl:TestCase",
-      "@value": "ACT-CG:rules/23a2a8"
+      "@id": "ACT-CG:rules/23a2a8"
     },
     "result": {
       "outcome": "earl:failed",
@@ -647,11 +647,11 @@ Examples in this section include:
     }
   }, {
     "@type": "Assertion",
-    "assertedBy": "AnotherTool",
+    "assertedBy": "https://example.org/AnotherTool",
     "subject": "https://example.org/",
     "test": {
       "@type": "earl:TestCase",
-      "@value": "ACT-CG:rules/23a2a8"
+      "@id": "ACT-CG:rules/23a2a8"
     },
     "result": {
       "outcome": "earl:passed",
@@ -670,21 +670,21 @@ Examples in this section include:
 {
   "@context": "context.json",
   "@type": "Assertion",
-  "assertedBy": "MyTool",
+  "assertedBy": "https://example.org/MyTool",
   "subject": {
     "@type": ["WebPage", "TestSubject"],
     "@value": "https://example.org/page1.html"
   }
   "test": {
     "@type": "earl:TestRequirement",
-    "@value": "WCAG21:non-text-content"
+    "@id": "WCAG21:non-text-content"
   },
   "result": {
     "outcome": "earl:failed",
     "source": [{
       "test": {
         "@type": "earl:TestCase",
-        "@value": "ACT-CG:rules/23a2a8"
+        "@id": "ACT-CG:rules/23a2a8"
       },
       "result": {
         "outcome": "earl:failed",
@@ -694,7 +694,10 @@ Examples in this section include:
         }
       }
     }, {
-      "test": "ACT-RULES-CG:rules/23a2a8",
+      "test": {
+        "@type": "earl:TestCase",
+        "@id" : "ACT-RULES-CG:rules/23a2a8"
+      },
       "result" : {
         "outcome": "earl:passed",
         "pointer": {
@@ -713,7 +716,7 @@ Examples in this section include:
 {
   "@context": "context.json",
   "@type": "Assertion",
-  "assertedBy": "Bob",
+  "assertedBy": "https://example.org/Bob",
   "subject": {
     "@type": ["WebSite", "TestSubject"],
     "@value": "https://example.org/"
