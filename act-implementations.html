@@ -19,10 +19,16 @@
 
 <p>As part of the <a href="https://www.w3.org/WAI/GL/">W3C Accessibility Guidelines Working Group (AGWG)</a>, the <a href="https://www.w3.org/WAI/GL/task-forces/conformance-testing/">Accessibility Conformance Testing (ACT) Task Force</a> documents at least <strong>@@@ test rules</strong> meeting the <a href="https://www.w3.org/TR/2019/CR-act-rules-format-1.0-20190416/#Exit_Criteria">'Exit Criteria' of the ACT Rules Format 1.0 CR specification</a>:</p>
 <ul>
-  <li>@@@</li>
-  <li>@@@</li>
-  <li>@@@</li>
-  <li>@@@</li>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/c5a4ea/">Video with audio has audio descriptions or transcript (c5a4ea)</a></li>
+  <li><a href="https://act-rules.github.io/rules/a1b64e/">No keyboard trap standard navigation (a1b64e)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e086e5/">Form field has accessible name (e086e5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">ARIA state or property allowed (5c01ea)</a></li>
 </ul>
 
 <p>This set of test rules was developed by the <a href="https://www.w3.org/community/act-r/">W3C ACT Rules Community Group (CG)</a>, with review, involvement, and other contribution from a broad representation of the community, including:</p>
@@ -44,327 +50,235 @@
 
 <p>In addition to completing the <a href="https://act-rules.github.io/pages/design/review/">'Review Process' of the ACT Rules Community Group</a>, some of these test rules are used by automated testing tools and manual methodologies, including:</p>
 <ul>
-  <li>Accessibility Engine, automated testing tool by Level Access</li>
+  <li>Access Engine, automated testing tool by Level Access</li>
   <li>@@@, automated testing tool by Cyxtera Technologies Inc.</li>
   <li>Alfa, automated testing tool by Siteimprove </li>
-  <li>aXe Core, automated testing tool by Deque Systems Inc.</li>
+  <li>Axe-Core, automated testing tool by Deque Systems Inc.</li>
   <li>RGAA, manual methodology from the French government</li>
   <li>Trusted Tester, manual methodology from the US government</li>
   <li>QualWeb, automated testing tool by Universidade de Lisboa</li>
 </ul>
 
 <h2 id="implementations">Implementations</h2>
-<p>The following tables list the 'Exit Criteria' that reflect the normative requirements defined by the ACT Rules Format 1.0 specification. For each criterion there is a list of test rules that meet this criterion.</p>
+<p>The following sections list the 'Exit Criteria' that reflect the normative requirements defined by the ACT Rules Format 1.0 specification. For each criterion there is a list of test rules that meet this criterion.</p>
 
 <h3>General</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-    <td> (C1) All rules must conform to the ACT Rules Format </td>
-    <td>  - </td>
-    <td>  - </td>
-    <td>  - </td>
-  </tr>
-</table>
+<h4>(C1) All rules must conform to the ACT Rules Format</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/c5a4ea/">Video with audio has audio descriptions or transcript (c5a4ea)</a></li>
+  <li><a href="https://act-rules.github.io/rules/a1b64e/">No keyboard trap standard navigation (a1b64e)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e086e5/">Form field has accessible name (e086e5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">ARIA state or property allowed (5c01ea)</a></li>
+</ul>
 
 <h3>Mapping</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C2) At least one atomic rule that has a requirement in WCAG 2 </td>
-<td> - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C3) At least one composite rule that has a requirement in WCAG 2 </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C4) At least one rule that is a satisfying test, and one rule that is not </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C5) At least one rule that has a accessibility requirement that is not part of WCAG </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C6) At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2 </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C2) At least one atomic rule that has a requirement in WCAG 2</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+</ul>
+
+<h4>(C3) At least one composite rule that has a requirement in WCAG 2</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+  <li><a href="https://act-rules.github.io/rules/c5a4ea/">Video with audio has audio descriptions or transcript (c5a4ea)</a></li>
+</ul>
+
+<h4>(C4) At least one rule that is a satisfying test, and one rule that is not</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">ARIA state or property allowed (5c01ea)</a></li>
+</ul>
+
+<h4>(C5) At least one rule that has an accessibility requirement mapping that is not part of WCAG</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">ARIA state or property allowed (5c01ea)</a></li>
+</ul>
+
+<h4>(C6) At least one atomic rule has no accessibility requirement mapping, but is used in a composite rule that has</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/a1b64e/">No keyboard trap standard navigation (a1b64e)</a></li>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+</ul>
 
 <h3>Rule input</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C7) At least two different input aspects are used </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C8) At least two different web content technologies </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C7) At least two different input aspects are used</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+</ul>
+
+<h4>(C8) At least two different web content technologies</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">ARIA state or property allowed (5c01ea)</a></li>
+  <li><a>'''TODO: EPUB?'''</a></li>
+  <li><a>'''TODO: PDF?'''</a></li>
+  <li><a>'''TODO: SVG?'''</a></li>
+</ul>
 
 <h3>Applicability</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C9) At least one atomic rule has an applicability different from the composite rule it is used in </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C9) At least one atomic rule has an applicability different from the composite rule it is used in</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+</ul>
 
 <h3>Expectations</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C10) At least one rule with one expectation </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C11) At least one rule with more than one expectation </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C10) At least one rule with one expectation</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+</ul>
+
+<h4>(C11) At least one rule with more than one expectation</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+</ul>
 
 <h3>Assumptions</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C12) At least one rule without assumptions </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C13) At least one rule where exceptions are documented in an assumption </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C14) At least one rule where interpretation is documented in an assumption </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C12) At least one rule without assumptions</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e086e5/">Form field has accessible name (e086e5)</a></li>
+</ul>
+
+<h4>(C13) At least one rule where exceptions are documented in an assumption</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/ebe86a/">No keyboard trap non-standard navigation (ebe86a)</a></li>
+  <li><a href="https://act-rules.github.io/rules/c5a4ea/">Video with audio has audio descriptions or transcript (c5a4ea)</a></li>
+</ul>
+
+<h4>(C14) At least one rule where interpretation is documented in an assumption</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+</ul>
 
 <h3>Accessibility support</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C15) At least one rule where no accessibility support information was necessary </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C16) At least one rule where accessibility support information was included </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C15) At least one rule where no accessibility support information was necessary</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/2779a5/">HTML Page has a title (2779a5)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e6952f/">Attributes are not duplicated (e6952f)</a></li>
+</ul>
+
+<h4>(C16) At least one rule where accessibility support information was included</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/c5a4ea/">Video with audio has audio descriptions or transcript (c5a4ea)</a></li>
+  <li><a href="https://act-rules.github.io/rules/e086e5/">Form field has accessible name (e086e5)</a></li>
+</ul>
 
 <h3>Change log</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C17) At least two rules that include a changelog </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C17) At least two rules that include a changelog</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Glossary</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C18) At least two rules with more than one definition </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C18) At least two rules with more than one definition</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Issues list</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C19) At least two rules that include an issues list </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C19) At least two rules that include an issues list</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Test cases</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C20) Every applicability must have at least one inapplicable test case </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C21) Every expectation must have at least one pass and one fail test case </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C20) Every applicability must have at least one inapplicable test case</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
+
+<h4>(C21) Every expectation must have at least one pass and one fail test case</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Background</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C22) At least two rules with a background section </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C22) At least two rules with a background section</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Acknowledgements</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C23) At least two rules with an acknowledgements section </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
+<h4>(C23) At least two rules with an acknowledgements section</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1/">Buttons have an accessible name (97a4e1)</a></li>
+  <li><a href="https://act-rules.github.io/rules/1a02b0/">Video element transcript (1a02b0)</a></li>
+  <li><a href="https://act-rules.github.io/rules/80af7b/">No keyboard trap (80af7b)</a></li>
+</ul>
 
 <h3>Implementations and data format</h3>
 
-<table>
-  <tr>
-    <th> Requirement </th>
-    <th> 1st Implementation </th>
-    <th> 2nd implementation </th>
-    <th> 3rd implementation
-  </th>
-  </tr>
-    <tr>
-<td> (C24) At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)  </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C25) At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases) </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr>
-<tr>
-<td> (C26) At least two independent implementations of the same ACT rule in manual testing methodologies  </td>
-<td>  - </td>
-<td>  - </td>
-<td>  -
-</td></tr></table>
-</body>
-</html>
+<h4>(C24) At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/97a4e1">Buttons have an accessible name (97a4e1)</a>
+    <ul>
+      <li>Access Engine (Level Access)</li>
+      <li>Alfa (Siteimprove)</li>
+      <li>Axe-core (Deque Systems)</li>
+    </ul>
+  </li>
+  <li><a href="https://act-rules.github.io/rules/2779a5">HTML Page has a title (2779a5)</a>
+    <ul>
+      <li>Alfa (Siteimprove)</li>
+      <li>Axe-core (Deque Systems)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>(C25) At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/f51b46">Video has captions (f51b46)</a>
+    <ul>
+      <li>Alfa (Siteimprove)</li>
+      <li>Axe-core (Deque Systems)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>(C26) At least two independent implementations of the same ACT rule in manual testing methodologies</h4>
+<ul>
+  <li><a href="https://act-rules.github.io/rules/ebe86a">No keyboard trap non-standard navigation (ebe86a)</a>
+    <ul>
+      <li>RGAA 2 (Tested by Access42)</li>
+      <li>Trusted Tester version 5</li>
+    </ul>
+  </li>
+</ul>
