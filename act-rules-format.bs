@@ -603,29 +603,23 @@ Examples in this section include:
 - Example 4: Aggregating based on 'Test Subject'
 - Example 5: Assumed 'Context' for this section
 
-**Example 1:** Minimal outcome from one 'Assertion'
+**Example 1:** Minimal outcome for one 'Assertion'
 
 ```javascript
 {
   "@context": "context.json",
   "@type": "Assertion",
   "assertedBy": "https://example.org/MyTool",
-  "subject": "https://example.org/",
-  "test": {
-    "@type": "earl:TestCase",
-    "@id": "ACT-CG:rules/23a2a8"
-  },
+  "subject": "https://example.org/page1.html",
+  "test": "ACT-CG:rules/23a2a8",
   "result": {
     "outcome": "earl:failed",
-    "pointer": {
-      "@type": "ptr:CSSSelectorPointer",
-      "@value": "html > body > h1:first-child"
-    }
+    "pointer": "html > body > h1:first-child"
   }
 }
 ```
 
-**Example 2:** Results from more than one 'Assertion'
+**Example 2:** Results for more than one 'Assertion'
 
 ```javascript
 {
@@ -633,32 +627,20 @@ Examples in this section include:
   "@graph": [{
     "@type": "Assertion",
     "assertedBy": "https://example.org/MyTool",
-    "subject": "https://example.org/",
-    "test": {
-      "@type": "earl:TestCase",
-      "@id": "ACT-CG:rules/23a2a8"
-    },
+    "subject": "https://example.org/page1.html",
+    "test": "ACT-CG:rules/23a2a8",
     "result": {
       "outcome": "earl:failed",
-      "pointer": {
-        "@type": "ptr:CSSSelectorPointer",
-        "@value": "html > body > h1:first-child"
-      }
+      "pointer": "html > body > h1:first-child"
     }
   }, {
     "@type": "Assertion",
     "assertedBy": "https://example.org/AnotherTool",
-    "subject": "https://example.org/",
-    "test": {
-      "@type": "earl:TestCase",
-      "@id": "ACT-CG:rules/23a2a8"
-    },
+    "subject": "https://example.org/page1.html",
+    "test": "ACT-CG:rules/23a2a8",
     "result": {
       "outcome": "earl:passed",
-      "pointer": {
-        "@type": "ptr:CSSSelectorPointer",
-        "@value": "html > body > h1:nth-child(2)"
-      }
+      "pointer": "html > body > h1:nth-child(2)"
     }
   }]
 }
@@ -671,10 +653,7 @@ Examples in this section include:
   "@context": "context.json",
   "@type": "Assertion",
   "assertedBy": "https://example.org/MyTool",
-  "subject": {
-    "@type": ["WebPage", "TestSubject"],
-    "@value": "https://example.org/page1.html"
-  }
+  "subject": "https://example.org/page1.html",
   "test": {
     "@type": "earl:TestRequirement",
     "@id": "WCAG21:non-text-content"
@@ -682,28 +661,16 @@ Examples in this section include:
   "result": {
     "outcome": "earl:failed",
     "source": [{
-      "test": {
-        "@type": "earl:TestCase",
-        "@id": "ACT-CG:rules/23a2a8"
-      },
+      "test": "ACT-CG:rules/23a2a8",
       "result": {
         "outcome": "earl:failed",
-        "pointer": {
-          "@type": "ptr:CSSSelectorPointer",
-          "@value": "html > body > h1:first-child"
-        }
+        "pointer": "html > body > h1:first-child"
       }
     }, {
-      "test": {
-        "@type": "earl:TestCase",
-        "@id" : "ACT-RULES-CG:rules/23a2a8"
-      },
+      "test": "ACT-RULES-CG:rules/23a2a8",
       "result" : {
         "outcome": "earl:passed",
-        "pointer": {
-          "@type": "ptr:CSSSelectorPointer",
-          "@value": "html > body > h1:nth-child(2)"
-        }
+        "pointer": "html > body > h1:nth-child(2)"
       }
     }]
   }
@@ -716,33 +683,53 @@ Examples in this section include:
 {
   "@context": "context.json",
   "@type": "Assertion",
-  "assertedBy": "https://example.org/Bob",
+  "assertedBy": {
+    "@type": "foaf:Organization",
+    "@value": "_:myOrg"
+  }
   "subject": {
     "@type": ["WebSite", "TestSubject"],
     "@value": "https://example.org/"
   }
-  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+  "test": {
+    "@type": "earl:TestRequirement",
+    "@id": "http://www.w3.org/WAI/WCAG2A-Conformance"
+  },
   "result": {
     "outcome": "Failed",
     "source": [{
-      "test": "WCAG21:non-text-content",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:non-text-content"
+      },
       "result": {
         "outcome": "Failed",
         "source": [ … ]
       }
     }, {
-      "test": "WCAG21:audio-only-and-video-only-prerecorded",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:audio-only-and-video-only-prerecorded"
+      },
       "result": {
         "outcome": "Passed",
         "source": [ … ]
       }
     }, {
-      "test": "WCAG21:captions-prerecorded",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:captions-prerecorded"
+      },
       "result" : {
         "outcome": "Inapplicable",
         "source": [ … ]
       }
     }, … ]
+  },
+  "myOrg": {
+    "title": "My Organization",
+    "description" : "Accessibility testing service",
+    "homepage" : "http://example.org/myOrg/"
   }
 }
 ```
@@ -791,12 +778,21 @@ Examples in this section include:
   "homepage": "foaf:term_homepage",
 
   "assertedBy": { "@id": "@type" },
-  "subject": { "@id": "@type" },
-  "test": { "@id": "@type" },
+  "subject": {
+    "@id": "earl:subject",
+    "@type": "schema:WebPage"
+  },
+  "test": {
+    "@id": "earl:test",
+    "@type": "earl:TestCase"
+  },
   "result": { "@id": "@type" },
   "mode": { "@id": "@type" },
   "outcome": { "@id": "@type" },
-  "pointer": { "@id": "@type" },
+  "pointer": {
+    "@id": "earl:pointer",
+    "@type": "ptr:CSSSelectorPointer"
+  },
   "passed": { "@id": "@type" },
   "failed": { "@id": "@type" }
 }
