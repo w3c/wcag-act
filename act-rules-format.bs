@@ -685,11 +685,11 @@ Examples in this section include:
   "@type": "Assertion",
   "assertedBy": {
     "@type": "foaf:Organization",
-    "@value": "_:myOrg"
+    "@id": "_:myOrg"
   }
   "subject": {
     "@type": ["WebSite", "TestSubject"],
-    "@value": "https://example.org/"
+    "@id": "https://example.org/"
   }
   "test": {
     "@type": "earl:TestRequirement",
