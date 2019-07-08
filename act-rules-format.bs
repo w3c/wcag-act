@@ -604,14 +604,25 @@ Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-ex
 
 This section is *non-normative*.
 
-**Example 1:** Output data using EARL and JSON-LD. (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) [[EARL10-Schema]] and [Java Script Object Notation (JSON)](https://www.json.org).)
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is proivided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+
+Examples in this section include:
+
+- Example 1: Minimal outcome from one 'Assertion'
+- Example 2: Results from more than one 'Assertion'
+- Example 3: Aggregating based on 'Requirement'
+- Example 4: Aggregating based on 'Test Subject'
+- Example 5: Assumed 'Context' for this section
+
+**Example 1:** Minimal outcome for one 'Assertion'
 
 ```javascript
 {
-  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@context": "context.json",
   "@type": "Assertion",
-  "subject": "https://example.org/",
-  "test": "auto-wcag:rules/SC1-1-1-css-image.html",
+  "assertedBy": "https://example.org/MyTool",
+  "subject": "https://example.org/page1.html",
+  "test": "ACT-CG:rules/23a2a8",
   "result": {
     "outcome": "earl:failed",
     "pointer": "html > body > h1:first-child"
@@ -619,23 +630,25 @@ This section is *non-normative*.
 }
 ```
 
-**Example 2:** Output data listing results for multiple test targets.
+**Example 2:** Results for more than one 'Assertion'
 
 ```javascript
 {
-  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@context": "context.json",
   "@graph": [{
     "@type": "Assertion",
-    "subject": "https://example.org/",
-    "test": "auto-wcag:SC1-1-1-css-image.html",
+    "assertedBy": "https://example.org/MyTool",
+    "subject": "https://example.org/page1.html",
+    "test": "ACT-CG:rules/23a2a8",
     "result": {
       "outcome": "earl:failed",
       "pointer": "html > body > h1:first-child"
     }
   }, {
     "@type": "Assertion",
-    "subject": "https://example.org/",
-    "test": "auto-wcag:SC1-1-1-css-image.html",
+    "assertedBy": "https://example.org/AnotherTool",
+    "subject": "https://example.org/page1.html",
+    "test": "ACT-CG:rules/23a2a8",
     "result": {
       "outcome": "earl:passed",
       "pointer": "html > body > h1:nth-child(2)"
@@ -644,65 +657,85 @@ This section is *non-normative*.
 }
 ```
 
-**Example 3:** Aggregate outcomes to a WCAG success criterion
+**Example 3:** Aggregating based on 'Requirement' (eg. WCAG Success Criteria)
 
 ```javascript
 {
-  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@context": "context.json",
   "@type": "Assertion",
-  "subject": {
-    "@type": ["WebPage", "TestSubject"],
-    "@value": "https://example.org/page1.html"
-  }
-  "test": "wcag21:captions-prerecorded",
+  "assertedBy": "https://example.org/MyTool",
+  "subject": "https://example.org/page1.html",
+  "test": {
+    "@type": "earl:TestRequirement",
+    "@id": "WCAG21:non-text-content"
+  },
   "result": {
     "outcome": "earl:failed",
     "source": [{
-      "test": "auto-wcag:media-equiv-av-only-alt",
+      "test": "ACT-CG:rules/23a2a8",
       "result": {
         "outcome": "earl:failed",
-        "source": [ … ]
+        "pointer": "html > body > h1:first-child"
       }
     }, {
-      "test": "auto-wcag:media-equiv-captions",
+      "test": "ACT-RULES-CG:rules/23a2a8",
       "result" : {
-        "outcome": "earl:failed",
-        "source": [ … ]
+        "outcome": "earl:passed",
+        "pointer": "html > body > h1:nth-child(2)"
       }
-    }, … ]
+    }]
   }
 }
 ```
 
-**Example 4:** Aggregate a list of results to a result for the website
+**Example 4:** Aggregating based on 'Test Subject' (eg. for a website)
 
 ```javascript
 {
-  "@context": "https://raw.githubusercontent.com/w3c/wcag-act/master/earl-act.json",
+  "@context": "context.json",
   "@type": "Assertion",
+  "assertedBy": {
+    "@type": "Organization",
+    "@id": "_:myOrg",
+    "title": "My Organization",
+    "description" : "Accessibility testing service",
+    "homepage" : "http://example.org/myOrg/"
+  },
   "subject": {
     "@type": ["WebSite", "TestSubject"],
-    "@value": "https://example.org/"
-  }
-  "test": "http://www.w3.org/WAI/WCAG2A-Conformance",
+    "@id": "https://example.org/"
+  },
+  "test": {
+    "@type": "earl:TestRequirement",
+    "@id": "http://www.w3.org/WAI/WCAG2A-Conformance"
+  },
   "result": {
-    "outcome": "Failed",
+    "outcome": "earl:failed",
     "source": [{
-      "test": "wcag20:text-equiv-all",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:non-text-content"
+      },
       "result": {
-        "outcome": "Failed",
+        "outcome": "earl:failed",
         "source": [ … ]
       }
     }, {
-      "test": "wcag20:media-equiv-av-only-alt",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:audio-only-and-video-only-prerecorded"
+      },
       "result": {
-        "outcome": "Passed",
+        "outcome": "earl:passed",
         "source": [ … ]
       }
     }, {
-      "test": "wcag20:media-equiv-captions",
+      "test": {
+        "@type": "earl:TestRequirement",
+        "@id": "WCAG21:captions-prerecorded"
+      },
       "result" : {
-        "outcome": "Inapplicable",
+        "outcome": "earl:passed",
         "source": [ … ]
       }
     }, … ]
@@ -710,6 +743,60 @@ This section is *non-normative*.
 }
 ```
 
+**Example 5:** Assumed 'Context' for this section
+
+```javascript
+{
+  "@vocab": "http://www.w3.org/ns/earl#",
+
+  "cnt": "http://www.w3.org/2011/content#",
+  "dct": "http://purl.org/dc/terms/",
+  "earl": "http://www.w3.org/ns/earl#",
+  "foaf": "http://xmlns.com/foaf/0.1/",
+  "htp": "http://www.w3.org/2011/http#",
+  "ptr": "https://www.w3.org/2009/pointers#",
+  "schema": "http://schema.org/",
+  "xsd": "https://www.w3.org/2001/XMLSchema#",
+
+  "WCAG20": "https://www.w3.org/TR/WCAG20#",
+  "WCAG21": "https://www.w3.org/TR/WCAG21#",
+  "ACT-RULES-CG": "https://act-rules.github.io/",
+
+  "WebSite": "schema:WebSite",
+  "WebPage": "schema:WebPage",
+
+  "title": "dct:title",
+  "description": "dct:description",
+  "date": "dct:date",
+  "hasVersion": "dct:hasVesion", 
+  "isPartOf": "dct:isPartOf", 
+  "hasPart": "dct:hasPart",
+  "source": "dct:source",
+
+  "Agent": "foaf:Agent",
+  "Person": "foaf:Person",
+  "Organization": "foaf:Organization",
+  "Group": "foaf:Group",
+  "Document": "foaf:Document",
+  "name": "foaf:name",
+  "firstName": "foaf:firstName",
+  "surname": "foaf:surname",
+  "mbox": "foaf:mbox",
+  "mbox_sha1sum": "foaf:mbox_sha1sum",
+  "member": "foaf:member",
+  "homepage": "foaf:homepage",
+
+  "assertedBy": { "@type": "@id" },
+  "subject": { "@type": "@id" },
+  "test": { "@type": "@id" },
+  "mode": { "@type": "@id" },
+  "outcome": { "@type": "@id" },
+  "pointer": {
+    "@id": "earl:pointer",
+    "@type": "ptr:CSSSelectorPointer"
+  }
+}
+```
 
 Appendix 2: Acknowledgments {#Acknowledgments}
 ===========================
