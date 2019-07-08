@@ -247,7 +247,7 @@ To evaluate content using an ACT Rule, the rule requires some information from t
 
 ### Input Aspects (Atomic rules only) ### {#input-aspects}
 
-An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
+An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for the [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
 [=Atomic rules=] MUST list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
 
@@ -408,7 +408,7 @@ Content can be designed to rely on the support for particular accessibility feat
 An ACT Rule MUST include known limitations on accessibility support.
 
 <div class=example>
-  <p>**Example:** A rule that checks if `aria-errormessage` is used satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages)<p>
+  <p>**Example:** A rule that checks if `aria-errormessage` is used to satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages)<p>
   <blockquote><p>
     The `aria-errormessage` property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019)
   </p></blockquote>
@@ -500,7 +500,7 @@ When a test result incorrectly indicates non-conformance to an accessibility req
 
 - **False negatives:** This is the percentage of [=test targets=], that were `passed` by the rule, but do not satisfy the [=accessibility requirements=].
 
-The ever present possibility of false positives and false negatives with ACT Rules mean they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
+The ever present possibility of false positives and false negatives with ACT Rules means they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
 
 
 Harmonization {#harmonization}
@@ -608,7 +608,7 @@ This section is *non-normative*.
 }
 ```
 
-**Example 2:**
+**Example 2:** Output data listing results for multiple test targets.
 
 ```javascript
 {
@@ -749,7 +749,7 @@ Each rule implemented in plain English form, as listed below:
 * C2: At least one atomic rule that has a requirement in WCAG 2
 * C3: At least one composite rule that has a requirement in WCAG 2
 * C4: At least one rule that is a satisfying test, and one rule that is not
-* C5: At least one rule that has a accessibility requirement that is not part of WCAG
+* C5: At least one rule that has an accessibility requirement that is not part of WCAG
 * C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
 
 Rule Input
