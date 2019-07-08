@@ -10,20 +10,25 @@ Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
 Editor: Mary Jo Mueller, IBM Corp.
 Editor: Shadi Abou-Zahra, W3C
-Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These rules can be evaluated fully-automatically, semi-automatically, and manually. This common format allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
+<style>
+  .rfc2119 {
+    text-transform: uppercase;
+  }
+</style>
 
 Introduction {#intro}
 =====================
 
-There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the web.
+There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.
 
 This format is intended to enable a consistent interpretation of how to test conformance to WCAG and other [=accessibility requirements documents=] and promote consistent results in accessibility testing. The rules format is designed to describe both manual accessibility tests, as well as automated tests as performed by accessibility testing tools.
 
 Documenting how to test [=accessibility requirements=] will result in accessibility tests that are transparent, with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
-An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions must be true about the applicable elements for them to meet all expectations of the rule.
+An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in [common failures](https://www.w3.org/TR/WCAG21/#wcag-2-layers-of-guidance) documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.
 
 The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
 
@@ -47,15 +52,15 @@ In accessibility, there are often different technical solutions to make the same
 
 Composite rules cannot contain other composite rules. Any time a nested composite rule would be needed, all of the relevant atomic rules can be combined directly into the new composite rule.
 
-<div class="example">
-  <p>Composite rule: Video elements have an audio description or media alternative (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded" target="_blank">WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative</a>).</p>
-  <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
+<aside class="example">
+  <header>Example of using multiple input rules in a composite rule:</header>
+  <blockquote><p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>Video elements have a transcript</li>
     <li>Video elements have an audio description</li>
     <li>Video elements have a description track</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
 
 Not all atomic rules have to be part of a composite rule. Composite rules are used when the [=outcomes=] of multiple atomic rules need to be combined to determine if a [=test subject=] does not satisfy an [=accessibility requirement=].
 
@@ -65,12 +70,12 @@ The separation between atomic rules and composite rules creates a division of re
 ACT Rule Structure {#act-rule-structure}
 ===============================
 
-An ACT Rule MUST consist of at least the following items:
+An ACT Rule <em class="rfc2119">must</em> consist of at least the following items:
 
 * <dfn>Descriptive Title</dfn>
 * [Rule Identifier](#rule-identifier)
 * [Rule Description](#rule-description)
-* [Rule Type](#rule-types)
+* [Rule Type](#rule-type)
 * [Accessibility Requirements Mapping](#accessibility-requirements-mapping)
 * [Rule Input](#input), which is one of the following:
     * [Input Aspects](#input-aspects) (for atomic rules) OR
@@ -82,42 +87,53 @@ An ACT Rule MUST consist of at least the following items:
 * [Test Cases](#test-cases)
 * [Change Log](#change-log)
 * [Glossary](#glossary)
+
+An ACT Rule MAY also contain:
+
 * [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
 * [Acknowledgements](#acknowledgements) (optional)
 
-The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules MUST be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users MUST be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
+The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
 
 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule MUST have a unique identifier that can be any unique text, such as plain text, URL or a database identifier.
+An ACT Rule <em class="rfc2119">must</em> have an identifier. This identifier <em class="rfc2119">must</em> be unique when the rule is part of a ruleset. The identifier can be any text, such as plain text, URL, or a database identifier.
 
-<div class=example>
-  <p>**Example:** ACT Rules can use identifiers that can also be used as a file name. They include a technology directory, followed by a handle that includes an element name or attribute:</p>
-  <ul>
+<aside class=example>
+  <header>Example of identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
+  <blockquote><ul>
     <li>html+svg/video-alternative</li>
     <li>html+svg/meta-no-refresh</li>
     <li>html+svg/unique-id</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
+
+In addition to the identifier, each new release of an ACT Rule <em class="rfc2119">must</em> be versioned with either a date or a number. A reference to the previous version of that rule <em class="rfc2119">must</em> be available. The identifier <em class="rfc2119">must nost</em> be changed when the rule is updated. For substantial changes, a new rule <em class="rfc2119">should</em> be created with a new identifier, and the old rule <em class="rfc2119">should</em> be deprecated.
+
+<aside class=example>
+  <header>Example situation of updating a rule:</header>
+  <blockquote><p>When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.</p></blockquote>
+</aside>
 
 
 Rule Description {#rule-description}
 ------------------------------------
 
-An ACT Rule MUST have a description that is in plain language which provides a brief explanation of what the rule does.
+An ACT Rule <em class="rfc2119">must</em> have a description that is in plain language which provides a brief explanation of what the rule does.
 
-<div class=example>
-  **Example:** This rule checks that the HTML page has a title
-</div>
+<aside class=example>
+  <header>Example of a rule description:</header>
+  <blockquote><p>This rule checks that the HTML page has a title</p></blockquote>
+</aside>
 
 
 Rule Type {#rule-type}
 ------------------------------------
 
-An ACT Rule MUST have a rule type which is one of the following:
+An ACT Rule <em class="rfc2119">must</em> have a rule type which is one of the following:
 <ul>
   <li>Atomic rule</li>
   <li>Composite rule</li>
@@ -129,9 +145,9 @@ Refer to the [Rule Type](#rule-types) section for detailed definitions of the ru
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
-When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule MUST list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. For example, when designing a rule for WCAG that tests if image buttons have alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
+When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. For example, when designing a rule for WCAG that tests if image buttons have alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
 
-Each [=accessibility requirement=] in the mapping MUST include the following:
+Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> include the following:
 
 1. either the name, title, identifier or summary of the accessibility requirement, and
 2. the name of the [=accessibility requirements document=], and
@@ -141,14 +157,14 @@ Each [=accessibility requirement=] in the mapping MUST include the following:
 
 ### Outcome Mapping ### {#outcome-mapping}
 
-For each accessibility requirement in the mapping, an ACT Rule MUST indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
 
-<div class=example>
-  <p>**Example:** Accessibility Requirements Mapping for a rule that tests if an image button has an accessible name:
+<aside class=example>
+  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name:</header>
   <blockquote><ul>
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
@@ -173,15 +189,15 @@ For each accessibility requirement in the mapping, an ACT Rule MUST indicate wha
       </ul>
     </li>
   </ul></blockquote>
-</div>
+</aside>
 
 
 ### Mapping Outside WCAG ### {#mapping-outside-wcag}
 
-ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as accessibility requirements in [Hypertext Markup Language](https://www.w3.org/TR/html/) [[HTML]], or tests in a methodology like [RGAA 3 2016](https://disic.github.io/rgaa_referentiel_en/criteria.html). An ACT Rule MUST indicate whether or not the [=accessibility requirement=] it maps to is required for conformance in its [=accessibility requirements document=]. Examples of accessibility requirements that are not required for conformance are WCAG sufficient techniques, or a company style guide that includes both requirements and optional "best practices". The distinction between what is required and what is optional has to be clear.
+ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as accessibility requirements in [Hypertext Markup Language](https://www.w3.org/TR/html/) [[HTML]], or tests in a methodology like [RGAA 3 2016](https://disic.github.io/rgaa_referentiel_en/criteria.html). An ACT Rule <em class="rfc2119">must</em> indicate whether or not the [=accessibility requirement=] it maps to is required for conformance in its [=accessibility requirements document=]. Examples of accessibility requirements that are not required for conformance are WCAG sufficient techniques, or a company style guide that includes both requirements and optional "best practices". The distinction between what is required and what is optional has to be clear.
 
-<div class=example>
-  <p>**Example:** Accessibility Requirements Mapping for a rule that tests that each `img` element has an `alt` attribute</p>
+<aside class=example>
+  <header>Example accessibility requirements mapping for a rule that tests that each `img` element has an `alt` attribute:</header>
   <blockquote><ul>
     <li>
       [Technique H37: Using alt attributes on img elements](https://www.w3.org/TR/WCAG20-TECHS/H37.html)
@@ -206,21 +222,21 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
       </ul>
     </li>
   </ul></blockquote>
-</div>
+</aside>
 
 
 ### Rules Without Accessibility Requirements ### {#rules-without-accessibility-requirements}
 
 If the rule does not map to any [=accessibility requirement=], the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the [=accessibility requirements document=]. This is common with atomic rules used in composite rules.
 
-<div class=example>
-  <p>**Example:** An ACT Rule for WCAG 2.1 that tests if `role=alert` is used to satisfy [WCAG 2.1 success criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages):</p>
+<aside class=example>
+  <header>Example of a rule that tests if `role=alert` is used to satisfy [WCAG 2.1 success criterion 4.1.3 Status Messages](https://www.w3.org/TR/WCAG21/#status-messages):</header>
   <blockquote>
     <p>This rule is **not required** for conformance to WCAG 2.1 at any level.</p>
   </blockquote>
-</div>
+</aside>
 
-If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=], there MUST NOT be an accessibility requirement in the accessibility requirements mapping. The optional [Background section](#background) could be used to list [=accessibility requirements documents=] when they are thematically related, but for which the rule is not a failure test.
+If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=], there <em class="rfc2119">must not</em> be an accessibility requirement in the accessibility requirements mapping. The optional [Background section](#background) could be used to list [=accessibility requirements documents=] when they are thematically related, but for which the rule is not a failure test.
 
 
 ### External Accessibility Requirements Mapping ### {#external-accessibility-requirements-mapping}
@@ -235,41 +251,43 @@ Rule Input {#input}
 
 To evaluate content using an ACT Rule, the rule requires some information from the [=test subject=]. This is the input for the rule. What input is required is made explicit, to help testers understand what capabilities are required to use a rule. [=Atomic rules=] and [=composite rules=] have different input.
 
-- Atomic rules have an [Input Aspects](#input-aspects)
-- Composite rules have an [Input Rules](#input-rules)
+- Atomic rules have [Input Aspects](#input-aspects)
+- Composite rules have [Input Rules](#input-rules)
 
 
 ### Input Aspects (Atomic rules only) ### {#input-aspects}
 
-An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
+An input aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for an [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
-[=Atomic rules=] MUST list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
+[=Atomic rules=] <em class="rfc2119">must</em> list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.
 
-Some input aspects are well defined in a formal specification, such as HTTP messages, DOM tree, and CSS styling [[css-2018]]. For these, a reference to the corresponding section in the [Common Input Aspects note](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html) is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule MUST include either a detailed description of the aspect in question, or a reference to a well defined description.
+Some input aspects are well defined in a formal specification, such as HTTP messages, the DOM tree, and CSS styling [[css-2018]]. For these, a reference to the corresponding section in the [Common Input Aspects note](https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html) is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule <em class="rfc2119">must</em> include either a detailed description of the aspect in question, or a reference to a well defined description.
 
-<div class=example>
-  <p>**Example:** Input aspects for a rule that checks if a transcript is available for videos:</p>
-  <ul>
+<aside class=example>
+  <header>Example input aspects for a rule that checks if a transcript is available for videos:</header>
+  <blockquote><ul>
     <li>DOM Tree</li>
     <li>CSS Styling</li>
     <li>Audio output</li>
     <li>Visual output</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
 
-<div class=example>
-  <p>**Example:** Input aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</p>
-  <ul>
+<aside class=example>
+  <header>Example input aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</header>
+  <blockquote><ul>
     <li>DOM Tree</li>
     <li>CSS Styling</li>
     <li>Language</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
+
+ The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
 
 
 ### Input Rules (Composite rules only) ### {#input-rules}
 
-A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies logic to them so that a single outcome can be determined for each [=test target=]. The [identifier](#rule-identifier) and [=descriptive title=] of all the atomic rules used in the [expectations](#expectations-composite) MUST be listed in the composite rule. The input rules describe the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
+A [=composite rule=] uses [=outcomes=] from [=atomic rules=] and applies logic to them so that a single outcome can be determined for each [=test target=]. The [identifier](#rule-identifier) and [=descriptive title=] of all the atomic rules used in the [expectations](#expectations-composite) <em class="rfc2119">must</em> be listed in the composite rule. The input rules describe the input for composite rules, similar to how [input aspects](#input-aspects) describe the input for atomic rules.
 
 
 Applicability {#applicability}
@@ -280,50 +298,49 @@ The applicability describes what parts of the [=test subject=] are tested.
 
 ### Applicability for Atomic Rules ### {#applicability-atomic}
 
-The applicability section is a required part of an [=atomic rule=]. It MUST contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability MUST only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. Applicability MUST be described objectively, unambiguously and in plain language.
+The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. Applicability <em class="rfc2119">must</em> be described objectively, unambiguously and in plain language.
 
 An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded.
 
-Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts MUST be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
+Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts <em class="rfc2119">must</em> be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
-<div class=example>
-  <p>**Example:** The applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</a></p>
+<aside class=example>
+  <header>Example applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</header>
   <blockquote>
     <p>Each `video` or `audio` element with the `autoplay` attribute, as well as each `object` element that is used for automatically playing video or audio when the web page loads.</p>
-    <div class="note">
-      <p>**Note:** A web page is considered "loaded" when the `document.readyState` is set to `complete`.</p>
-    </div>
+    <p>Note: A web page is considered "loaded" when the `document.readyState` is set to `complete`.</p>
   </blockquote>
-</div>
+</aside>
 
-<div class=example>
-  <p>**Example:** The applicability of a rule with the page as a test target</a></p>
+<aside class=example>
+  <header>Example applicability of a rule with the page as a test target</header>
   <blockquote>
     <p>The rule applies to any page where the document element is an `html` element, and the `html` element is rendered in a top-level context (i.e. the `html` element is not embedded in another page, such as through `iframe` or `object` elements). </p>
   </blockquote>
-</div>
+</aside>
 
-<div class=example>
-  <p>**Example:** The applicability of a rule with a DOM attribute as a test target</a></p>
+<aside class=example>
+  <header>Example applicability of a rule with a DOM attribute as a test target</header>
   <blockquote>
     <p>The rule applies to any `role` attribute that is specified on an HTML or SVG element.</p>
   </blockquote>
-</div>
+</aside>
 
 ### Applicability for Composite Rules ### {#applicability-composite}
 
-The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors MAY omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it MUST be the union of all the applicability in the [input rules](#input-rules).
+The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
 
-Note that input rules in a composite rule MAY have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
+Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
 
-<div class=example>
-  <p>**Example:** A composite rule about `img` elements uses results from rules that have the following applicability:</p>
-  <ul>
-    <li>**Rule 1:** All `img` element <em>with</em> an `alt` attribute</li>
-    <li>**Rule 2:** All `img` element <em>without</em> an `alt` attribute</li>
-  </ul>
-  <p>The applicability of the composite rule combines the applicability of both rules. This becomes:</p>
+<aside class=example>
+  <header>Example of the union of applicability of input rules in a composite rule:</header>
   <blockquote>
+    <p>**Input applicability:**</p>
+    <ul>
+      <li>**Input Rule 1:** All `img` element <em>with</em> an `alt` attribute</li>
+      <li>**Input Rule 2:** All `img` element <em>without</em> an `alt` attribute</li>
+    </ul>
+    <p>**Combined applicability:</p>
     <p>All `img` elements.</p>
   </blockquote>
 </div>
@@ -332,83 +349,83 @@ Note that input rules in a composite rule MAY have different applicability. Beca
 Expectations {#expectations}
 ----------------------------
 
-An ACT Rule MUST contain one or more expectations. The expectations describe what the requirements are for the [=test targets=] derived from the [applicability](#applicability). An expectation is an assertion about a [=test target=]. When a test target meets all expectations, the test target `passed` the rule. If the test target does not meet all expectations, the test target `failed` the rule. If there are no test targets, the [=outcome=] for the rule is `inapplicable`.
+An ACT Rule <em class="rfc2119">must</em> contain one or more expectations. The expectations describe what the requirements are for the [=test targets=] derived from the [applicability](#applicability). An expectation is an assertion about a [=test target=]. When a test target meets all expectations, the test target `passed` the rule. If the test target does not meet all expectations, the test target `failed` the rule. If there are no test targets, the [=outcome=] for the rule is `inapplicable`.
 
-Each expectation MUST be distinct, unambiguous, and be written in plain language.
+Each expectation <em class="rfc2119">must</em> be distinct, unambiguous, and be written in plain language.
 
 
 ### Expectations for Atomic Rules ### {#expectations-atomic}
 
-All expectations of an [=atomic rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=]. The expectation MUST only use information available in the [input aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.
+All expectations of an [=atomic rule=] <em class="rfc2119">must</em> describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=]. The expectation <em class="rfc2119">must</em> only use information available in the [input aspects](#input-aspects), from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can't be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.
 
-<div class=example>
-  <p>**Example:** A rule to test for accessible names of HTML `input` elements might have the following expectations:</p>
-  <ol>
+<aside class=example>
+  <header>Example expectations of a rule to test for accessible names of HTML `input` elements:</header>
+  <blockquote><ol>
     <li>Each HTML `input` element has an accessible name (as described in [Accessible Name and Description: Computation and API Mappings 1.1](https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te)). [[accname-aam-1.1]]</li>
     <li>The accessible name describes the purpose of each HTML `input` element.</li>
-  </ol>
-</div>
+  </ol></blockquote>
+</aside>
 
-<div class=example>
-  <p>**Example:** A rule to test if a `role` attribute is valid:</p>
-  <ol>
-    <li>Each `role` attribute has a value that corresponds to a non-abstract [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) role.</li>
+<aside class=example>
+  <header>Example expectation of a rule to test if a `role` attribute is valid:</header>
+  <blockquote><ol>
+    <li>Each `role` attribute has a value that corresponds to a non-abstract [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) role.</li></blockquote>
   </ol>
-</div>
+</aside>
 
 <div class="note">
-  <p>**Note:** Rules can be used to do complex aggregation by describing the logic in the expectations. e.g. "The test target (the page) has a text alternative for 80% of all img elements".</p>
+  <p>**Note:** Sometimes there is the need for rules with more complex aggregation, for example that X% of all images on a web page are expected to have text alternatives. In this case, the page itself needs to become the test target. The expectation would then be "The test target (the page) has a text alternative for X% of all img elements". The logic for calculating the expectations in such rules is left to the implementations, to avoid over-complexity of this rules format.</p>
 </div>
 
 ### Expectations for Composite Rules ### {#expectations-composite}
 
-All expectations of a [=composite rule=] MUST describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the outcomes of rules in its [input rules](#input-rules). A composite rule expectation MUST NOT use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable.
+All expectations of a [=composite rule=] <em class="rfc2119">must</em> describe the logic that is used to determine a single `passed` or `failed` [=outcome=] for a [=test target=], based on the outcomes of rules in its [input rules](#input-rules). A composite rule expectation <em class="rfc2119">must not</em> use information from [input aspects](#input-aspects). The outcome for a composite rule is `inapplicable` when all input rules are inapplicable.
 
-<div class="example">
-  <p>Composite rule: video elements have an audio description or media alternative ([WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)).</p>
-  <p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
+<aside class="example">
+  <header>Example expectations for the composite rule 'video elements have an audio description or media alternative' ([WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative](https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded)):</header>
+  <blockquote><p>Each HTML `video` element meets all expectations from at least one of the following rules:</p>
   <ul>
     <li>video elements have a transcript</li>
     <li>video elements have an audio description</li>
     <li>video elements have a description track</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
 
-<div class="example">
-  <p>Composite rule: This rule checks that a mechanism is available to escape a keyboard trap. Either through a standard mechanism, or one for which instructions are available.</p>
-  <p>For each focusable element, the outcome of one of the following rules is `passed`:</p>
+<aside class="example">
+  <header>Example expectations for a composite rule that checks if a mechanism is available to escape a keyboard trap; Either through a standard mechanism, or one for which instructions are available:</header>
+  <blockquote><p>For each focusable element, the outcome of one of the following rules is `passed`:</p>
   <ul>
     <li>Keyboard trap with standard escape mechanism</li>
     <li>Keyboard trap with escape instructions</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
 
 
 Assumptions {#assumptions}
 --------------------------
 
-An ACT Rule MUST list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
+An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
 
-Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. Whatever the interpretation is, this MUST be documented in the rule.
+Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. Whatever the interpretation is, this <em class="rfc2119">must</em> be documented in the rule.
 
-While the assumptions MUST be included in the ACT Rule, it MAY be empty when there are no known assumptions, limitations or exceptions.
+While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.
 
 
 Accessibility Support {#accessibility-support}
 ----------------------------------------------
 
-Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a Web technology.
+Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a web technology.
 
-An ACT Rule MUST include known limitations on accessibility support.
+An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.
 
-<div class=example>
-  <p>**Example:** A rule that checks if `aria-errormessage` is used satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages)<p>
+<aside class=example>
+  <header>Example of a rule that checks if `aria-errormessage` is used satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages):<header>
   <blockquote><p>
-    The `aria-errormessage` property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, may serve as fallback. (January 2019)
+    The `aria-errormessage` property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019)
   </p></blockquote>
-</div>
+</aside>
 
-While an accessibility support section MUST be included in the ACT Rule, it MAY be empty when there are no known accessibility support issues.
+While an accessibility support section <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known accessibility support issues.
 
 <div class=note>
   <p>**Note:** The Website Accessibility Conformance Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.</p>
@@ -418,10 +435,10 @@ While an accessibility support section MUST be included in the ACT Rule, it MAY 
 Test Cases {#test-cases}
 ------------------------
 
-Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule MUST have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
+Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-<div class="example">
-  <p>**Example:** HTML test cases for a rule that checks if `img` elements have a text alternative.</p>
+<aside class="example">
+  <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
   <blockquote>
     <p>Example of a `passed` outcome:</p>
     ```html
@@ -436,31 +453,25 @@ Test cases are (snippets of) content that can be used to validate the implementa
 <input type="image" alt="W3C Logo" src="image/w3c.png">
     ```
   </blockquote>
-</div>
+</aside>
 
 
 Change Log {#change-log}
 ------------------------
 
-It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcomes=] of an evaluation MUST be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
-
-Each new release of an ACT Rule MUST be identifiable with either a date or a version number. Additionally, a reference to the previous version of that rule MUST be available. For extensive changes, a new rule SHOULD be created and the old rule SHOULD be deprecated.
-
-<div class=example>
-  **Example:** When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.
-</div>
+It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcomes=] of an evaluation <em class="rfc2119">must</em> be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
 
 
 Glossary {#glossary}
 --------------------
 
-ACT Rules MUST have a glossary section. The glossary MUST contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes MUST be included in the [change log](#change-log) of all rules that use that definition.
+ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> be included in the [change log](#change-log) of all rules that use that definition.
 
 
 Issues List (optional) {#issues-list}
 -------------------------------------
 
-An ACT Rule MAY include a list or a reference to a list of any known issues. The issues list would be used to record cases where an [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur. See [rule accuracy](#rule-accuracy) for more information.
+An ACT Rule <em class="rfc2119">may</em> include a list or a reference to a list of any known issues. The issues list would be used to record cases where an [=outcome=] of an ACT Rule was `failed` where it ought to have been `passed` or `inapplicable`, or vice versa. There are several reasons why this might occur. See [rule accuracy](#rule-accuracy) for more information.
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
 
@@ -468,13 +479,13 @@ The issues list serves two purposes. For users of ACT Rules, the issues list giv
 Background (optional) {#background}
 -----------------------------------
 
-An ACT Rule MAY contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading should be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
+An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The background information is optional, but whenever it is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Acknowledgements (optional) {#acknowledgements}
 -----------------------------------------------
 
-An ACT Rule MAY contain acknowledgements. This can include, but is not limited to:
+An ACT Rule <em class="rfc2119">may</em> contain acknowledgements. This can include, but is not limited to:
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
@@ -500,7 +511,7 @@ When a test result incorrectly indicates non-conformance to an accessibility req
 
 - **False negatives:** This is the percentage of [=test targets=], that were `passed` by the rule, but do not satisfy the [=accessibility requirements=].
 
-The ever present possibility of false positives and false negatives with ACT Rules mean they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
+The ever present possibility of false positives and false negatives with ACT Rules means they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
 
 
 Harmonization {#harmonization}
@@ -512,13 +523,13 @@ While the ACT Rules Format is designed to stimulate harmonization, there are no 
 
 Harmonization occurs when a group of rule implementors collectively accept the validity of an ACT Rule. For example, a community group of accessibility testing tool vendors could declare they have harmonized on a particular set of ACT Rules. Such a group can set acceptance criteria for rules, and have quality requirements that go beyond the ACT Rules Format.
 
-<div class=example>
-  <p>**Example:** The ACT EPUB group might have the following acceptance criteria:</p>
-  <ul>
+<aside class=example>
+  <header>Example of acceptance criteria for a group working on EPUB rules:</header>
+  <blockquote><ul>
     <li>An ACT EPUB Rule is harmonized when it is approved by members of 3 organizations, AND</li>
     <li>An ACT EPUB Rule is harmonized when it has 2 independent implementations</li>
-  </ul>
-</div>
+  </ul></blockquote>
+</aside>
 
 An example of such a process is the [WCAG ACT Review Process](https://w3c.github.io/wcag-act-rules/review-process.html).
 
@@ -557,14 +568,14 @@ Definitions {#definitions}
   <dt><dfn>Test Subject</dfn></dt>
   <dd>
     <p>A resource or collection of resources that can be evaluated by an ACT Rule.</p>
-    <div class=example>
-      <p>**Example:**</p>
-      <ul>
+    <aside class=example>
+      <header>Example of test subjects:</header>
+      <blockquote><ul>
         <li>An HTML page, including all embedded scripts, style and images</li>
         <li>An EPUB publication</li>
-        <li>A Vue component file</li>
-      </ul>
-    </div>
+        <li>A web component file</li>
+      </ul></blockquote>
+    </aside>
     <div class=note>
       <p>**Note:** Implementers using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
     </div>
@@ -573,14 +584,14 @@ Definitions {#definitions}
   <dt><dfn>Test Target</dfn></dt>
   <dd>
     <p>A distinct part of the [=test subject=], as defined by the [applicability](#applicability).</p>
-    <div class=example>
-      <p>**Example:**</p>
-      <ul>
+    <aside class=example>
+      <header>Example of test targets:</header>
+      <blockquote><ul>
         <li>Nodes within an HTML page</li>
         <li>A period of time within a video</li>
         <li>A range of characters within a text document</li>
-      </ul>
-    </div>
+      </ul></blockquote>
+    </aside>
     <div class=note>
       <p>**Note:** Implementers using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
     </div>
@@ -847,7 +858,7 @@ Each rule implemented in plain English form, as listed below:
 * C2: At least one atomic rule that has a requirement in WCAG 2
 * C3: At least one composite rule that has a requirement in WCAG 2
 * C4: At least one rule that is a satisfying test, and one rule that is not
-* C5: At least one rule that has a accessibility requirement that is not part of WCAG
+* C5: At least one rule that has an accessibility requirement that is not part of WCAG
 * C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
 
 Rule Input
