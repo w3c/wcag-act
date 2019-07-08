@@ -695,26 +695,29 @@ Examples in this section include:
   "@context": "context.json",
   "@type": "Assertion",
   "assertedBy": {
-    "@type": "foaf:Organization",
-    "@id": "_:myOrg"
-  }
+    "@type": "Organization",
+    "@id": "_:myOrg",
+    "title": "My Organization",
+    "description" : "Accessibility testing service",
+    "homepage" : "http://example.org/myOrg/"
+  },
   "subject": {
     "@type": ["WebSite", "TestSubject"],
     "@id": "https://example.org/"
-  }
+  },
   "test": {
     "@type": "earl:TestRequirement",
     "@id": "http://www.w3.org/WAI/WCAG2A-Conformance"
   },
   "result": {
-    "outcome": "Failed",
+    "outcome": "earl:failed",
     "source": [{
       "test": {
         "@type": "earl:TestRequirement",
         "@id": "WCAG21:non-text-content"
       },
       "result": {
-        "outcome": "Failed",
+        "outcome": "earl:failed",
         "source": [ … ]
       }
     }, {
@@ -723,7 +726,7 @@ Examples in this section include:
         "@id": "WCAG21:audio-only-and-video-only-prerecorded"
       },
       "result": {
-        "outcome": "Passed",
+        "outcome": "earl:passed",
         "source": [ … ]
       }
     }, {
@@ -732,15 +735,10 @@ Examples in this section include:
         "@id": "WCAG21:captions-prerecorded"
       },
       "result" : {
-        "outcome": "Inapplicable",
+        "outcome": "earl:passed",
         "source": [ … ]
       }
     }, … ]
-  },
-  "myOrg": {
-    "title": "My Organization",
-    "description" : "Accessibility testing service",
-    "homepage" : "http://example.org/myOrg/"
   }
 }
 ```
@@ -754,7 +752,7 @@ Examples in this section include:
   "cnt": "http://www.w3.org/2011/content#",
   "dct": "http://purl.org/dc/terms/",
   "earl": "http://www.w3.org/ns/earl#",
-  "foaf": "http://xmlns.com/foaf/spec/",
+  "foaf": "http://xmlns.com/foaf/0.1/",
   "htp": "http://www.w3.org/2011/http#",
   "ptr": "https://www.w3.org/2009/pointers#",
   "schema": "http://schema.org/",
@@ -775,37 +773,28 @@ Examples in this section include:
   "hasPart": "dct:hasPart",
   "source": "dct:source",
 
-  "Agent": "foaf:term_Agent",
-  "Person": "foaf:term_Person",
-  "Organization": "foaf:term_Organization",
-  "Group": "foaf:term_Group",
-  "Document": "foaf:term_Document",
-  "name": "foaf:term_name",
-  "firstName": "foaf:term_firstName",
-  "surname": "foaf:term_surname",
-  "mbox": "foaf:term_mbox",
-  "mbox_sha1sum": "foaf:term_mbox_sha1sum",
-  "member": "foaf:term_member",
-  "homepage": "foaf:term_homepage",
+  "Agent": "foaf:Agent",
+  "Person": "foaf:Person",
+  "Organization": "foaf:Organization",
+  "Group": "foaf:Group",
+  "Document": "foaf:Document",
+  "name": "foaf:name",
+  "firstName": "foaf:firstName",
+  "surname": "foaf:surname",
+  "mbox": "foaf:mbox",
+  "mbox_sha1sum": "foaf:mbox_sha1sum",
+  "member": "foaf:member",
+  "homepage": "foaf:homepage",
 
-  "assertedBy": { "@id": "@type" },
-  "subject": {
-    "@id": "earl:subject",
-    "@type": "schema:WebPage"
-  },
-  "test": {
-    "@id": "earl:test",
-    "@type": "earl:TestCase"
-  },
-  "result": { "@id": "@type" },
-  "mode": { "@id": "@type" },
-  "outcome": { "@id": "@type" },
+  "assertedBy": { "@type": "@id" },
+  "subject": { "@type": "@id" },
+  "test": { "@type": "@id" },
+  "mode": { "@type": "@id" },
+  "outcome": { "@type": "@id" },
   "pointer": {
     "@id": "earl:pointer",
     "@type": "ptr:CSSSelectorPointer"
-  },
-  "passed": { "@id": "@type" },
-  "failed": { "@id": "@type" }
+  }
 }
 ```
 
