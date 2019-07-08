@@ -10,7 +10,7 @@ Editor: Wilco Fiers, Deque Systems
 Editor: Maureen Kraft, IBM Corp.
 Editor: Mary Jo Mueller, IBM Corp.
 Editor: Shadi Abou-Zahra, W3C
-Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These rules can be evaluated fully-automatically, semi-automatically, and manually. This common format allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
 <style>
@@ -22,13 +22,13 @@ Markup Shorthands: markdown yes
 Introduction {#intro}
 =====================
 
-There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the web.
+There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]]. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.
 
 This format is intended to enable a consistent interpretation of how to test conformance to WCAG and other [=accessibility requirements documents=] and promote consistent results in accessibility testing. The rules format is designed to describe both manual accessibility tests, as well as automated tests as performed by accessibility testing tools.
 
 Documenting how to test [=accessibility requirements=] will result in accessibility tests that are transparent, with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
-An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule.
+An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in [common failures](https://www.w3.org/TR/WCAG21/#wcag-2-layers-of-guidance) documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.
 
 The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
 
@@ -87,6 +87,9 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
 * [Test Cases](#test-cases)
 * [Change Log](#change-log)
 * [Glossary](#glossary)
+
+An ACT Rule MAY also contain:
+
 * [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
 * [Acknowledgements](#acknowledgements) (optional)
@@ -252,7 +255,7 @@ To evaluate content using an ACT Rule, the rule requires some information from t
 
 ### Input Aspects (Atomic rules only) ### {#input-aspects}
 
-An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
+An aspect is a distinct part of the [=test subject=]. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for the [=atomic rule=]. For example, some rules need to operate directly on the [Hypertext Transfer Protocol](https://tools.ietf.org/html/rfc7230) [[http11]] messages exchanged between a server and a client, while others need to operate on the [Document Object Model](https://dom.spec.whatwg.org) [[DOM]] tree exposed by a web browser.
 
 [=Atomic rules=] <em class="rfc2119">must</em> list the aspects used as input for the [applicability](#applicability-atomic) and [expectations](#expectations-atomic) of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree. The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an [EPUB publication](http://www.idpf.org/epub3/latest/), or it can be inferred from a [JSX source file](https://facebook.github.io/jsx/). All rules that have only DOM tree as an input aspect can be applied to those technologies.
 
@@ -368,7 +371,7 @@ All expectations of an [=atomic rule=] <em class="rfc2119">must</em> describe th
 </div>
 
 <div class="note">
-  <p>**Note:** Rules can be used to do complex aggregation by describing the logic in the expectations. e.g. "The test target (the page) has a text alternative for 80% of all img elements".</p>
+  <p>**Note:** Sometimes there is the need for rules with more complex aggregation, for example that X% of all images on a web page are expected to have text alternatives. In this case, the page itself needs to become the test target. The expectation would then be "The test target (the page) has a text alternative for X% of all img elements". The logic for calculating the expectations in such rules is left to the implementations, to avoid over-complexity of this rules format.</p>
 </div>
 
 ### Expectations for Composite Rules ### {#expectations-composite}
@@ -408,12 +411,12 @@ While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule,
 Accessibility Support {#accessibility-support}
 ----------------------------------------------
 
-Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a Web technology.
+Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#accessibility-supporteddef) use of a web technology.
 
 An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.
 
 <div class=example>
-  <p>**Example:** A rule that checks if `aria-errormessage` is used satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages)<p>
+  <p>**Example:** A rule that checks if `aria-errormessage` is used to satisfy [WCAG 2.1 success criterion 4.1.3 Status messages](https://www.w3.org/TR/WCAG21/#status-messages)<p>
   <blockquote><p>
     The `aria-errormessage` property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019)
   </p></blockquote>
@@ -473,7 +476,7 @@ The issues list serves two purposes. For users of ACT Rules, the issues list giv
 Background (optional) {#background}
 -----------------------------------
 
-An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
+An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The background information is optional, but whenever it is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Acknowledgements (optional) {#acknowledgements}
@@ -505,7 +508,7 @@ When a test result incorrectly indicates non-conformance to an accessibility req
 
 - **False negatives:** This is the percentage of [=test targets=], that were `passed` by the rule, but do not satisfy the [=accessibility requirements=].
 
-The ever present possibility of false positives and false negatives with ACT Rules mean they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
+The ever present possibility of false positives and false negatives with ACT Rules means they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.
 
 
 Harmonization {#harmonization}
@@ -613,7 +616,7 @@ This section is *non-normative*.
 }
 ```
 
-**Example 2:**
+**Example 2:** Output data listing results for multiple test targets.
 
 ```javascript
 {
@@ -754,7 +757,7 @@ Each rule implemented in plain English form, as listed below:
 * C2: At least one atomic rule that has a requirement in WCAG 2
 * C3: At least one composite rule that has a requirement in WCAG 2
 * C4: At least one rule that is a satisfying test, and one rule that is not
-* C5: At least one rule that has a accessibility requirement that is not part of WCAG
+* C5: At least one rule that has an accessibility requirement that is not part of WCAG
 * C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
 
 Rule Input
