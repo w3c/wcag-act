@@ -1,5 +1,5 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing Rules Format
+Title: Accessibility Conformance Testing (ACT) Rules Format
 Shortname: ACT-Rules-Format
 URL: https://w3c.github.io/wcag-act/act-rules-format.html
 Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2019-04-05.html
@@ -340,10 +340,10 @@ Note that input rules in a composite rule <em class="rfc2119">may</em> have diff
       <li>**Input Rule 1:** All `img` element <em>with</em> an `alt` attribute</li>
       <li>**Input Rule 2:** All `img` element <em>without</em> an `alt` attribute</li>
     </ul>
-    <p>**Combined applicability:</p>
+    <p>**Combined applicability:**</p>
     <p>All `img` elements.</p>
   </blockquote>
-</div>
+</aside>
 
 
 Expectations {#expectations}
@@ -820,100 +820,12 @@ Appendix 3: Change History {#Change_History}
 ==========================
 The following updates have been made since the last public working draft:
 <ul>
-  <li>Introduction: Added an overview explanation of what is an ACT rule.</li>
-  <li>Moved the Common Aspects section into a Working Group Note.</li>
-  <li>Did a major update to the Accessibility Requirements Mapping section with examples</li>
-  <li>Changed concept/terminology from Test Definition (for atomic rules) and Aggregation definition (for composed rules) to be Applicability and Expectations as applied to both atomic and composite rules.</li>
-  <li>Added the following parts to the rule structure: Rule type, glossary, background and acknowledgements.  Some of these are optional, which are clearly marked.</li>
-  <li>Added several examples to illustrate the various parts of a rule.</li>
-  <li>Added a section of definitions of terms used in the document.</li>
-  <li>Added an acknowledgements section to acknowledge contributors to the ACT Rules Format.</li>
+  <li>Various editorial changes</li>
+  <li>Changed the formating of RFC 2119 terms</li>
+  <li>Remove confusing content from intro</li>
+  <li>Clarify in rule structure certain parts are optional</li>
+  <li>Move version / date identification into Section 4</li>
+  <li>Clarify the purpose of complex aggregation</li>
+  <li>Updated EARL examples in Apendix 1</li>
 </ul>
-<p>All changes from the previous published version can be viewed using the [July 2018 to February 2019 diff link](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2Fact-rules-format%2F&doc2=https%3A%2F%2Fpr-preview.s3.amazonaws.com%2Fw3c%2Fwcag-act%2Fpull%2F328.html)</p>
-
-
-Appendix 4: Exit Criteria {#Exit_Criteria}
-==========================
-
-General
--------
-
-* C1: All rules must conform to the ACT Rules Format
-
-Accessibility requirements mapping
-----------------------------------
-
-Each rule implemented in plain English form, as listed below:
-* C2: At least one atomic rule that has a requirement in WCAG 2
-* C3: At least one composite rule that has a requirement in WCAG 2
-* C4: At least one rule that is a satisfying test, and one rule that is not
-* C5: At least one rule that has an accessibility requirement that is not part of WCAG
-* C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2
-
-Rule Input
-----------
-
-* C7: At least two different input aspects are used
-* C8: At least two different web content technologies
-
-Applicability
--------------
-
-* C9: At least one atomic rule has an applicability different from the composite rule it is used in
-
-Expectations
-------------
-
-* C10: At least one rule with one expectation
-* C11: At least one rule with more than one expectation
-
-Assumptions
------------
-
-* C12: At least one rule without assumptions
-* C13: At least one rule where exceptions are documented in an assumption
-* C14: At least one rule where interpretation is documented in an assumption
-
-Accessibility Support
----------------------
-
-* C15: At least one rule where no accessibility support information was necessary
-* C16: At least one rule where accessibility support information was included
-
-Changelog
----------
-
-* C17: At least two rules that include a changelog
-
-Glossary
---------
-
-* C18: At least two rules with more than one definition
-
-Issues list
------------
-
-* C19: At least two rules that include an issues list
-
-Test cases
-----------
-
-* C20: Every applicability must have at least one inapplicable test case
-* C21: Every expectation must have at least one pass and one fail test case
-
-Background
-----------
-
-* C22: At least two rules with a background section
-
-Acknowledgements
-----------------
-
-* C23: At least two rules with an acknowledgements section
-
-Implementations and data format
--------------------------------
-
-* C24: At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)
-* C25: At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)
-* C26: At least two independent implementations of the same ACT rule in manual testing methodologies
+<p>All changes from the previous published version can be viewed using the [April 2019 to July 2019 diff link](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fw3.org%2Ftr%2Fact-rules-format%2F&doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html)</p>
