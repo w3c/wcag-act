@@ -1,11 +1,11 @@
 <!doctype html><html lang="en">
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-	<title>Accessibility Conformance Testing Rules Format 1.0</title>
+	<title>Accessibility Conformance Testing (ACT) Rules Format 1.0</title>
 	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 	<meta content="w3c/ED" name="w3c-status">
 	<link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet" type="text/css">
-	<meta content="Bikeshed version 30aa90d768746168deba12493f1f3622df2814b6" name="generator">
+	<meta content="Bikeshed version a3b64e58e069c2e8a9ffcadffb76601231663a47" name="generator">
 	<link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
 <style>
 	.rfc2119 {
@@ -254,13 +254,12 @@ c-[vg] { color: #0077aa } /* Name.Variable.Global */
 c-[vi] { color: #0077aa } /* Name.Variable.Instance */
 c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 </style>
-</head>
 <body class="h-entry">
 	<div class="head">
 	<header>
 		<p data-fill-with="logo"><a href="https://www.w3.org/"><img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"></a> </p>
-		<h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules Format 1.0</h1>
-		<h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-08">8 July 2019</time></span></h2>
+		<h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.0</h1>
+		<h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-11">11 July 2019</time></span></h2>
 	</header>
 	<div data-fill-with="spec-metadata">
 		<dl>
@@ -352,24 +351,6 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 			<li><a href="#enabling-funders"><span class="secno"></span> <span class="content">Enabling funders</span></a>
 		</ol>
 		<li><a href="#Change_History"><span class="secno"></span> <span class="content">Appendix 3: Change History</span></a>
-		<li>
-		<a href="#Exit_Criteria"><span class="secno"></span> <span class="content">Appendix 4: Exit Criteria</span></a>
-		<ol class="toc">
-			<li><a href="#general"><span class="secno"></span> <span class="content">General</span></a>
-			<li><a href="#accessibility-requirements-mapping①"><span class="secno"></span> <span class="content">Accessibility requirements mapping</span></a>
-			<li><a href="#rule-input"><span class="secno"></span> <span class="content">Rule Input</span></a>
-			<li><a href="#applicability①"><span class="secno"></span> <span class="content">Applicability</span></a>
-			<li><a href="#expectations①"><span class="secno"></span> <span class="content">Expectations</span></a>
-			<li><a href="#assumptions①"><span class="secno"></span> <span class="content">Assumptions</span></a>
-			<li><a href="#accessibility-support①"><span class="secno"></span> <span class="content">Accessibility Support</span></a>
-			<li><a href="#changelog"><span class="secno"></span> <span class="content">Changelog</span></a>
-			<li><a href="#glossary①"><span class="secno"></span> <span class="content">Glossary</span></a>
-			<li><a href="#issues-list①"><span class="secno"></span> <span class="content">Issues list</span></a>
-			<li><a href="#test-cases①"><span class="secno"></span> <span class="content">Test cases</span></a>
-			<li><a href="#background①"><span class="secno"></span> <span class="content">Background</span></a>
-			<li><a href="#acknowledgements①"><span class="secno"></span> <span class="content">Acknowledgements</span></a>
-			<li><a href="#implementations-and-data-format"><span class="secno"></span> <span class="content">Implementations and data format</span></a>
-		</ol>
 		<li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
 		<li>
 		<a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -666,8 +647,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<h4 class="heading settled" data-level="4.6.2" id="applicability-composite"><span class="secno">4.6.2. </span><span class="content">Applicability for Composite Rules</span><a class="self-link" href="#applicability-composite"></a></h4>
 	<p>The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the <a href="#input-rules">input rules</a>. Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the <a href="#input-rules">input rules</a>.</p>
 	<p>Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.</p>
-	<aside class="example" id="example-c80c2834">
-		<a class="self-link" href="#example-c80c2834"></a> 
+	<aside class="example" id="example-5ca938b6">
+		<a class="self-link" href="#example-5ca938b6"></a> 
 		<header>Example of the union of applicability of input rules in a composite rule:</header>
 		<blockquote>
 		<p><strong>Input applicability:</strong></p>
@@ -675,233 +656,234 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 			<li><strong>Input Rule 1:</strong> All <code>img</code> element <em>with</em> an <code>alt</code> attribute
 			<li><strong>Input Rule 2:</strong> All <code>img</code> element <em>without</em> an <code>alt</code> attribute
 		</ul>
-		<p>**Combined applicability:</p>
+		<p><strong>Combined applicability:</strong></p>
 		<p>All <code>img</code> elements.</p>
 		</blockquote>
-		<h3 class="heading settled" data-level="4.7" id="expectations"><span class="secno">4.7. </span><span class="content">Expectations</span><a class="self-link" href="#expectations"></a></h3>
-		<p>An ACT Rule <em class="rfc2119">must</em> contain one or more expectations. The expectations describe what the requirements are for the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target③">test targets</a> derived from the <a href="#applicability">applicability</a>. An expectation is an assertion about a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target④">test target</a>. When a test target meets all expectations, the test target <code>passed</code> the rule. If the test target does not meet all expectations, the test target <code>failed</code> the rule. If there are no test targets, the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑧">outcome</a> for the rule is <code>inapplicable</code>.</p>
-		<p>Each expectation <em class="rfc2119">must</em> be distinct, unambiguous, and be written in plain language.</p>
-		<h4 class="heading settled" data-level="4.7.1" id="expectations-atomic"><span class="secno">4.7.1. </span><span class="content">Expectations for Atomic Rules</span><a class="self-link" href="#expectations-atomic"></a></h4>
-		<p>All expectations of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑥">atomic rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑨">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑤">test target</a>. The expectation <em class="rfc2119">must</em> only use information available in the <a href="#input-aspects">input aspects</a>, from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can’t be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.</p>
-		<aside class="example" id="example-6e5a951f">
+	</aside>
+	<h3 class="heading settled" data-level="4.7" id="expectations"><span class="secno">4.7. </span><span class="content">Expectations</span><a class="self-link" href="#expectations"></a></h3>
+	<p>An ACT Rule <em class="rfc2119">must</em> contain one or more expectations. The expectations describe what the requirements are for the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target③">test targets</a> derived from the <a href="#applicability">applicability</a>. An expectation is an assertion about a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target④">test target</a>. When a test target meets all expectations, the test target <code>passed</code> the rule. If the test target does not meet all expectations, the test target <code>failed</code> the rule. If there are no test targets, the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑧">outcome</a> for the rule is <code>inapplicable</code>.</p>
+	<p>Each expectation <em class="rfc2119">must</em> be distinct, unambiguous, and be written in plain language.</p>
+	<h4 class="heading settled" data-level="4.7.1" id="expectations-atomic"><span class="secno">4.7.1. </span><span class="content">Expectations for Atomic Rules</span><a class="self-link" href="#expectations-atomic"></a></h4>
+	<p>All expectations of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑥">atomic rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑨">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑤">test target</a>. The expectation <em class="rfc2119">must</em> only use information available in the <a href="#input-aspects">input aspects</a>, from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can’t be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.</p>
+	<aside class="example" id="example-6e5a951f">
 		<a class="self-link" href="#example-6e5a951f"></a> 
 		<header>Example expectations of a rule to test for accessible names of HTML <code>input</code> elements:</header>
 		<blockquote>
-			<ol>
+		<ol>
 			<li>Each HTML <code>input</code> element has an accessible name (as described in <a href="https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>). <a data-link-type="biblio" href="#biblio-accname-aam-11">[accname-aam-1.1]</a>
 			<li>The accessible name describes the purpose of each HTML <code>input</code> element.
-			</ol>
+		</ol>
 		</blockquote>
-		</aside>
-		<aside class="example" id="example-3722e455">
+	</aside>
+	<aside class="example" id="example-3722e455">
 		<a class="self-link" href="#example-3722e455"></a> 
 		<header>Example expectation of a rule to test if a <code>role</code> attribute is valid:</header>
 		<blockquote>
-			<ol>
+		<ol>
 			<li>Each <code>role</code> attribute has a value that corresponds to a non-abstract <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a> role.
-			</ol>
+		</ol>
 		</blockquote>
-		</aside>
-		<div class="note" role="note">
+	</aside>
+	<div class="note" role="note">
 		<p><strong>Note:</strong> Sometimes there is the need for rules with more complex aggregation, for example that X% of all images on a web page are expected to have text alternatives. In this case, the page itself needs to become the test target. The expectation would then be "The test target (the page) has a text alternative for X% of all img elements". The logic for calculating the expectations in such rules is left to the implementations, to avoid over-complexity of this rules format.</p>
-		</div>
-		<h4 class="heading settled" data-level="4.7.2" id="expectations-composite"><span class="secno">4.7.2. </span><span class="content">Expectations for Composite Rules</span><a class="self-link" href="#expectations-composite"></a></h4>
-		<p>All expectations of a <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules②">composite rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⓪">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑥">test target</a>, based on the outcomes of rules in its <a href="#input-rules">input rules</a>. A composite rule expectation <em class="rfc2119">must not</em> use information from <a href="#input-aspects">input aspects</a>. The outcome for a composite rule is <code>inapplicable</code> when all input rules are inapplicable.</p>
-		<aside class="example" id="example-b02f1892">
+	</div>
+	<h4 class="heading settled" data-level="4.7.2" id="expectations-composite"><span class="secno">4.7.2. </span><span class="content">Expectations for Composite Rules</span><a class="self-link" href="#expectations-composite"></a></h4>
+	<p>All expectations of a <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules②">composite rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⓪">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑥">test target</a>, based on the outcomes of rules in its <a href="#input-rules">input rules</a>. A composite rule expectation <em class="rfc2119">must not</em> use information from <a href="#input-aspects">input aspects</a>. The outcome for a composite rule is <code>inapplicable</code> when all input rules are inapplicable.</p>
+	<aside class="example" id="example-b02f1892">
 		<a class="self-link" href="#example-b02f1892"></a> 
 		<header>Example expectations for the composite rule 'video elements have an audio description or media alternative' (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded">WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative</a>):</header>
 		<blockquote>
-			<p>Each HTML <code>video</code> element meets all expectations from at least one of the following rules:</p>
-			<ul>
+		<p>Each HTML <code>video</code> element meets all expectations from at least one of the following rules:</p>
+		<ul>
 			<li>video elements have a transcript
 			<li>video elements have an audio description
 			<li>video elements have a description track
-			</ul>
+		</ul>
 		</blockquote>
-		</aside>
-		<aside class="example" id="example-b218f8a4">
+	</aside>
+	<aside class="example" id="example-b218f8a4">
 		<a class="self-link" href="#example-b218f8a4"></a> 
 		<header>Example expectations for a composite rule that checks if a mechanism is available to escape a keyboard trap; Either through a standard mechanism, or one for which instructions are available:</header>
 		<blockquote>
-			<p>For each focusable element, the outcome of one of the following rules is <code>passed</code>:</p>
-			<ul>
+		<p>For each focusable element, the outcome of one of the following rules is <code>passed</code>:</p>
+		<ul>
 			<li>Keyboard trap with standard escape mechanism
 			<li>Keyboard trap with escape instructions
-			</ul>
+		</ul>
 		</blockquote>
-		</aside>
-		<h3 class="heading settled" data-level="4.8" id="assumptions"><span class="secno">4.8. </span><span class="content">Assumptions</span><a class="self-link" href="#assumptions"></a></h3>
-		<p>An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast">WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.</p>
-		<p>Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. Whatever the interpretation is, this <em class="rfc2119">must</em> be documented in the rule.</p>
-		<p>While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.</p>
-		<h3 class="heading settled" data-level="4.9" id="accessibility-support"><span class="secno">4.9. </span><span class="content">Accessibility Support</span><a class="self-link" href="#accessibility-support"></a></h3>
-		<p>Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a> feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for <a href="https://www.w3.org/TR/WCAG21/#accessibility-supporteddef">accessibility supported</a> use of a web technology.</p>
-		<p>An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.</p>
-		<aside class="example" id="example-5801fbca">
+	</aside>
+	<h3 class="heading settled" data-level="4.8" id="assumptions"><span class="secno">4.8. </span><span class="content">Assumptions</span><a class="self-link" href="#assumptions"></a></h3>
+	<p>An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG21/quickref/#visual-audio-contrast-contrast">WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.</p>
+	<p>Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a>. Whatever the interpretation is, this <em class="rfc2119">must</em> be documented in the rule.</p>
+	<p>While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.</p>
+	<h3 class="heading settled" data-level="4.9" id="accessibility-support"><span class="secno">4.9. </span><span class="content">Accessibility Support</span><a class="self-link" href="#accessibility-support"></a></h3>
+	<p>Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a> feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for <a href="https://www.w3.org/TR/WCAG21/#accessibility-supporteddef">accessibility supported</a> use of a web technology.</p>
+	<p>An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.</p>
+	<aside class="example" id="example-5801fbca">
 		<a class="self-link" href="#example-5801fbca"></a> 
 		<header>
-			Example of a rule that checks if <code>aria-errormessage</code> is used satisfy <a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 2.1 success criterion 4.1.3 Status messages</a>:
-			<header>
+		Example of a rule that checks if <code>aria-errormessage</code> is used satisfy <a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 2.1 success criterion 4.1.3 Status messages</a>:
+		<header>
 			<blockquote>
-				<p> The <code>aria-errormessage</code> property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019) </p>
+			<p> The <code>aria-errormessage</code> property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019) </p>
 			</blockquote>
-			</header>
 		</header>
-		</aside>
-		<p>While an accessibility support section <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known accessibility support issues.</p>
-		<div class="note" role="note">
+		</header>
+	</aside>
+	<p>While an accessibility support section <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known accessibility support issues.</p>
+	<div class="note" role="note">
 		<p><strong>Note:</strong> The Website Accessibility Conformance Evaluation Methodology (WCAG-EM) provides guidance on defining an <a href="https://www.w3.org/TR/WCAG-EM/#step1c">accessibility support baseline</a> for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.</p>
-		</div>
-		<h3 class="heading settled" data-level="4.10" id="test-cases"><span class="secno">4.10. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
-		<p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
-		<aside class="example" id="example-09b9695b">
+	</div>
+	<h3 class="heading settled" data-level="4.10" id="test-cases"><span class="secno">4.10. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
+	<p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
+	<aside class="example" id="example-09b9695b">
 		<a class="self-link" href="#example-09b9695b"></a> 
 		<header>Example of HTML test cases for a rule that checks if <code>img</code> elements have a text alternative:</header>
 		<blockquote>
-			<p>Example of a <code>passed</code> outcome:</p>
+		<p>Example of a <code>passed</code> outcome:</p>
 <pre class="language-html highlight"><c- p>&lt;</c-><c- f>img</c-> <c- e>alt</c-><c- o>=</c-><c- s>"W3C Logo"</c-> <c- e>src</c-><c- o>=</c-><c- s>"image/w3c.png"</c-><c- p>></c->
 </pre>
-			<p>Example of a <code>failed</code> outcome:</p>
+		<p>Example of a <code>failed</code> outcome:</p>
 <pre class="language-html highlight"><c- p>&lt;</c-><c- f>img</c-> <c- e>src</c-><c- o>=</c-><c- s>"image/w3c.png"</c-><c- p>></c->
 </pre>
-			<p>Example of an <code>inapplicable</code> outcome:</p>
+		<p>Example of an <code>inapplicable</code> outcome:</p>
 <pre class="language-html highlight"><c- p>&lt;</c-><c- f>input</c-> <c- e>type</c-><c- o>=</c-><c- s>"image"</c-> <c- e>alt</c-><c- o>=</c-><c- s>"W3C Logo"</c-> <c- e>src</c-><c- o>=</c-><c- s>"image/w3c.png"</c-><c- p>></c->
 </pre>
 		</blockquote>
-		</aside>
-		<h3 class="heading settled" data-level="4.11" id="change-log"><span class="secno">4.11. </span><span class="content">Change Log</span><a class="self-link" href="#change-log"></a></h3>
-		<p>It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①②">outcomes</a> of an evaluation <em class="rfc2119">must</em> be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.</p>
-		<h3 class="heading settled" data-level="4.12" id="glossary"><span class="secno">4.12. </span><span class="content">Glossary</span><a class="self-link" href="#glossary"></a></h3>
-		<p>ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①③">outcome</a> definition, as well as any definitions used in <a href="#applicability">applicability</a> and <a href="#expectations">expectations</a> sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> be included in the <a href="#change-log">change log</a> of all rules that use that definition.</p>
-		<h3 class="heading settled" data-level="4.13" id="issues-list"><span class="secno">4.13. </span><span class="content">Issues List (optional)</span><a class="self-link" href="#issues-list"></a></h3>
-		<p>An ACT Rule <em class="rfc2119">may</em> include a list or a reference to a list of any known issues. The issues list would be used to record cases where an <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①④">outcome</a> of an ACT Rule was <code>failed</code> where it ought to have been <code>passed</code> or <code>inapplicable</code>, or vice versa. There are several reasons why this might occur. See <a href="#rule-accuracy">rule accuracy</a> for more information.</p>
-		<p>The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.</p>
-		<h3 class="heading settled" data-level="4.14" id="background"><span class="secno">4.14. </span><span class="content">Background (optional)</span><a class="self-link" href="#background"></a></h3>
-		<p>An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The background information is optional, but whenever it is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG21/Understanding/">WCAG 2.1 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG21/Techniques/">WCAG 2.1 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> specifications.</p>
-		<h3 class="heading settled" data-level="4.15" id="acknowledgements"><span class="secno">4.15. </span><span class="content">Acknowledgements (optional)</span><a class="self-link" href="#acknowledgements"></a></h3>
-		<p>An ACT Rule <em class="rfc2119">may</em> contain acknowledgements. This can include, but is not limited to:</p>
-		<ul>
+	</aside>
+	<h3 class="heading settled" data-level="4.11" id="change-log"><span class="secno">4.11. </span><span class="content">Change Log</span><a class="self-link" href="#change-log"></a></h3>
+	<p>It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①②">outcomes</a> of an evaluation <em class="rfc2119">must</em> be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.</p>
+	<h3 class="heading settled" data-level="4.12" id="glossary"><span class="secno">4.12. </span><span class="content">Glossary</span><a class="self-link" href="#glossary"></a></h3>
+	<p>ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①③">outcome</a> definition, as well as any definitions used in <a href="#applicability">applicability</a> and <a href="#expectations">expectations</a> sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> be included in the <a href="#change-log">change log</a> of all rules that use that definition.</p>
+	<h3 class="heading settled" data-level="4.13" id="issues-list"><span class="secno">4.13. </span><span class="content">Issues List (optional)</span><a class="self-link" href="#issues-list"></a></h3>
+	<p>An ACT Rule <em class="rfc2119">may</em> include a list or a reference to a list of any known issues. The issues list would be used to record cases where an <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①④">outcome</a> of an ACT Rule was <code>failed</code> where it ought to have been <code>passed</code> or <code>inapplicable</code>, or vice versa. There are several reasons why this might occur. See <a href="#rule-accuracy">rule accuracy</a> for more information.</p>
+	<p>The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.</p>
+	<h3 class="heading settled" data-level="4.14" id="background"><span class="secno">4.14. </span><span class="content">Background (optional)</span><a class="self-link" href="#background"></a></h3>
+	<p>An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The background information is optional, but whenever it is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag">[WCAG]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG21/Understanding/">WCAG 2.1 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG21/Techniques/">WCAG 2.1 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> specifications.</p>
+	<h3 class="heading settled" data-level="4.15" id="acknowledgements"><span class="secno">4.15. </span><span class="content">Acknowledgements (optional)</span><a class="self-link" href="#acknowledgements"></a></h3>
+	<p>An ACT Rule <em class="rfc2119">may</em> contain acknowledgements. This can include, but is not limited to:</p>
+	<ul>
 		<li data-md>
-			<p>List of rule authors</p>
+		<p>List of rule authors</p>
 		<li data-md>
-			<p>List of rule reviewers/contributors</p>
+		<p>List of rule reviewers/contributors</p>
 		<li data-md>
-			<p>Funding or other support</p>
-		</ul>
-		<h2 class="heading settled" data-level="5" id="rule-accuracy"><span class="secno">5. </span><span class="content">Rule Accuracy</span><a class="self-link" href="#rule-accuracy"></a></h2>
-		<p>This section is <em>non-normative</em>.</p>
-		<p>While <a href="#test-cases">test cases</a> can be used to determine if an ACT Rule was correctly implemented, they do not guarantee that implementations will never produce incorrect results. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked. Technologies are always evolving, and content authors are constantly coming up with new and unexpected ways to use them. Some examples of causes for inaccuracy are:</p>
-		<ul>
+		<p>Funding or other support</p>
+	</ul>
+	<h2 class="heading settled" data-level="5" id="rule-accuracy"><span class="secno">5. </span><span class="content">Rule Accuracy</span><a class="self-link" href="#rule-accuracy"></a></h2>
+	<p>This section is <em>non-normative</em>.</p>
+	<p>While <a href="#test-cases">test cases</a> can be used to determine if an ACT Rule was correctly implemented, they do not guarantee that implementations will never produce incorrect results. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked. Technologies are always evolving, and content authors are constantly coming up with new and unexpected ways to use them. Some examples of causes for inaccuracy are:</p>
+	<ul>
 		<li data-md>
-			<p><a href="#assumptions">Assumptions</a> were made about the test subject that turned out to be untrue</p>
+		<p><a href="#assumptions">Assumptions</a> were made about the test subject that turned out to be untrue</p>
 		<li data-md>
-			<p>Technologies were used in an unusual and difficult to predict manner</p>
+		<p>Technologies were used in an unusual and difficult to predict manner</p>
 		<li data-md>
-			<p>Technologies have changes, or aspects of the technologies were overlooked</p>
+		<p>Technologies have changes, or aspects of the technologies were overlooked</p>
 		<li data-md>
-			<p>The accessibility requirement was not correctly interpreted</p>
-		</ul>
-		<p>There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the <strong>implementation</strong> can be addressed with test cases, but inaccuracies in the <strong>ACT Rule itself</strong> cannot. After all, rule inaccuracies come from the rule author being unaware of a particular edge case.</p>
-		<p>When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from an accessibility audit:</p>
-		<ul>
+		<p>The accessibility requirement was not correctly interpreted</p>
+	</ul>
+	<p>There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the <strong>implementation</strong> can be addressed with test cases, but inaccuracies in the <strong>ACT Rule itself</strong> cannot. After all, rule inaccuracies come from the rule author being unaware of a particular edge case.</p>
+	<p>When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from an accessibility audit:</p>
+	<ul>
 		<li data-md>
-			<p><strong>False positives:</strong> This is the percentage of <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑦">test targets</a>, that were <code>failed</code> by the rule, but satisfy the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑧">accessibility requirements</a>.</p>
+		<p><strong>False positives:</strong> This is the percentage of <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑦">test targets</a>, that were <code>failed</code> by the rule, but satisfy the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑧">accessibility requirements</a>.</p>
 		<li data-md>
-			<p><strong>False negatives:</strong> This is the percentage of <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑧">test targets</a>, that were <code>passed</code> by the rule, but do not satisfy the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑨">accessibility requirements</a>.</p>
-		</ul>
-		<p>The ever present possibility of false positives and false negatives with ACT Rules means they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.</p>
-		<h2 class="heading settled" data-level="6" id="harmonization"><span class="secno">6. </span><span class="content">Harmonization</span><a class="self-link" href="#harmonization"></a></h2>
-		<p>This section is <em>non-normative</em>.</p>
-		<p>While the ACT Rules Format is designed to stimulate harmonization, there are no direct requirement in the ACT Rules Format that prevent a rule author from writing rules inconsistent with already established ACT Rules. Neither are there requirements for ACT Rules to have a certain number of implementations, or to have a certain level of accuracy. This allows quality requirements to be different for different rulesets, and allows them to develop over time.</p>
-		<p>Harmonization occurs when a group of rule implementors collectively accept the validity of an ACT Rule. For example, a community group of accessibility testing tool vendors could declare they have harmonized on a particular set of ACT Rules. Such a group can set acceptance criteria for rules, and have quality requirements that go beyond the ACT Rules Format.</p>
-		<aside class="example" id="example-65a5c06a">
+		<p><strong>False negatives:</strong> This is the percentage of <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑧">test targets</a>, that were <code>passed</code> by the rule, but do not satisfy the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑨">accessibility requirements</a>.</p>
+	</ul>
+	<p>The ever present possibility of false positives and false negatives with ACT Rules means they will likely require ongoing maintenance. Designing a process for maintaining ACT Rules is outside the scope of the ACT Rules Format, which is limited to the rules themselves. Nevertheless, it is suggested that rule authors work out a process for maintaining their rules.</p>
+	<h2 class="heading settled" data-level="6" id="harmonization"><span class="secno">6. </span><span class="content">Harmonization</span><a class="self-link" href="#harmonization"></a></h2>
+	<p>This section is <em>non-normative</em>.</p>
+	<p>While the ACT Rules Format is designed to stimulate harmonization, there are no direct requirement in the ACT Rules Format that prevent a rule author from writing rules inconsistent with already established ACT Rules. Neither are there requirements for ACT Rules to have a certain number of implementations, or to have a certain level of accuracy. This allows quality requirements to be different for different rulesets, and allows them to develop over time.</p>
+	<p>Harmonization occurs when a group of rule implementors collectively accept the validity of an ACT Rule. For example, a community group of accessibility testing tool vendors could declare they have harmonized on a particular set of ACT Rules. Such a group can set acceptance criteria for rules, and have quality requirements that go beyond the ACT Rules Format.</p>
+	<aside class="example" id="example-65a5c06a">
 		<a class="self-link" href="#example-65a5c06a"></a> 
 		<header>Example of acceptance criteria for a group working on EPUB rules:</header>
 		<blockquote>
-			<ul>
+		<ul>
 			<li>An ACT EPUB Rule is harmonized when it is approved by members of 3 organizations, AND
 			<li>An ACT EPUB Rule is harmonized when it has 2 independent implementations
-			</ul>
+		</ul>
 		</blockquote>
-		</aside>
-		<p>An example of such a process is the <a href="https://w3c.github.io/wcag-act-rules/review-process.html">WCAG ACT Review Process</a>.</p>
-		<h2 class="heading settled" data-level="7" id="definitions"><span class="secno">7. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
-		<dl>
+	</aside>
+	<p>An example of such a process is the <a href="https://w3c.github.io/wcag-act-rules/review-process.html">WCAG ACT Review Process</a>.</p>
+	<h2 class="heading settled" data-level="7" id="definitions"><span class="secno">7. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
+	<dl>
 		<dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accessibility-requirement">Accessibility requirement</dfn>
 		<dt>
 		<dd>
-			<p>A requirement is a condition that has to be satisfied in order to conform to a standard, or to comply with a contract, policy or regulation. An accessibility requirement is a requirement aimed at improving access for people with disabilities to an ICT product.</p>
-			<p>A common example of accessibility requirements are the WCAG success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
+		<p>A requirement is a condition that has to be satisfied in order to conform to a standard, or to comply with a contract, policy or regulation. An accessibility requirement is a requirement aimed at improving access for people with disabilities to an ICT product.</p>
+		<p>A common example of accessibility requirements are the WCAG success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
 		<dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accessibility-requirements-document">Accessibility requirements document</dfn>
 		<dt>
 		<dd>
-			<p>A document, such as a standard, contract, policy or regulation, that includes <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①⓪">accessibility requirements</a>. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
+		<p>A document, such as a standard, contract, policy or regulation, that includes <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①⓪">accessibility requirements</a>. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
 		<dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="outcome">Outcome</dfn>
 		<dd>
-			<p>A conclusion that comes from evaluating an ACT Rule on a <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑦">test subject</a> or one of its constituent <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑨">test target</a>. An outcome can be one of the three following types:</p>
-			<ul>
+		<p>A conclusion that comes from evaluating an ACT Rule on a <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑦">test subject</a> or one of its constituent <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑨">test target</a>. An outcome can be one of the three following types:</p>
+		<ul>
 			<li><strong>Inapplicable:</strong> No part of the test subject matches the applicability
 			<li><strong>Passed:</strong> A <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①⓪">test target</a> meets all expectations
 			<li><strong>Failed:</strong> A <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①①">test target</a> does not meet all expectations
-			</ul>
-			<div class="note" role="note">
+		</ul>
+		<div class="note" role="note">
 			<p><strong>Note:</strong> A rule has one <code>passed</code> or <code>failed</code> outcome for every <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①②">test target</a>. When there are no test targets the rule has one <code>inapplicable</code> outcome. This means that each <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑧">test subject</a> will have one or more outcomes.</p>
-			</div>
-			<div class="note" role="note">
+		</div>
+		<div class="note" role="note">
 			<p><strong>Note:</strong> Implementers using the <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> can express the outcome with the <a href="https://www.w3.org/TR/EARL10-Schema/#outcome">outcome property</a>. In addition to <code>passed</code>, <code>failed</code> and <code>inapplicable</code>, EARL 1.0 also defined an <code>incomplete</code> outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the <code>incomplete</code> outcome. </p>
-			</div>
+		</div>
 		<dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="test-subject">Test Subject</dfn>
 		<dd>
-			<p>A resource or collection of resources that can be evaluated by an ACT Rule.</p>
-			<aside class="example" id="example-42b1dee1">
+		<p>A resource or collection of resources that can be evaluated by an ACT Rule.</p>
+		<aside class="example" id="example-42b1dee1">
 			<a class="self-link" href="#example-42b1dee1"></a> 
 			<header>Example of test subjects:</header>
 			<blockquote>
-				<ul>
+			<ul>
 				<li>An HTML page, including all embedded scripts, style and images
 				<li>An EPUB publication
 				<li>A web component file
-				</ul>
+			</ul>
 			</blockquote>
-			</aside>
-			<div class="note" role="note">
+		</aside>
+		<div class="note" role="note">
 			<p><strong>Note:</strong> Implementers using the <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> can express the test subject with the <a href="https://www.w3.org/TR/EARL10-Schema/#subject">subject property</a></p>
-			</div>
+		</div>
 		<dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="test-target">Test Target</dfn>
 		<dd>
-			<p>A distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑨">test subject</a>, as defined by the <a href="#applicability">applicability</a>.</p>
-			<aside class="example" id="example-cd7029f9">
+		<p>A distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑨">test subject</a>, as defined by the <a href="#applicability">applicability</a>.</p>
+		<aside class="example" id="example-cd7029f9">
 			<a class="self-link" href="#example-cd7029f9"></a> 
 			<header>Example of test targets:</header>
 			<blockquote>
-				<ul>
+			<ul>
 				<li>Nodes within an HTML page
 				<li>A period of time within a video
 				<li>A range of characters within a text document
-				</ul>
+			</ul>
 			</blockquote>
-			</aside>
-			<div class="note" role="note">
+		</aside>
+		<div class="note" role="note">
 			<p><strong>Note:</strong> Implementers using the <a data-link-type="biblio" href="#biblio-earl10-schema">[EARL10-Schema]</a> can express the test target with the <a href="https://www.w3.org/TR/EARL10-Schema/#pointer">pointer property</a></p>
-			</div>
-		</dl>
-		<h2 class="heading settled" id="appendix-data-example"><span class="content">Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</span><a class="self-link" href="#appendix-data-example"></a></h2>
-		<p>This section is <em>non-normative</em>.</p>
-		<p>This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See <a href="https://www.w3.org/WAI/standards-guidelines/earl/">Evaluation and Report Language</a> and <a href="https://www.w3.org/TR/json-ld/">A JSON-based Serialization for Linked Data (JSON-LD)</a>). More examples and background is proivided on the <a href="https://github.com/w3c/earl">JSON-LD serialization of EARL</a> GitHub repository.</p>
-		<p>Examples in this section include:</p>
-		<ul>
+		</div>
+	</dl>
+	<h2 class="heading settled" id="appendix-data-example"><span class="content">Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</span><a class="self-link" href="#appendix-data-example"></a></h2>
+	<p>This section is <em>non-normative</em>.</p>
+	<p>This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See <a href="https://www.w3.org/WAI/standards-guidelines/earl/">Evaluation and Report Language</a> and <a href="https://www.w3.org/TR/json-ld/">A JSON-based Serialization for Linked Data (JSON-LD)</a>). More examples and background is proivided on the <a href="https://github.com/w3c/earl">JSON-LD serialization of EARL</a> GitHub repository.</p>
+	<p>Examples in this section include:</p>
+	<ul>
 		<li data-md>
-			<p>Example 1: Minimal outcome from one <a class="property" data-link-type="propdesc">Assertion</a></p>
+		<p>Example 1: Minimal outcome from one <a class="property" data-link-type="propdesc">Assertion</a></p>
 		<li data-md>
-			<p>Example 2: Results from more than one <a class="property" data-link-type="propdesc">Assertion</a></p>
+		<p>Example 2: Results from more than one <a class="property" data-link-type="propdesc">Assertion</a></p>
 		<li data-md>
-			<p>Example 3: Aggregating based on <a class="property" data-link-type="propdesc">Requirement</a></p>
+		<p>Example 3: Aggregating based on <a class="property" data-link-type="propdesc">Requirement</a></p>
 		<li data-md>
-			<p>Example 4: Aggregating based on 'Test Subject'</p>
+		<p>Example 4: Aggregating based on 'Test Subject'</p>
 		<li data-md>
-			<p>Example 5: Assumed <a class="property" data-link-type="propdesc">Context</a> for this section</p>
-		</ul>
-		<p><strong>Example 1:</strong> Minimal outcome for one <a class="property" data-link-type="propdesc">Assertion</a></p>
+		<p>Example 5: Assumed <a class="property" data-link-type="propdesc">Context</a> for this section</p>
+	</ul>
+	<p><strong>Example 1:</strong> Minimal outcome for one <a class="property" data-link-type="propdesc">Assertion</a></p>
 <pre class="language-javascript highlight"><c- p>{</c->
 	<c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
 	<c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -914,7 +896,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<c- p>}</c->
 <c- p>}</c->
 </pre>
-		<p><strong>Example 2:</strong> Results for more than one <a class="property" data-link-type="propdesc">Assertion</a></p>
+	<p><strong>Example 2:</strong> Results for more than one <a class="property" data-link-type="propdesc">Assertion</a></p>
 <pre class="language-javascript highlight"><c- p>{</c->
 	<c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
 	<c- u>"@graph"</c-><c- o>:</c-> <c- p>[{</c->
@@ -938,7 +920,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<c- p>}]</c->
 <c- p>}</c->
 </pre>
-		<p><strong>Example 3:</strong> Aggregating based on <a class="property" data-link-type="propdesc">Requirement</a> (eg. WCAG Success Criteria)</p>
+	<p><strong>Example 3:</strong> Aggregating based on <a class="property" data-link-type="propdesc">Requirement</a> (eg. WCAG Success Criteria)</p>
 <pre class="language-javascript highlight"><c- p>{</c->
 	<c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
 	<c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -966,7 +948,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<c- p>}</c->
 <c- p>}</c->
 </pre>
-		<p><strong>Example 4:</strong> Aggregating based on 'Test Subject' (eg. for a website)</p>
+	<p><strong>Example 4:</strong> Aggregating based on 'Test Subject' (eg. for a website)</p>
 <pre class="language-javascript highlight"><c- p>{</c->
 	<c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
 	<c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1018,7 +1000,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<c- p>}</c->
 <c- p>}</c->
 </pre>
-		<p><strong>Example 5:</strong> Assumed <a class="property" data-link-type="propdesc">Context</a> for this section</p>
+	<p><strong>Example 5:</strong> Assumed <a class="property" data-link-type="propdesc">Context</a> for this section</p>
 <pre class="language-javascript highlight"><c- p>{</c->
 	<c- u>"@vocab"</c-><c- o>:</c-> <c- u>"http://www.w3.org/ns/earl#"</c-><c- p>,</c->
 
@@ -1070,122 +1052,24 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<c- p>}</c->
 <c- p>}</c->
 </pre>
-		<h2 class="heading settled" id="Acknowledgments"><span class="content">Appendix 2: Acknowledgments</span><a class="self-link" href="#Acknowledgments"></a></h2>
-		<p>This section is <em>non-normative</em>.</p>
-		<h3 class="heading settled" id="participants"><span class="content">Participants of the AG WG active in the development of this document</span><a class="self-link" href="#participants"></a></h3>
-		<p>Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin</p>
-		<h3 class="heading settled" id="enabling-funders"><span class="content">Enabling funders</span><a class="self-link" href="#enabling-funders"></a></h3>
-		<p>This publication has been developed with support from the <a href="https://www.w3.org/WAI/about/projects/wai-tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.</p>
-		<h2 class="heading settled" id="Change_History"><span class="content">Appendix 3: Change History</span><a class="self-link" href="#Change_History"></a></h2>
+	<h2 class="heading settled" id="Acknowledgments"><span class="content">Appendix 2: Acknowledgments</span><a class="self-link" href="#Acknowledgments"></a></h2>
+	<p>This section is <em>non-normative</em>.</p>
+	<h3 class="heading settled" id="participants"><span class="content">Participants of the AG WG active in the development of this document</span><a class="self-link" href="#participants"></a></h3>
+	<p>Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin</p>
+	<h3 class="heading settled" id="enabling-funders"><span class="content">Enabling funders</span><a class="self-link" href="#enabling-funders"></a></h3>
+	<p>This publication has been developed with support from the <a href="https://www.w3.org/WAI/about/projects/wai-tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.</p>
+	<h2 class="heading settled" id="Change_History"><span class="content">Appendix 3: Change History</span><a class="self-link" href="#Change_History"></a></h2>
 		The following updates have been made since the last public working draft: 
-		<ul>
-		<li>Introduction: Added an overview explanation of what is an ACT rule.
-		<li>Moved the Common Aspects section into a Working Group Note.
-		<li>Did a major update to the Accessibility Requirements Mapping section with examples
-		<li>Changed concept/terminology from Test Definition (for atomic rules) and Aggregation definition (for composed rules) to be Applicability and Expectations as applied to both atomic and composite rules.
-		<li>Added the following parts to the rule structure: Rule type, glossary, background and acknowledgements.  Some of these are optional, which are clearly marked.
-		<li>Added several examples to illustrate the various parts of a rule.
-		<li>Added a section of definitions of terms used in the document.
-		<li>Added an acknowledgements section to acknowledge contributors to the ACT Rules Format.
-		</ul>
-		<p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2Fact-rules-format%2F&amp;doc2=https%3A%2F%2Fpr-preview.s3.amazonaws.com%2Fw3c%2Fwcag-act%2Fpull%2F328.html">July 2018 to February 2019 diff link</a></p>
-		<h2 class="heading settled" id="Exit_Criteria"><span class="content">Appendix 4: Exit Criteria</span><a class="self-link" href="#Exit_Criteria"></a></h2>
-		<h3 class="heading settled" id="general"><span class="content">General</span><a class="self-link" href="#general"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C1: All rules must conform to the ACT Rules Format</p>
-		</ul>
-		<h3 class="heading settled" id="accessibility-requirements-mapping①"><span class="content">Accessibility requirements mapping</span><a class="self-link" href="#accessibility-requirements-mapping①"></a></h3>
-		<p>Each rule implemented in plain English form, as listed below:</p>
-		<ul>
-		<li data-md>
-			<p>C2: At least one atomic rule that has a requirement in WCAG 2</p>
-		<li data-md>
-			<p>C3: At least one composite rule that has a requirement in WCAG 2</p>
-		<li data-md>
-			<p>C4: At least one rule that is a satisfying test, and one rule that is not</p>
-		<li data-md>
-			<p>C5: At least one rule that has an accessibility requirement that is not part of WCAG</p>
-		<li data-md>
-			<p>C6: At least one atomic rule has no accessibility requirement, but is used in a composite rule that has a requirement in WCAG 2</p>
-		</ul>
-		<h3 class="heading settled" id="rule-input"><span class="content">Rule Input</span><a class="self-link" href="#rule-input"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C7: At least two different input aspects are used</p>
-		<li data-md>
-			<p>C8: At least two different web content technologies</p>
-		</ul>
-		<h3 class="heading settled" id="applicability①"><span class="content">Applicability</span><a class="self-link" href="#applicability①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C9: At least one atomic rule has an applicability different from the composite rule it is used in</p>
-		</ul>
-		<h3 class="heading settled" id="expectations①"><span class="content">Expectations</span><a class="self-link" href="#expectations①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C10: At least one rule with one expectation</p>
-		<li data-md>
-			<p>C11: At least one rule with more than one expectation</p>
-		</ul>
-		<h3 class="heading settled" id="assumptions①"><span class="content">Assumptions</span><a class="self-link" href="#assumptions①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C12: At least one rule without assumptions</p>
-		<li data-md>
-			<p>C13: At least one rule where exceptions are documented in an assumption</p>
-		<li data-md>
-			<p>C14: At least one rule where interpretation is documented in an assumption</p>
-		</ul>
-		<h3 class="heading settled" id="accessibility-support①"><span class="content">Accessibility Support</span><a class="self-link" href="#accessibility-support①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C15: At least one rule where no accessibility support information was necessary</p>
-		<li data-md>
-			<p>C16: At least one rule where accessibility support information was included</p>
-		</ul>
-		<h3 class="heading settled" id="changelog"><span class="content">Changelog</span><a class="self-link" href="#changelog"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C17: At least two rules that include a changelog</p>
-		</ul>
-		<h3 class="heading settled" id="glossary①"><span class="content">Glossary</span><a class="self-link" href="#glossary①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C18: At least two rules with more than one definition</p>
-		</ul>
-		<h3 class="heading settled" id="issues-list①"><span class="content">Issues list</span><a class="self-link" href="#issues-list①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C19: At least two rules that include an issues list</p>
-		</ul>
-		<h3 class="heading settled" id="test-cases①"><span class="content">Test cases</span><a class="self-link" href="#test-cases①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C20: Every applicability must have at least one inapplicable test case</p>
-		<li data-md>
-			<p>C21: Every expectation must have at least one pass and one fail test case</p>
-		</ul>
-		<h3 class="heading settled" id="background①"><span class="content">Background</span><a class="self-link" href="#background①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C22: At least two rules with a background section</p>
-		</ul>
-		<h3 class="heading settled" id="acknowledgements①"><span class="content">Acknowledgements</span><a class="self-link" href="#acknowledgements①"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C23: At least two rules with an acknowledgements section</p>
-		</ul>
-		<h3 class="heading settled" id="implementations-and-data-format"><span class="content">Implementations and data format</span><a class="self-link" href="#implementations-and-data-format"></a></h3>
-		<ul>
-		<li data-md>
-			<p>C24: At least two fully automated independent implementations of the same ACT rule (All test cases that should pass are passing, all test cases that should fail are failing)</p>
-		<li data-md>
-			<p>C25: At least two semi-automated independent implementations of the same ACT rule (Some results running against test cases are inconclusive, none of the results contradict the test cases)</p>
-		<li data-md>
-			<p>C26: At least two independent implementations of the same ACT rule in manual testing methodologies</p>
-		</ul>
-	</aside>
+	<ul>
+		<li>Various editorial changes
+		<li>Changed the formating of RFC 2119 terms
+		<li>Remove confusing content from intro
+		<li>Clarify in rule structure certain parts are optional
+		<li>Move version / date identification into Section 4
+		<li>Clarify the purpose of complex aggregation
+		<li>Updated EARL examples in Apendix 1
+	</ul>
+	<p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fw3.org%2Ftr%2Fact-rules-format%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html">April 2019 to July 2019 diff link</a></p>
 	</main>
 	<div data-fill-with="conformance">
 	<h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -1524,5 +1408,3 @@ document.body.addEventListener("click", function(e) {
 
 });
 </script>
-</body>
-</html>
