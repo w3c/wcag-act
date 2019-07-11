@@ -340,7 +340,7 @@ Note that input rules in a composite rule <em class="rfc2119">may</em> have diff
       <li>**Input Rule 1:** All `img` element <em>with</em> an `alt` attribute</li>
       <li>**Input Rule 2:** All `img` element <em>without</em> an `alt` attribute</li>
     </ul>
-    <p>**Combined applicability:</p>
+    <p>**Combined applicability:**</p>
     <p>All `img` elements.</p>
   </blockquote>
 </div>
