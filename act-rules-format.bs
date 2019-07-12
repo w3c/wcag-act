@@ -17,6 +17,21 @@ Markup Shorthands: markdown yes
   .rfc2119 {
     text-transform: uppercase;
   }
+  pre.highlight {
+    background: white !important;
+    border: solid 1px #ded390;
+    border-radius: 2px;
+  }
+  pre.highlight c-[s],
+  pre.highlight c-[u] {
+    color: #79532e;
+  }
+  pre.highlight c-[f] {
+    color: #578201;
+  }
+  pre.highlight c-[p] {
+    color: #757575;
+  }
 </style>
 
 Introduction {#intro}
