@@ -11,6 +11,21 @@
 	.rfc2119 {
 		text-transform: uppercase;
 	}
+	pre.highlight {
+		background: white !important;
+		border: solid 1px #ded390;
+		border-radius: 2px;
+	}
+	pre.highlight c-[s],
+	pre.highlight c-[u] {
+		color: #79532e;
+	}
+	pre.highlight c-[f] {
+		color: #578201;
+	}
+	pre.highlight c-[p] {
+		color: #757575;
+	}
 </style>
 <style>/* style-md-lists */
 
@@ -259,7 +274,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<header>
 		<p data-fill-with="logo"><a href="https://www.w3.org/"><img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"></a> </p>
 		<h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.0</h1>
-		<h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-11">11 July 2019</time></span></h2>
+		<h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-12">12 July 2019</time></span></h2>
 	</header>
 	<div data-fill-with="spec-metadata">
 		<dl>
@@ -1059,17 +1074,22 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	<h3 class="heading settled" id="enabling-funders"><span class="content">Enabling funders</span><a class="self-link" href="#enabling-funders"></a></h3>
 	<p>This publication has been developed with support from the <a href="https://www.w3.org/WAI/about/projects/wai-tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.</p>
 	<h2 class="heading settled" id="Change_History"><span class="content">Appendix 3: Change History</span><a class="self-link" href="#Change_History"></a></h2>
-		The following updates have been made since the last public working draft: 
+	<p>No substantial changes have been made since the previous <a href="https://www.w3.org/TR/2019/CR-act-rules-format-1.0-20190416/">Candidate Recommendation draft of 16 April 2019</a>. The following editorial changes have been made since the previous draft:</p>
 	<ul>
-		<li>Various editorial changes
-		<li>Changed the formating of RFC 2119 terms
-		<li>Remove confusing content from intro
-		<li>Clarify in rule structure certain parts are optional
-		<li>Move version / date identification into Section 4
-		<li>Clarify the purpose of complex aggregation
-		<li>Updated EARL examples in Apendix 1
+		<li><strong>1. Introduction:</strong> Added relationship of ACT Rules to WCAG 2 Techniques
+		<li><strong>1. Introduction:</strong> Removed unintended word "must" (was never a requirement)
+		<li><strong>4. Rule Structure:</strong> Clarified that optional parts are a MAY requirement
+		<li><strong>4.1. Rule Identifier:</strong> Moved requirements on versioning here from 4.11. Changelog
+		<li><strong>4.1. Rule Identifier:</strong> Clarified scope of uniqueness of an identifier
+		<li><strong>4.5.1. Input Aspects:</strong> Moved description of serving methods further down
+		<li><strong>4.7.1. Expectations for Atomic Rules:</strong> Expanded note on complex aggregation
+		<li><strong>4.14. Background:</strong> Removed unintended word "should" (was never a requirement)
+		<li><strong>Appendix 1. Expressing ACT Results:</strong> Major revision (non-normative examples)
+		<li><strong>Overall:</strong> Edits to align and clarify examples throughout the document
+		<li><strong>Overall:</strong> Fixing typographical, grammatical, and spelling mistakes throughout
+		<li><strong>Overall:</strong> Changed coding of RFC 2119 terms to improve accessibility/semantic
 	</ul>
-	<p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fw3.org%2Ftr%2Fact-rules-format%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html">April 2019 to July 2019 diff link</a></p>
+	<p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2019%2FCR-act-rules-format-1.0-20190416%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html">April 2019 to July 2019 diff link</a></p>
 	</main>
 	<div data-fill-with="conformance">
 	<h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
