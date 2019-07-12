@@ -818,14 +818,22 @@ This publication has been developed with support from the [WAI-Tools Project](ht
 
 Appendix 3: Change History {#Change_History}
 ==========================
-The following updates have been made since the last public working draft:
+
+No substantial changes have been made since the previous [Candidate Recommendation draft of 16 April 2019](https://www.w3.org/TR/2019/CR-act-rules-format-1.0-20190416/). The following editorial changes have been made since the previous draft:
+
 <ul>
-  <li>Various editorial changes</li>
-  <li>Changed the formating of RFC 2119 terms</li>
-  <li>Remove confusing content from intro</li>
-  <li>Clarify in rule structure certain parts are optional</li>
-  <li>Move version / date identification into Section 4</li>
-  <li>Clarify the purpose of complex aggregation</li>
-  <li>Updated EARL examples in Apendix 1</li>
+  <li><strong>1. Introduction:</strong> Added relationship of ACT Rules to WCAG 2 Techniques</li>
+  <li><strong>1. Introduction:</strong> Removed unintended word "must" (was never a requirement)</li>
+  <li><strong>4. Rule Structure:</strong> Clarified that optional parts are a MAY requirement</li>
+  <li><strong>4.1. Rule Identifier:</strong> Moved requirements on versioning here from 4.11. Changelog</li>
+  <li><strong>4.1. Rule Identifier:</strong> Clarified scope of uniqueness of an identifier</li>
+  <li><strong>4.5.1. Input Aspects:</strong> Moved description of serving methods further down</li>
+  <li><strong>4.7.1. Expectations for Atomic Rules:</strong> Expanded note on complex aggregation</li>
+  <li><strong>4.14. Background:</strong> Removed unintended word "should" (was never a requirement)</li>
+  <li><strong>Appendix 1. Expressing ACT Results:</strong> Major revision (non-normative examples)</li>
+  <li><strong>Overall:</strong> Edits to align and clarify examples throughout the document</li>
+  <li><strong>Overall:</strong> Fixing typographical, grammatical, and spelling mistakes throughout</li>
+  <li><strong>Overall:</strong> Changed coding of RFC 2119 terms to improve accessibility/semantic</li>
 </ul>
-<p>All changes from the previous published version can be viewed using the [April 2019 to July 2019 diff link](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fw3.org%2Ftr%2Fact-rules-format%2F&doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html)</p>
+
+All changes from the previous published version can be viewed using the [April 2019 to July 2019 diff link](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2019%2FCR-act-rules-format-1.0-20190416%2F&doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html)
