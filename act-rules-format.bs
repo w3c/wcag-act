@@ -2,7 +2,7 @@
 Title: Accessibility Conformance Testing (ACT) Rules Format
 Shortname: ACT-Rules-Format
 URL: https://w3c.github.io/wcag-act/act-rules-format.html
-Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2019-04-05.html
+Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2019-07-12.html
 Level: 1.0
 Status: w3c/ED
 Group: act-rules-format
