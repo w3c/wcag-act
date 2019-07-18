@@ -184,7 +184,7 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
+        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -195,7 +195,7 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
     <li>
       [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A</li>
+        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -228,7 +228,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
     <li>
       [RGAA 3, Test 1.1.1: Does each image have a text alternative](https://disic.github.io/rgaa_referentiel_en/criteria.html#test-1-1-1)
       <ul>
-        <li>**Required for conformance** to RGAA 3 level A</li>
+        <li>**Required for conformance** to RGAA 3 level A and higher</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: satisfied</li>
