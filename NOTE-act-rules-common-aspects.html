@@ -1029,7 +1029,7 @@ Possible extra rowspan handling
 		}
 	/* } */
 
-	@supports (display:grid) {
+	@supports (display:grid) and (display:contents) {
 		/* Use #toc over .toc to override non-@supports rules. */
 		#toc {
 			display: grid;
@@ -1212,7 +1212,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 1cff2db4ee2c3bba7a4077d3007528ec73b0485d" name="generator">
+  <meta content="Bikeshed version 39652c9ea7fd5d09639da5e1182cd481b0c5ae70" name="generator">
   <link href="https://www.w3.org/TR/" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1365,7 +1365,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules: Common Input Aspects</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-02-21">21 February 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-22">22 July 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1373,7 +1373,7 @@ pre .property::before, pre .property::after {
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/">https://www.w3.org/TR/</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2018-09-18-common-aspects.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2018-09-18-common-aspects.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-02-21-common-aspects.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-02-21-common-aspects.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
@@ -1382,7 +1382,7 @@ pre .property::before, pre .property::after {
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 21 February 2019,
+In addition, as of 22 July 2019,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1406,32 +1406,30 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#input-aspects-accessibility"><span class="secno">2.4</span> <span class="content">Accessibility Tree</span></a>
       <li><a href="#input-aspects-text"><span class="secno">2.5</span> <span class="content">Language</span></a>
      </ol>
-    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
-     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
-     <ol class="toc">
-      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
-      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
-     </ol>
+     <a href="#references">
+       <span class="secno"></span>
+       <span class="content">Informative References</span>
+     </a>
    </ol>
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
    <p>The term <a href="https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects">Input Aspects</a> is defined by the <a href="https://w3c.github.io/wcag-act/act-framework.html">Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification</a>. An input aspect is a distinct part of a <a href="https://w3c.github.io/wcag-act/act-rules-format.html#test-subject">test subject</a>. Atomic rules are required to list input aspects in the <a href="https://w3c.github.io/wcag-act/act-rules-format.html#applicability">applicability</a> and <a href="https://w3c.github.io/wcag-act/act-rules-format.html#expectations">expectations</a>.</p>
-   <p>Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css-2018">[css-2018]</a>. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.</p>
+   <p>Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and <a href="https://www.w3.org/TR/css/">CSS Styling</a>. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.</p>
    <p>Examples of ACT Rules can be found in the <a href="https://w3c.github.io/wcag-act-rules/">ACT Rules Repository</a>.</p>
    <p>The input aspects listed in this document can be used by authors of ACT Rules to refer to common types more easily. This improves the development process and supports consistency across rules. This list can be extended and refined at any time, for example, to include popular input aspects or to provide clarification. Existing input aspects can also be marked as obsoleted, if needed.</p>
    <h2 class="heading settled" data-level="2" id="input-aspects-common"><span class="secno">2. </span><span class="content">Common Input Aspects</span><a class="self-link" href="#input-aspects-common"></a></h2>
    <h3 class="heading settled" data-level="2.1" id="input-aspects-http"><span class="secno">2.1. </span><span class="content">HTTP Messages</span><a class="self-link" href="#input-aspects-http"></a></h3>
-   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> and CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a>.</p>
+   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a> and <a href="https://www.w3.org/TR/css/">Cascading Style Sheets</a>.</p>
    <h3 class="heading settled" data-level="2.2" id="input-aspects-dom"><span class="secno">2.2. </span><span class="content">DOM Tree</span><a class="self-link" href="#input-aspects-dom"></a></h3>
    <p>The DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree constructed from parsing HTML <a data-link-type="biblio" href="#biblio-html">[HTML]</a>, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.</p>
    <p>The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom">[DOM]</a>.</p>
    <h3 class="heading settled" data-level="2.3" id="input-aspects-css"><span class="secno">2.3. </span><span class="content">CSS Styling</span><a class="self-link" href="#input-aspects-css"></a></h3>
-   <p>The computed CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
+   <p>The computed <a href="https://www.w3.org/TR/css/">CSS Styling</a> resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
    <p>The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/cssom/">CSS Object Model</a> <a data-link-type="biblio" href="#biblio-cssom">[CSSOM]</a>.</p>
    <h3 class="heading settled" data-level="2.4" id="input-aspects-accessibility"><span class="secno">2.4. </span><span class="content">Accessibility Tree</span><a class="self-link" href="#input-aspects-accessibility"></a></h3>
-   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree and the CSS <a data-link-type="biblio" href="#biblio-css2">[CSS2]</a> styling may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
+   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> tree and the <a href="https://www.w3.org/TR/css/">CSS Styling</a> may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
    <p>The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a> <a data-link-type="biblio" href="#biblio-core-aam-11">[CORE-AAM-1.1]</a>.</p>
    <h3 class="heading settled" data-level="2.5" id="input-aspects-text"><span class="secno">2.5. </span><span class="content">Language</span><a class="self-link" href="#input-aspects-text"></a></h3>
    <p>Language, either written or spoken, contained in nodes of the DOM <a data-link-type="biblio" href="#biblio-dom">[DOM]</a> or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.</p>
@@ -1583,20 +1581,10 @@ Parts of this work may be from another specification document.  If so, those par
 
 })();
 </script>
-  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
-  <dl>
-   <dt id="biblio-rfc2119">[RFC2119]
-   <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
-  </dl>
-  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">Informative References</span><a class="self-link" href="#references"></a></h2>
   <dl>
    <dt id="biblio-core-aam-11">[CORE-AAM-1.1]
    <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a>
-   <dt id="biblio-css-2018">[CSS-2018]
-   <dd>Tab Atkins Jr.; Elika Etemad; Florian Rivoal. <a href="https://www.w3.org/TR/css-2018/">CSS Snapshot 2018</a>. 22 January 2019. NOTE. URL: <a href="https://www.w3.org/TR/css-2018/">https://www.w3.org/TR/css-2018/</a>
-   <dt id="biblio-css2">[CSS2]
-   <dd>Bert Bos; et al. <a href="https://www.w3.org/TR/CSS2/">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a>. 7 June 2011. REC. URL: <a href="https://www.w3.org/TR/CSS2/">https://www.w3.org/TR/CSS2/</a>
    <dt id="biblio-cssom">[CSSOM]
    <dd>Simon Pieters; Glenn Adams. <a href="https://www.w3.org/TR/cssom-1/">CSS Object Model (CSSOM)</a>. 17 March 2016. WD. URL: <a href="https://www.w3.org/TR/cssom-1/">https://www.w3.org/TR/cssom-1/</a>
    <dt id="biblio-dom">[DOM]
@@ -1604,7 +1592,7 @@ Parts of this work may be from another specification document.  If so, those par
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/">HTML Standard</a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-http11">[HTTP11]
-   <dd>R. Fielding, Ed.; J. Reschke, Ed.. <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>. June 2014. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7230">https://tools.ietf.org/html/rfc7230</a>
+   <dd>R. Fielding, Ed.; J. Reschke, Ed.. <a href="https://httpwg.org/specs/rfc7230.html">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7230.html">https://httpwg.org/specs/rfc7230.html</a>
    <dt id="biblio-wcag">[WCAG]
    <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">Web Content Accessibility Guidelines 1.0</a>. 5 May 1999. REC. URL: <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">https://www.w3.org/TR/WAI-WEBCONTENT/</a>
   </dl>
