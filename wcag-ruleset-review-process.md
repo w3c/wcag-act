@@ -1,8 +1,8 @@
-# ACT Review Process
+# WCAG Ruleset Review Process
 
 This Accessibility Conformance Testing (ACT) Rules Format is intended to enable a consistent interpretation of how to test conformance to Web Content Accessibility Guidelines (WCAG) and other accessibility requirements documents. The W3C is looking to establish a commonly agreed upon set of ACT Rules for WCAG, to help organisations across the field of web accessibility to produce consistent test results for WCAG. This common set is the **WCAG Ruleset**, which is maintained by the ACT Task Force.
 
-Organisations looking to contribute rules to the WCAG Ruleset can submit rules to the ACT Task Force. These organisations are known as _rule providers_. The ACT Task Force will review any rules that have been proposed by rule providers, and decide whether or not it can be included in the WCAG Ruleset.
+Organisations looking to contribute rules to the WCAG Ruleset can submit rules to the ACT Task Force. These organisations are known as rule providers. The ACT Task Force will review rules that have been proposed by rule providers, and decide whether or not it can be included in the WCAG Ruleset.
 
 When a rule is submitted to the ACT Task Force, the Task Force expects that rule to be as complete and as accurate as the rule provider can possibly make it. **Rule providers are expected to have their own review and quality assurance processes in place.**
 
@@ -29,7 +29,7 @@ The rule provider creates an issue on the [ACT GitHub repository](https://github
 
 One member of the ACT Task Force, usually an editor or facilitator, reviews the proposal for major inaccuracies in the rule. The purpose is to avoid spending reviewer time on obvious oversights. The person screening the rule can not be involved in the original creation of the rule.
 
-If the rule does not pass this step, one of the ACT facilitators send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, issue will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
+If the rule does not pass this step, one of the ACT facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the issue will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
 ### Survey
 
@@ -43,9 +43,9 @@ A facilitator of the ACT Task Force creates a survey for the rule, in which Task
 - Do you have any further questions or concerns about this rule?
 - Do you think this rule is ready to be published?
 
-This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 3 rule surveys will be open at the same time.
+This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 5 rule surveys will be due in the same week.
 
-If the rule does not pass this step, one of the ACT facilitators send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, issue will be surveyed again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
+If the rule does not pass this step, one of the ACT facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, issue will be surveyed again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
 ### Publication
 
@@ -67,7 +67,7 @@ Since technologies and standards frequently change, rules require regular mainte
 
 If a request for change from the ACT Task Force to the rule provider is not responded to within two months, either from public feedback or an annual review, the ACT Task Force will assume the rule is no longer actively maintained. The ACT Task Force will send at least 2 reminders before concluding the rule is not maintained. If a rule is not maintained, the ACT Task Force will look for another organisation who might be willing to maintain the rule. If the original rule provider wishes to resume maintenance of the rule, this will only be accepted with the permission of the active rule provider.
 
-If noone can be found to maintain a rule within a month, the rule will be labelled as "outdated". Outdated rules will be removed from the ruleset after 1 year.
+If no one can be found to maintain a rule within a month, the rule will be labelled as "outdated". Outdated rules will be removed from the ruleset after 1 year.
 
 ## Rule Provider Questions
 
