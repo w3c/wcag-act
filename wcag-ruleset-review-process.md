@@ -1,23 +1,23 @@
 # WCAG Ruleset Review Process
 
-The Accessibility Conformance Testing (ACT) Rules Format 1.0 is intended to enable a consistent interpretation of how to test conformance to the Web Content Accessibility Guidelines (WCAG) and other accessibility requirements documents. The W3C is working to establish a commonly agreed upon set of ACT Rules for WCAG, called the **WCAG Ruleset**, to help organizations produce more consistent results for testing WCAG conformance. The **WCAG Ruleset** is published by the Accessibility Conformance Working Group (AGWG) through the efforts of the ACT Task Force.
+This document describes a process for reviewing, approving, and maintaining Accessibility Conformance Testing (ACT) Rules contributed to the W3C Accessibility Guidelines Working Group (AGWG) for formal publication. Such a commonly agreed upon **WCAG Ruleset** contributes to more consistent interpretation of how to test conformance to the W3C Web Content Accessibility Guidelines (WCAG), more consistent results from conformance testing, and more transparency and documentation of the testing process.
 
-Organizations can contribute rules to the WCAG Ruleset by submitting them to the ACT Task Force. These organizations are called **rule providers**. The ACT Task Force reviews rules proposed by rule providers to decide whether or not the rules are good candidates to be included in the WCAG Ruleset. The AGWG is the final approver of the rules and, once approved, the rules are published in the WCAG supporting documentation.
+Much of the tasks in this process are delegated to ACT Task Force, which is a sub-group of AGWG. ACT TF carries out initial review and prepares proposals for AGWG, which has the final say as the maintainer of WCAG and the authoritative body for interpretation.
 
-When a rule is submitted to the ACT Task Force, the Task Force expects it to be as complete and as accurate as the rule provider can possibly make it. **Rule providers are expected to have their own review and quality assurance processes in place.**
+Organizations and individuals, **rule providers**, can submit rules to be added to the WCAG Ruleset. Submitted rules must conform to the ACT Rules Format 1.0 specification and be accompanied by real-life implementations (specific criteria detailed later in this document). **Rule providers are expected to only contribute complete rules, as accurate as the rule providers can possibly make them.**
 
-## Proposing And Updating A Rule
+## Overview
 
-When proposing a new rule, or an update to a rule, there are four steps to go through:
+When submitting a new rule, or an update to a rule, there are four steps to go through:
 
-1. **Proposal**: The rule provider creates an issue
+1. **Submitting**: The rule provider submits a rule to ACT Task Force
 2. **Screening**: The ACT Task Force facilitators do an initial review
-3. **Survey**: The ACT Task Force reviews the rule through a survey
-4. **Publication**: The ACT Task Force submits the updated rule to the AG WG for publication
+3. **Surveying**: The ACT Task Force reviews the rule through a survey
+4. **Approving**: The ACT Task Force prepares a proposal for AGWG
 
-Updates to rules can only be done by the rule provider. This is to avoid creating forks, where two versions of a rule are worked on independently, potentially with conflicts. This also applies to the ACT Task Force, which can propose changes to the rule, but not put those changes in.
+The ACT Task Force will not edit rule contents. This is to avoid creating forks, where two versions of a rule are worked on in parallel, potentially with conflicts. Where necessary, the ACT Task Force will propose changes to the rule but not put those changes in.
 
-### Proposal
+### Submitting
 
 The rule provider creates an issue in the [ACT GitHub repository](https://github.com/w3c/wcag-act/issues). The issue must include the following information:
 
@@ -31,7 +31,7 @@ One member of the ACT Task Force, usually an editor or facilitator, reviews the 
 
 If the rule does not pass this step, one of the ACT TF facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which restarts the process from step 1. This puts the rule proposal on the bottom of the backlog.
 
-### Survey
+### Surveying
 
 A facilitator of the ACT Task Force creates a survey for the rule, in which Task Force members are asked the following questions:
 
@@ -47,7 +47,7 @@ This survey will be open for at least 5 work days, to give ACT Task Force member
 
 If the rule does not pass this step, one of the ACT facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
-### Publication
+### Approving
 
 When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Concensus e-mail or send out a survey.
 
