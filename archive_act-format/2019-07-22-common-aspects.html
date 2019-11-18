@@ -1212,7 +1212,7 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 0dd2bba6dfda6c3168490a3a3044dd1d0b1ef8e0" name="generator">
+  <meta content="Bikeshed version 39652c9ea7fd5d09639da5e1182cd481b0c5ae70" name="generator">
   <link href="https://www.w3.org/TR/" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1365,26 +1365,24 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules: Common Input Aspects</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-11-18">18 November 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-07-22">22 July 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html">https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html</a>
      <dt>Latest published version:
-     <dd><a href="https://www.w3.org/TR/">https://www.w3.org/TR/</a>
+     <dd><a href="https://www.w3.org/TR/act-rules-aspects/">https://www.w3.org/TR/act-rules-aspects/</a>
      <dt>Previous Versions:
-     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-07-22-common-aspects.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-07-22-common-aspects.html</a>
+     <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-02-21-common-aspects.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-02-21-common-aspects.html</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Mary Jo Mueller</span> (<span class="p-org org">IBM Corp.</span>)
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">Shadi Abou-Zahra</span> (<span class="p-org org">W3C</span>)
     </dl>
    </div>
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 18 November 2019,
+In addition, as of 22 July 2019,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1392,7 +1390,7 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document is a companion to the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.</p>
+   <p>This document is a companion to the <a href="https://w3c.github.io/wcag-act/act-framework.html">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1408,18 +1406,16 @@ Parts of this work may be from another specification document.  If so, those par
       <li><a href="#input-aspects-accessibility"><span class="secno">2.4</span> <span class="content">Accessibility Tree</span></a>
       <li><a href="#input-aspects-text"><span class="secno">2.5</span> <span class="content">Language</span></a>
      </ol>
-    <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
     <li>
-     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
-     <ol class="toc">
-      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
-      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
-     </ol>
+     <a href="#references">
+       <span class="secno"></span>
+       <span class="content">Informative References</span>
+     </a>
    </ol>
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>The term <a href="https://www.w3.org/TR/act-rules-format/#input-aspects">Input Aspects</a> is defined by the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification</a>. An input aspect is a distinct part of a <a href="https://www.w3.org/TR/act-rules-format/#test-subject">test subject</a>. Atomic rules are required to list input aspects in the <a href="https://www.w3.org/TR/act-rules-format/#applicability">applicability</a> and <a href="https://www.w3.org/TR/act-rules-format/#expectations">expectations</a>.</p>
+   <p>The term <a href="https://w3c.github.io/wcag-act/act-rules-format.html#input-aspects">Input Aspects</a> is defined by the <a href="https://w3c.github.io/wcag-act/act-framework.html">Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification</a>. An input aspect is a distinct part of a <a href="https://w3c.github.io/wcag-act/act-rules-format.html#test-subject">test subject</a>. Atomic rules are required to list input aspects in the <a href="https://w3c.github.io/wcag-act/act-rules-format.html#applicability">applicability</a> and <a href="https://w3c.github.io/wcag-act/act-rules-format.html#expectations">expectations</a>.</p>
    <p>Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and <a href="https://www.w3.org/TR/css/">CSS Styling</a>. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.</p>
    <p>Examples of ACT Rules can be found in the <a href="https://w3c.github.io/wcag-act-rules/">ACT Rules Repository</a>.</p>
    <p>The input aspects listed in this document can be used by authors of ACT Rules to refer to common types more easily. This improves the development process and supports consistency across rules. This list can be extended and refined at any time, for example, to include popular input aspects or to provide clarification. Existing input aspects can also be marked as obsoleted, if needed.</p>
@@ -1585,13 +1581,7 @@ Parts of this work may be from another specification document.  If so, those par
 
 })();
 </script>
-  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
-  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
-  <dl>
-   <dt id="biblio-rfc2119">[RFC2119]
-   <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
-  </dl>
-  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">Informative References</span><a class="self-link" href="#references"></a></h2>
   <dl>
    <dt id="biblio-core-aam-11">[CORE-AAM-1.1]
    <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a>
