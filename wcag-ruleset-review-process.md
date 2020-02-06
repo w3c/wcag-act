@@ -8,7 +8,7 @@ Organizations and individuals, **rule providers**, can submit rules to be added 
 
 ## Overview
 
-When submitting a new rule, or an update to a rule, there are four steps to go through:
+When proposing a new rule, or an update to a rule, there are four steps to go through:
 
 1. **Submitting**: The rule provider submits a rule to ACT Task Force
 2. **Screening**: The ACT Task Force facilitators do an initial review
@@ -27,9 +27,9 @@ The rule provider creates an issue in the [ACT GitHub repository](https://github
 
 ### Screening
 
-One member of the ACT Task Force, usually an editor or facilitator, reviews the proposal for major inaccuracies in the rule. The purpose is to avoid spending reviewer time on obvious oversights. The person screening the rule can not be involved in the original creation of the rule.
+New proposals are reviewed during the ACT Task Force call, and a liaison is assigned. The liaison reviews the proposal for major inaccuracies in the rule. The purpose is to avoid spending reviewer time on obvious oversights. The liaison can not be involved in the original creation of the rule. The liaison is also responsible for further communication with the rule provider until the rule is published or the issue is closed.
 
-If the rule does not pass this step, one of the ACT TF facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which restarts the process from step 1. This puts the rule proposal on the bottom of the backlog.
+If the liaison finds no major issues with the rule, they notify the TF facilitators that the rule is ready for a survey. If the rule does not pass this step, the liaison puts the feedback in the issue for the proposal. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which restarts the process from step 1. This puts the rule proposal on the bottom of the backlog.
 
 ### Surveying
 
@@ -45,7 +45,7 @@ A facilitator of the ACT Task Force creates a survey for the rule, in which Task
 
 This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 5 rule surveys will be due in the same week.
 
-If the rule does not pass this step, one of the ACT facilitators will send the feedback to the rule provider. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
+If the rule does not pass this step, the liaison has 5 work days to put the feedback in the issue for the proposal using the template in appendix 1. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed by a TF facilitator. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
 ### Approving
 
@@ -65,7 +65,7 @@ Since technologies and standards frequently change, rules require regular mainte
 
 ## Orphaned Rules
 
-The ACT Task force will send a request for change to a rule provider as a result of either public feedback or an annual review. If the rule provider does not respond within two months, the ACT Task Force will assume the rule is no longer actively maintained. The ACT Task Force will send at least 2 reminders before concluding the rule is not maintained. If a rule is not maintained, the ACT Task Force will look for another organization who might be willing to maintain the rule. If the original rule provider wishes to resume maintenance of the rule, this will only be accepted with the permission of the active rule provider.
+The ACT Task Force will send a request for change to a rule provider as a result of either public feedback or an annual review. If the rule provider does not respond within two months, the ACT Task Force will assume the rule is no longer actively maintained. The ACT Task Force will send at least 2 reminders before concluding the rule is not maintained. If a rule is not maintained, the ACT Task Force will look for another organization who might be willing to maintain the rule. If the original rule provider wishes to resume maintenance of the rule, this will only be accepted with the permission of the active rule provider.
 
 If no one can be found to maintain a rule within a month, the rule will be labelled as "outdated". Outdated rules will be removed from the ruleset after 1 year.
 
@@ -75,7 +75,7 @@ Often when writing rules, rule providers have questions about the intended meani
 
 ## Implementations
 
-An implementation is either an accessibility testing tool, or a testing methodology. Implementations show that the ACT rule works in practice, and that the interpretation made by the rule is one that is used in real-world accessibility testing. Because of this, having more implementations, or having an implementation that has a lot of users weighs heavily in demonstrating that the assumptions and interpretation in the rule are acceptable to the accessibility community.
+An implementation is either a rule in an accessibility testing tool, or a procedure in a testing methodology. Implementations show that the ACT rule works in practice, and that the interpretation made by the rule is one that is used in real-world accessibility testing. Because of this, having more implementations, or having an implementation that has a lot of users weighs heavily in demonstrating that the assumptions and interpretation in the rule are acceptable to the accessibility community.
 
 An implementation must be correct. This is determined by running the tool or methodology on the test cases provided in the rule. Acknowledging that not all implementors distinguish between "passed" and "inapplicable", and that semi-automated tools can return "cantTell" as a result, an implementation is considered correct when it gets one of the allowed outcomes for all of the test cases:
 
@@ -84,3 +84,21 @@ An implementation must be correct. This is determined by running the tool or met
 | Passed         | `passed`, `cantTell`, or `inapplicable` |
 | Failed         | `failed` or `cantTell`                  |
 | Inapplicable   | `inapplicable`, `cantTell`, or `passed` |
+
+## Apendix 1: Feedback template
+
+The liaison must curate the feedback. Ensure it is clear and remove any duplicates.
+
+```md
+[link to the survey results](...)
+[link to the minutes from TF](...)
+
+## {{ name of TF member }}
+
+- [ ] {{ Text from survey }}
+- [ ] {{ Text from survey }}
+
+## {{ name of TF member }}
+ 
+- [ ] ...
+```
