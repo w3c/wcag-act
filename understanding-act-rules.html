@@ -34,8 +34,8 @@
 
          <section id="act-rules-are-informative">
             <h2>ACT Rules are Informative</h2>
-            <p><em>ACT Rules are informative &mdash; that means they are not required. The basis for determining conformance to WCAG 2.1 is the success criteria from the WCAG 2.1 standard &mdash; not the ACT Rules.</em></p>
-            <p>While W3C's <a href="https://www.w3.org/WAI/standards-guidelines/act/">List of ACT Rules for WCAG 2</a> are reviewed by the W3C Accessibility Guidelines Working Group (AGWG), they are not vetted to the same degree as a W3C standard (called <em>W3C Recommendation</em>) such as WCAG. The WCAG 2.1 standard is the normative reference on determining conformance.</p>
+            <p><em>ACT Rules are informative &mdash; that means they are not required. The basis for determining conformance to WCAG is the success criteria from the WCAG standard &mdash; not the ACT Rules.</em></p>
+            <p>While W3C's <a href="https://www.w3.org/WAI/standards-guidelines/act/">List of ACT Rules for WCAG 2</a> are reviewed by the W3C Accessibility Guidelines Working Group (AGWG), they are not vetted to the same degree as the W3C Web Content Accessibility Guidelines (WCAG) standard (called <em>W3C Recommendation</em>). The WCAG standard is the normative reference on determining conformance.</p>
          </section>
 
          <section id="act-rules-are-partial-checks">
@@ -46,14 +46,26 @@
 
          <section id="act-rules-check-for-failrues">
             <h2>ACT Rules Check for Failures</h2>
+            <p>ACT Rules are designed to check failures in meeting WCAG success criteria. That is, when content fails ACT Rules, it means that the content fails to meet the corresponding success criteria. However, when content passes ACT Rules, it means that no corresponding failures were detected &mdash; it does not necessarily mean that the content meets all aspects of the corresponding success criteria.</p>
+            <p>The reason for this is because WCAG success criteria typically cover several aspects and technologies, while ACT Rules only check specific aspects. Checking that content meets all aspects of WCAG success criteria typically requires further verification by human testers.</p>
          </section>
 
          <section id="act-rule-implementations">
             <h2>ACT Rule Implementations</h2>
+            <p>Implementation of an ACT Rule can be any automated testing tool, manual testing methodology, or other procedure that provides the same expected results for the test cases defined by the ACT Rule. Specifically:</p>
+            <ul>
+               <li>When the expected result for a test case is <strong>fail</strong>, the test result generated from the implementation is <strong>fail</strong></li>
+               <li>When the expected result for a test case is <strong>pass</strong>, the test result generated from the implementation is <strong>pass</strong> or <strong>not tested</strong></li>
+               <li>When the expected result for a test case is <strong>not applicable</strong>, the test result generated from the implementation is <strong>not tested</strong> or <strong>pass</strong></li>
+            </ul>
          </section>
 
          <section id="structure-of-act-rules">
             <h2>Structure of ACT Rules</h2>
+            <p>ACT Rules conform to the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> standard. They include the following parts:</p>
+            <ul>
+               <li>@@@ outine of ACT structure with brief description of each part @@@</li>
+            </ul>
          </section>
       </main>
    </body>
