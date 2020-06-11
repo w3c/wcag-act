@@ -10,10 +10,10 @@
    <body>
       <nav>
          <ul id="navigation">
-            <li><a href="." title="Table of Contents">Contents</a></li>
-            <li><a href="intro">Previous: Introduction to Understanding WCAG 2.1</a></li>
-            <li><a href="text-alternatives">First <abbr title="Guideline">GL</abbr>: Text Alternatives</a></li>
-            <li><a href="non-text-content">First <abbr title="Success Criterion">SC</abbr>: Non-text Content</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/" title="Table of Contents">Contents</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/intro">Previous: Introduction to Understanding WCAG 2.1</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/text-alternatives">First <abbr title="Guideline">GL</abbr>: Text Alternatives</a></li>
+            <li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">First <abbr title="Success Criterion">SC</abbr>: Non-text Content</a></li>
          </ul>
       </nav>
       <nav class="navtoc">
@@ -46,33 +46,36 @@
 
          <section id="act-rules-check-for-failrues">
             <h2>ACT Rules Check for Failures</h2>
-            <p>ACT Rules are designed to check failures in meeting WCAG success criteria. That is, when content fails ACT Rules, it means that the content fails to meet the corresponding success criteria. However, when content passes ACT Rules, it means that no corresponding failures were detected &mdash; it does not necessarily mean that the content meets all aspects of the corresponding success criteria.</p>
-            <p>The reason for this is because WCAG success criteria typically cover several aspects and technologies, while ACT Rules only check specific aspects. Checking that content meets all aspects of WCAG success criteria typically requires further verification by human testers.</p>
+            <p>ACT Rules are designed to check failures in satisfying WCAG success criteria. That is, when content fails ACT Rules, it means that the content does not satisfy the corresponding success criteria. However, when content passes ACT Rules, it means that no corresponding failures were detected &mdash; it does not necessarily mean that the content satisfies all aspects of the corresponding success criteria.</p>
+            <p>The reason for this is because WCAG success criteria typically cover several aspects and technologies, while ACT Rules only check specific aspects. Checking that content satisfies all aspects of WCAG success criteria typically requires further verification by human testers.</p>
+            <p><strong>Note:</strong> <a href="https://www.w3.org/TR/WCAG21/#cc1">WCAG 2 Conformance Requirement 1</a> allows for "conforming alternate versions". That means that content may still conform to WCAG 2, even when content fails ACT Rules, thus does not satisfy the corresponding success criteria.</p>
          </section>
 
+         <!-- //
          <section id="act-rule-implementations">
             <h2>ACT Rule Implementations</h2>
             <p>Implementation of an ACT Rule can be any automated testing tool, manual testing methodology, or other procedure that provides the same expected results for the test cases defined by the ACT Rule. Specifically, when the expected result for a test case is:</p>
             <ul>
-               <li><strong>Passed</strong>, the test result generated from the implementation is <strong>passed</strong>, <strong>cantTell</strong>, or or <strong>inapplicable</strong></li>
+               <li><strong>Passed</strong>, the test result generated from the implementation is <strong>passed</strong>, <strong>cantTell</strong>, or <strong>inapplicable</strong></li>
                <li><strong>Failed</strong>, the test result generated from the implementation is <strong>failed</strong> or <strong>cantTell</strong></li>
                <li><strong>Inapplicable</strong>, the test result generated from the implementation is <strong>inapplicable</strong>, <strong>cantTell</strong>, or <strong>passed</strong></li>
             </ul>
          </section>
+         //-->
 
          <section id="structure-of-act-rules">
             <h2>Structure of ACT Rules</h2>
             <p>ACT Rules conform to the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> standard. They include the following parts:</p>
             <ul>
-               <li><strong>Descriptive Title</strong> – title for the ACT Rule, such as “Buttons have an accessible name”</li>
-               <li><strong>Rule Identifier</strong> – identifier for the ACT Rule; the W3C rules use a hash identifier</li>
+               <li><strong>Descriptive Title</strong> – title for the ACT Rule, which should describe the rule</li>
+               <li><strong>Rule Identifier</strong> – identifier for the ACT Rule; the W3C rules use alphanumeric strings</li>
                <li><strong>Rule Type</strong> – there are two basic types of ACT Rules, depending on what is being tested:
                   <ul>
                      <li><strong>Atomic Rule</strong> – test one specific situation, which may be part of a composite rule</li>
                      <li><strong>Composite Rule</strong> – combine outcome from multiple atomic rules to one outcome</li>
                   </ul>
                </li>
-               <li><strong>Accessibility Requirements Mapping</strong> – maps the ACT Rule to particular accessibility requirements; in this context to Web Content Accessibility Guidelines (WCAG) 2 Success Criteria</li>
+               <li><strong>Accessibility Requirements Mapping</strong> – maps the ACT Rule to particular accessibility requirements; in this suite of rules we use Web Content Accessibility Guidelines (WCAG) 2 Success Criteria</li>
                <li><strong>Rule Input</strong> – describes the scope of input into ACT Rules, which is one of the following:
                   <ul>
                      <li><strong>Input Aspects</strong> – input into atomic rules, such as DOM Tree and CSS Styling etc.</li>
