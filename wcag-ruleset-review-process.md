@@ -33,7 +33,7 @@ If the liaison finds no major issues with the rule, they notify the TF facilitat
 
 ### Surveying
 
-A facilitator of the ACT Task Force creates a survey for the rule, in which Task Force members are asked the following questions:
+A facilitator of the ACT Task Force creates a survey for the rule. They will leave a comment in the GitHub issue when the survey is due, and keep this up to date if the due date changes. In the survey, Task Force members are asked the following questions:
 
 - Does the rule follow the ACT Rules Format 1.0?
 - Are the assumptions acceptable?
@@ -45,7 +45,7 @@ A facilitator of the ACT Task Force creates a survey for the rule, in which Task
 
 This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 5 rule surveys will be due in the same week.
 
-If the rule does not pass this step, the liaison has 5 work days to put the feedback in the issue for the proposal using the template in appendix 1. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed by a TF facilitator. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
+If the rule does not pass this step, the liaison has 5 work days to put the feedback in the issue for the proposal using the template in appendix 1. When submitting the feedback, the liaison must notify the person who opened the issue and ask when the feedback can be resolved. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed by a TF facilitator. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
 ### Approving
 
