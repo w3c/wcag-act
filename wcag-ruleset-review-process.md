@@ -85,6 +85,24 @@ An implementation must be correct. This is determined by running the tool or met
 | Failed         | `failed` or `cantTell`                  |
 | Inapplicable   | `inapplicable`, `cantTell`, or `passed` |
 
+Before the ACT Task Force can publish rules, at minimum one full implementation is required. Rule authors that want their ACT rules considered for publication by the Accessibility Guidelines Working Group must provide the following information for at least one accessibility testing tool or testing methodology:
+
+1. An overview of the expected and actual outcomes when the tool / methodology is used on the test cases in the rule.
+
+2. The test mode of the implementation of the rule. A test mode can be one of the following:
+    - **fully automated**: The outcome of all test cases in the rule was derived without human input
+    - **semi-automated**: The outcome of some test cases in the rule was derived without human input
+    - **manual**: The outcome of all of the test cases in the rule was derived with human input
+
+3. If the test mode of the implementation was _manual_ or _semi-automated_, a declaration of the implementor that these manual outcomes are the result of a documented step by step test procedure included in the implementation.
+
+Additionally, when submitting the rule, the following requirements must be met:
+
+1. There must be at least one implementation that for all passed and inapplicable test cases reports a pass or inapplicable outcome, and that for all failed test cases reports a failed outcome.
+
+2. All input rules of a composite rule must also have at least one implementation for which the previous requirement is true.
+
+
 ## Apendix 1: Feedback template
 
 The liaison must curate the feedback. Ensure it is clear and remove any duplicates.
