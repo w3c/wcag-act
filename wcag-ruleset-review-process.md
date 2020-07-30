@@ -47,10 +47,10 @@ This survey will be open for at least 5 work days, to give ACT Task Force member
 
 If the rule does not pass this step, the liaison has 5 work days to:
 
-- put the feedback in a new issue using the template in [Appendix 1](#Appendix-1:-Feedback-template). 
+- put the feedback in a new issue using the template in [Appendix 1](#Appendix-1:-Feedback-template)
 - add a reference to the feedback issue in the issue that prompted the survey on the rule
 - close the issue that prompted the survey on the rule
-- notify the person who submitted the rule about the open issue with feedback and ask them when the feedback can be resolved. 
+- notify the person who submitted the rule about the open issue with feedback and ask them when the feedback can be resolved 
 
 If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the feedback issue will be closed by a TF facilitator. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
 
