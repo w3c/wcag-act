@@ -47,7 +47,7 @@ This survey will be open for at least 5 work days, to give ACT Task Force member
 
 If the rule does not pass this step, the liaison has 5 work days to:
 
-- put the feedback in a new issue using the template in appendix 1. 
+- put the feedback in a new issue using the template in [Appendix 1](#Appendix-1:-Feedback-template). 
 - add a reference to the feedback issue in the issue that prompted the survey on the rule
 - close the issue that prompted the survey on the rule
 - notify the person who submitted the rule about the open issue with feedback and ask them when the feedback can be resolved. 
@@ -93,7 +93,7 @@ An implementation must be correct. This is determined by running the tool or met
 | Failed         | `failed` or `cantTell`                  |
 | Inapplicable   | `inapplicable`, `cantTell`, or `passed` |
 
-## Apendix 1: Feedback template
+## Appendix 1: Feedback template
 
 The liaison must curate the feedback. Ensure it is clear and remove any duplicates.
 
