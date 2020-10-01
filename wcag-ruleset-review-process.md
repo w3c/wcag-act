@@ -43,7 +43,7 @@ If the rule does not pass this step, the liaison has 5 work days to put the feed
 
 ### Approving
 
-When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Concensus e-mail or send out a survey.
+When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Consensus e-mail or send out a survey.
 
 ## Minor Updates
 
