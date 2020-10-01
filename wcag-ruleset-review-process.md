@@ -32,7 +32,7 @@ A facilitator of the ACT Task Force creates a survey for the rule, in which Task
 - Is the rule up to date?
 - Are the assumptions acceptable?
 - Is the implementation data correct?
-- Is the rule consistent with existing WCAG documents?
+- Is the rule consistent with existing accessibility standards?
 - Are there any remaining open issues for this rule that were opened prior to this review?
 - Do you have any further questions or concerns about this rule?
 - Do you think this rule is ready to be published?
@@ -47,7 +47,7 @@ When a rule passes the review stage, it is included in a draft version of the WC
 
 ## Minor Updates
 
-Once a rule has been included in the (draft) WCAG ruleset, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. This requires a 48 hour call for concensus, except if the update is purely editorial.
+Once a rule has been included in the (draft) WCAG ruleset, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. Minor updates require a 48 hour call for consensus, except if the update is purely editorial.
 
 ## Public Feedback
 
