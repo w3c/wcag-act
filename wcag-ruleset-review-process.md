@@ -8,7 +8,7 @@ Organizations and individuals, **rule providers**, can submit rules to be added 
 
 ## Rule Review
 
-When proposing a new rule, or an update to a rule, there are four steps to go through:
+When proposing a new rule, or an update to a rule, there are three steps to go through:
 
 1. **Submitting**: The rule provider submits a rule to ACT Task Force
 2. **Surveying**: The ACT Task Force reviews the rule through a survey
@@ -47,7 +47,7 @@ When a rule passes the review stage, it is included in a draft version of the WC
 
 ## Minor Updates
 
-Once a rule has been included in the (draft) WCAG ruleset, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. Minor updates require a 48 hour call for consensus, except if the update is purely editorial.
+Once a rule has approved by the ACT Task Force, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. Minor updates require a 48 hour call for consensus, except if the update is purely editorial.
 
 ## Public Feedback
 
@@ -61,7 +61,7 @@ For the ACT Task Force agenda, public feedback will be prioritised over review o
 
 Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every rule in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, the ACT Task Force proposes an update to the rule to the original rule provider. If the change is taken up without further updates, the update is accepted without review.
 
-Every time a rule is surveyed, it is checked to make sure it is up to date. This survey counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason is has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to propose any necessary changes to the rule provider.
+Every time a rule is surveyed, it is checked to make sure it is up to date. This survey counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to propose any necessary changes to the rule provider.
 
 ## Orphaned Rules
 
