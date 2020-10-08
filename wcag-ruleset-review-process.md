@@ -6,14 +6,13 @@ Much of the tasks in this process are delegated to ACT Task Force, which is a su
 
 Organizations and individuals, **rule providers**, can submit rules to be added to the WCAG Ruleset. Submitted rules must conform to the ACT Rules Format 1.0 specification and be accompanied by real-life implementations (specific criteria detailed later in this document). **Rule providers are expected to only contribute complete rules, as accurate as the rule providers can possibly make them.**
 
-## Overview
+## Rule Review
 
-When proposing a new rule, or an update to a rule, there are four steps to go through:
+When proposing a new rule, or an update to a rule, there are three steps to go through:
 
 1. **Submitting**: The rule provider submits a rule to ACT Task Force
-2. **Screening**: The ACT Task Force facilitators do an initial review
-3. **Surveying**: The ACT Task Force reviews the rule through a survey
-4. **Approving**: The ACT Task Force prepares a proposal for AGWG
+2. **Surveying**: The ACT Task Force reviews the rule through a survey
+3. **Approving**: The ACT Task Force prepares a proposal for AGWG
 
 The ACT Task Force will not edit rule contents. This is to avoid creating forks, where two versions of a rule are worked on in parallel, potentially with conflicts. Where necessary, the ACT Task Force will propose changes to the rule but not put those changes in.
 
@@ -25,20 +24,15 @@ The rule provider creates an issue in the [ACT GitHub repository](https://github
 2. License of the rule
 3. Information about any [implementations](#implementations)
 
-### Screening
-
-New proposals are reviewed during the ACT Task Force call, and a liaison is assigned. The liaison reviews the proposal for major inaccuracies in the rule. The purpose is to avoid spending reviewer time on obvious oversights. The liaison can not be involved in the original creation of the rule. The liaison is also responsible for further communication with the rule provider until the rule is published or the issue is closed.
-
-If the liaison finds no major issues with the rule, they notify the TF facilitators that the rule is ready for a survey. If the rule does not pass this step, the liaison puts the feedback in the issue for the proposal. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be screened again straight away. If not, the proposal will be closed. Proposals can always be resubmitted, which restarts the process from step 1. This puts the rule proposal on the bottom of the backlog.
-
 ### Surveying
 
 A facilitator of the ACT Task Force creates a survey for the rule, in which Task Force members are asked the following questions:
 
 - Does the rule follow the ACT Rules Format 1.0?
+- Is the rule up to date?
 - Are the assumptions acceptable?
 - Is the implementation data correct?
-- Is the rule consistent with existing WCAG documents?
+- Is the rule consistent with existing accessibility standards?
 - Are there any remaining open issues for this rule that were opened prior to this review?
 - Do you have any further questions or concerns about this rule?
 - Do you think this rule is ready to be published?
@@ -49,7 +43,11 @@ If the rule does not pass this step, the liaison has 5 work days to put the feed
 
 ### Approving
 
-When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Concensus e-mail or send out a survey.
+When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Consensus e-mail or send out a survey.
+
+## Minor Updates
+
+Once a rule has approved by the ACT Task Force, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. Minor updates require a 48 hour call for consensus, except if the update is purely editorial.
 
 ## Public Feedback
 
@@ -62,6 +60,8 @@ For the ACT Task Force agenda, public feedback will be prioritised over review o
 ## Annual Review
 
 Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every rule in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, the ACT Task Force proposes an update to the rule to the original rule provider. If the change is taken up without further updates, the update is accepted without review.
+
+Every time a rule is surveyed, it is checked to make sure it is up to date. This survey counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to propose any necessary changes to the rule provider.
 
 ## Orphaned Rules
 
