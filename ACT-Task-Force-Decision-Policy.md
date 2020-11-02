@@ -46,7 +46,7 @@ In all discussions, everyone involved is expected to follow the <a href="https:/
 
 ## Ratification
 
-- DD-Month-YYYY: Approved by the ACT Task Force
+- <a href="https://www.w3.org/2020/10/29-wcag-act-minutes.html#item04">29-October-2020</a>: Approved by the ACT Task Force
 - DD-Month-YYYY: Approved by the Accessibility Guidelines Working Group
 
 ## History
