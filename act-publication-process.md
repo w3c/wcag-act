@@ -4,7 +4,7 @@ The ACT publication process is designed to publish high-quality ACT rules to the
 
 1. Draft proposal
 2. Call for review
-3. Publish proposal for implementation
+3. Call for implementation
 4. Validation
 5. Publish approval
 
@@ -14,7 +14,7 @@ The ACT publication process is designed to publish high-quality ACT rules to the
 
 New rules, and changes to rules are made through GitHub pull requests. Any member of either ACT group can author such a pull request. When a pull request is ready for review the author must give it the "ready for review" label.
 
-Before going to the next step, a pull request must have approval from three independent reviewers. These reviewers can not work for the same organisation, and must not have been involved in writing the pull request. 
+Before going to the next step, a pull request must have approval from three independent reviewers. These reviewers can not work for the same organization, and must not have been involved in writing the pull request. 
 
 The pull request description must include information on the type of change the pull request makes, and what happens in the "call for review" phase. There are three options:
 
@@ -28,12 +28,12 @@ Once a pull request has the necessary approvals, the author of the pull request 
 
 1. If no changes are requested on the pull request during the review period, the author is free to merge the pull request. 
 2. Otherwise, the author must resolve the requested changes and;
-  1. If the changes are editorial, the pull request can be merged at the end of the review perios
+  1. If the changes are editorial, the pull request can be merged at the end of the review period
   2. If the changes are not editorial, repeat step 1, followed by a **one week** call for review.
 
-### 3. Publish proposal for implementation
+When a pull request is merged, the rule is published on the WAI website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
 
-When a pull request is merged, the rule is published on the w3.org website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
+### 3. Call for implementation
 
 When there is at least one complete implementation of the rule, the proposal can proceed to the validation phase. An implementation is considered "complete" when the outcome of the test cases are the same as the expected outcome. Inapplicable and passed are considered interchangeable.
 
@@ -50,5 +50,5 @@ Once a rule is validated by the ACT TF / CG, one of the ACT chairs will request 
 Based on the feedback from AG, one of three things can happen:
 
 1. If AG approves the changes, the rule is republished on w3.org with the "proposal" indicator removed.
-1. If AG requests editorial changes, a drafts proposal is created (step 1). Once merged, the updated rule is republished on w3.org with the "proposal" indicator removed.
-2. If AG requests non-editorical, the liaison is tasked to draft a proposal as in step 1.
+2. If AG requests editorial changes, a draft proposal is created (step 1). Once merged, the updated rule is republished on w3.org with the "proposal" indicator removed.
+3. If AG requests non-editorical, the liaison is tasked to draft a proposal as in step 1.
