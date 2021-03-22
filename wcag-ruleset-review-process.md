@@ -65,9 +65,9 @@ Once a rule is validated, an ACT TF facilitator will request that AG approve the
 
 Based on the feedback from AG, one of three things can happen:
 
-1. If AG approves the changes, the rule is republished on w3.org with the "proposal" indicator removed (i.e. it is published as an approved rule).
+1. If AG approves the changes, the rule is republished on the WAI website with the "proposal" indicator removed (i.e. it is published as an approved rule).
 
-2. If AG requests editorial changes, a [drafts proposal](#draft-proposal) is created. Once merged, the updated rule is republished on w3.org with the "proposal" indicator removed. This skips the implementations or validation steps.
+2. If AG requests editorial changes, a [drafts proposal](#draft-proposal) is created. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
 
 3. If AG requests non-editorial, the liaison is tasked to [drafts proposal](#draft-proposal).
 
@@ -97,7 +97,7 @@ An implementation must be correct. This is determined by running the tool or met
 | Failed         | `failed` or `cantTell`                  |
 | Inapplicable   | `inapplicable`, `cantTell`, or `passed` |
 
-Before the ACT Task Force can publish rules, at minimum one full implementation is required. Rule authors that want their ACT rules considered for publication by the Accessibility Guidelines Working Group must provide the following information for at least one accessibility testing tool or testing methodology:
+Before an ACT rule is approved, at minimum one full implementation is required. The following information must be provided for at least one accessibility testing tool or testing methodology:
 
 1. An overview of the expected and actual outcomes when the tool / methodology is used on the test cases in the rule.
 
@@ -108,12 +108,10 @@ Before the ACT Task Force can publish rules, at minimum one full implementation 
 
 3. If the test mode of the implementation was _manual_ or _semi-automated_, a declaration of the implementor that these manual outcomes are the result of a documented step by step test procedure included in the implementation.
 
-Additionally, when submitting the rule, the following requirements must be met:
+## Complete implementations
+
+An implementation is considered to be "complete" when the following requirements are met:
 
 1. There must be at least one implementation that for all passed and inapplicable test cases reports a pass or inapplicable outcome, and that for all failed test cases reports a failed outcome.
 
 2. All input rules of a composite rule must also have at least one implementation for which the previous requirement is true.
-
-## Complete implementations
-
-An implementation is considered to be "complete" when for each test case, at least one of the outcomes is not a "cantTell" result.
