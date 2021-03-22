@@ -1,37 +1,53 @@
-# WCAG Ruleset Review Process
+# ACT Publication Process
 
-This document describes a process for reviewing, approving, and maintaining Accessibility Conformance Testing (ACT) Rules contributed to the W3C Accessibility Guidelines Working Group (AGWG) for formal publication. Such a commonly agreed upon **WCAG Ruleset** contributes to more consistent interpretation of how to test conformance to the W3C Web Content Accessibility Guidelines (WCAG), more consistent results from conformance testing, and more transparency and documentation of the testing process.
+This document describes a process for writing, reviewing, approving, and maintaining Accessibility Conformance Testing (ACT) Rules for formal publication by the W3C Accessibility Guidelines Working Group (AGWG). Such a commonly agreed upon WCAG Ruleset contributes to more consistent interpretation of how to test conformance to the W3C Web Content Accessibility Guidelines (WCAG), more consistent results from conformance testing, and more transparency and documentation of the testing process.
 
 Much of the tasks in this process are delegated to ACT Task Force, which is a sub-group of AGWG. ACT TF carries out initial review and prepares proposals for AGWG, which has the final say as the maintainer of WCAG and the authoritative body for interpretation.
 
-Organizations and individuals, **rule providers**, can submit rules to be added to the WCAG Ruleset. Submitted rules must conform to the ACT Rules Format 1.0 specification and be accompanied by real-life implementations (specific criteria detailed later in this document). **Rule providers are expected to only contribute complete rules, as accurate as the rule providers can possibly make them.**
+The ACT TF does this work in close collaboration with the ACT Rules Community Group through regular joint meetings. Any other groups interested to contribute rules to the WCAG ruleset should contact the co-facilitator(s) of the ACT Task Force. The ACT publication process is designed to publish high-quality ACT rules to the W3C website. 
 
-## Rule Review
+## ACT Publication steps
 
-When proposing a new rule, or an update to a rule, there are three steps to go through:
+When creating a new rule, or updating a rule, there are five steps to go through. This process involves the combined effort of the ACT Task Force, and the ACT Rules Community Group. 
 
-1. **Submitting**: The rule provider submits a rule to ACT Task Force
-2. **Surveying**: The ACT Task Force reviews the rule through a survey
-3. **Approving**: The ACT Task Force prepares a proposal for AGWG
+1. Draft proposal
+2. Call for review
+3. Call for implementation
+4. Validation
+5. Publish approval
 
-The ACT Task Force will not edit rule contents. This is to avoid creating forks, where two versions of a rule are worked on in parallel, potentially with conflicts. Where necessary, the ACT Task Force will propose changes to the rule but not put those changes in.
+### 1. Draft proposal
 
-### Submitting
+New rules, and changes to rules are made through GitHub pull requests. Any member of either ACT group can author such a pull request. A pull request must have approval from three independent reviewers before it can proceed to step 2. These reviewers can not work for the same organization, and must not have been involved in writing the pull request. 
 
-The rule provider creates an issue in the [ACT GitHub repository](https://github.com/w3c/wcag-act/issues). The issue must include the following information:
+The pull request description must include information on the type of change the pull request makes, and what happens in the "call for review" phase. There are three options:
 
-1. URL of the rule
-2. License of the rule
-3. Information about any [implementations](#implementations)
+1. New rules, and significant changes that impact multiple rules should have a **two week** call for review. 
+2. Updates to rules, and changes to definitions used in a small number of rules have a **one week** call for review.
+3. Editorial changes, including minor changes to test cases can **skip** call for review.
 
-### Surveying
+### 2. Call for review
 
-A facilitator of the ACT Task Force creates a survey for the rule, in which Task Force members are asked the following questions:
+Once a pull request has the necessary approvals, the author of the pull request sends an e-mail to the ACT Rules community group mailing list with the text "[for review]" in the subject. The e-mail must include a link to the pull request, and an indication of the duration and end date of the call for review. 
+
+1. If no changes are requested on the pull request during the review period, the author is free to merge the pull request. 
+2. Otherwise, the author must resolve the requested changes. A comment is resolved when it has approval from the original commenter, and at least two other reviewers. This can happen during or after the call for review. Depending on the change, one of the following happens:
+  1. If the changes are editorial, the pull request can be merged any time after the review period.
+  2. If the changes are not editorial, repeat step 1, followed by a **one week** call for review.
+
+When a pull request is merged, the rule is published on the WAI website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
+
+### 3. Call for implementation
+
+When there is at least **one complete implementation** of the rule, the proposal can proceed to the validation phase. See [complete implementations](#complete-implementations).
+
+### 4. Validation
+
+Once the proposal has a complete implementation, a facilitator of the ACT Task Force creates a survey for the rule, in which Task Force and Community Group members are asked the following questions:
 
 - Does the rule follow the ACT Rules Format 1.0?
 - Is the rule up to date?
 - Are the assumptions acceptable?
-- Is the implementation data correct?
 - Is the rule consistent with existing accessibility standards?
 - Are there any remaining open issues for this rule that were opened prior to this review?
 - Do you have any further questions or concerns about this rule?
@@ -39,39 +55,35 @@ A facilitator of the ACT Task Force creates a survey for the rule, in which Task
 
 This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 5 rule surveys will be due in the same week.
 
-If the rule does not pass this step, the liaison has 5 work days to put the feedback in the issue for the proposal using the template in appendix 1. If changes are editorial in nature, and the rule provider can resolve those within 5 work days, the rule will be surveyed again straight away. If not, the proposal will be closed by a TF facilitator. Proposals can always be resubmitted, which will restart the process from step 1. This puts the proposal on the bottom of the backlog.
+To go to the next step, the survey must include 5 approvals to publish, and no objections. If the survey shows changes are needed to the rule, a liaison is picked for the rule, who is responsible for drafting a proposal (step 1) to update the rule. If available, the liaison for a rule is one of the rule's authors. The liaison has 5 work days to create a [draft proposal](#draft-proposal) that is ready for reviewers.
 
-### Approving
+If the precise changes are editorial (to be approved in step 1), and are pre-agreed on by all participants in the survey, the updated change will skip the validation stage. This has to be recorded as a decision in meeting minutes of the ACT Task Force.
 
-When a rule passes the review stage, it is included in a draft version of the WCAG Ruleset. Depending on the types of changes and the availability of the Accessibility Guidelines (AG) Working Group, the ACT Task Force decides on a timeline for releasing updates to the WCAG Ruleset. To update the WCAG Ruleset, the ACT Task Force requests approval from the AG Working Group. The AG Working Group will have its own process for deciding whether or not to publish the next version of the WCAG Ruleset. For example, AG may decide to have Call For Consensus e-mail or send out a survey.
+### 5. Publish Approval
 
-## Minor Updates
+Once a rule is validated, an ACT TF facilitator will request that AG approve the rule. These requests can be grouped, and handled as a batch. This is decided between the ACT facilitator(s) and the AG chairs. The AG Working Group will have its own process for deciding whether or not to publish updates to the WCAG Ruleset. For example, AG may decide to have Call For Consensus e-mail or send out a survey.
 
-Once a rule has approved by the ACT Task Force, the rule provider can submit minor changes in a pull request directly to the draft. The ACT Task Force must decide on a call whether the changes need to be surveyed, following the [rule review process](#rule-review), or if it can be merged directly into the draft ruleset. Minor updates require a 48 hour call for consensus, except if the update is purely editorial.
+Based on the feedback from AG, one of three things can happen:
+
+1. If AG approves the changes, the rule is republished on w3.org with the "proposal" indicator removed (i.e. it is published as an approved rule).
+
+2. If AG requests editorial changes, a [drafts proposal](#draft-proposal) is created. Once merged, the updated rule is republished on w3.org with the "proposal" indicator removed. This skips the implementations or validation steps.
+
+3. If AG requests non-editorial, the liaison is tasked to [drafts proposal](#draft-proposal).
 
 ## Public Feedback
 
 Public feedback received on the WCAG Ruleset is processed by the ACT Task Force. Questions or issues can either be submitted directly into the ACT Task Force GitHub repository, or be copied into GitHub issues from questions sent to the ACT public mailing list.
 
-Questions the ACT Task Force can answer will be responded to directly. Questions that may require updates to a rule will be forwarded to the rule provider, including a proposal from the ACT Task Force on how to resolve the question. If the rule provider uses the proposal without additional changes, the rule will be updated without having to go through the review process. The rule provider should still apply their own review process to the change. If a different solution is taken, or additional changes are made, the update will have to go through the review process.
+Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#validation) step. 
 
-For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a reply in which they defer to the rule provider for a solution.
+For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a reply which indicates when an answers is expected.
 
 ## Annual Review
 
-Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every rule in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, the ACT Task Force proposes an update to the rule to the original rule provider. If the change is taken up without further updates, the update is accepted without review.
+Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#validation) step. 
 
-Every time a rule is surveyed, it is checked to make sure it is up to date. This survey counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to propose any necessary changes to the rule provider.
-
-## Orphaned Rules
-
-The ACT Task Force will send a request for change to a rule provider as a result of either public feedback or an annual review. If the rule provider does not respond within two months, the ACT Task Force will assume the rule is no longer actively maintained. The ACT Task Force will send at least 2 reminders before concluding the rule is not maintained. If a rule is not maintained, the ACT Task Force will look for another organization who might be willing to maintain the rule. If the original rule provider wishes to resume maintenance of the rule, this will only be accepted with the permission of the active rule provider.
-
-If no one can be found to maintain a rule within a month, the rule will be labelled as "outdated". Outdated rules will be removed from the ruleset after 1 year.
-
-## Rule Provider Questions
-
-Often when writing rules, rule providers have questions about the intended meaning of WCAG success criteria. The ACT Task Force will keep track of such questions coming from rule providers using GitHub issues and will work with the AG Working Group to come up with answers to them. Response to questions is subject to the availability of AG, therefore, so there is no target time frame for a response.
+Every time a rule is [validated](#validation), it is checked to make sure it is up to date. This counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to create a [draft proposal](#draft-proposal).
 
 ## Implementations
 
@@ -102,21 +114,6 @@ Additionally, when submitting the rule, the following requirements must be met:
 
 2. All input rules of a composite rule must also have at least one implementation for which the previous requirement is true.
 
+## Complete implementations
 
-## Apendix 1: Feedback template
-
-The liaison must curate the feedback. Ensure it is clear and remove any duplicates.
-
-```md
-[link to the survey results](...)
-[link to the minutes from TF](...)
-
-## {{ name of TF member }}
-
-- [ ] {{ Text from survey }}
-- [ ] {{ Text from survey }}
-
-## {{ name of TF member }}
- 
-- [ ] ...
-```
+An implementation is considered to be "complete" when for each test case, at least one of the outcomes is not a "cantTell" result.
