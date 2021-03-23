@@ -55,7 +55,7 @@ Once the proposal has a complete implementation, a facilitator of the ACT Task F
 
 This survey will be open for at least 5 work days, to give ACT Task Force members sufficient time to review the rule. No more than 5 rule surveys will be due in the same week.
 
-To go to the next step, the survey must include 5 approvals to publish, and no objections. If the survey shows changes are needed to the rule, a liaison is picked for the rule, who is responsible for drafting a proposal (step 1) to update the rule. If available, the liaison for a rule is one of the rule's authors. The liaison has 5 work days to create a [draft proposal](#draft-proposal) that is ready for reviewers.
+To go to the next step, the survey must include 5 approvals to publish, and no objections. If the survey shows changes are needed to the rule, a liaison is picked for the rule, who is responsible for drafting a proposal (step 1) to update the rule. If available, the liaison for a rule is one of the rule's authors. The liaison has 5 work days to create a [draft proposal](#1-draft-proposal) that is ready for reviewers.
 
 If the precise changes are editorial (to be approved in step 1), and are pre-agreed on by all participants in the survey, the updated change will skip the validation stage. This has to be recorded as a decision in meeting minutes of the ACT Task Force.
 
@@ -67,23 +67,23 @@ Based on the feedback from AG, one of three things can happen:
 
 1. If AG approves the changes, the rule is republished on the WAI website with the "proposal" indicator removed (i.e. it is published as an approved rule).
 
-2. If AG requests editorial changes, a [drafts proposal](#draft-proposal) is created. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
+2. If AG requests editorial changes, a [drafts proposal](#1-draft-proposal) is created. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
 
-3. If AG requests non-editorial, the liaison is tasked to [drafts proposal](#draft-proposal).
+3. If AG requests non-editorial, the liaison is tasked to [drafts proposal](#1-draft-proposal).
 
 ## Public Feedback
 
 Public feedback received on the WCAG Ruleset is processed by the ACT Task Force. Questions or issues can either be submitted directly into the ACT Task Force GitHub repository, or be copied into GitHub issues from questions sent to the ACT public mailing list.
 
-Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#validation) step. 
+Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
 For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a reply which indicates when an answers is expected.
 
 ## Annual Review
 
-Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#validation) step. 
+Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
-Every time a rule is [validated](#validation), it is checked to make sure it is up to date. This counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liason has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to create a [draft proposal](#draft-proposal).
+Every time a rule is [validated](#4-validation), it is checked to make sure it is up to date. This counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liaison has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to create a [draft proposal](#1-draft-proposal).
 
 ## Implementations
 
