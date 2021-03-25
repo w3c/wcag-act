@@ -22,7 +22,7 @@ New rules, and changes to rules are made through GitHub pull requests. Any membe
 
 The pull request description must include information on the type of change the pull request makes and what happens in the "call for review" phase. There are three options:
 
-1. New rules, and significant changes that impact multiple rules should have a **two week** call for review. 
+1. New rules and significant changes that impact multiple rules should have a **two week** call for review.
 2. Updates to rules, and changes to definitions used in a small number of rules have a **one week** call for review.
 3. Editorial changes, including minor changes to test cases can **skip** call for review.
 
@@ -31,7 +31,7 @@ The pull request description must include information on the type of change the 
 Once a pull request has the necessary approvals, the author of the pull request sends an e-mail to the ACT Rules Community Group mailing list with the text "[for review]" in the subject. The e-mail must include a link to the pull request, and an indication of the duration and end date of the call for review. 
 
 1. If no changes are requested on the pull request during the review period, the author is free to merge the pull request. 
-2. Otherwise, the author must resolve the requested changes. A comment is resolved when it has approval from the original commenter, and at least two other reviewers. This can happen during or after the call for review. Depending on the change, one of the following happens:
+2. Otherwise, the author must resolve the requested changes. A comment is resolved when the updated pull request is  approved by the original commenter, and at least two other reviewers. This can happen during or after the call for review. Depending on the change, one of the following happens:
     1. If the changes are editorial, the pull request can be merged any time after the review period.
     2. If the changes are not editorial, create a new [draft proposal](#1-draft-proposal), followed by a **one week** call for review.
 
@@ -123,3 +123,7 @@ Parts of the process can be bypassed when changes are editorial. If the author b
 - An editorial change does not add new content. New expectations, test cases, assumptions, accessibility support cases, background info, etc. are not editorial.
 - Editorial changes do not change the meaning of the rule, except if for issues where the intended meaning is obvious, such as typos in role names
 - Test cases are not changed, except for trivial fixes that are unlikely to impact an implementation.
+
+## Liaisons
+
+A liaison is a member of the ACT TF or CG, appointed to for specific rule maintenance activities. Preferably this is one of the authors of the rule.
