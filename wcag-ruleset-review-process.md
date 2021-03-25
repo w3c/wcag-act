@@ -2,25 +2,25 @@
 
 This document describes a process for writing, reviewing, approving, and maintaining Accessibility Conformance Testing (ACT) Rules for formal publication by the W3C Accessibility Guidelines Working Group (AGWG). Such a commonly agreed upon WCAG Ruleset contributes to more consistent interpretation of how to test conformance to the W3C Web Content Accessibility Guidelines (WCAG), more consistent results from conformance testing, and more transparency and documentation of the testing process.
 
-Much of the tasks in this process are delegated to ACT Task Force, which is a sub-group of AGWG. ACT TF carries out initial review and prepares proposals for AGWG, which has the final say as the maintainer of WCAG and the authoritative body for interpretation.
+Much of the tasks in this process are delegated to ACT Task Force (ACT TF), which is a sub-group of AGWG. ACT TF carries out initial review and prepares proposals for AGWG, which has the final say as the maintainer of WCAG and the authoritative body for interpretation.
 
-The ACT TF does this work in close collaboration with the ACT Rules Community Group through regular joint meetings. Any other groups interested to contribute rules to the WCAG ruleset should contact the co-facilitator(s) of the ACT Task Force. The ACT publication process is designed to publish high-quality ACT rules to the W3C website. 
+Rule writing, reviewing, approving, and maintaining is a joint work between the ACT TF and the ACT Rules Community Group through regular joint meetings. Any other groups interested in contributing rules to the WCAG ruleset should contact the co-facilitator(s) of the ACT Task Force. The ACT publication process is designed to publish high-quality ACT rules to the W3C website. 
 
 ## ACT Publication steps
 
-When creating a new rule, or updating a rule, there are five steps to go through. This process involves the combined effort of the ACT Task Force, and the ACT Rules Community Group. 
+When creating a new rule, or updating a rule, there are five steps to go through. This process involves the combined effort of the ACT Task Force and the ACT Rules Community Group. 
 
 1. Draft proposal
 2. Call for review
 3. Call for implementation
 4. Validation
-5. Publish approval
+5. Publication approval
 
 ### 1. Draft proposal
 
 New rules, and changes to rules are made through GitHub pull requests. Any member of either ACT group can author such a pull request. A pull request must have approval from three independent reviewers before it can proceed to step 2. These reviewers can not work for the same organization, and must not have been involved in writing the pull request. 
 
-The pull request description must include information on the type of change the pull request makes, and what happens in the "call for review" phase. There are three options:
+The pull request description must include information on the type of change the pull request makes and what happens in the "call for review" phase. There are three options:
 
 1. New rules, and significant changes that impact multiple rules should have a **two week** call for review. 
 2. Updates to rules, and changes to definitions used in a small number of rules have a **one week** call for review.
@@ -28,16 +28,16 @@ The pull request description must include information on the type of change the 
 
 ### 2. Call for review
 
-Once a pull request has the necessary approvals, the author of the pull request sends an e-mail to the ACT Rules community group mailing list with the text "[for review]" in the subject. The e-mail must include a link to the pull request, and an indication of the duration and end date of the call for review. 
+Once a pull request has the necessary approvals, the author of the pull request sends an e-mail to the ACT Rules Community Group mailing list with the text "[for review]" in the subject. The e-mail must include a link to the pull request, and an indication of the duration and end date of the call for review. 
 
 1. If no changes are requested on the pull request during the review period, the author is free to merge the pull request. 
 2. Otherwise, the author must resolve the requested changes. A comment is resolved when it has approval from the original commenter, and at least two other reviewers. This can happen during or after the call for review. Depending on the change, one of the following happens:
-  1. If the changes are editorial, the pull request can be merged any time after the review period.
-  2. If the changes are not editorial, repeat step 1, followed by a **one week** call for review.
-
-When a pull request is merged, the rule is published on the WAI website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
+    1. If the changes are editorial, the pull request can be merged any time after the review period.
+    2. If the changes are not editorial, create a new [draft proposal](#1-draft-proposal), followed by a **one week** call for review.
 
 ### 3. Call for implementation
+
+When a pull request is merged, the rule is published on the WAI website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
 
 When there is at least **one complete implementation** of the rule, the proposal can proceed to the validation phase. See [complete implementations](#complete-implementations).
 
@@ -59,7 +59,7 @@ To go to the next step, the survey must include 5 approvals to publish, and no o
 
 If the precise changes are editorial (to be approved in step 1), and are pre-agreed on by all participants in the survey, the updated change will skip the validation stage. This has to be recorded as a decision in meeting minutes of the ACT Task Force.
 
-### 5. Publish Approval
+### 5. Publication Approval
 
 Once a rule is validated, an ACT TF facilitator will request that AG approve the rule. These requests can be grouped, and handled as a batch. This is decided between the ACT facilitator(s) and the AG chairs. The AG Working Group will have its own process for deciding whether or not to publish updates to the WCAG Ruleset. For example, AG may decide to have Call For Consensus e-mail or send out a survey.
 
@@ -67,9 +67,9 @@ Based on the feedback from AG, one of three things can happen:
 
 1. If AG approves the changes, the rule is republished on the WAI website with the "proposal" indicator removed (i.e. it is published as an approved rule).
 
-2. If AG requests editorial changes, a [drafts proposal](#1-draft-proposal) is created. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
+2. If AG requests editorial changes, a [draft proposal](#1-draft-proposal) is created by an ACT facilitator. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
 
-3. If AG requests non-editorial, the liaison is tasked to [drafts proposal](#1-draft-proposal).
+3. If AG requests non-editorial, the liaison is tasked to create a [draft proposal](#1-draft-proposal).
 
 ## Public Feedback
 
@@ -77,7 +77,7 @@ Public feedback received on the WCAG Ruleset is processed by the ACT Task Force.
 
 Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
-For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a reply which indicates when an answers is expected.
+For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a brief reply that indicates when a full response is expected.
 
 ## Annual Review
 
@@ -115,3 +115,11 @@ An implementation is considered to be "complete" when the following requirements
 1. There must be at least one implementation that for all passed and inapplicable test cases reports a pass or inapplicable outcome, and that for all failed test cases reports a failed outcome.
 
 2. All input rules of a composite rule must also have at least one implementation for which the previous requirement is true.
+
+## Editorial Changes
+
+Parts of the process can be bypassed when changes are editorial. If the author believes a change is editorial, this must be indicated in the pull request description. If there is disagreement with the reviewers about this, a change should not be considered editorial. Use the following indicators to decide if a change is editorial:
+
+- An editorial change does not add new content. New expectations, test cases, assumptions, accessibility support cases, background info, etc. are not editorial.
+- Editorial changes do not change the meaning of the rule, except if for issues where the intended meaning is obvious, such as typos in role names
+- Test cases are not changed, except for trivial fixes that are unlikely to impact an implementation.
