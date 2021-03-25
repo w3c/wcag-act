@@ -39,11 +39,11 @@ Once a pull request has the necessary approvals, the author of the pull request 
 
 When a pull request is merged, the rule is published on the WAI website with a clear indicator that the rule, or the update to the rule is a "proposal". Additionally, metadata for the rule is published, so that implementors of ACT rules can create an implementation report for the proposed rule.
 
-When there is at least **one complete implementation** of the rule, the proposal can proceed to the validation phase. See [complete implementations](#complete-implementations).
+When there is at least **one full implementation** of the rule, the proposal can proceed to the validation phase. See [full implementations](#full-implementations).
 
 ### 4. Validation
 
-Once the proposal has a complete implementation, a facilitator of the ACT Task Force creates a survey for the rule, in which Task Force and Community Group members are asked the following questions:
+Once the proposal has a full implementation, a facilitator of the ACT Task Force creates a survey for the rule, in which Task Force and Community Group members are asked the following questions:
 
 - Does the rule follow the ACT Rules Format 1.0?
 - Is the rule up to date?
@@ -81,21 +81,23 @@ For the ACT Task Force agenda, public feedback will be prioritised over review o
 
 ## Annual Review
 
-Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will review every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
+Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will check every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
 Every time a rule is [validated](#4-validation), it is checked to make sure it is up to date. This counts as an annual review, so that only rules that have not been surveyed in 12 months need to go through a separate review. If a rule has not been reviewed for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liaison has 10 work days to review if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to create a [draft proposal](#1-draft-proposal).
 
-## Implementations
+## Full Implementations
 
 An implementation is either a rule in an accessibility testing tool, or a procedure in a testing methodology. Implementations show that the ACT rule works in practice, and that the interpretation made by the rule is one that is used in real-world accessibility testing. Because of this, having more implementations, or having an implementation that has a lot of users weighs heavily in demonstrating that the assumptions and interpretation in the rule are acceptable to the accessibility community.
 
-An implementation must be correct. This is determined by running the tool or methodology on the test cases provided in the rule. Acknowledging that not all implementors distinguish between "passed" and "inapplicable", and that semi-automated tools can return "cantTell" as a result, an implementation is considered correct when it gets one of the allowed outcomes for all of the test cases:
+An implementation must be **correct**. This is determined by running the tool or methodology on the test cases provided in the rule. Acknowledging that not all implementors distinguish between "passed" and "inapplicable", and that semi-automated tools can return "cantTell" as a result, an implementation is considered correct when it gets one of the allowed outcomes for all of the test cases:
 
 | Test Case Type | Allowed outcomes                        |
 | -------------- | --------------------------------------- |
 | Passed         | `passed`, `cantTell`, or `inapplicable` |
 | Failed         | `failed` or `cantTell`                  |
 | Inapplicable   | `inapplicable`, `cantTell`, or `passed` |
+
+An implementation is considered a **full implementation** if it has the above, without any `cantTell` outcomes.
 
 Before an ACT rule is approved, at minimum one full implementation is required. The following information must be provided for at least one accessibility testing tool or testing methodology:
 
@@ -107,14 +109,6 @@ Before an ACT rule is approved, at minimum one full implementation is required. 
     - **manual**: The outcome of all of the test cases in the rule was derived with human input
 
 3. If the test mode of the implementation was _manual_ or _semi-automated_, a declaration of the implementor that these manual outcomes are the result of a documented step by step test procedure included in the implementation.
-
-## Complete implementations
-
-An implementation is considered to be "complete" when the following requirements are met:
-
-1. There must be at least one implementation that for all passed and inapplicable test cases reports a pass or inapplicable outcome, and that for all failed test cases reports a failed outcome.
-
-2. All input rules of a composite rule must also have at least one implementation for which the previous requirement is true.
 
 ## Editorial Changes
 
