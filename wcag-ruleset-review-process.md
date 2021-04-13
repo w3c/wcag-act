@@ -4,7 +4,7 @@ This document describes a process for writing, reviewing, approving, and maintai
 
 Much of the tasks in this process are delegated to ACT Task Force (ACT TF), which is a sub-group of AGWG. ACT TF carries out initial review and prepares proposals for AGWG, which has the final say as the maintainer of WCAG and the authoritative body for interpretation.
 
-Rule writing, reviewing, approving, and maintaining is a joint work between the ACT TF and the ACT Rules Community Group through regular joint meetings. Any other groups interested in contributing rules to the WCAG ruleset should contact the co-facilitator(s) of the ACT Task Force. The ACT publication process is designed to publish high-quality ACT rules to the W3C website. 
+Rule writing, reviewing, approving, and maintaining is a joint work effort between the ACT TF and the ACT Rules Community Group through regular joint meetings. Any other groups interested in contributing rules to the WCAG ruleset should contact the facilitator(s) of the ACT Task Force. The ACT publication process is designed to publish high-quality ACT rules to the W3C website. 
 
 ## ACT Publication steps
 
@@ -30,9 +30,9 @@ The pull request description must include information on the type of change the 
 
 Once a pull request has the necessary approvals, the author of the pull request sends an e-mail to the ACT Rules Community Group mailing list with the text "[for review]" in the subject. The e-mail must include a link to the pull request, and an indication of the duration and end date of the call for review. 
 
-1. If no changes are requested on the pull request during the review period, the author is free to merge the pull request. 
+1. If no changes are requested on the pull request during the review period, an ACT-TF facilitator will merge the pull request. 
 2. Otherwise, the author must resolve the requested changes. A comment is resolved when the updated pull request is  approved by the original commenter, and at least two other reviewers. This can happen during or after the call for review. Depending on the change, one of the following happens:
-    1. If the changes are editorial, the pull request can be merged any time after the review period.
+    1. If the changes are editorial, the pull request can be merged by an ACT-TF facilitator after the review period.
     2. If the changes are not editorial, create a new [draft proposal](#1-draft-proposal), followed by a **one week** call for review.
 
 ### 3. Call for implementation
@@ -69,7 +69,7 @@ Based on the feedback from AG, one of three things can happen:
 
 2. If AG requests editorial changes, a [draft proposal](#1-draft-proposal) is created by an ACT facilitator. Once merged, the updated rule is republished on the WAI website with the "proposal" indicator removed. This skips the implementations or validation steps.
 
-3. If AG requests non-editorial, the liaison is tasked to create a [draft proposal](#1-draft-proposal).
+3. If AG requests non-editorial changes, the liaison is tasked to create a [draft proposal](#1-draft-proposal).
 
 ## Public Feedback
 
@@ -120,4 +120,8 @@ Parts of the process can be bypassed when changes are editorial. If the author b
 
 ## Liaisons
 
-A liaison is a member of the ACT TF or CG, appointed to for specific rule maintenance activities. Preferably this is one of the authors of the rule.
+A liaison is a member of the ACT TF or CG, appointed for specific rule maintenance activities. Preferably this is one of the authors of the rule.
+
+## Decisions & Objections
+
+Decisions on topics other than those covered by this document follow the [ACT Task Force Decision Policy](https://github.com/w3c/wcag-act/blob/review-process-update-2/ACT-Task-Force-Decision-Policy.md). Objections that arise during the [ACT Publication steps](#act-publication-steps) are also handled according to this decision policy.
