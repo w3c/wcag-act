@@ -24,7 +24,7 @@ The pull request description must include information on the type of change the 
 
 1. New rules and significant changes that impact multiple rules should have a **two week** call for review.
 2. Updates to rules, and changes to definitions used in a small number of rules have a **one week** call for review.
-3. Editorial changes, including minor changes to test cases can **skip** call for review.
+3. Editorial changes, including minor changes to test cases, can **skip** call for review.
 
 ### 2. Call for review
 
@@ -75,13 +75,13 @@ Based on the feedback from AG, one of three things can happen:
 
 Public feedback received on the WCAG Ruleset is processed by the ACT Task Force. Questions or issues can either be submitted directly into the ACT Task Force GitHub repository, or be copied into GitHub issues from questions sent to the ACT public mailing list.
 
-Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
+Wherever possible, the ACT Task Force will work with the ACT Rules Community Group to come up with a joint answer to the questions. If the comment is about a proposed rule, or a proposed change to a rule, a public issue is created, and an answer is sent referencing the issue. If the comment is on an approved rule and changes are necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
 For the ACT Task Force agenda, public feedback will be prioritised over review of proposed rules. This ensures responsiveness to the wider community. The ACT Task Force should respond to questions within 5 work days. This may be a brief reply that indicates when a full response is expected.
 
 ## Annual Check
 
-Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will check every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
+Since technologies and standards frequently change, rules require regular maintenance. To ensure quality over time, the ACT Task Force will check every **approved rule** in the WCAG Ruleset at least once a year, to ensure it is still current and correct. If any changes are deemed necessary, a liaison is picked, and the change request is handled as survey feedback, starting in the [validation](#4-validation) step. 
 
 Every time a rule is [validated](#4-validation), it is checked to make sure it is up to date. This counts as an annual check, so that only rules that have not been surveyed in 12 months need to go through a separate check. If a rule has not been checked for 12 months, an ACT facilitator opens an issue for it, and assigns it to that rule's liaison. The liaison has 10 work days to check if the rule needs to be updated. If the rule needs to be updated, the liaison has another 10 work days to create a [draft proposal](#1-draft-proposal).
 
