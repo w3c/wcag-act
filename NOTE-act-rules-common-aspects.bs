@@ -64,6 +64,6 @@ Language {#input-aspects-text}
 
 Language, either written or spoken, contained in nodes of the DOM [[DOM]] or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.
 
-The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
+Rules can only operate on Language if it can be determined, but the means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
 
-Rules with a Language input aspect can only be evaluated if the language can be determined (either programatically or by analysing content), and sufficiently understood.
+Some rules cannot operate on a Language which is not sufficiently understood; while some other only need to be able to assess it. For example, a rule checking that an accessible name is descriptive cannot operate on a Language that is not understood; but a rule checking the correctness of a `lang` attribute can operate on a Language that is not understood.
