@@ -100,6 +100,7 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
 * [Assumptions](#assumptions)
 * [Accessibility Support](#accessibility-support)
 * [Test Cases](#test-cases)
+* [Implementation](#implementation)
 * [Change Log](#change-log)
 * [Glossary](#glossary)
 
@@ -452,6 +453,8 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
+All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy all of that rule's [=accessibility requirements=]. For all `failed` test cases, at least one accessibility <em class="rfc2119">must</em> not be satisfied.
+
 <aside class="example">
   <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
   <blockquote>
@@ -470,6 +473,60 @@ Test cases are (snippets of) content that can be used to validate the implementa
   </blockquote>
 </aside>
 
+Implementations {#implementation}
+--------------------------------
+
+An ACT [=implementation=] is an accessibility test methodology or test tool that can be used produce [=outcomes=] of an ACT Rule. An implementation can be a step by step description of how to manually perform the test, a fully automated test, or some combination of manual and automated testing. An ACT Rule <em class="rfc2119">may</em> include a list of implementations. If **consistency**, **test mode**, and **completeness** are included in the ACT Rule, these terms <em class="rfc2119">must</em> be used in the way described in this section.
+
+An [=implementation=] consists of multiple [=implementation procedures=]. The [=Implementation procedures=] are not required to have a one-to-one mapping to an ACT Rule. Mapping of an implementation to an ACT Rule is done by working out what _set of implementation procedures_ is consistent with that rule. Multiple implementation procedures can combine to map to a single ACT Rule, or a single implementation procedure can map to multiple ACT rules simultaneously.
+
+### Consistency {#impl-consistency}
+
+Consistency says how well a set of [=implementation procedures=] are aligned with the intent of an ACT Rule. There are four levels of consistency; fully consistent, consistent, partially consistent, and minimally consistent. Consistency is determined by comparing the [=outcome=] that implementation procedures returns on the test cases, to what the outcome should be. In determining consistency, the `passed` and `inapplicable` outcome are largely interchangeable. This supports implementations that do not distinguish between `passed` and `inapplicable`, and allows implementation procedures to be scoped different from an ACT Rule.
+
+Consistency levels are defined in the following way. The consistency of a set of implementations procedures is the first level in the following list that matches the definition.
+
+1. **Fully Consistent**: For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
+  - All `failed` test cases are reported as `failed` by at least one procedure; and
+  - All `passed` and `inapplicable` test cases are reported as `passed` or `inapplicable` by all procedures.
+
+2. **Consistent**: For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
+  - All `failed` test cases are reported as `failed`, `cantTell`, or `untested` by at least one procedure; and
+  - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested` by all procedures; and
+  - `passed` and `failed` test cases are not all reported as `cantTell` or `untested` by all procedures.
+
+3. **Partially consistent**: For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
+  - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
+  - `passed` and `failed` test cases are not all reported as `cantTell` or `untested`.
+
+4. **Minimally consistent**: For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
+  - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
+  - `inapplicable` test cases are not all reported as `cantTell` or `untested`.
+
+### Test Mode
+
+The test mode describes how [=implementation procedures=] carried out the test. There are four categories of test modes: `automatic`, `manual`, `semiAuto`, and `undisclosed` possible for ACT Rules. For any set of implementation procedures that has some level of [consistency](#impl-consistency), the test mode can be determined.
+
+If the implementation provides the test mode as part of its assertions on an ACT Rule's test cases, the test mode of that set of implementation procedures is defined as described below.
+
+1. **undisclosed**: One or more assertions does not include a mode that is `manual`, `automatic` or `semiAuto`.
+2. **manual**: All assertions have `manual` as its test mode.
+3. **automatic**: All assertions have `automatic` as its test mode, and no [=outcome=] is `cantTell`.
+4. **semiAuto**: The three items above are all false.
+
+<div class=note>
+  <p>**Note:** Implementors using the [[EARL10-Schema]] can express the test mode with the [Test Mode class](https://www.w3.org/TR/EARL10-Schema/#TestMode)</p>
+</div>
+
+### Completeness {#impl-completeness}
+
+In practice, test data of an [=implementation=] may not always be up to date. When the outcome of an [=implementation procedure=] is not available, that is treated as an `untested` outcome. A set of [=implementation procedures=] is **complete** when none of its outcomes for a rule's test cases are `untested`.
+
+### Accessibility Requirements {#impl-requirements-mapping}
+
+<div class="note">
+  <p>To be discussed. Are implementors required to use the same accessibility requirements mapping as the rule does, or even is it required to map at all?</p>
+</div>
 
 Change Log {#change-log}
 ------------------------
@@ -504,7 +561,6 @@ An ACT Rule <em class="rfc2119">may</em> contain acknowledgments. This can inclu
 * List of rule authors
 * List of rule reviewers/contributors
 * Funding or other support
-
 
 Rule Accuracy {#rule-accuracy}
 =========================
@@ -564,6 +620,16 @@ Definitions {#definitions}
     <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
   </dd>
 
+  <dt><dfn>Implementation</dfn><dt>
+  <dd>
+    <p>An accessibility test methodology or test tool, containing a set of [=implementation procedures=] that describes how to get the expected [=outcomes=] of an ACT Rule.</p>
+  </dd>
+
+  <dt><dfn>Implementation Procedure</dfn><dt>
+  <dd>
+    <p></p>
+  </dd>
+
   <dt><dfn>Outcome</dfn></dt>
   <dd>
     <p>A conclusion that comes from evaluating an ACT Rule on a [=test subject=] or one of its constituent [=test target=]. An outcome can be one of the three following types:</p>
@@ -576,7 +642,7 @@ Definitions {#definitions}
       <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When there are no test targets the rule has one `inapplicable` outcome. This means that each [=test subject=] will have one or more outcomes.</p>
     </div>
     <div class="note">
-      <p>**Note:** Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
+      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
     </div>
   </dd>
 
@@ -592,7 +658,7 @@ Definitions {#definitions}
       </ul></blockquote>
     </aside>
     <div class=note>
-      <p>**Note:** Implementers using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
+      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
     </div>
   </dd>
 
@@ -608,7 +674,7 @@ Definitions {#definitions}
       </ul></blockquote>
     </aside>
     <div class=note>
-      <p>**Note:** Implementers using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
+      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
     </div>
   </dd>
 </dl>
