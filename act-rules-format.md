@@ -454,7 +454,7 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy all of that rule's [=accessibility requirements=]. For all `failed` test cases, at least one accessibility <em class="rfc2119">must</em> not be satisfied.
+All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=accessibility requirements=]. For all `failed` test cases, all accessibility requirements <em class="rfc2119">must</em> not be satisfied.
 
 <aside class="example">
   <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
@@ -511,7 +511,7 @@ An [=implementation=] consists of multiple [=implementation procedures=]. The [=
 For each implementation the following data <em class="rfc2119">may</em> be provided. If included, consistency and coverage <em class="rfc2119">must</em> be determined as defined in this section.
 
 - Name of implementation
-- Name of the vender
+- Name of the vendor
 - [Consistency](#impl-consistency)
 - [Coverage](#impl-coverage) 
 - Version used in testing consistency and coverage
@@ -542,9 +542,9 @@ There are three levels of consistency; complete, partial, and minimal. Consisten
 
 Not all implementations are able to test all aspects of an ACT Rule. Particularly in automation, it is common for edge cases to be reported as `cantTell`. Coverage is a measure of how much of an ACT Rule is tested by an implementation. Similar to [consistency](#impl-consistency), the coverage of an ACT Rule is determined for a set of [=implementation procedures=]. Coverage is expressed using two numbers; total coverage, and automated coverage.
 
-The <dfn>total coverage</dfn> is expressed as a fraction where the numerator is the number of test cases, and the denominator is the number of test cases for which there was at least one correct outcome. `failed` outcomes are correct if it is for a `failed` test case. `passed` and `inapplicable` outcomes are correct if they are for a `passed` or `inapplicable` test case. Other outcomes are not considered correct.
+The <dfn>total coverage</dfn> is expressed as a fraction where the denominator is the number of test cases, and the numerator is the number of test cases for which there was at least one correct outcome. `failed` outcomes are correct if it is for a `failed` test case. `passed` and `inapplicable` outcomes are correct if they are for a `passed` or `inapplicable` test case. Other outcomes are not considered correct.
 
-The <dfn>automated coverage<dfn> is similar to the total coverage, except that the denominator number of test cases for which there was at least one correct outcome that is produced fully automatically. An outcome is fully automatically if no human input was needed to produce the outcome.
+The <dfn>automated coverage<dfn> is similar to the total coverage, except that the numerator is the number of test cases for which there was at least one correct outcome that is produced fully automatically. An outcome is fully automatically if no human input was needed to produce the outcome.
 
 <aside class=example>
   <p>Some ACT Rule has 5 test cases, 1 passed, 2 failed, and 1 inapplicable. A11y Corp Tool (ACTT) has an automated procedure for this rule. It reports correct outcomes, except for one of the `failed` cases for which it reports `cantTell`. That gives ACTT an [=automated coverage=] of 4/5.</p>
@@ -552,7 +552,7 @@ The <dfn>automated coverage<dfn> is similar to the total coverage, except that t
 </aside>
 
 <div class=note>
-  <p>**Note:** Implementors using the [[EARL10-Schema]] can express fully automated outcomes with the [automatic](https://www.w3.org/TR/EARL10-Schema/#automatic) test mode.</p>
+  <p>**Note:** Implementations using the [[EARL10-Schema]] can express fully automated outcomes with the [automatic](https://www.w3.org/TR/EARL10-Schema/#automatic) test mode.</p>
 </div>
 
 
@@ -645,7 +645,7 @@ Definitions {#definitions}
       <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When there are no test targets the rule has one `inapplicable` outcome. This means that each [=test subject=] will have one or more outcomes.</p>
     </div>
     <div class="note">
-      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
+      <p>**Note:** Implementations using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
     </div>
   </dd>
 
@@ -661,7 +661,7 @@ Definitions {#definitions}
       </ul></blockquote>
     </aside>
     <div class=note>
-      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
+      <p>**Note:** Implementations using the [[EARL10-Schema]] can express the test subject with the [subject property](https://www.w3.org/TR/EARL10-Schema/#subject)</p>
     </div>
   </dd>
 
@@ -677,7 +677,7 @@ Definitions {#definitions}
       </ul></blockquote>
     </aside>
     <div class=note>
-      <p>**Note:** Implementors using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
+      <p>**Note:** Implementations using the [[EARL10-Schema]] can express the test target with the [pointer property](https://www.w3.org/TR/EARL10-Schema/#pointer)</p>
     </div>
   </dd>
 </dl>
