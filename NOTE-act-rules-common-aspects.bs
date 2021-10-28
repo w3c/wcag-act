@@ -52,6 +52,8 @@ The computed [CSS Styling](https://www.w3.org/TR/css/) resulting from parsing CS
 
 The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the [CSS Object Model](https://www.w3.org/TR/cssom/) [[CSSOM]].
 
+The test cases of ACT Rules interested in the CSS styling must be viewed without [user style sheets](https://drafts.csswg.org/css-cascade/#cascade-origin-user), and with no changes to the [user agent default style sheet](https://drafts.csswg.org/css-cascade/#cascade-origin-ua). Otherwise the test cases might have different outcomes of the expected ones. 
+
 Accessibility Tree {#input-aspects-accessibility}
 -------------------------------------------------
 
