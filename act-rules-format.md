@@ -506,7 +506,7 @@ Implementations (optional) {#implementation}
 
 An ACT Rule <em class="rfc2119">may</em> contain a list of implementations that are consistent with that rule. An [=implementation=] is an accessibility test methodology or test tool that can be used produce [=outcomes=] of an ACT Rule.
 
-An [=implementation=] consists of multiple [=implementation procedures=]. The [=Implementation procedures=] are not required to have a one-to-one mapping to an ACT Rule. Mapping of an implementation to an ACT Rule is done by working out what set of implementation procedures has the highest consistent and coverage of that rule. Multiple implementation procedures can combine to map to a single ACT Rule, or a single implementation procedure can map to multiple ACT rules simultaneously.
+An [=implementation=] consists of multiple [=implementation procedures=]. The [=Implementation procedures=] are not required to have a one-to-one mapping to an ACT Rule. Mapping of an implementation to an ACT Rule is done by determining the set of implementation procedures with the highest consistency and coverage of that rule. Multiple implementation procedures can combine to map to a single ACT Rule, or a single implementation procedure can map to multiple ACT rules simultaneously.
 
 For each implementation the following data <em class="rfc2119">may</em> be provided. If included, consistency and coverage <em class="rfc2119">must</em> be determined as defined in this section.
 
@@ -518,7 +518,7 @@ For each implementation the following data <em class="rfc2119">may</em> be provi
 
 ### Consistency {#impl-consistency}
 
-Consistency says how well a set of [=implementation procedures=] are aligned with the intent of an ACT Rule. Consistency is determined by comparing the [=outcome=] that implementation procedures returns on the test cases, to what the outcome should be. In determining consistency, the `passed` and `inapplicable` outcome are largely interchangeable. This supports implementations that do not distinguish between `passed` and `inapplicable`, and allows implementation procedures to be scoped different from an ACT Rule.
+Consistency says how well a set of [=implementation procedures=] are aligned with the intent of an ACT Rule. Consistency is determined by comparing the [=outcome=] that implementation procedures return on the test cases to the expected outcomes of the test cases. In determining consistency, the `passed` and `inapplicable` outcome are largely interchangeable. This supports implementations that do not distinguish between `passed` and `inapplicable`, and allows implementation procedures to be scoped different from an ACT Rule.
 
 In addition to `passed`, `failed`, and `inapplicable`, implementations can report `cantTell` and `untested` as an [=outcome=]. If no outcome is given for a test case, it is considered `untested`.
 
