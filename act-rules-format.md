@@ -516,7 +516,7 @@ For each implementation the following data <em class="rfc2119">may</em> be provi
 - [Coverage](#impl-coverage) 
 - Version used in testing consistency and coverage
 
-### Consistency {#impl-consistency}
+### Consistency ### {#impl-consistency}
 
 Consistency says how well a set of [=implementation procedures=] are aligned with the intent of an ACT Rule. Consistency is determined by comparing the [=outcome=] that implementation procedures return on the test cases to the expected outcomes of the test cases. In determining consistency, the `passed` and `inapplicable` outcome are largely interchangeable. This supports implementations that do not distinguish between `passed` and `inapplicable`, and allows implementation procedures to be scoped different from an ACT Rule.
 
@@ -524,22 +524,26 @@ In addition to `passed`, `failed`, and `inapplicable`, implementations can repor
 
 There are three levels of consistency; complete, partial, and minimal. Consistency levels are defined in the following way. The consistency of a set of implementations procedures is the first level in the following list that matches the definition.
 
-1. **Complete**: These implementations consider all aspects of a rule's applicability and expectations. For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
-  - All `failed` test cases are reported as `failed`, or `cantTell` by at least one procedure; and
-  - All `passed` and `inapplicable` test cases are reported as `passed`, or `inapplicable`, or `cantTell` by all procedures; and
-  - `passed` and `failed` test cases are not all reported as `cantTell` by all procedures.
+1. <dfn>Complete</dfn> implementations consider all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
-2. **Partial**: These implementations consider some, but not all aspects of a rule's applicability and expectations. For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
-  - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
-  - `passed` and `failed` test cases are not all reported as `cantTell` or `untested`.
+    - All `failed` test cases are reported as `failed`, or `cantTell` by at least one procedure; and
+    - All `passed` and `inapplicable` test cases are reported as `passed`, or `inapplicable`, or `cantTell` by all procedures; and
+    - `passed` and `failed` test cases are not all reported as `cantTell` by all procedures.
 
-3. **Minimal**: These implementations consider a rule's applicability, but not its expectations. For the [=outcomes=] of some set of [=implementation procedures=], all the following are true:
-  - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
-  - `inapplicable` test cases are not all reported as `cantTell` or `untested`.
+    Additionally, the set of [=implementation procedures=] reports all `failed` test cases as [=not satisfied=] for each [=accessibility requirement=] in the [requirements mapping](#accessibility-requirements-mapping), and for no other accessibility requirement in any [=accessibility requirements document=] in the requirements mapping.
 
-**Additionally**: A set of [=implementation procedures=] is only _complete_ if the implementation reports all `failed` test cases as **not satisfied** for each [=accessibility requirement=] in the [requirements mapping](#accessibility-requirements-mapping), and for no other accessibility requirement in any [=accessibility requirements document=] in the requirements mapping.
+2. <dfn>Partial</dfn> implementations consider some, but not all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
-### Coverage
+    - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
+    - `passed` and `failed` test cases are not all reported as `cantTell` or `untested`.
+
+3. <dfn>Minimal</dfn> implementations consider some or all aspects of a rule's applicability, without considering its expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
+
+    - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
+    - `inapplicable` test cases are not all reported as `cantTell` or `untested`.
+
+
+### Coverage ### {#impl-coverage}
 
 Not all implementations are able to test all aspects of an ACT Rule. Particularly in automation, it is common for edge cases to be reported as `cantTell`. Coverage is a measure of how much of an ACT Rule is tested by an implementation. Similar to [consistency](#impl-consistency), the coverage of an ACT Rule is determined for a set of [=implementation procedures=]. Coverage is expressed using two numbers; total coverage, and automated coverage.
 
