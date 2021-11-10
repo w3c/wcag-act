@@ -256,6 +256,28 @@ If the rule does not map to any [=accessibility requirement=], the accessibility
 If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=], there <em class="rfc2119">must not</em> be an accessibility requirement in the accessibility requirements mapping. The optional [Background section](#background) could be used to list [=accessibility requirements documents=] when they are thematically related, but for which the rule is not a failure test.
 
 
+### Implementing Accessibility Requirement Mappings ### {#implementing-accessibility-requirement-mappings}
+
+[=Implementations=] can only have a [=complete=] [=consistency=] level if they reports accessibility requirements as *not satisfied* in a way that is consistent with the accessibility requirements mapping. A set of [=implementation procedures=] has a <dfn>consistent accessibility requirements mapping</dfn> when all `failed` test cases of an ACT Rule are reported as *not satisfied* for each [=relevant accessibility requirement=] by at least one implementation procedure in the set. Additionally, no other accessibility requirement in the same [=accessibility requirements documents=] is reported as *not satisfied* by the implementation procedures in the set.
+
+A <dfn>relevant accessibility requirement</dfn> is an accessibility requirement in the [accessibility requirements mapping](#accessibility-requirements-mapping) of an ACT Rule that is part of an [=accessibility requirements document=] and conformance level that an implementation was designed to test for.
+
+<aside class=example>
+  <header>Example of relevant accessibility requirements:</header>
+  <blockquote>
+    <p>Example of relevant accessibility requirements: An ACT Rule includes the following fictional WCAG 2 success criteria:</p>
+    <ul>
+      <li>WCAG 2.9, Success criterion 5.1.1 Cool content (minimal), level A</li>
+      <li>WCAG 2.9, Success criterion 5.1.2 Cool content (enhanced), level AA</li>
+      <li>WCAG 2.9, Success criterion 5.1.3 Cool content (no exceptions), level AAA</li>
+      <li>WCAG 2.10, Success criterion 5.2.1 Cooler content, level A</li>
+    </ul>
+    <p>The relevant accessibility requirements for an implementation that tests WCAG 2.9 level A and level AA would be 5.1.1 and 5.1.2. Criterion 5.1.3 is not relevant because it is at a higher conformance level. Criterion 5.2.1 is not relevant because it is part of WCAG 2.10, which the implementation does not report on.</p>
+    <p>To have a completely consistent implementation therefore, this implementation has to report 5.1.1 and 5.1.2 as not satisfied on all failed test cases.</p>
+  </blockquote>
+</aside>
+
+
 ### External Accessibility Requirements Mapping ### {#external-accessibility-requirements-mapping}
 
 This section is *non-normative*.
@@ -529,8 +551,7 @@ There are three levels of consistency; complete, partial, and minimal. Consisten
     - All `failed` test cases are reported as `failed`, or `cantTell` by at least one procedure; and
     - All `passed` and `inapplicable` test cases are reported as `passed`, or `inapplicable`, or `cantTell` by all procedures; and
     - `passed` and `failed` test cases are not all reported as `cantTell` by all procedures.
-
-    Additionally, the set of [=implementation procedures=] reports all `failed` test cases as [=not satisfied=] for each [=accessibility requirement=] in the [requirements mapping](#accessibility-requirements-mapping), and for no other accessibility requirement in any [=accessibility requirements document=] in the requirements mapping.
+    - the implementation procedures report a [=consistent accessibility requirements mapping=].
 
 2. <dfn>Partial</dfn> implementations consider some, but not all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
