@@ -537,6 +537,7 @@ For each implementation the following data <em class="rfc2119">may</em> be provi
 - [Consistency](#impl-consistency)
 - [Coverage](#impl-coverage) 
 - Version used in testing consistency and coverage
+- [test modes](https://www.w3.org/TR/EARL10-Schema/#TestMode) of the set implementation procedures
 
 ### Consistency ### {#impl-consistency}
 
@@ -549,14 +550,14 @@ There are three levels of consistency; complete, partial, and minimal. Consisten
 1. <dfn>Complete</dfn> implementations consider all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
     - All `failed` test cases are reported as `failed`, or `cantTell` by at least one procedure; and
-    - All `passed` and `inapplicable` test cases are reported as `passed`, or `inapplicable`, or `cantTell` by all procedures; and
-    - `passed` and `failed` test cases are not all reported as `cantTell` by all procedures.
+    - all `passed` and `inapplicable` test cases are reported as `passed`, or `inapplicable`, or `cantTell` by all procedures; and
+    - `passed` and `failed` test cases are not all reported as `cantTell` by all procedures; and
     - the implementation procedures report a [=consistent accessibility requirements mapping=].
 
 2. <dfn>Partial</dfn> implementations consider some, but not all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
     - All `passed` and `inapplicable` test cases are reported as `passed`, `inapplicable`, `cantTell`, or `untested`; and
-    - `passed` and `failed` test cases are not all reported as `cantTell` or `untested`.
+    - at least one `passed` or `failed` test case is not reported as `cantTell` or `untested`.
 
 3. <dfn>Minimal</dfn> implementations consider some or all aspects of a rule's applicability, without considering its expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
@@ -568,13 +569,16 @@ There are three levels of consistency; complete, partial, and minimal. Consisten
 
 Not all implementations are able to test all aspects of an ACT Rule. Particularly in automation, it is common for edge cases to be reported as `cantTell`. Coverage is a measure of how much of an ACT Rule is tested by an implementation. Similar to [consistency](#impl-consistency), the coverage of an ACT Rule is determined for a set of [=implementation procedures=]. Coverage is expressed using two numbers; total coverage, and automated coverage.
 
-The <dfn>total coverage</dfn> is expressed as a fraction where the denominator is the number of test cases, and the numerator is the number of test cases for which there was at least one correct outcome. `failed` outcomes are correct if it is for a `failed` test case. `passed` and `inapplicable` outcomes are correct if they are for a `passed` or `inapplicable` test case. Other outcomes are not considered correct.
+The <dfn>total coverage</dfn> is expressed as a fraction where the denominator is the number of test cases, and the numerator is the number of correctly answered test cases:
+
+- A `failed` test case is correct if at least one outcome for it is `failed`.
+- A `passed` or `inapplicable` test case is correct if at least one outcome for it is `passed` or `failed`, and none of the outcomes is `failed`.
 
 The <dfn>automated coverage<dfn> is similar to the total coverage, except that the numerator is the number of test cases for which there was at least one correct outcome that is produced fully automatically. An outcome is fully automatic if no human input was needed to produce the outcome.
 
 <aside class=example>
   <p>Some ACT Rule has 5 test cases, 2 passed, 2 failed, and 1 inapplicable. A11y Corp Tool (ACTT) has an automated procedure for this rule. It reports correct outcomes, except for one of the `failed` cases for which it reports `cantTell`. That gives ACTT an [=automated coverage=] of 4/5.</p>
-  <p>For that same rule, ACTT also has a test procedure which allows walks uses through the process of manually testing the failed test cases, answering them correctly. It reports `cantTell` for all other test cases. Combined with the automated test procedure, that gives ACTT a [=total coverage=] of 5/5.</p>
+  <p>For that same rule, ACTT also has a test procedure which allows a user to manually testing the failed test cases, answering them correctly. It reports `cantTell` for all other test cases. Combined with the automated test procedure, that gives ACTT a [=total coverage=] of 5/5.</p>
 </aside>
 
 <div class=note>
