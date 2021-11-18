@@ -273,7 +273,7 @@ A <dfn>relevant accessibility requirement</dfn> is an accessibility requirement 
       <li>WCAG 2.10, Success criterion 5.2.1 Cooler content, level A</li>
     </ul>
     <p>The relevant accessibility requirements for an implementation that tests WCAG 2.9 level A and level AA would be 5.1.1 and 5.1.2. Criterion 5.1.3 is not relevant because it is at a higher conformance level. Criterion 5.2.1 is not relevant because it is part of WCAG 2.10, which the implementation does not report on.</p>
-    <p>To have a completely consistent implementation therefore, this implementation has to report 5.1.1 and 5.1.2 as not satisfied on all failed test cases.</p>
+    <p>To have a completely consistent implementation therefore, this implementation has to report 5.1.1 and 5.1.2 as *not satisfied* on all failed test cases.</p>
   </blockquote>
 </aside>
 
@@ -476,7 +476,7 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=accessibility requirements=]. For all `failed` test cases, all accessibility requirements <em class="rfc2119">must</em> not be satisfied.
+All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=accessibility requirements=]. For all `failed` test cases, all accessibility requirements <em class="rfc2119">must</em> be *not satisfied*.
 
 <aside class="example">
   <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
