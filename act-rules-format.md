@@ -258,14 +258,14 @@ If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=]
 
 ### Implementing Accessibility Requirement Mappings ### {#implementing-accessibility-requirement-mappings}
 
-[=Implementations=] can only have a [=complete=] [=consistency=] level if they reports accessibility requirements as *not satisfied* in a way that is consistent with the accessibility requirements mapping. A set of [=implementation procedures=] has a <dfn>consistent accessibility requirements mapping</dfn> when all `failed` test cases of an ACT Rule are reported as *not satisfied* for each [=relevant accessibility requirement=] by at least one implementation procedure in the set. Additionally, no other accessibility requirement in the same [=accessibility requirements documents=] is reported as *not satisfied* by the implementation procedures in the set.
+[=Implementations=] can only have a [=complete=] [=consistency=] level if they report accessibility requirements as *not satisfied* in a way that is consistent with the accessibility requirements mapping. A set of [=implementation procedures=] has a <dfn>consistent accessibility requirements mapping</dfn> when all `failed` test cases of an ACT Rule are reported as *not satisfied* for each [=relevant accessibility requirement=] by at least one implementation procedure in the set. Additionally, no other accessibility requirement in the same [=accessibility requirements documents=] is reported as *not satisfied* by the implementation procedures in the set.
 
 A <dfn>relevant accessibility requirement</dfn> is an accessibility requirement in the [accessibility requirements mapping](#accessibility-requirements-mapping) of an ACT Rule that is part of an [=accessibility requirements document=] and conformance level that an implementation was designed to test for.
 
 <aside class=example>
   <header>Example of relevant accessibility requirements:</header>
   <blockquote>
-    <p>Example of relevant accessibility requirements: An ACT Rule includes the following fictional WCAG 2 success criteria:</p>
+    <p>Example of relevant accessibility requirements: An ACT Rule includes the following **fictional** WCAG 2 success criteria:</p>
     <ul>
       <li>WCAG 2.9, Success criterion 5.1.1 Cool content (minimal), level A</li>
       <li>WCAG 2.9, Success criterion 5.1.2 Cool content (enhanced), level AA</li>
@@ -537,7 +537,7 @@ For each implementation the following data <em class="rfc2119">may</em> be provi
 - [Consistency](#impl-consistency)
 - [Coverage](#impl-coverage) 
 - Version used in testing consistency and coverage
-- [test modes](https://www.w3.org/TR/EARL10-Schema/#TestMode) of the set implementation procedures
+- [test modes](https://www.w3.org/TR/EARL10-Schema/#TestMode) of the set implementation procedures (e.g. automatic, manual, semiAuto)
 
 ### Consistency ### {#impl-consistency}
 
