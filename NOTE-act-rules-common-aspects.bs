@@ -73,11 +73,14 @@ Some rules can only operate on a Language aspect if the language is sufficiently
 Source Code {#input-aspects-code}
 ----------------------------------
 
-Source code, the programming language used to build a web page, may be of interest to ACT Rules that intend to test things like the presence of certain HTML tags or attributes.  
+Source code, the programming language used to build a web page, may be of interest to ACT Rules that intend to test things like the presence of certain HTML elements or attributes. For example, an ACT Rule might test that elements do not contain duplicate attributes.
 
-Audio Output {#input-aspects-audioout}
-----------------------------------
+Audio Output {#input-aspects-audio-out}
+---------------------------------------
 
+Audio output may be of interest to ACT Rules that intend to test things like the speech and sounds provided in media files. Some rules can operate on whether there is audio output, such as an ACT Rule that may check that audio output on a Web page does not play automatically. Some rules can only operate if the audio output is understood. For example, a rule checking that captions are equivalent can only function if the audio output is understood.
 
-Visual Output {#input-aspects-visualout}
-----------------------------------
+Visual Output {#input-aspects-visual-out}
+-----------------------------------------
+
+Visual output may be of interest to ACT Rules that intend to test things like the moving images displayed in media or animation files. Some rules can operate on the presence of visual output, such as an ACT RUle that may check that visual output has a control to stop it. Some rules can only operate if the visual output is understood. For example, a rule checking that the visual output information is available in a transcript.
