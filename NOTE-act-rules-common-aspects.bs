@@ -69,3 +69,15 @@ Language, either written or spoken, contained in nodes of the DOM [[DOM]] or acc
 Rules can only operate on the Language aspect if the language of a page can be determined. The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
 
 Some rules can only operate on a Language aspect if the language is sufficiently understood, while other rules only require identifying the language. For example, a rule checking that an accessible name is descriptive can only function if the language is understood. A rule checking the correctness of a `lang` attribute requires knowing what language is used, but not the meaning of the words.
+
+Source Code {#input-aspects-code}
+----------------------------------
+
+Source code, the programming language used to build a web page, may be of interest to ACT Rules that intend to test things like the presence of certain HTML tags or attributes.  
+
+Audio Output {#input-aspects-audioout}
+----------------------------------
+
+
+Visual Output {#input-aspects-visualout}
+----------------------------------
