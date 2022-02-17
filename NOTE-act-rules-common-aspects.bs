@@ -80,7 +80,7 @@ Source code is distinct from an HTTP response, which includes HTTP headers. It i
 Audio Output {#input-aspects-audio-out}
 ---------------------------------------
 
-Audio output may be of interest to ACT Rules that intend to test things like the speech and sounds provided in media files. Some rules can operate on whether there is audio output, such as an ACT Rule that may check that audio output on a Web page does not play automatically. Some rules can only operate if the audio output is understood. For example, a rule checking that captions are equivalent can only function if the audio output is understood.
+Audio output may be of interest to ACT Rules that intend to test things like the speech and sounds provided in media files. Some rules can operate on whether there is audio output, such as an ACT Rule that may check that audio output on a Web page does not play automatically. Some rules can only operate if the audio output is understood by the tester. For example, a rule checking that captions are equivalent can only function if the audio output is understood.
 
 Visual Output {#input-aspects-visual-out}
 -----------------------------------------
