@@ -73,7 +73,9 @@ Some rules can only operate on a Language aspect if the language is sufficiently
 Source Code {#input-aspects-code}
 ----------------------------------
 
-Source code, the programming language used to build a web page, may be of interest to ACT Rules that intend to test things like the presence of certain HTML elements or attributes. For example, an ACT Rule might test that elements do not contain duplicate attributes.
+The text content of a file from which a web browser or other user agent creates a page. For example, a browser may build up a web page from an HTML file, CSS file, SVG file and JavaScript file. The text of each of these four files is its source code. An ACT Rule could for example test for potential parser errors.
+
+Source code is distinct from an HTTP response, which includes HTTP headers. It is the text content of the file before parsing, which often results in an object model or syntax tree, or serialized versions of those. Notably in HTML, the outerHTML property of the root node can vary significantly from its source code. For the purpose of ACT rules, source files used in preprocessing such as PHP for creating HTML, or SASS for creating CSS are not considered, as those are not processed by the user agent.
 
 Audio Output {#input-aspects-audio-out}
 ---------------------------------------
