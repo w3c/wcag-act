@@ -85,4 +85,4 @@ Audio output may be of interest to ACT Rules that intend to test things like the
 Visual Output {#input-aspects-visual-out}
 -----------------------------------------
 
-Visual output may be of interest to ACT Rules that intend to test things like the moving images displayed in media or animation files. Some rules can operate on the presence of visual output, such as an ACT RUle that may check that visual output has a control to stop it. Some rules can only operate if the visual output is understood. For example, a rule checking that the visual output information is available in a transcript.
+Visual output may be of interest to ACT Rules that intend to test things like the moving images displayed in media or animation files. Some rules can operate on the presence of visual output, such as an ACT RUle that may check that visual output has a control to stop it. Some rules can only operate if the visual output is understood by the tester. For example, a rule checking that the visual output information is available in a transcript.
