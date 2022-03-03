@@ -68,4 +68,21 @@ Language, either written or spoken, contained in nodes of the DOM [[DOM]] or acc
 
 Rules can only operate on the Language aspect if the language of a page can be determined. The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in [[wcag2-tech-req#humantestable]] [[WCAG]].
 
-Some rules can only operate on a Language aspect if the language is sufficiently understood, while other rules only require identifying the language. For example, a rule checking that an accessible name is descriptive can only function if the language is understood. A rule checking the correctness of a `lang` attribute requires knowing what language is used, but not the meaning of the words.
+Some rules can only operate on a Language aspect if the language is sufficiently understood by the tester, while other rules only require identifying the language. For example, a rule checking that an accessible name is descriptive can only function if the language is understood. A rule checking the correctness of a `lang` attribute requires knowing what language is used, but not the meaning of the words.
+
+Source Code {#input-aspects-code}
+----------------------------------
+
+The text content of a file from which a web browser or other user agent creates a page. For example, a browser may build up a web page from an HTML file, CSS file, SVG file and JavaScript file. The text of each of these four files is its source code. An ACT Rule could for example test for potential parser errors.
+
+Source code is distinct from an HTTP response, which includes HTTP headers. It is the text content of the file before parsing, which often results in an object model or syntax tree, or serialized versions of those. Notably in HTML, the outerHTML property of the root node can vary significantly from its source code. For the purpose of ACT rules, source files processed on the server such as PHP for creating HTML, or SASS for creating CSS are not considered, as those are not processed by the user agent.
+
+Audio Output {#input-aspects-audio-out}
+---------------------------------------
+
+Audio output may be of interest to ACT Rules that intend to test things like the speech and sounds provided in media files. Some rules can operate on whether there is audio output, such as an ACT Rule that may check that audio output on a Web page does not play automatically. Some rules can only operate if the audio output is understood by the tester. For example, a rule checking that captions are equivalent can only function if the audio output is understood.
+
+Visual Output {#input-aspects-visual-out}
+-----------------------------------------
+
+Visual output may be of interest to ACT Rules that intend to test things like the moving images displayed in media or animation files. Some rules can operate on the presence of visual output, such as an ACT RUle that may check that visual output has a control to stop it. Some rules can only operate if the visual output is understood by the tester. For example, a rule checking that the visual output information is available in a transcript.
