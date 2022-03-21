@@ -1,0 +1,29 @@
+# Create a file called .github/workflows/auto-publish.yml
+name: CI
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+jobs:
+  main:
+    name: Build, Validate and Deploy
+    runs-on: ubuntu-20.04
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - source: NOTE-act-rules-common-aspects.bs
+            destination: NOTE-act-rules-common-aspects.html
+            echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
+          - source: act-rules-format.bs
+            destination: act-rules-format.html
+            echidna_token: ECHIDNA_TOKEN_FORMAT
+      - uses: actions/checkout@v2
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: bikeshed
+          SOURCE: ${{ matrix.source }}
+          DESTINATION: ${{ matrix.destination }}
+          GH_PAGES_BRANCH: gh-pages
+          W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
+          W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/xyz.html"
