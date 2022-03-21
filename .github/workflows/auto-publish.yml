@@ -18,6 +18,7 @@ jobs:
           - source: act-rules-format.bs
             destination: act-rules-format.html
             echidna_token: ECHIDNA_TOKEN_FORMAT
+    steps:
       - uses: actions/checkout@v2
       - uses: w3c/spec-prod@v2
         with:
