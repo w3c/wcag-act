@@ -1,10 +1,10 @@
 name: CI Input Aspects
 on:
   pull_request:
-    path: "NOTE-act-rules-common-aspects.bs"
+    paths: ["NOTE-act-rules-common-aspects.bs"]
   push:
     branches: [main]
-    path: "NOTE-act-rules-common-aspects.bs"
+    path: ["NOTE-act-rules-common-aspects.bs"]
 jobs:
   main:
     name: Build, Validate and Deploy
