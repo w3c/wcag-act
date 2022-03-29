@@ -11,7 +11,7 @@ Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Maureen Kraft, IBM Corp, w3cid 53557
 Editor: Mary Jo Mueller, IBM Corp, w3cid 46880
-Editor: Shadi Abou-Zahra, W3C, w3cid 34651
+Editor: Shadi Abou-Zahra, Amazon, w3cid 34651
 Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://www.w3.org/TR/act-rules-format/) specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.
 Markup Shorthands: markdown yes
 Repository: w3c/wcag-act
