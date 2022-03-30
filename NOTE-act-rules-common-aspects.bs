@@ -2,20 +2,21 @@
 Title: Accessibility Conformance Testing Rules: Common Input Aspects
 Shortname: ACT-Common-Aspects
 ED: https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html
-URL: https://w3c.github.io/wcag-act/archive_act-format/NOTE-act-rules-common-aspects.html
+URL: https://www.w3.org/TR/2022/NOTE-act-rules-aspects-20220330/
 Previous Version: https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/
 Level: 1.0
-Status: w3c/Note
-TR: https://www.w3.org/TR/
+Status: w3c/Note-ED
+TR: https://www.w3.org/TR/act-rules-aspects/
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Maureen Kraft, IBM Corp, w3cid 53557
 Editor: Mary Jo Mueller, IBM Corp, w3cid 46880
 Editor: Shadi Abou-Zahra, Amazon, w3cid 34651
 Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://www.w3.org/TR/act-rules-format/) specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.
-Markup Shorthands: markdown yes
+Markup Shorthands: css no, markdown yes
 Repository: w3c/wcag-act
 Issue Tracking: Public WCAG ACT Mailing List https://lists.w3.org/Archives/Public/public-wcag-act/
+
 Status Text:
     <em>This section describes the status of this document at the time of its
     publication. Other documents may supersede this document. A list of
