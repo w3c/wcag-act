@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths: ["NOTE-act-rules-common-aspects.bs"]
+  workflow_dispatch:
 jobs:
   main:
     name: Build, Validate and Deploy
