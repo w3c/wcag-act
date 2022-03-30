@@ -24,5 +24,5 @@ jobs:
           SOURCE: ${{ matrix.source }}
           DESTINATION: ${{ matrix.destination }}
           GH_PAGES_BRANCH: gh-pages
-          W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
+          # W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
           # W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/xyz.html"
