@@ -2,7 +2,7 @@
 Title: Accessibility Conformance Testing Rules: Common Input Aspects
 Shortname: ACT-Common-Aspects
 ED: https://w3c.github.io/wcag-act/NOTE-act-rules-common-aspects.html
-URL: https://www.w3.org/TR/2022/NOTE-act-rules-aspects-20220330/
+URL: https://www.w3.org/TR/act-rules-aspects
 Previous Version: https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/
 Level: 1.0
 Status: w3c/Note-ED
@@ -16,7 +16,7 @@ Abstract: This document is a companion to the [Accessibility Conformance Testing
 Markup Shorthands: css no, markdown yes
 Repository: w3c/wcag-act
 Issue Tracking: Public WCAG ACT Mailing List https://lists.w3.org/Archives/Public/public-wcag-act/
-
+Prepare For TR: Yes
 Status Text:
     <em>This section describes the status of this document at the time of its
     publication. Other documents may supersede this document. A list of
