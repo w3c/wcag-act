@@ -4,7 +4,7 @@ Shortname: act-rules-aspects
 ED: https://w3c.github.io/wcag-act/NOTE-act-rules-aspects
 TR: https://www.w3.org/TR/act-rules-aspects/
 Level: 1.1
-Status: w3c/Note
+Status: Note
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Maureen Kraft, IBM Corp, w3cid 53557
