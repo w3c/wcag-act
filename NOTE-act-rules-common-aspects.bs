@@ -2,7 +2,7 @@
 Title: Accessibility Conformance Testing Rules: Common Input Aspects
 Shortname: act-rules-aspects
 ED: https://w3c.github.io/wcag-act/NOTE-act-rules-aspects
-URL: https://www.w3.org/TR/2022/NOTE-act-rules-aspects-20220411/
+TR: https://www.w3.org/TR/2022/NOTE-act-rules-aspects-20220411/
 Previous Version: https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/
 Level: 1.1
 Status: w3c/Note
