@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
           - source: NOTE-act-rules-common-aspects.bs
-            destination: /NOTE-act-rules-aspects/Overview.html
+            destination: /NOTE-act-rules-aspects/index.html
             echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +24,6 @@ jobs:
           TOOLCHAIN: bikeshed
           SOURCE: ${{ matrix.source }}
           DESTINATION: ${{ matrix.destination }}
-          GH_PAGES_BRANCH: gh-pages
+          GH_PAGES_BRANCH: gh-pages 
           W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
           W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/w3c-wai-gl/2022AprJun/0223.html"
