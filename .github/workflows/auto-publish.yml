@@ -15,7 +15,7 @@ jobs:
       matrix:
         include:
           - source: NOTE-act-rules-common-aspects.bs
-            destination: /NOTE-act-rules-aspects/Overview.html
+            destination: NOTE-act-rules-aspects.html
             echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
     steps:
       - uses: actions/checkout@v2
