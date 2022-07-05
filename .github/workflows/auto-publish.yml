@@ -16,7 +16,7 @@ jobs:
         include:
           - source: NOTE-act-rules-common-aspects.bs
             destination: NOTE-act-rules-aspects.html
-            echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
+#            echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
     steps:
       - uses: actions/checkout@v2
       - uses: w3c/spec-prod@v2
@@ -25,5 +25,5 @@ jobs:
           SOURCE: ${{ matrix.source }}
           DESTINATION: ${{ matrix.destination }}
           GH_PAGES_BRANCH: gh-pages 
-          W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
-          W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/w3c-wai-gl/2022AprJun/0223.html"
+#          W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
+#          W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/w3c-wai-gl/2022AprJun/0223.html"
