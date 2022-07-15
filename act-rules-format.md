@@ -386,7 +386,7 @@ Even concepts like headings and images can be misunderstood. These terms could r
 
 ### Applicability for Composite Rules ### {#applicability-composite}
 
-The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors  omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
+The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors <em class="rfc2119">may</em>  omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
 
 Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
 
