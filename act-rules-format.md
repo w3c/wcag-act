@@ -170,35 +170,24 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 4. the conformance level associated with the accessibility requirement, if one exists.
 
 
-### Outcome Mapping ### {#outcome-mapping}
+### Mapping Conformance Requirements ### {#mapping-conformance-requirements}
 
-For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed`, the accessibility requirements would be <dfn>satisfied</dfn>. When all of the outcomes are `inapplicable`, <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if a form field has a non-empty accessible name:</header>
   <blockquote><ul>
     <li>
-      [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
-      <ul>
-        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
-        <li>Outcome mapping: <ul>
-          <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: further testing is needed</li>
-          <li>An `inapplicable` outcome: further testing is needed</li>
-        </ul></li>
-      </ul>
-    </li>
-    <li>
-      [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
+      [Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: further testing is needed</li>
+          <li>All `passed` outcomes: satisfied</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
@@ -206,6 +195,60 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
   </ul></blockquote>
 </aside>
 
+### Mapping Secondary Requirements (Optional) ###
+
+An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have related or secondary [=accessibility requirements=] for that test subject. The secondary accessibility requirements may not be required for conformance to the [=accessibility requirements document=]. When one or more of the outcomes for a test target is `failed`, the secondary accessibility requirement could be <dfn>not satisfied</dfn> for the test subject or <dfn>further testing is needed</dfn> . When all of the outcomes are `passed` or `inapplicable`, the secondary accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. The rule must explain the secondary relationship of the accessibility requirement to the rule. 
+
+<aside class=example>
+  <header>Example accessibility requirements mapping for a rule that tests if text has minimum contrast:</header>
+  <blockquote><ul>
+    <li>
+      [Success criterion 1.4.3 Contrast Minimum (AA)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
+      <ul>
+        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
+        <li>Outcome mapping:<ul>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: satisfied</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
+        </ul></li>
+      </ul>
+    </li>
+    <li>
+      [Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA)](https://www.w3.org/TR/WCAG21/#contrast-enhanced)
+      <ul>
+        <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
+        <li>Outcome mapping:<ul>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: further testing is needed; SC 1.4.6 requires higher contrast ratios than SC 1.4.3</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
+        </ul></li>
+      </ul>
+    </li>
+  </ul></blockquote>
+</aside>
+
+<aside class=example>
+  <header>Example accessibility requirements mapping for a rule that tests if a focusable element has no keyboard trap via standard navigation:</header>
+  <blockquote><ul>
+    <li>
+      [Success Criterion 2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
+      <ul>
+        <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
+        <li>Outcome mapping:<ul>
+          <li>Any `failed` outcomes: further testing is needed; success criterion permits use of non-standard navigation to exit a keyboard trap</li>
+          <li>All `passed` outcomes: satisfied</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
+        </ul></li>
+      </ul>
+    </li>
+  </ul></blockquote>
+</aside>
+
+### Mapping for Atomic Rules ### {mapping-for-atomic-rules}
+Mapping of requirements in atomic rules that are part of composite rules is limited to the conformance and incidental accessibility requirements mapped in their composite rules.
+
+### Mapping for Composite Rules ### {mapping-for-composite-rules}
+The Accessibility Requirements mapping for Composite Rules must include all mapped (conformance and secondary) requirements in atomic rules.
 
 ### Mapping Outside WCAG ### {#mapping-outside-wcag}
 
@@ -343,7 +386,7 @@ Even concepts like headings and images can be misunderstood. These terms could r
 
 ### Applicability for Composite Rules ### {#applicability-composite}
 
-The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
+The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors  omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
 
 Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.
 
