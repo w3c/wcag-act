@@ -187,7 +187,7 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: satisfied</li>
+          <li>All `passed` outcomes: further testing is needed</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
