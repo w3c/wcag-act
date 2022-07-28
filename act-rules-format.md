@@ -195,7 +195,7 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
   </ul></blockquote>
 </aside>
 
-### Mapping Secondary Requirements (Optional) ###
+### Mapping Secondary Requirements ###
 
 An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have related or secondary [=accessibility requirements=] for that test subject. The secondary accessibility requirements may not be required for conformance to the [=accessibility requirements document=]. When one or more of the outcomes for a test target is `failed`, the secondary accessibility requirement could be <dfn>not satisfied</dfn> for the test subject or <dfn>further testing is needed</dfn> . When all of the outcomes are `passed` or `inapplicable`, the secondary accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. The rule must explain the secondary relationship of the accessibility requirement to the rule. 
 
