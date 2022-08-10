@@ -160,7 +160,7 @@ Refer to the [Rule Type](#rule-types) section for detailed definitions of the ru
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
-When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. For example, when designing a rule for WCAG that tests if image buttons have alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
+When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. 
 
 Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> include the following:
 
@@ -172,17 +172,30 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 
 ### Mapping Conformance Requirements ### {#mapping-conformance-requirements}
 
-For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+An ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. A conformance requirement mapped in a rule is an accessibility requirement that is <dfn>not satisfied</dfn> when all of the outcomes for a test target in failed test cases is `failed`. When all of the outcomes for passed test cases or inapplicable test cases are `passed` or `inapplicable`, respectively, the mapped conformance requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
 
+When a `failed` outcome of the rule can determine that an accessibility requirement is <dfn>not satisfied</dfn>, the accessibility requirement must be listed as a Conformance Requirement. That ACT Rule will list each success criteria in its accessibility requirements mapping as **Required for Conformance**.
+
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if a form field has a non-empty accessible name:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name maps conformance requirements to success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value:</header>
   <blockquote><ul>
     <li>
-      [Success Criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
+      [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
+      <ul>
+        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
+        <li>Outcome mapping: <ul>
+          <li>Any `failed` outcomes: not satisfied</li>
+          <li>All `passed` outcomes: further testing is needed</li>
+          <li>An `inapplicable` outcome: further testing is needed</li>
+        </ul></li>
+      </ul>
+    </li>
+    <li>
+      [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG21/#name-role-value)
       <ul>
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
@@ -195,12 +208,14 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
   </ul></blockquote>
 </aside>
 
-### Mapping Secondary Requirements ###
+### Mapping Associated/Affiliated/Secondary Requirements ###
 
-An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have related or secondary [=accessibility requirements=] for that test subject. The secondary accessibility requirements may not be required for conformance to the [=accessibility requirements document=]. When one or more of the outcomes for a test target is `failed`, the secondary accessibility requirement could be <dfn>not satisfied</dfn> for the test subject or <dfn>further testing is needed</dfn> . When all of the outcomes are `passed` or `inapplicable`, the secondary accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. The rule must explain the secondary relationship of the accessibility requirement to the rule. 
+An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have secondary [=accessibility requirements=] for that test subject. When all of the outcomes for a test target in failed test cases is `failed` but an accessibility requirement cannot be listed as <dfn>not satisfied</dfn>, the accessibiity requirement must be listed as a secondary requirement and <dfn>further testing is needed</dfn>. When all outcomes for a test target in passed test cases are not `passed`, the mapped secondary accessibility requirement is <dfn>further testing is needed</dfn>.
+
+The rule must explain the secondary relationship of the accessibility requirement in the Background section of the rule. 
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if text has minimum contrast:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if text has minimum contrast maps to conformance requirement SC 1.4.3 Contrast (Minimum). It maps to secondary requirement SC 1.4.6 Contrast (Enhanced) because all passed test cases did not pass:</header>
   <blockquote><ul>
     <li>
       [Success criterion 1.4.3 Contrast Minimum (AA)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
@@ -208,7 +223,7 @@ An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have
         <li>**Required for conformance** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: satisfied</li>
+          <li>All `passed` outcomes: further testing is needed</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
@@ -219,7 +234,7 @@ An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have
         <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: further testing is needed; SC 1.4.6 requires higher contrast ratios than SC 1.4.3</li>
+          <li>All `passed` outcomes: further testing is needed; some passed test cases did not pass. SC 1.4.6 requires higher contrast ratios than SC 1.4.3</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
@@ -228,15 +243,15 @@ An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have
 </aside>
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if a focusable element has no keyboard trap via standard navigation:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if a focusable element has no keyboard trap via standard navigation maps to secondary requirement SC 2.1.2 No Keyboard Trap because non-standard navigation is not tested:</header>
   <blockquote><ul>
     <li>
       [Success Criterion 2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
       <ul>
         <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
-          <li>Any `failed` outcomes: further testing is needed; success criterion permits use of non-standard navigation to exit a keyboard trap</li>
-          <li>All `passed` outcomes: satisfied</li>
+          <li>Any `failed` outcomes: further testing is needed; SC 2.1.2 permits use of non-standard navigation to exit a keyboard trap</li>
+          <li>All `passed` outcomes: further testing is needed</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
@@ -245,10 +260,10 @@ An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have
 </aside>
 
 ### Mapping for Atomic Rules ### {mapping-for-atomic-rules}
-Mapping of requirements in atomic rules that are part of composite rules is limited to the conformance and incidental accessibility requirements mapped in their composite rules.
+Atomic rules may map to conformance requirements, secondary accessibility requirements, or no accessibility requirements.
 
 ### Mapping for Composite Rules ### {mapping-for-composite-rules}
-The Accessibility Requirements mapping for Composite Rules must include all mapped (conformance and secondary) requirements in atomic rules.
+The Accessibility Requirements mapping for Composite Rules must include all mapped requirements in atomic rules.
 
 ### Mapping Outside WCAG ### {#mapping-outside-wcag}
 
