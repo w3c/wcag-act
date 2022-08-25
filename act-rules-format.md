@@ -272,7 +272,7 @@ The rule must explain the secondary relationship of the accessibility requiremen
 </aside>
 
 ### Mapping for Atomic Rules ### {mapping-for-atomic-rules}
-Atomic rules may map to conformance requirements, secondary accessibility requirements, or no accessibility requirements.
+Conformance requirements and secondary requirements must be included in the Accessibility Requirements of atomic rules.
 
 ### Mapping for Composite Rules ### {mapping-for-composite-rules}
 The Accessibility Requirements mapping for Composite Rules must include all mapped requirements in atomic rules.
