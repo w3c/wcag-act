@@ -214,7 +214,7 @@ When an ACT Rule is designed to test conformance to an [=accessibility requireme
 Map an accessibility requirements as secondary if one or more of the following is true: 
 
 - <dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, or
-- the accessibility requirement can be <dfn>satisfied</dfn>, <dfn>further testing is needed</dfn>, or <dfn>not satisfied</dfn>when all the outcomes are `passed`.
+- <dfn>further testing is needed</dfn> or the accessibility requirement is <dfn>not satisfied</dfn>when the outcome for a test target is `passed`.
 
 The rule must explain the secondary relationship of the accessibility requirement in the Background section of the rule. 
 
