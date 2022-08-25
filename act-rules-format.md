@@ -209,7 +209,7 @@ When a `failed` outcome of the rule can determine that an accessibility requirem
 </aside>
 
 ### Mapping Associated/Affiliated/Secondary Requirements ###
-
+When an ACT Rule is designed to test conformance to an [=accessibility requirement=], the rule <em class="rfc2119">may</em> have outcomes for other [=accessibility requirements=] that are not consistent with the rule and do not meet the criteria to be mapped as Conformance Requirements.
 An ACT Rule <em class="rfc2119">may</em> show that the outcomes of the rule have secondary [=accessibility requirements=] for that test subject. When all of the outcomes for a test target in failed test cases is `failed` but an accessibility requirement cannot be listed as <dfn>not satisfied</dfn>, the accessibiity requirement must be listed as a secondary requirement and <dfn>further testing is needed</dfn>. When all outcomes for a test target in passed test cases are not `passed`, the mapped secondary accessibility requirement is <dfn>further testing is needed</dfn>.
 
 The rule must explain the secondary relationship of the accessibility requirement in the Background section of the rule. 
