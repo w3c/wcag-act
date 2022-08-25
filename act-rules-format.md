@@ -216,7 +216,7 @@ Map an accessibility requirements as secondary for the following rule outcomes:
 - "OR": <dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and the accessibility requirement is <dfn>satisfied</dfn> when all outcomes are `passed`,
 or
 
-- the accessibility requirement is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and  is <dfn>not satisfied</dfn>when the outcome is `passed`.
+- "AAA": the accessibility requirement is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and  is <dfn>not satisfied</dfn>when all outcomes are `passed`.
 
 The rule must explain the secondary relationship of the accessibility requirement in the Background section of the rule. 
 
