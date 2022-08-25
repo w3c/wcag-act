@@ -172,7 +172,15 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 
 ### Mapping Conformance Requirements ### {#mapping-conformance-requirements}
 
-An ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. A conformance requirement mapped in a rule is an accessibility requirement that is <dfn>not satisfied</dfn> when all of the outcomes for a test target in failed test cases is `failed`. When all of the outcomes for passed test cases or inapplicable test cases are `passed` or `inapplicable`, respectively, the mapped conformance requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+An ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
+
+A conformance requirement mapped in a rule: 
+
+- is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and 
+- can be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>, but cannot be <dfn>not satisfied</dfn> when all of the outcomes are `passed` or `inapplicable` . 
+
+Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
