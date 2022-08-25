@@ -214,7 +214,6 @@ When an ACT Rule's passed or failed outcomes have different meanings for an acce
 Map an accessibility requirements as secondary for the following rule outcomes: 
 - "AAA": the accessibility requirement is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is <dfn>not satisfied</dfn>when all outcomes are `passed`.
 - "OR": <dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and the accessibility requirement is <dfn>satisfied</dfn> when all outcomes are `passed`,
-or
 
 - "AAA": the accessibility requirement is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and  is <dfn>not satisfied</dfn>when all outcomes are `passed`.
 
