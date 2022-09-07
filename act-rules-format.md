@@ -176,7 +176,7 @@ An ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the 
 
 A conformance requirement mapped in a rule: 
 
-- is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and 
+- is <dfn>not satisfied</dfn> when one or more outcomes for a test subject is `failed`, and 
 - can be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>, but cannot be <dfn>not satisfied</dfn> when all of the outcomes are `passed` or `inapplicable` . 
 
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
