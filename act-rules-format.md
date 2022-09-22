@@ -186,7 +186,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 </div>
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name maps conformance requirements to success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
   <blockquote><ul>
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
