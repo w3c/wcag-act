@@ -219,7 +219,6 @@ An accessibility requirement is mapped as a secondary requirement in a rule when
 - (a.) When one or more of the outcomes for a test target is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> or <dfn>further testing is needed</dfn> for the test subject, or
 - (b.) When all of the outcomes are `passed` or `inapplicable`, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn> or <dfn>not satisfied</dfn>.
 
-When all of these are true, the accessibility requirement is mapped as a conformance requirement.  
 
 **Temporary**: these are the situations discussed that necessitated a secondary requirements category: 
 - requirement is sticter than the rule (contrast AAA): the accessibility requirement is (a.)<dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is (b.) <dfn>not satisfied</dfn>when all outcomes for the rule are `passed`.
