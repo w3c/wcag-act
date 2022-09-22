@@ -169,24 +169,21 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 3. a link or reference to the [=accessibility requirements document=] if one exists, and
 4. the conformance level associated with the accessibility requirement, if one exists.
 
+### Outcome Mapping
+For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
 
-### Mapping Conformance Requirements ### {#mapping-conformance-requirements}
+#### Mapping Conformance Requirements ### {#mapping-conformance-requirements}
 
-An ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
+An accessibility requirement is mapped as a conformance requirement in a rule when both of the following are true: 
 
-A conformance requirement mapped in a rule: 
-
-- is <dfn>not satisfied</dfn> when one or more outcomes for a test subject is `failed`, and 
-- can be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>, but cannot be <dfn>not satisfied</dfn> when all of the outcomes are `passed` or `inapplicable` . 
-
+- When one or more of the outcomes for a test target is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> for the test subject, and 
+- When all of the outcomes are `passed` or `inapplicable`, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>. The accessibility requirement can not be <dfn>not satisfied</dfn>.
+ 
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
-
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
-
-When a `failed` outcome of the rule can determine that an accessibility requirement is <dfn>not satisfied</dfn>, the accessibility requirement must be listed as a Conformance Requirement. That ACT Rule will list each success criteria in its accessibility requirements mapping as **Required for Conformance**.
 
 <aside class=example>
   <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name maps conformance requirements to success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value:</header>
@@ -216,18 +213,24 @@ When a `failed` outcome of the rule can determine that an accessibility requirem
   </ul></blockquote>
 </aside>
 
-### Mapping Associated/Affiliated/Secondary Requirements ###
-When an ACT Rule's passed or failed outcomes have different meanings for an accessibility requirements from what is  described in Conformance requirements, these accessibility requirements are mapped as secondary requirements.  
+#### Mapping Secondary Requirements ####
+An accessibility requirement is mapped as a secondary requirement in a rule when both of the following are true: 
 
-Map an accessibility requirements as secondary for the following rule outcomes: 
-- "AAA": the accessibility requirement is <dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is <dfn>not satisfied</dfn>when all outcomes are `passed`.
-- "OR": <dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and the accessibility requirement is <dfn>satisfied</dfn> when all outcomes are `passed`,
+- (a.) When one or more of the outcomes for a test target is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> or <dfn>further testing is needed</dfn> for the test subject, or
+- (b.) When all of the outcomes are `passed` or `inapplicable`, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn> or <dfn>not satisfied</dfn>.
+
+When all of these are true, the accessibility requirement is mapped as a conformance requirement.  
+
+**Temporary**: these are the situations discussed that necessitated a secondary requirements category: 
+- requirement is sticter than the rule (contrast AAA): the accessibility requirement is (a.)<dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is (b.) <dfn>not satisfied</dfn>when all outcomes for the rule are `passed`.
+- rule tests a specific type of solution (keyboard trap std nav): (a.)<dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and the accessibility requirement is (b.)<dfn>satisfied</dfn> when all outcomes are `passed`,
+- conditions outside of rule, (link area 1.1.1): (a.)<dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and (b.) is further testing is needed</dfn> when all outcomes are `passed`
 
 
 The rule must explain the secondary relationship of the accessibility requirement in the Background section of the rule. 
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if text has minimum contrast maps to conformance requirement SC 1.4.3 Contrast (Minimum). It maps to secondary requirement SC 1.4.6 Contrast (Enhanced) because all passed test cases did not pass:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if text has minimum contrast. The rule maps to conformance requirement SC 1.4.3 Contrast (Minimum). It maps to SC 1.4.6 Contrast (Enhanced) as a secondary requirement because the requirement is <dfn>not satisfied</dfn> when all outcomes are `passed`:</header>
   <blockquote><ul>
     <li>
       [Success criterion 1.4.3 Contrast Minimum (AA)](https://www.w3.org/TR/WCAG21/#contrast-minimum)
@@ -246,7 +249,7 @@ The rule must explain the secondary relationship of the accessibility requiremen
         <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
-          <li>All `passed` outcomes: further testing is needed; some passed test cases did not pass. SC 1.4.6 requires higher contrast ratios than SC 1.4.3</li>
+          <li>All `passed` outcomes: SC 1.4.6 may be not satisfied since it requires higher contrast ratios than the rule</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
@@ -255,15 +258,15 @@ The rule must explain the secondary relationship of the accessibility requiremen
 </aside>
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if a focusable element has no keyboard trap via standard navigation maps to secondary requirement SC 2.1.2 No Keyboard Trap because non-standard navigation is not tested:</header>
+  <header>Example accessibility requirements mapping for a rule that tests if a focusable element has no keyboard trap via standard navigation. This rule maps to SC 2.1.2 No Keyboard Trap as a secondary requirment because the rule tests for a specific type of solution for the accessibility requirement:</header>
   <blockquote><ul>
     <li>
       [Success Criterion 2.1.2: No Keyboard Trap](https://www.w3.org/TR/WCAG21/#no-keyboard-trap)
       <ul>
         <li>**Secondary** to WCAG 2.0 and WCAG 2.1 level A and higher</li>
         <li>Outcome mapping:<ul>
-          <li>Any `failed` outcomes: further testing is needed; SC 2.1.2 permits use of non-standard navigation to exit a keyboard trap</li>
-          <li>All `passed` outcomes: further testing is needed</li>
+          <li>Any `failed` outcomes: further testing is needed; other solutions (such as use of non-standard navigation to exit a keyboard trap) can be used to meet SC 2.1.2 </li>
+          <li>All `passed` outcomes: satisfied or further testing is needed</li>
           <li>An `inapplicable` outcome: further testing is needed</li>
         </ul></li>
       </ul>
