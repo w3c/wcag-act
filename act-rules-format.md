@@ -221,7 +221,7 @@ An accessibility requirement is mapped as a secondary requirement in a rule when
 
 
 **Temporary**: these are the situations discussed that necessitated a secondary requirements category: 
-- requirement is sticter than the rule (contrast AAA): the accessibility requirement is (a.)<dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is (b.) <dfn>not satisfied</dfn>when all outcomes for the rule are `passed`.
+- requirement is stricter than the rule (contrast AAA): the accessibility requirement is (a.)<dfn>not satisfied</dfn> when one or more outcomes for a test target is `failed`, and is (b.) <dfn>not satisfied</dfn>when all outcomes for the rule are `passed`.
 - rule tests a specific type of solution (keyboard trap std nav): (a.)<dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and the accessibility requirement is (b.)<dfn>satisfied</dfn> when all outcomes are `passed`,
 - conditions outside of rule, (link area 1.1.1): (a.)<dfn>further testing is needed</dfn> when one or more of the outcomes for a test target is `failed`, and (b.) is further testing is needed</dfn> when all outcomes are `passed`
 
