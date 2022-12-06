@@ -184,6 +184,8 @@ When a rule is designed to test a specific accessibility requirement, the access
  
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
+- Passed: When all of the outcomes are `passed`, the accessibility requirement is <dfn>satisfied</dfn>.
+
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
