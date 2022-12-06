@@ -184,7 +184,7 @@ When a rule is designed to test a specific accessibility requirement, the access
  
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
-- Passed: When all of the outcomes are `passed`, the accessibility requirement is <dfn>satisfied</dfn>.
+- Passed: When all of the outcomes are `passed`, the accessibility requirement is <dfn>satisfied</dfn> for the test subject.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
@@ -220,16 +220,16 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 
 #### Secondary Requirements #### {#secondary-requirements}
 
-A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some test cases not satisfying these secondary accessibility requirements.
+A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
 
 When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
 
 
 Some scenarios when a rule will have Secondary requirements include:
 
-**Scenario 1**: only the "Failed Outcomes" are true for the requirement
+**Scenario 1**: the rule is not as strict as a requirement
 
-A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. In this scenario, the rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rules outcomes are passed. The stricter requirement is a Secondary requirement.
+A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule's outcomes are passed. The stricter requirement is a Secondary requirement.
 
 <aside class=example>
   <header>Example: a rule that tests if text has minimum contrast</header>
@@ -242,9 +242,9 @@ A rule was designed to test a minimum accessibility requirement and there exists
 </blockquote>
 </aside>
 
-**Scenario 2**: only the "Passed or Inapplicable Outcomes" are true for the requirement
-<ol style="list-style-type: lower-alpha">
-  <li>A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</li>
+**Scenario 2**: the rule's failed outcomes require further testing for the accessibility requirement
+
+A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</li>
 
   <aside class=example>
     <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
@@ -256,20 +256,21 @@ A rule was designed to test a minimum accessibility requirement and there exists
 </blockquote>
   </aside>
 
-<li>A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a Secondary requirement.</li>
+**Scenario 3**: the rule is stricter than a requirement
+
+A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a Secondary requirement.</li>
 
 <aside class=example>
 <header>Example: a rule that tests Enhanced Contrast</header>
-<blockquote>This rule was designed to test Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA). A less strict requirement, Success Criterion 1.4.3 Contrast Minimum (AA), will be satisfied when the rule outcomes are passed, and may be satisfied when the rule outcomes are failed.This rule’s mapping:
+<blockquote>This rule was designed to test Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA). A less strict requirement, Success Criterion 1.4.3 Contrast Minimum (AA), will be satisfied when the rule outcomes are passed, and may be satisfied when the rule outcomes are failed. This rule’s mapping:
 <ul>
 <li>Conformance Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
 <li>Secondary Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
 <ul><li>Background Section: Success Criterion 1.4.3 is mapped as a Secondary requirement because the SC may be <dfn>satisfied</dfn>when the rule’s outcomes are `failed`.</li></ul>
 </aside>
-</ul>
-</ol>
 
-**Scenario 3**: both outcomes are only sometimes true
+
+**Scenario 4**: the rule may impact the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement
 
 A rule was designed to test an accessibility requirement and under certain conditions, other accessibility requirements apply. In this scenario, the other accessibility requirements are sometimes, but not always, satisfied or not satisfied because they are not always applicable in the rule. These other accessibility requirements are a Secondary requirement.
 
