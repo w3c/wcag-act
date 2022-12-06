@@ -160,7 +160,7 @@ Refer to the [Rule Type](#rule-types) section for detailed definitions of the ru
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
-When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. The rule <em class="rfc2119">should</em> list accessibility requirements that could be not satisfied when the rule outcome is failed. There are two types of accessibility requirements:
+When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. The rule <em class="rfc2119">may</em> list accessibility requirements that could be not satisfied when the rule outcome is failed. There are two types of accessibility requirements:
 - Conformance Requirements
 - Secondary Requirements
 
@@ -173,7 +173,7 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 5. whether the requirement is a conformance requirement or a secondary requirement.
 
 ### Outcome Mapping ### {#outcome-mapping}
-For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
+For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
 
 #### Conformance Requirements ### {#conformance-requirements}
 
@@ -218,7 +218,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 
 #### Secondary Requirements ####
 
-A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirements, but the rule is not intended to test the conformance of that requirement. This correlation often results in some test cases not satisfying these secondary accessibility requirements.
+A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some test cases not satisfying these secondary accessibility requirements.
 
 When only one of the conditions is true or both conditions are only sometimes true for an accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
 
