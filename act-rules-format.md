@@ -218,8 +218,6 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 
 #### Secondary Requirements ####
 
-When both the "Failed Outcomes" and "Passed or Inapplicable Outcomes" conditions described under [=Conformance Requirements=] are true for an accessibility requirement, the rule <em class="rfc2119">must</em> map that accessibility requirement as a Conformance Requirement.
-
 A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirements, but the rule is not intended to test the conformance of that requirement. This correlation often results in some test cases not satisfying these secondary accessibility requirements.
 
 When only one of the conditions is true or both conditions are only sometimes true for an accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
