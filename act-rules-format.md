@@ -216,7 +216,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
   </ul></blockquote>
 </aside>
 
-#### Secondary Requirements ####
+#### Secondary Requirements #### {#secondary-requirements}
 
 A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some test cases not satisfying these secondary accessibility requirements.
 
