@@ -169,7 +169,8 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 1. either the name, title, identifier or summary of the accessibility requirement, and
 2. the name of the [=accessibility requirements document=], and
 3. a link or reference to the [=accessibility requirements document=] if one exists, and
-4. the conformance level associated with the accessibility requirement, if one exists.
+4. the conformance level associated with the accessibility requirement, if one exists, and
+5. whether the requirement is a conformance requirement or a secondary requirement.
 
 ### Outcome Mapping ### {#outcome-mapping}
 For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
