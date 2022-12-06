@@ -180,7 +180,7 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
 When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true: 
 
 - Failed Outcomes: When one or more of the outcomes for a test subject is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> for the test subject, and 
-- Passed or Inapplicable Outcomes: When all of the outcomes are `passed` or `inapplicable` for a test subject, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn>  for the test subject.
+- Passed or Inapplicable Outcomes: When all of the outcomes are `passed` or `inapplicable` for a test subject, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn> for the test subject.
  
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
