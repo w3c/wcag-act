@@ -161,7 +161,7 @@ Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
 When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. The rule <em class="rfc2119">may</em> list accessibility requirements that could be not satisfied when the rule outcome is failed. There are two types of accessibility requirements:
-- Conformance Requirements
+- [Conformance Requirements](#conformance-requirements)
 - Secondary Requirements
 
 Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> include the following:
