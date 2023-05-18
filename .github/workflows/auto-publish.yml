@@ -1,11 +1,11 @@
-name: CI Input Aspects
+name: CI
 on:
   pull_request:
-    paths: ["NOTE-act-rules-common-aspects.bs"]
+    paths: ["common-input-aspects/NOTE-act-rules-common-aspects.bs", "act-rules-format/act-rules-format.bs"]
   push:
     branches: [main]
-    paths: ["NOTE-act-rules-common-aspects.bs"]
-  workflow_dispatch:
+    paths: ["common-input-aspects/NOTE-act-rules-common-aspects.bs", "act-rules-format/act-rules-format.bs"]
+#  workflow_dispatch:
 jobs:
   main:
     name: Build, Validate and Deploy
@@ -14,8 +14,10 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - source: NOTE-act-rules-common-aspects.bs
-            destination: NOTE-act-rules-aspects.html
+          - source: common-input-aspects/NOTE-act-rules-common-aspects.bs
+            destination: common-input-aspects/NOTE-act-rules-aspects.html
+          - source: act-rules-format/act-rules-format.bs
+            destination: act-rules-format/act-rules-format.html
 #            echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
     steps:
       - uses: actions/checkout@v2
