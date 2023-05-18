@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths: ["common-input-aspects/NOTE-act-rules-common-aspects.bs", "act-rules-format/act-rules-format.bs"]
-#  workflow_dispatch:
+  workflow_dispatch:
 jobs:
   main:
     name: Build, Validate and Deploy
