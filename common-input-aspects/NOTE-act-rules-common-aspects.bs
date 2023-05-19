@@ -1,9 +1,9 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing Rules: Common Input Aspects
 Shortname: act-rules-aspects
-ED: https://w3c.github.io/wcag-act/NOTE-act-rules-aspects
-TR: https://www.w3.org/TR/act-rules-aspects/
 Level: 1.0
+ED: https://w3c.github.io/wcag-act/NOTE-act-rules-aspects
+ TR: https://www.w3.org/TR/act-rules-aspects/
 Group: act-rules-format
 Status: NOTE
 Abstract: This document is a companion to the [Accessibility Conformance Testing (ACT) Rules Format 1.0](https://www.w3.org/TR/act-rules-format/) specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.
