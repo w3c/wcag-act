@@ -1,6 +1,6 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing Rules: Common Input Aspects
-Shortname: act-rules-aspects
+Shortname: act-rules-aspects    
 ED: https://w3c.github.io/wcag-act/NOTE-act-rules-aspects
 TR: https://www.w3.org/TR/act-rules-aspects/
 Level: 1.0

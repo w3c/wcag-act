@@ -1,22 +1,24 @@
 name: CI
 on:
+  pull_request: {}
   push:
     branches: [main]
-    paths: ["common-input-aspects/NOTE-act-rules-common-aspects.bs", "act-rules-format/act-rules-format.bs"]
 jobs:
-  pages:
+  main:
     name: Build gh-pages
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     strategy:
       max-parallel: 1
       matrix:
         include:
-          - source: common-input-aspects/NOTE-act-rules-common-aspects.bs
-            destination: common-input-aspects/NOTE-act-rules-aspects.html
-          - source: act-rules-format/act-rules-format.bs
-            destination: act-rules-format/act-rules-format.html
+          - source: /common-input-aspects/NOTE-act-rules-common-aspects.bs
+            destination: /common-input-aspects/NOTE-act-rules-aspects.html
+          - source: /act-rules-format/act-rules-format.bs
+            destination: /act-rules-format/act-rules-format.html
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: w3c/spec-prod@v2
         with:
           TOOLCHAIN: bikeshed
