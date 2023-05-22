@@ -107,7 +107,7 @@ An ACT Rule MAY also contain:
 
 * [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
-* [Acknowledgments](#acknowldgements) (optional)
+* [Acknowledgments](#acknowledgments) (optional)
 
 The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
 
