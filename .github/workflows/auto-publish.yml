@@ -13,10 +13,10 @@ jobs:
       max-parallel: 1
       matrix:
         include:
-          - source: /common-input-aspects/NOTE-act-rules-common-aspects.bs
-            destination: /common-input-aspects/NOTE-act-rules-aspects.html
-          - source: /act-rules-format/act-rules-format.bs
-            destination: /act-rules-format/act-rules-format.html
+          - source: common-input-aspects/NOTE-act-rules-common-aspects.bs
+            destination: common-input-aspects/NOTE-act-rules-aspects.html
+          - source: act-rules-format/act-rules-format.bs
+            destination: act-rules-format/act-rules-format.html
     steps:
       - uses: actions/checkout@v3
       - uses: w3c/spec-prod@v2
