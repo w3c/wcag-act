@@ -14,9 +14,9 @@ jobs:
       matrix:
         include:
           - source: common-input-aspects/NOTE-act-rules-common-aspects.bs
-            destination: common-input-aspects/Overview.html
+            destination: NOTE-common-input-aspects.html
           - source: act-rules-format/act-rules-format.bs
-            destination: act-rules-format/Overview.html
+            destination: act-rules-format.html
     steps:
       - uses: actions/checkout@v3
       - uses: w3c/spec-prod@v2
