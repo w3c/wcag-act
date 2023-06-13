@@ -1,0 +1,538 @@
+<!doctype html><html lang="en">
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Accessibility Conformance Testing Rules: Common Input Aspects</title>
+  <meta content="NOTE" name="w3c-status">
+  <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
+  <link href="https://www.w3.org/TR/act-rules-aspects/" rel="canonical">
+  <meta content="2e0695d7f9788dbf97506be9054383202603fb08" name="document-revision">
+<style>/* Boilerplate: style-autolinks */
+.css.css, .property.property, .descriptor.descriptor {
+    color: var(--a-normal-text);
+    font-size: inherit;
+    font-family: inherit;
+}
+.css::before, .property::before, .descriptor::before {
+    content: "‘";
+}
+.css::after, .property::after, .descriptor::after {
+    content: "’";
+}
+.property, .descriptor {
+    /* Don't wrap property and descriptor names */
+    white-space: nowrap;
+}
+.type { /* CSS value <type> */
+    font-style: italic;
+}
+pre .property::before, pre .property::after {
+    content: "";
+}
+[data-link-type="property"]::before,
+[data-link-type="propdesc"]::before,
+[data-link-type="descriptor"]::before,
+[data-link-type="value"]::before,
+[data-link-type="function"]::before,
+[data-link-type="at-rule"]::before,
+[data-link-type="selector"]::before,
+[data-link-type="maybe"]::before {
+    content: "‘";
+}
+[data-link-type="property"]::after,
+[data-link-type="propdesc"]::after,
+[data-link-type="descriptor"]::after,
+[data-link-type="value"]::after,
+[data-link-type="function"]::after,
+[data-link-type="at-rule"]::after,
+[data-link-type="selector"]::after,
+[data-link-type="maybe"]::after {
+    content: "’";
+}
+
+[data-link-type].production::before,
+[data-link-type].production::after,
+.prod [data-link-type]::before,
+.prod [data-link-type]::after {
+    content: "";
+}
+
+[data-link-type=element],
+[data-link-type=element-attr] {
+    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    font-size: .9em;
+}
+[data-link-type=element]::before { content: "<" }
+[data-link-type=element]::after  { content: ">" }
+
+[data-link-type=biblio] {
+    white-space: pre;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --selflink-text: black;
+        --selflink-bg: silver;
+        --selflink-hover-text: white;
+    }
+}
+</style>
+<style>/* Boilerplate: style-colors */
+
+/* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
+:root {
+    color-scheme: light dark;
+
+    --text: black;
+    --bg: white;
+
+    --unofficial-watermark: url(https://www.w3.org/StyleSheets/TR/2016/logos/UD-watermark);
+
+    --logo-bg: #1a5e9a;
+    --logo-active-bg: #c00;
+    --logo-text: white;
+
+    --tocnav-normal-text: #707070;
+    --tocnav-normal-bg: var(--bg);
+    --tocnav-hover-text: var(--tocnav-normal-text);
+    --tocnav-hover-bg: #f8f8f8;
+    --tocnav-active-text: #c00;
+    --tocnav-active-bg: var(--tocnav-normal-bg);
+
+    --tocsidebar-text: var(--text);
+    --tocsidebar-bg: #f7f8f9;
+    --tocsidebar-shadow: rgba(0,0,0,.1);
+    --tocsidebar-heading-text: hsla(203,20%,40%,.7);
+
+    --toclink-text: var(--text);
+    --toclink-underline: #3980b5;
+    --toclink-visited-text: var(--toclink-text);
+    --toclink-visited-underline: #054572;
+
+    --heading-text: #005a9c;
+
+    --hr-text: var(--text);
+
+    --algo-border: #def;
+
+    --del-text: red;
+    --del-bg: transparent;
+    --ins-text: #080;
+    --ins-bg: transparent;
+
+    --a-normal-text: #034575;
+    --a-normal-underline: #bbb;
+    --a-visited-text: var(--a-normal-text);
+    --a-visited-underline: #707070;
+    --a-hover-bg: rgba(75%, 75%, 75%, .25);
+    --a-active-text: #c00;
+    --a-active-underline: #c00;
+
+    --blockquote-border: silver;
+    --blockquote-bg: transparent;
+    --blockquote-text: currentcolor;
+
+    --issue-border: #e05252;
+    --issue-bg: #fbe9e9;
+    --issue-text: var(--text);
+    --issueheading-text: #831616;
+
+    --example-border: #e0cb52;
+    --example-bg: #fcfaee;
+    --example-text: var(--text);
+    --exampleheading-text: #574b0f;
+
+    --note-border: #52e052;
+    --note-bg: #e9fbe9;
+    --note-text: var(--text);
+    --noteheading-text: hsl(120, 70%, 30%);
+    --notesummary-underline: silver;
+
+    --assertion-border: #aaa;
+    --assertion-bg: #eee;
+    --assertion-text: black;
+
+    --advisement-border: orange;
+    --advisement-bg: #fec;
+    --advisement-text: var(--text);
+    --advisementheading-text: #b35f00;
+
+    --warning-border: red;
+    --warning-bg: hsla(40,100%,50%,0.95);
+    --warning-text: var(--text);
+
+    --amendment-border: #330099;
+    --amendment-bg: #F5F0FF;
+    --amendment-text: var(--text);
+    --amendmentheading-text: #220066;
+
+    --def-border: #8ccbf2;
+    --def-bg: #def;
+    --def-text: var(--text);
+    --defrow-border: #bbd7e9;
+
+    --datacell-border: silver;
+
+    --indexinfo-text: #707070;
+
+    --indextable-hover-text: black;
+    --indextable-hover-bg: #f7f8f9;
+
+    --outdatedspec-bg: rgba(0, 0, 0, .5);
+    --outdatedspec-text: black;
+    --outdated-bg: maroon;
+    --outdated-text: white;
+    --outdated-shadow: red;
+
+    --editedrec-bg: darkorange;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #ddd;
+        --bg: black;
+
+        --unofficial-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%23100808' transform='translate(200 200) rotate(-45) translate(-200 -200)' stroke='%23100808' stroke-width='3'%3E%3Ctext x='50%25' y='220' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EUNOFFICIAL%3C/text%3E%3Ctext x='50%25' y='305' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EDRAFT%3C/text%3E%3C/g%3E%3C/svg%3E");
+
+        --logo-bg: #1a5e9a;
+        --logo-active-bg: #c00;
+        --logo-text: white;
+
+        --tocnav-normal-text: #999;
+        --tocnav-normal-bg: var(--bg);
+        --tocnav-hover-text: var(--tocnav-normal-text);
+        --tocnav-hover-bg: #080808;
+        --tocnav-active-text: #f44;
+        --tocnav-active-bg: var(--tocnav-normal-bg);
+
+        --tocsidebar-text: var(--text);
+        --tocsidebar-bg: #080808;
+        --tocsidebar-shadow: rgba(255,255,255,.1);
+        --tocsidebar-heading-text: hsla(203,20%,40%,.7);
+
+        --toclink-text: var(--text);
+        --toclink-underline: #6af;
+        --toclink-visited-text: var(--toclink-text);
+        --toclink-visited-underline: #054572;
+
+        --heading-text: #8af;
+
+        --hr-text: var(--text);
+
+        --algo-border: #456;
+
+        --del-text: #f44;
+        --del-bg: transparent;
+        --ins-text: #4a4;
+        --ins-bg: transparent;
+
+        --a-normal-text: #6af;
+        --a-normal-underline: #555;
+        --a-visited-text: var(--a-normal-text);
+        --a-visited-underline: var(--a-normal-underline);
+        --a-hover-bg: rgba(25%, 25%, 25%, .2);
+        --a-active-text: #f44;
+        --a-active-underline: var(--a-active-text);
+
+        --borderedblock-bg: rgba(255, 255, 255, .05);
+
+        --blockquote-border: silver;
+        --blockquote-bg: var(--borderedblock-bg);
+        --blockquote-text: currentcolor;
+
+        --issue-border: #e05252;
+        --issue-bg: var(--borderedblock-bg);
+        --issue-text: var(--text);
+        --issueheading-text: hsl(0deg, 70%, 70%);
+
+        --example-border: hsl(50deg, 90%, 60%);
+        --example-bg: var(--borderedblock-bg);
+        --example-text: var(--text);
+        --exampleheading-text: hsl(50deg, 70%, 70%);
+
+        --note-border: hsl(120deg, 100%, 35%);
+        --note-bg: var(--borderedblock-bg);
+        --note-text: var(--text);
+        --noteheading-text: hsl(120, 70%, 70%);
+        --notesummary-underline: silver;
+
+        --assertion-border: #444;
+        --assertion-bg: var(--borderedblock-bg);
+        --assertion-text: var(--text);
+
+        --advisement-border: orange;
+        --advisement-bg: #222218;
+        --advisement-text: var(--text);
+        --advisementheading-text: #f84;
+
+        --warning-border: red;
+        --warning-bg: hsla(40,100%,20%,0.95);
+        --warning-text: var(--text);
+
+        --amendment-border: #330099;
+        --amendment-bg: #080010;
+        --amendment-text: var(--text);
+        --amendmentheading-text: #cc00ff;
+
+        --def-border: #8ccbf2;
+        --def-bg: #080818;
+        --def-text: var(--text);
+        --defrow-border: #136;
+
+        --datacell-border: silver;
+
+        --indexinfo-text: #aaa;
+
+        --indextable-hover-text: var(--text);
+        --indextable-hover-bg: #181818;
+
+        --outdatedspec-bg: rgba(255, 255, 255, .5);
+        --outdatedspec-text: black;
+        --outdated-bg: maroon;
+        --outdated-text: white;
+        --outdated-shadow: red;
+
+        --editedrec-bg: darkorange;
+    }
+    /* In case a transparent-bg image doesn't expect to be on a dark bg,
+       which is quite common in practice... */
+    img { background: white; }
+}
+</style>
+<style>/* Boilerplate: style-counters */
+body {
+    counter-reset: example figure issue;
+}
+.issue {
+    counter-increment: issue;
+}
+.issue:not(.no-marker)::before {
+    content: "Issue " counter(issue);
+}
+
+.example {
+    counter-increment: example;
+}
+.example:not(.no-marker)::before {
+    content: "Example " counter(example);
+}
+.invalid.example:not(.no-marker)::before,
+.illegal.example:not(.no-marker)::before {
+    content: "Invalid Example" counter(example);
+}
+
+figcaption {
+    counter-increment: figure;
+}
+figcaption:not(.no-marker)::before {
+    content: "Figure " counter(figure) " ";
+}
+</style>
+<style>/* Boilerplate: style-issues */
+a[href].issue-return {
+    float: right;
+    float: inline-end;
+    color: var(--issueheading-text);
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+<style>/* Boilerplate: style-md-lists */
+/* This is a weird hack for me not yet following the commonmark spec
+   regarding paragraph and lists. */
+[data-md] > :first-child {
+    margin-top: 0;
+}
+[data-md] > :last-child {
+    margin-bottom: 0;
+}
+</style>
+<style>/* Boilerplate: style-selflinks */
+
+:root {
+    --selflink-text: white;
+    --selflink-bg: gray;
+    --selflink-hover-text: black;
+}
+.heading, .issue, .note, .example, li, dt {
+    position: relative;
+}
+a.self-link {
+    position: absolute;
+    top: 0;
+    left: calc(-1 * (3.5rem - 26px));
+    width: calc(3.5rem - 26px);
+    height: 2em;
+    text-align: center;
+    border: none;
+    transition: opacity .2s;
+    opacity: .5;
+}
+a.self-link:hover {
+    opacity: 1;
+}
+.heading > a.self-link {
+    font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
+}
+li > a.self-link {
+    left: calc(-1 * (3.5rem - 26px) - 2em);
+}
+dfn > a.self-link {
+    top: auto;
+    left: auto;
+    opacity: 0;
+    width: 1.5em;
+    height: 1.5em;
+    background: var(--selflink-bg);
+    color: var(--selflink-text);
+    font-style: normal;
+    transition: opacity .2s, background-color .2s, color .2s;
+}
+dfn:hover > a.self-link {
+    opacity: 1;
+}
+dfn > a.self-link:hover {
+    color: var(--selflink-hover-text);
+}
+
+a.self-link::before            { content: "¶"; }
+.heading > a.self-link::before { content: "§"; }
+dfn > a.self-link::before      { content: "#"; }
+</style>
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-NOTE" rel="stylesheet">
+ <body class="h-entry">
+  <div class="head">
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
+   <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing Rules: Common Input Aspects</h1>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#NOTE">W3C Group Note</a>, <time class="dt-updated" datetime="2023-06-13">13 June 2023</time></p>
+   <details open>
+    <summary>More details about this document</summary>
+    <div data-fill-with="spec-metadata">
+     <dl>
+      <dt>This version:
+      <dd><a class="u-url" href="https://www.w3.org/TR/2023/NOTE-act-rules-aspects-1.0-20230613/">https://www.w3.org/TR/2023/NOTE-act-rules-aspects-1.0-20230613/</a>
+      <dt>Latest published version:
+      <dd><a href="https://www.w3.org/TR/act-rules-aspects/">https://www.w3.org/TR/act-rules-aspects/</a>
+      <dt>Editor's Draft:
+      <dd><a href="https://w3c.github.io/wcag-act/NOTE-act-rules-aspects">https://w3c.github.io/wcag-act/NOTE-act-rules-aspects</a>
+      <dt>Previous Versions:
+      <dd><a href="https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/" rel="prev">https://www.w3.org/TR/2019/NOTE-act-rules-aspects-20190416/</a>
+      <dt>History:
+      <dd><a class="u-url" href="https://www.w3.org/standards/history/act-rules-aspects-1.0">https://www.w3.org/standards/history/act-rules-aspects-1.0</a>
+      <dt>Feedback:
+      <dd><a href="https://lists.w3.org/Archives/Public/public-wcag-act/">Public WCAG ACT Mailing List</a>
+      <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
+      <dt class="editor">Editors:
+      <dd class="editor p-author h-card vcard" data-editor-id="43334"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="53557"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="46880"><span class="p-name fn">Mary Jo Mueller</span> (<span class="p-org org">IBM Corp</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="34651"><span class="p-name fn">Shadi Abou-Zahra</span> (<span class="p-org org">Amazon</span>)
+     </dl>
+    </div>
+   </details>
+   <div data-fill-with="warning"></div>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2023/software-license" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
+   <hr title="Separator for header">
+  </div>
+  <div class="p-summary" data-fill-with="abstract">
+   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+   <p>This document is a companion to the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> specification. It lists common input aspects as defined by the ACT Rules Format 1.0 specification. This document is informative. It provides a reference to well defined input aspects to assist authors in writing ACT Rules and to support the consistency of ACT Rules.</p>
+  </div>
+  <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
+  <div data-fill-with="status">
+   <p></p>
+   <p><em>This section describes the status of this document at the time of its publication. A list of current W3C publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/">W3C technical reports index</a> at https://www.w3.org/TR/.</em></p>
+   <p data-deliverer="35422">This document was published by the <a href="https://www.w3.org/groups/wg/ag">Accessibility Guidelines Working Group</a> as a Group Note using the <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Note track</a>. Group Notes are not endorsed by W3C nor its Members. This informative document supports developers of Accessibility Conformance Testing (ACT) Rules to write rules more efficiently. It is a companion document to <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0</a> and provides short-hand notation for some of the 'aspects' that ACT Rules may be testing.</p>
+   <p>The Accessibility Guidelines Working Group intends to publish updated versions of this Note to accompany further publications of ACT Rules Format 1.0, and when new 'aspects' are commonly used. This document is not intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation.</p>
+   <p>Comments on this informative Working Group Note are welcome. To comment, <a href="https://github.com/w3c/wcag-act/issues/new">file an issue in the <abbr title="World Wide Web Consortium">W3C</abbr> ACT TF GitHub repository</a>. It is free to create a GitHub account to file issues. If filing issues in GitHub is not feasible, send email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Framework%201.0%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">comment archive</a>).</p>
+   <p>Publication as a Working Group Note does not imply endorsement by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.</p>
+   <p>This document was produced by a group operating under the <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/">1 August 2017 W3C Patent Policy</a>. W3C maintains a <a href="https://www.w3.org/WAI/GL/disclosures.html" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#sec-Disclosure">section 6 of the W3C Patent Policy</a>.</p>
+   <p>The <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/">1 August 2017 W3C Patent Policy</a> does not carry any licensing requirements or commitments on this document.</p>
+   <p>This document is governed by the <a href="https://www.w3.org/2021/Process-20211102/" id="w3c_process_revision">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.</p>
+  </div>
+  <div data-fill-with="at-risk"></div>
+  <nav data-fill-with="table-of-contents" id="toc">
+   <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
+   <ol class="toc" role="directory">
+    <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
+    <li>
+     <a href="#input-aspects-common"><span class="secno">2</span> <span class="content">Common Input Aspects</span></a>
+     <ol class="toc">
+      <li><a href="#input-aspects-http"><span class="secno">2.1</span> <span class="content">HTTP Messages</span></a>
+      <li><a href="#input-aspects-dom"><span class="secno">2.2</span> <span class="content">DOM Tree</span></a>
+      <li><a href="#input-aspects-css"><span class="secno">2.3</span> <span class="content">CSS Styling</span></a>
+      <li><a href="#input-aspects-accessibility"><span class="secno">2.4</span> <span class="content">Accessibility Tree</span></a>
+      <li><a href="#input-aspects-text"><span class="secno">2.5</span> <span class="content">Language</span></a>
+      <li><a href="#input-aspects-code"><span class="secno">2.6</span> <span class="content">Source Code</span></a>
+      <li><a href="#input-aspects-audio-out"><span class="secno">2.7</span> <span class="content">Audio Output</span></a>
+      <li><a href="#input-aspects-visual-out"><span class="secno">2.8</span> <span class="content">Visual Output</span></a>
+     </ol>
+    <li>
+     <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
+     <ol class="toc">
+      <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
+      <li><a href="#informative"><span class="secno"></span> <span class="content">Informative References</span></a>
+     </ol>
+   </ol>
+  </nav>
+  <main>
+   <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
+   <p>The term <a href="https://www.w3.org/TR/act-rules-format/#input-aspects">Input Aspects</a> is defined by the <a href="https://www.w3.org/TR/act-rules-format/">Accessibility Conformance Testing (ACT) Rules Format 1.0 Specification</a>. An input aspect is a distinct part of a <a href="https://www.w3.org/TR/act-rules-format/#test-subject">test subject</a>. Atomic rules are required to list input aspects in the <a href="https://www.w3.org/TR/act-rules-format/#applicability">applicability</a> and <a href="https://www.w3.org/TR/act-rules-format/#expectations">expectations</a>.</p>
+   <p>Some input aspects are already well defined in a formal specification within the context of web content, such as HTTP messages, DOM tree, and <a href="https://www.w3.org/TR/css/">CSS Styling</a>. These do not warrant a detailed description in ACT Rules Format 1.0 specification. Instead, these are listed in this informative document, which can be updated more easily. Atomic rules can refer to one of these common input aspects, however, these common input aspects are not required to conform to the ACT Rules Format 1.0 specification.</p>
+   <p>Examples of ACT Rules can be found in the <a href="https://w3c.github.io/wcag-act-rules/">ACT Rules Repository</a>.</p>
+   <p>The input aspects listed in this document can be used by authors of ACT Rules to refer to common types more easily. This improves the development process and supports consistency across rules. This list can be extended and refined at any time, for example, to include popular input aspects or to provide clarification. Existing input aspects can also be marked as obsoleted, if needed.</p>
+   <h2 class="heading settled" data-level="2" id="input-aspects-common"><span class="secno">2. </span><span class="content">Common Input Aspects</span><a class="self-link" href="#input-aspects-common"></a></h2>
+   <h3 class="heading settled" data-level="2.1" id="input-aspects-http"><span class="secno">2.1. </span><span class="content">HTTP Messages</span><a class="self-link" href="#input-aspects-http"></a></h3>
+   <p>The HTTP messages <a data-link-type="biblio" href="#biblio-http11" title="HTTP/1.1">[http11]</a> exchanged between a client and a server as part of requesting a web page may be of interest to ACT Rules. For example, analyzing HTTP messages to perform validation of HTTP headers or unparsed HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> and <a href="https://www.w3.org/TR/css/">Cascading Style Sheets</a>.</p>
+   <h3 class="heading settled" data-level="2.2" id="input-aspects-dom"><span class="secno">2.2. </span><span class="content">DOM Tree</span><a class="self-link" href="#input-aspects-dom"></a></h3>
+   <p>The DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree constructed from parsing HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, and optionally executing DOM manipulating JavaScript, may be of interest to ACT Rules to test the structure of web pages. In the DOM tree, information about individual elements of a web page, and their relations, becomes available.</p>
+   <p>The means by which the DOM tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a>.</p>
+   <h3 class="heading settled" data-level="2.3" id="input-aspects-css"><span class="secno">2.3. </span><span class="content">CSS Styling</span><a class="self-link" href="#input-aspects-css"></a></h3>
+   <p>The computed <a href="https://www.w3.org/TR/css/">CSS Styling</a> resulting from parsing CSS and applying it to the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> may be of interest to ACT Rules that wish to test the web page as presented to the user. Through CSS styling, information about the position, the foreground and background colors, the visibility, and more, of elements becomes available.</p>
+   <p>The means by which the CSS styling is computed, be it by a web browser or not, is not of importance as long as the computation follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/cssom/">CSS Object Model</a> <a data-link-type="biblio" href="#biblio-cssom" title="CSS Object Model (CSSOM)">[CSSOM]</a>.</p>
+   <p>The test cases of ACT Rules interested in the CSS styling must be viewed with the CSS included by the author, and the <a href="https://drafts.csswg.org/css-cascade/#cascade-origin-ua">user agent default style sheet</a>. <a href="https://drafts.csswg.org/css-cascade/#cascade-origin-user">User style sheets</a> and other custom styles should be avoided to ensure test cases have the expected outcome.</p>
+   <h3 class="heading settled" data-level="2.4" id="input-aspects-accessibility"><span class="secno">2.4. </span><span class="content">Accessibility Tree</span><a class="self-link" href="#input-aspects-accessibility"></a></h3>
+   <p>The accessibility tree constructed from extracting information from both the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree and the <a href="https://www.w3.org/TR/css/">CSS Styling</a> may be of interest to ACT Rules. This can be used to test the web page as presented to assistive technologies such as screen readers. Through the accessibility tree, information about the semantic roles, accessible names and descriptions, and more, of elements becomes available.</p>
+   <p>The means by which the accessibility tree is constructed, be it by a web browser or not, is not of importance as long as the construction follows any applicable specifications that might exist, such as the <a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings 1.1</a> <a data-link-type="biblio" href="#biblio-core-aam-11" title="Core Accessibility API Mappings 1.1">[CORE-AAM-1.1]</a>.</p>
+   <h3 class="heading settled" data-level="2.5" id="input-aspects-text"><span class="secno">2.5. </span><span class="content">Language</span><a class="self-link" href="#input-aspects-text"></a></h3>
+   <p>Language, either written or spoken, contained in nodes of the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> or accessibility trees may be of interest to ACT Rules that intend to test things like complexity or intention of the language. For example, an ACT Rule might test that paragraphs of text within the DOM tree do not exceed a certain readability score or that the text alternative of an image provides a sufficient description.</p>
+   <p>Rules can only operate on the Language aspect if the language of a page can be determined. The means by which the language is assessed, whether by a person or a machine, is not of importance as long as the assessment meets the criteria defined in <a href="https://www.w3.org/TR/wcag2-tech-req/#humantestable">Requirements for WCAG 2.0 Checklists and Techniques § humantestable</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>.</p>
+   <p>Some rules can only operate on a Language aspect if the language is sufficiently understood by the tester, while other rules only require identifying the language. For example, a rule checking that an accessible name is descriptive can only function if the language is understood. A rule checking the correctness of a <code>lang</code> attribute requires knowing what language is used, but not the meaning of the words.</p>
+   <h3 class="heading settled" data-level="2.6" id="input-aspects-code"><span class="secno">2.6. </span><span class="content">Source Code</span><a class="self-link" href="#input-aspects-code"></a></h3>
+   <p>The text content of a file from which a web browser or other user agent creates a page. For example, a browser may build up a web page from an HTML file, CSS file, SVG file and JavaScript file. The text of each of these four files is its source code. An ACT Rule could for example test for potential parser errors.</p>
+   <p>Source code is distinct from an HTTP response, which includes HTTP headers. It is the text content of the file before parsing, which often results in an object model or syntax tree, or serialized versions of those. Notably in HTML, the outerHTML property of the root node can vary significantly from its source code. For the purpose of ACT rules, source files processed on the server such as PHP for creating HTML, or SASS for creating CSS are not considered, as those are not processed by the user agent.</p>
+   <h3 class="heading settled" data-level="2.7" id="input-aspects-audio-out"><span class="secno">2.7. </span><span class="content">Audio Output</span><a class="self-link" href="#input-aspects-audio-out"></a></h3>
+   <p>Audio output may be of interest to ACT Rules that intend to test things like the speech and sounds provided in media files. Some rules can operate on whether there is audio output, such as an ACT Rule that may check that audio output on a Web page does not play automatically. Some rules can only operate if the audio output is understood by the tester. For example, a rule checking that captions are equivalent can only function if the audio output is understood.</p>
+   <h3 class="heading settled" data-level="2.8" id="input-aspects-visual-out"><span class="secno">2.8. </span><span class="content">Visual Output</span><a class="self-link" href="#input-aspects-visual-out"></a></h3>
+   <p>Visual output may be of interest to ACT Rules that intend to test things like the moving images displayed in media or animation files. Some rules can operate on the presence of visual output, such as an ACT Rule that may check that visual output has a control to stop it. Some rules can only operate if the visual output is understood by the tester. For example, a rule checking that the visual output information is available in a transcript.</p>
+  </main>
+<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
+  <dl>
+   <dt id="biblio-wcag2-tech-req">[WCAG2-TECH-REQ]
+   <dd>Michael Cooper. <a href="https://www.w3.org/TR/wcag2-tech-req/"><cite>Requirements for WCAG 2.0 Checklists and Techniques</cite></a>. 7 February 2003. WD. URL: <a href="https://www.w3.org/TR/wcag2-tech-req/">https://www.w3.org/TR/wcag2-tech-req/</a>
+  </dl>
+  <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
+  <dl>
+   <dt id="biblio-core-aam-11">[CORE-AAM-1.1]
+   <dd>Joanmarie Diggs; et al. <a href="https://www.w3.org/TR/core-aam-1.1/"><cite>Core Accessibility API Mappings 1.1</cite></a>. 14 December 2017. REC. URL: <a href="https://www.w3.org/TR/core-aam-1.1/">https://www.w3.org/TR/core-aam-1.1/</a>
+   <dt id="biblio-cssom">[CSSOM]
+   <dd>Daniel Glazman; Emilio Cobos Álvarez. <a href="https://www.w3.org/TR/cssom-1/"><cite>CSS Object Model (CSSOM)</cite></a>. 26 August 2021. WD. URL: <a href="https://www.w3.org/TR/cssom-1/">https://www.w3.org/TR/cssom-1/</a>
+   <dt id="biblio-dom">[DOM]
+   <dd>Anne van Kesteren. <a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
+   <dt id="biblio-html">[HTML]
+   <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
+   <dt id="biblio-http11">[HTTP11]
+   <dd>R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed.. <a href="https://www.rfc-editor.org/rfc/rfc9112"><cite>HTTP/1.1</cite></a>. June 2022. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9112">https://www.rfc-editor.org/rfc/rfc9112</a>
+   <dt id="biblio-wcag">[WCAG]
+   <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="https://www.w3.org/TR/WAI-WEBCONTENT/"><cite>Web Content Accessibility Guidelines 1.0</cite></a>. 5 May 1999. REC. URL: <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">https://www.w3.org/TR/WAI-WEBCONTENT/</a>
+  </dl>
