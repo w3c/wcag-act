@@ -186,7 +186,7 @@ When a rule is designed to test a specific accessibility requirement, the access
  
 Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
 
-- Passed: When all of the outcomes are `passed`, the accessibility requirement is <dfn>satisfied</dfn> for the test subject.
+- Passed: When all of the outcomes are `passed`, the accessibility requirement is [=satisfied=] for the test subject.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
@@ -239,7 +239,7 @@ A rule was designed to test a minimum accessibility requirement and there exists
 <ul>
 <li>Conformance Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
 <li>Secondary Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
-  <ul><li>Background Section: Success Criterion 1.4.6 is mapped as a Secondary requirement because the SC may be <dfn>not satisfied</dfn>when the rule’s outcomes are `passed`. </li></ul>
+  <ul><li>Background Section: Success Criterion 1.4.6 is mapped as a Secondary requirement because the SC may be [=not satisfied=]when the rule’s outcomes are `passed`. </li></ul>
 </ul>
 </blockquote>
 </aside>
@@ -250,7 +250,7 @@ A rule was designed to test a specific type of solution for an accessibility req
 
   <aside class=example>
     <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
-    <blockquote>This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for other possible solutions, such as the use of non-standard navigation, so its failed outcomes cannot determine that the accessibility requirement is <dfn>not satisfied</dfn>. This rule’s mapping:
+    <blockquote>This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for other possible solutions, such as the use of non-standard navigation, so its failed outcomes cannot determine that the accessibility requirement is [=not satisfied=]. This rule’s mapping:
 <ul>
 <li>Secondary Requirement: Success Criterion 2.1.2: No Keyboard Trap</li>
   <ul><li>Background Section: This rule tests for one solution that can meet Success Criterion 2.1.2. SC 2.1.2 is mapped as a Secondary requirement because other solutions (such as use of non-standard navigation to exit a keyboard trap) can be used to meet this SC that are not tested by this rule.</li></ul>
@@ -268,7 +268,7 @@ A rule was designed to test an accessibility requirement and there exists a less
 <ul>
 <li>Conformance Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
 <li>Secondary Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
-<ul><li>Background Section: Success Criterion 1.4.3 is mapped as a Secondary requirement because the SC may be <dfn>satisfied</dfn>when the rule’s outcomes are `failed`.</li></ul>
+<ul><li>Background Section: Success Criterion 1.4.3 is mapped as a Secondary requirement because the SC may be [=satisfied=]when the rule’s outcomes are `failed`.</li></ul>
 </aside>
 
 
@@ -715,13 +715,13 @@ This section provides examples of expressing results from carrying out ACT Rules
 
 Examples in this section include:
 
-- Example 1: Minimal outcome from one 'Assertion'
-- Example 2: Results from more than one 'Assertion'
-- Example 3: Aggregating based on 'Requirement'
+- Example 1: Minimal outcome from one assertion
+- Example 2: Results from more than one assertion
+- Example 3: Aggregating based on requirement
 - Example 4: Aggregating based on 'Test Subject'
-- Example 5: Assumed 'Context' for this section
+- Example 5: Assumed context for this section
 
-**Example 1:** Minimal outcome for one 'Assertion'
+**Example 1:** Minimal outcome for one assertion
 
 ```javascript
 {
@@ -737,7 +737,7 @@ Examples in this section include:
 }
 ```
 
-**Example 2:** Results for more than one 'Assertion'
+**Example 2:** Results for more than one assertion
 
 ```javascript
 {
@@ -764,7 +764,7 @@ Examples in this section include:
 }
 ```
 
-**Example 3:** Aggregating based on 'Requirement' (eg. WCAG Success Criteria)
+**Example 3:** Aggregating based on requirement (eg. WCAG Success Criteria)
 
 ```javascript
 {
@@ -850,7 +850,7 @@ Examples in this section include:
 }
 ```
 
-**Example 5:** Assumed 'Context' for this section
+**Example 5:** Assumed context for this section
 
 ```javascript
 {
