@@ -7,7 +7,7 @@ Level: 1.1
 Status: w3c/ED
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems
-Editor: Katherine Eng, US Access Board
+Editor: Kathy Eng, US Access Board
 Editor: Trevor Bostic, MITRE Corp.
 Former Editor: Maureen Kraft, IBM Corp.
 Former Editor: Mary Jo Mueller, IBM Corp.
