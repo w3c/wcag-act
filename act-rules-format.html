@@ -2,13 +2,13 @@
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Accessibility Conformance Testing (ACT) Rules Format</title>
+  <title>Accessibility Conformance Testing (ACT) Rules Format 1.1</title>
   <meta content="w3c/ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
-  <meta content="Bikeshed version 5fcd28d6d, updated Tue May 30 13:12:11 2023 -0700" name="generator">
+  <meta content="Bikeshed version 5edf5e459, updated Thu Jun 22 11:28:01 2023 -0700" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="6251ed2485a5acac6e399130d5c9cdb42d09997e" name="document-revision">
+  <meta content="0d06b4a63ea7f27e3ecabf279955ac08a3535d52" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -608,8 +608,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
-   <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-06-13">13 June 2023</time></p>
+   <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-07-10">10 July 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -617,11 +617,14 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <dt>This version:
       <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
       <dt>Previous Versions:
-      <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-07-12.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-07-12.html</a>
+      <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-07-22.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-07-22.html</a>
       <dt>Issue Tracking:
       <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
       <dt class="editor">Editors:
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
+      <dd class="editor p-author h-card vcard"><span class="p-name fn">Kathy Eng</span> (<span class="p-org org">US Access Board</span>)
+      <dd class="editor p-author h-card vcard"><span class="p-name fn">Trevor Bostic</span> (<span class="p-org org">MITRE Corp.</span>)
+      <dt class="editor">Former Editors:
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Mary Jo Mueller</span> (<span class="p-org org">IBM Corp.</span>)
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Shadi Abou-Zahra</span> (<span class="p-org org">W3C</span>)
@@ -629,12 +632,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </div>
    </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2023/software-license" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/copyright-software" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.</p>
+   <p>The Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.</p>
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
@@ -662,7 +665,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li>
        <a href="#accessibility-requirements-mapping"><span class="secno">4.4</span> <span class="content">Accessibility Requirements Mapping</span></a>
        <ol class="toc">
-        <li><a href="#outcome-mapping"><span class="secno">4.4.1</span> <span class="content">Outcome Mapping</span></a>
+        <li>
+         <a href="#outcome-mapping"><span class="secno">4.4.1</span> <span class="content">Outcome Mapping</span></a>
+         <ol class="toc">
+          <li><a href="#conformance-requirements"><span class="secno">4.4.1.1</span> <span class="content">Conformance Requirements ### {#conformance-requirements}</span></a>
+          <li><a href="#secondary-requirements"><span class="secno">4.4.1.2</span> <span class="content">Secondary Requirements</span></a>
+         </ol>
         <li><a href="#mapping-outside-wcag"><span class="secno">4.4.2</span> <span class="content">Mapping Outside WCAG</span></a>
         <li><a href="#rules-without-accessibility-requirements"><span class="secno">4.4.3</span> <span class="content">Rules Without Accessibility Requirements</span></a>
         <li><a href="#external-accessibility-requirements-mapping"><span class="secno">4.4.4</span> <span class="content">External Accessibility Requirements Mapping</span></a>
@@ -841,7 +849,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ul>
    <p>Refer to the <a href="#rule-types">Rule Type</a> section for detailed definitions of the rule types.</p>
    <h3 class="heading settled" data-level="4.4" id="accessibility-requirements-mapping"><span class="secno">4.4. </span><span class="content">Accessibility Requirements Mapping</span><a class="self-link" href="#accessibility-requirements-mapping"></a></h3>
-   <p>When an ACT Rule is designed to test conformance to one or more <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document①">Accessibility requirements documents</a>, the rule <em class="rfc2119">must</em> list all <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement③">accessibility requirements</a> from those documents that are not satisfied when one or more of the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome④">outcomes</a> of the rule is <code>failed</code>. For example, when designing a rule for WCAG that tests if image buttons have alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.</p>
+   <p>When an ACT Rule is designed to test conformance to one or more <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document①">Accessibility requirements documents</a>, the rule <em class="rfc2119">must</em> list all <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement③">accessibility requirements</a> from those documents that are not satisfied when one or more of the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome④">outcomes</a> of the rule is <code>failed</code>. The rule <em class="rfc2119">may</em> list accessibility requirements that could be not satisfied when the rule outcome is failed. There are two types of accessibility requirements:</p>
+   <ul>
+    <li data-md>
+     <p><a href="#conformance-requirements">Conformance Requirements</a></p>
+    <li data-md>
+     <p><a href="#secondary-requirements">Secondary Requirements</a></p>
+   </ul>
    <p>Each <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement④">accessibility requirement</a> in the mapping <em class="rfc2119">must</em> include the following:</p>
    <ol>
     <li data-md>
@@ -851,16 +865,31 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li data-md>
      <p>a link or reference to the <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document③">accessibility requirements document</a> if one exists, and</p>
     <li data-md>
-     <p>the conformance level associated with the accessibility requirement, if one exists.</p>
+     <p>the conformance level associated with the accessibility requirement, if one exists, and</p>
+    <li data-md>
+     <p>whether the requirement is a conformance requirement or a secondary requirement.</p>
    </ol>
    <h4 class="heading settled" data-level="4.4.1" id="outcome-mapping"><span class="secno">4.4.1. </span><span class="content">Outcome Mapping</span><a class="self-link" href="#outcome-mapping"></a></h4>
-   <p>For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑤">outcomes</a> of the rule mean for satisfying that accessibility requirement for that <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject②">test subject</a>. When one or more of the outcomes for a test target is <code>failed</code>, the accessibility requirements are <dfn data-dfn-type="dfn" data-noexport id="not-satisfied">not satisfied<a class="self-link" href="#not-satisfied"></a></dfn> for the test subject. When all of the outcomes are <code>passed</code> or <code>inapplicable</code>, the accessibility requirements could be <dfn data-dfn-type="dfn" data-noexport id="satisfied">satisfied<a class="self-link" href="#satisfied"></a></dfn>, or <dfn data-dfn-type="dfn" data-noexport id="further-testing-is-needed">further testing is needed<a class="self-link" href="#further-testing-is-needed"></a></dfn>. Rules that can be used to determine if an accessibility requirement is <em>satisfied</em> are called <dfn data-dfn-type="dfn" data-noexport id="satisfying-tests">satisfying tests<a class="self-link" href="#satisfying-tests"></a></dfn>.</p>
+    For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑤">outcomes</a> of the rule mean for satisfying an accessibility requirement for that <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject②">test subject</a>. 
+   <h5 class="heading settled" data-level="4.4.1.1" id="conformance-requirements"><span class="secno">4.4.1.1. </span><span class="content">Conformance Requirements ### {#conformance-requirements}</span><a class="self-link" href="#conformance-requirements"></a></h5>
+   <p>When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true:</p>
+   <ul>
+    <li data-md>
+     <p>Failed Outcomes: When one or more of the outcomes for a test subject is <code>failed</code>, the accessibility requirement is <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="not-satisfied">not satisfied</dfn> for the test subject, and</p>
+    <li data-md>
+     <p>Passed or Inapplicable Outcomes: When all of the outcomes are <code>passed</code> or <code>inapplicable</code> for a test subject, the accessibility requirement could be <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="satisfied">satisfied</dfn> or <dfn data-dfn-type="dfn" data-noexport id="further-testing-is-needed">further testing is needed<a class="self-link" href="#further-testing-is-needed"></a></dfn> for the test subject.</p>
+   </ul>
+   <p>Rules that can be used to determine if an accessibility requirement is <em>satisfied</em> are called <dfn data-dfn-type="dfn" data-noexport id="satisfying-tests">satisfying tests<a class="self-link" href="#satisfying-tests"></a></dfn>.</p>
+   <ul>
+    <li data-md>
+     <p>Passed: When all of the outcomes are <code>passed</code>, the accessibility requirement is <a data-link-type="dfn" href="#satisfied" id="ref-for-satisfied">satisfied</a> for the test subject.</p>
+   </ul>
    <div class="note" role="note">
     <p><strong>Note:</strong> In the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>, success criteria do not evaluate to <code>passed</code>, <code>failed</code> or <code>inapplicable</code>. Rather they can be <em>satisfied</em> (or not). (See the <a href="https://www.w3.org/TR/WCAG21/#dfn-satisfies">WCAG 2.1 definition: satisfies a success criterion</a>.) If a success criterion is <em>not satisfied</em>, a web page can only conform if there is a conforming alternative version, as described in <a href="https://www.w3.org/TR/WCAG21/#cc1">WCAG 2.1 Conformance Requirement 1</a>.</p>
    </div>
-   <aside class="example" id="example-cd520eaa">
-    <a class="self-link" href="#example-cd520eaa"></a> 
-    <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name:</header>
+   <aside class="example" id="example-fa1596cb">
+    <a class="self-link" href="#example-fa1596cb"></a> 
+    <header>Example accessibility requirements mapping for a rule that was designed to test if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
     <blockquote>
      <ul>
       <li>
@@ -886,6 +915,93 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
           <li>All <code>passed</code> outcomes: further testing is needed
           <li>An <code>inapplicable</code> outcome: further testing is needed
          </ul>
+       </ul>
+     </ul>
+    </blockquote>
+   </aside>
+   <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content">Secondary Requirements</span><a class="self-link" href="#secondary-requirements"></a></h5>
+   <p>A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
+   <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.</p>
+   <p>Some scenarios when a rule will have Secondary requirements include:</p>
+   <p><strong>Scenario 1</strong>: the rule is not as strict as a requirement</p>
+   <p>A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule’s outcomes are passed. The stricter requirement is a Secondary requirement.</p>
+   <aside class="example" id="example-5c0addd4">
+    <a class="self-link" href="#example-5c0addd4"></a> 
+    <header>Example: a rule that tests if text has minimum contrast</header>
+    <blockquote>
+     This rule was designed to test Success Criterion 1.4.3 Contrast Minimum (AA). A stricter requirement, Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA), will be not satisfied when the rule outcome is failed, and may be not satisfied when the rule outcomes are passed. This rule’s mapping: 
+     <ul>
+      <li>Conformance Requirement: Success Criterion 1.4.3 Contrast (Minimum)
+      <li>Secondary Requirement: Success Criterion 1.4.6 Contrast (Enhanced)
+      <ul>
+       <li>Background Section: Success Criterion 1.4.6 is mapped as a Secondary requirement because the SC may be <a data-link-type="dfn" href="#not-satisfied" id="ref-for-not-satisfied">not satisfied</a>when the rule’s outcomes are <code>passed</code>. 
+      </ul>
+     </ul>
+    </blockquote>
+   </aside>
+   <p><strong>Scenario 2</strong>: the rule’s failed outcomes require further testing for the accessibility requirement</p>
+   <p>A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</p>
+   <aside class="example" id="example-7be89ba3">
+    <a class="self-link" href="#example-7be89ba3"></a> 
+    <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
+    <blockquote>
+     This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for other possible solutions, such as the use of non-standard navigation, so its failed outcomes cannot determine that the accessibility requirement is <a data-link-type="dfn" href="#not-satisfied" id="ref-for-not-satisfied①">not satisfied</a>. This rule’s mapping: 
+     <ul>
+      <li>Secondary Requirement: Success Criterion 2.1.2: No Keyboard Trap
+      <ul>
+       <li>Background Section: This rule tests for one solution that can meet Success Criterion 2.1.2. SC 2.1.2 is mapped as a Secondary requirement because other solutions (such as use of non-standard navigation to exit a keyboard trap) can be used to meet this SC that are not tested by this rule.
+      </ul>
+     </ul>
+    </blockquote>
+   </aside>
+   <p><strong>Scenario 3</strong>: the rule is stricter than a requirement</p>
+   <p>A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a Secondary requirement.</p>
+   <aside class="example" id="example-2b0f41de">
+    <a class="self-link" href="#example-2b0f41de"></a> 
+    <header>Example: a rule that tests Enhanced Contrast</header>
+    <blockquote>
+     This rule was designed to test Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA). A less strict requirement, Success Criterion 1.4.3 Contrast Minimum (AA), will be satisfied when the rule outcomes are passed, and may be satisfied when the rule outcomes are failed. This rule’s mapping: 
+     <ul>
+      <li>Conformance Requirement: Success Criterion 1.4.6 Contrast (Enhanced)
+      <li>Secondary Requirement: Success Criterion 1.4.3 Contrast (Minimum)
+      <ul>
+       <li>Background Section: Success Criterion 1.4.3 is mapped as a Secondary requirement because the SC may be <a data-link-type="dfn" href="#satisfied" id="ref-for-satisfied①">satisfied</a>when the rule’s outcomes are <code>failed</code>.
+      </ul>
+     </ul>
+    </blockquote>
+   </aside>
+   <p><strong>Scenario 4</strong>: the rule may impact the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement</p>
+   <p>A rule was designed to test an accessibility requirement and under certain conditions, other accessibility requirements apply. In this scenario, the other accessibility requirements are sometimes, but not always, satisfied or not satisfied because they are not always applicable in the rule. These other accessibility requirements are a Secondary requirement.</p>
+   <aside class="example" id="example-fba1117e">
+    <a class="self-link" href="#example-fba1117e"></a> 
+    <header>Example 1: a rule that tests if a link has a non-empty accessible name</header>
+    <blockquote>
+     This rule was designed to test links for accessibility requirements 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA). When a &lt;map> element is used with 
+     <area>
+      elements to define an image map, this is also a link area. Testing for non-empty accessible name for &lt;area> elements would map to another accessibility requirement 1.1.1 Non-text Content. Because the rule tests for all links and SC 1.1.1 only applies certain links, this rule’s mapping: 
+     <ul>
+      <li>Conformance Requirement: Success Criteria 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA)
+      <li>Secondary Requirement: Success Criterion 1.1.1 Non-text Content
+      <ul>
+       <li>
+        Background Section: Success Criterion 1.1.1 Non-text Content is mapped as a Secondary requirement because the SC applies only to certain types of links (
+        <area>
+         element links), not to all links. 
+      </ul>
+     </ul>
+    </blockquote>
+   </aside>
+   <aside class="example" id="example-666bd3bb">
+    <a class="self-link" href="#example-666bd3bb"></a> 
+    <header>Example 2: A rule that tests that elements that have an explicit role also specify all required states and properties </header>
+    <blockquote>
+     This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping: 
+     <ul>
+      <li>Conformance Requirement: WAI-ARIA 1.1
+      <li>
+       Secondary Requirement: Success Criterion 4.1.2 Name, Role, Value 
+       <ul>
+        <li>Background Section: Success Criterion 4.1.2 Name, Role, Value is mapped as a Secondary requirement because it only applies to user controls. 
        </ul>
      </ul>
     </blockquote>
@@ -1228,17 +1344,17 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Examples in this section include:</p>
    <ul>
     <li data-md>
-     <p>Example 1: Minimal outcome from one <a class="property css" data-link-type="property">Assertion</a></p>
+     <p>Example 1: Minimal outcome from one assertion</p>
     <li data-md>
-     <p>Example 2: Results from more than one <a class="property css" data-link-type="property">Assertion</a></p>
+     <p>Example 2: Results from more than one assertion</p>
     <li data-md>
-     <p>Example 3: Aggregating based on <a class="property css" data-link-type="property">Requirement</a></p>
+     <p>Example 3: Aggregating based on requirement</p>
     <li data-md>
      <p>Example 4: Aggregating based on 'Test Subject'</p>
     <li data-md>
-     <p>Example 5: Assumed <a class="property css" data-link-type="property">Context</a> for this section</p>
+     <p>Example 5: Assumed context for this section</p>
    </ul>
-   <p><strong>Example 1:</strong> Minimal outcome for one <a class="property css" data-link-type="property">Assertion</a></p>
+   <p><strong>Example 1:</strong> Minimal outcome for one assertion</p>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1251,7 +1367,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 2:</strong> Results for more than one <a class="property css" data-link-type="property">Assertion</a></p>
+   <p><strong>Example 2:</strong> Results for more than one assertion</p>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@graph"</c-><c- o>:</c-> <c- p>[{</c->
@@ -1275,7 +1391,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}]</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 3:</strong> Aggregating based on <a class="property css" data-link-type="property">Requirement</a> (eg. WCAG Success Criteria)</p>
+   <p><strong>Example 3:</strong> Aggregating based on requirement (eg. WCAG Success Criteria)</p>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1355,7 +1471,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 5:</strong> Assumed <a class="property css" data-link-type="property">Context</a> for this section</p>
+   <p><strong>Example 5:</strong> Assumed context for this section</p>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@vocab"</c-><c- o>:</c-> <c- u>"http://www.w3.org/ns/earl#"</c-><c- p>,</c->
 
@@ -1484,11 +1600,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <li><a href="#atomic-rules">Atomic rules</a><span>, in § 3</span>
    <li><a href="#composite-rules">Composite rules</a><span>, in § 3</span>
    <li><a href="#descriptive-title">Descriptive Title</a><span>, in § 4</span>
-   <li><a href="#further-testing-is-needed">further testing is needed</a><span>, in § 4.4.1</span>
-   <li><a href="#not-satisfied">not satisfied</a><span>, in § 4.4.1</span>
+   <li><a href="#further-testing-is-needed">further testing is needed</a><span>, in § 4.4.1.1</span>
+   <li><a href="#not-satisfied">not satisfied</a><span>, in § 4.4.1.1</span>
    <li><a href="#outcome">Outcome</a><span>, in § 7</span>
-   <li><a href="#satisfied">satisfied</a><span>, in § 4.4.1</span>
-   <li><a href="#satisfying-tests">satisfying tests</a><span>, in § 4.4.1</span>
+   <li><a href="#satisfied">satisfied</a><span>, in § 4.4.1.1</span>
+   <li><a href="#satisfying-tests">satisfying tests</a><span>, in § 4.4.1.1</span>
    <li><a href="#test-subject">Test Subject</a><span>, in § 7</span>
    <li><a href="#test-target">Test Target</a><span>, in § 7</span>
   </ul>
@@ -1679,6 +1795,8 @@ window.dfnpanelData = {};
 window.dfnpanelData['atomic-rules'] = {"dfnID": "atomic-rules", "url": "#atomic-rules", "dfnText": "Atomic rules", "refSections": [{"refs": [{"id": "ref-for-atomic-rules"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-atomic-rules\u2460"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-atomic-rules\u2461"}, {"id": "ref-for-atomic-rules\u2462"}], "title": "4.5.1. Input Aspects (Atomic rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2463"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2464"}], "title": "4.6.1. Applicability for Atomic Rules"}, {"refs": [{"id": "ref-for-atomic-rules\u2465"}], "title": "4.7.1. Expectations for Atomic Rules"}], "external": false};
 window.dfnpanelData['composite-rules'] = {"dfnID": "composite-rules", "url": "#composite-rules", "dfnText": "Composite rules", "refSections": [{"refs": [{"id": "ref-for-composite-rules"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-composite-rules\u2460"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-composite-rules\u2461"}], "title": "4.7.2. Expectations for Composite Rules"}], "external": false};
 window.dfnpanelData['descriptive-title'] = {"dfnID": "descriptive-title", "url": "#descriptive-title", "dfnText": "Descriptive Title", "refSections": [{"refs": [{"id": "ref-for-descriptive-title"}], "title": "4.5.2. Input Rules (Composite rules only)"}], "external": false};
+window.dfnpanelData['not-satisfied'] = {"dfnID": "not-satisfied", "url": "#not-satisfied", "dfnText": "not satisfied", "refSections": [{"refs": [{"id": "ref-for-not-satisfied"}, {"id": "ref-for-not-satisfied\u2460"}], "title": "4.4.1.2. Secondary Requirements"}], "external": false};
+window.dfnpanelData['satisfied'] = {"dfnID": "satisfied", "url": "#satisfied", "dfnText": "satisfied", "refSections": [{"refs": [{"id": "ref-for-satisfied"}], "title": "4.4.1.1. Conformance Requirements ### {#conformance-requirements}"}, {"refs": [{"id": "ref-for-satisfied\u2460"}], "title": "4.4.1.2. Secondary Requirements"}], "external": false};
 window.dfnpanelData['accessibility-requirement'] = {"dfnID": "accessibility-requirement", "url": "#accessibility-requirement", "dfnText": "Accessibility requirement", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirement"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460"}], "title": "2. Scope"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2461"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2462"}, {"id": "ref-for-accessibility-requirement\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2464"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2465"}, {"id": "ref-for-accessibility-requirement\u2466"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2467"}, {"id": "ref-for-accessibility-requirement\u2468"}], "title": "5. Rule Accuracy"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460\u24ea"}], "title": "7. Definitions"}], "external": false};
 window.dfnpanelData['accessibility-requirements-document'] = {"dfnID": "accessibility-requirements-document", "url": "#accessibility-requirements-document", "dfnText": "Accessibility requirements document", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirements-document"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2460"}, {"id": "ref-for-accessibility-requirements-document\u2461"}, {"id": "ref-for-accessibility-requirements-document\u2462"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2463"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2464"}, {"id": "ref-for-accessibility-requirements-document\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2466"}], "title": "4.4.4. External Accessibility Requirements Mapping"}], "external": false};
 window.dfnpanelData['outcome'] = {"dfnID": "outcome", "url": "#outcome", "dfnText": "Outcome", "refSections": [{"refs": [{"id": "ref-for-outcome"}, {"id": "ref-for-outcome\u2460"}, {"id": "ref-for-outcome\u2461"}, {"id": "ref-for-outcome\u2462"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-outcome\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-outcome\u2464"}], "title": "4.4.1. Outcome Mapping"}, {"refs": [{"id": "ref-for-outcome\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-outcome\u2466"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-outcome\u2467"}], "title": "4.7. Expectations"}, {"refs": [{"id": "ref-for-outcome\u2468"}], "title": "4.7.1. Expectations for Atomic Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u24ea"}], "title": "4.7.2. Expectations for Composite Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u2460"}], "title": "4.10. Test Cases"}, {"refs": [{"id": "ref-for-outcome\u2460\u2461"}], "title": "4.11. Change Log"}, {"refs": [{"id": "ref-for-outcome\u2460\u2462"}], "title": "4.12. Glossary"}, {"refs": [{"id": "ref-for-outcome\u2460\u2463"}], "title": "4.13. Issues List (optional)"}], "external": false};
