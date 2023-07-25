@@ -405,11 +405,20 @@ The applicability describes what parts of the [=test subject=] are tested.
 
 ### Applicability for Atomic Rules ### {#applicability-atomic}
 
-The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. Applicability <em class="rfc2119">must</em> be described objectively, unambiguously and in plain language.
+The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. Definitions used in the description can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used. No other information can be used in the applicability. 
 
-An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded.
+Applicability <em class="rfc2119">must</em> either be described objectively or use an **allowed subjective form**, and <em class="rfc2119">must</em> be written unambiguously and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. When possible, objective descriptions <em class="rfc2119">must</em> be used since they reduce uncertainty.
 
-Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts <em class="rfc2119">must</em> be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
+Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, subjectivity <em class="rfc2119">must</em> be avoided since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. In some cases, where meeting the objectivity requirement is impossible, the use of a subjective description in the applicability is acceptable. 
+
+To deal with the inherent problems of subjectivity, any applicability including subjective descriptions must meet the following criteria: (1) use one of the allowed subjective forms, (2) place all subjectivity inside of a glossary definition, and (3) the applicability section must be clearly marked as subjective. 
+
+**Allowed Subjective Forms**:
+1. [Objective target description] is styled as a [role]
+2. [Objective target description] functions like a [role/common design pattern]
+3. [Objective target description] is/has/expresses [subjective attribute]
+
+The subjectivity allowed in each of these forms must be explicity included in glossary definitions to ensure common understanding of the scope of the subjectivity. For example, a rule with a subjective applicability “HTML element is styled as a heading” would require the creation of an agreed upon definition for what constitutes “styled as a heading”. 
 
 <aside class=example>
   <header>Example applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</header>
