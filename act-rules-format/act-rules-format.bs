@@ -411,7 +411,7 @@ Applicability <em class="rfc2119">must</em> either be described objectively or u
 
 Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, subjectivity <em class="rfc2119">must</em> be avoided since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. In some cases, where meeting the objectivity requirement is impossible, the use of a subjective description in the applicability is acceptable. 
 
-To deal with the inherent problems of subjectivity, any applicability including subjective descriptions must meet the following criteria: (1) use one of the allowed subjective forms, (2) place all subjectivity inside of a glossary definition, and (3) the applicability section must be clearly marked as subjective. 
+Applicability <em class="rfc2119">must</em> be written unambiguously and in plain language. Applicability <em class="rfc2119">must</em> either be described objectively or use an **allowed subjective form**. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. When possible, objective descriptions <em class="rfc2119">should</em> be used since they reduce uncertainty.
 
 **Allowed Subjective Forms**:
 1. [Objective target description] is styled as a [role]
