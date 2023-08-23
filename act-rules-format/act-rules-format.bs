@@ -411,7 +411,7 @@ Applicability <em class="rfc2119">must</em> be written unambiguously and in plai
 
 Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, subjectivity <em class="rfc2119">should</em> be avoided since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. In some cases, where meeting the objectivity requirement is impossible, the use of a subjective description in the applicability is acceptable. 
 
-Any applicability including subjective descriptions <em class="rfc2119">must</em> use one of the **Allowed Subjective Forms** shown below and place all subjectivity within a glossary definition. Glossary definitions used to identify subjective test targets <em class="rfc2119">must</em> provide list of features or characteristics that are common to the intended test targets and the logic for determining if an element is applicable.
+Any applicability including subjective descriptions <em class="rfc2119">must</em> use one of the **Allowed Subjective Forms** shown below and place all subjectivity within a glossary definition. Glossary definitions used to identify subjective test targets <em class="rfc2119">must</em> provide a list of features or characteristics that are common to the intended test targets and the logic for determining if an element is applicable.
 
 **Allowed Subjective Forms**:
 1. [Objective target description] is styled as a [role]
