@@ -611,7 +611,7 @@ For each implementation the following data can be provided. If included, consist
 
 Consistency says how well one or more [=implementation procedure=] are aligned with the intent of an ACT Rule. A **consistent** implementation of an ACT Rule is one that can be used to identify some or all non-conformance issues as described by the rule. An implementation procedure is <dfn>consistent</dfn> when all the following are true:
 
-1. <dfn>True positives<dfn>: There are no inconsistencies with the test cases, meaning:
+1. <dfn>True positives</dfn>: There are no inconsistencies with the test cases, meaning:
     1. The `passed` and `inapplicable` test cases are **not** reported as `failed`; and
     2. The `failed` test cases are **not** reported as `passed` or `inapplicable`; and
 
@@ -619,7 +619,7 @@ Consistency says how well one or more [=implementation procedure=] are aligned w
     1. None of the [=implementation procedure=] outcomes are `untested`; and
     2. At least one of the `failed` test cases is reported as `failed`; and
 
-3. <dfn>Rule Mapping<dfn>: The accessibility requirements are reported consistently, meaning:
+3. <dfn>Rule Mapping</dfn>: The accessibility requirements are reported consistently, meaning:
     1. The [=implementation procedure=] is reported as testing for all the rule's[=conformance requirements=], except requirements of a level or standard not supported by the implementation; and
     2. All accessibility requirements the rule reports to be a part of are either [=conformance requirements=] or [=secondary requirements=], except for requirements of [=accessibility requirement documents=] not mentioned in the rule.
 
