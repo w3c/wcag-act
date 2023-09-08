@@ -262,7 +262,7 @@ If the `failed` [=outcome=] cannot be mapped to an [=accessibility requirement=]
 
 A <dfn>relevant accessibility requirement</dfn> is an accessibility requirement in the [accessibility requirements mapping](#accessibility-requirements-mapping) of an ACT Rule that is part of an [=accessibility requirements document=] and conformance level that an implementation was designed to test for.
 
-<aside class=example>
+<aside class="example"> 
   <header>Example of relevant accessibility requirements:</header>
   <blockquote>
     <p>Example of relevant accessibility requirements: An ACT Rule includes the following **fictional** WCAG 2 success criteria:</p>
@@ -545,7 +545,7 @@ Consistency says how well a set of [=implementation procedures=] are aligned wit
 
 In addition to `passed`, `failed`, and `inapplicable`, implementations can report `cantTell` and `untested` as an [=outcome=]. If no outcome is given for a test case, it is considered `untested`.
 
-There are three levels of consistency; complete, partial, and minimal. Consistency levels are defined in the following way. The consistency of a set of implementations procedures is the first level in the following list that matches the definition.
+There are three levels of consistency; complete, partial, and minimal. Consistency levels are defined in the following way. The consistency of a set of implementation procedures is the first level in the following list that matches the definition.
 
 1. <dfn>Complete</dfn> implementations consider all aspects of a rule's applicability and expectations. For the [=outcomes=] reported for some set of [=implementation procedures=], all the following are true:
 
