@@ -266,7 +266,7 @@ A rule was designed to test an accessibility requirement and under certain condi
   <ul>
   <li>Conformance Requirement: Success Criteria 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA)</li>
   <li>Secondary Requirement: Success Criterion 1.1.1 Non-text Content</li>
-  <ul><li>Explanation: This success criterion is **related** to this rule. This is because HTML `area` elements are both links and non-text content. Most failed examples satisfy this success criterion. </li></ul>
+  <ul><li>Explanation: This success criterion is **related** to this rule. This is because HTML &lt;area&gt; elements are both links and non-text content. Most failed examples satisfy this success criterion. </li></ul>
   </ul>
   </blockquote>
 </aside>
