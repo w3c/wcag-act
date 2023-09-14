@@ -226,7 +226,7 @@ A secondary accessibility requirement is a requirement that is correlated with t
 
 When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
 
-When the rule is designed to test an accessibility requirement, limitations or differences in [accessibility support](#accessibility-support) shall not be a reason for that requirement to be a secondary accessibility requirement. 
+When the rule is designed to test an accessibility requirement, differences in [accessibility support](#accessibility-support) <em class="rfc2119">must</em> not be a reason for that requirement to be a secondary accessibility requirement. 
 
 Some scenarios when a rule will have Secondary requirements include:
 
