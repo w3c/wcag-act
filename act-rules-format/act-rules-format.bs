@@ -245,6 +245,18 @@ A rule was designed to test a minimum accessibility requirement and there exists
 
 **Scenario 2**: the rule is stricter than a requirement
 
+A rule was designed to test a specific solution for an accessibility requirement, but the requirement can be satisfied by other solutions that are not included in the rule. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a secondary requirement.
+
+  <aside class=example>
+    <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
+       <blockquote>This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for the use of other possible solutions, such as non-standard navigation, that can satisfy the success criterion. Its failed outcomes cannot determine that the accessibility requirement is [=not satisfied=]. This rule’s mapping:
+<ul>
+<li>Secondary Requirement: Success Criterion 2.1.2: No Keyboard Trap</li>
+  <ul><li>Explanation: This success criterion is **less strict** than this rule. This is because this criterion allows for the use of non-standard keyboard navigation to exit a keyboard trap. Some of the failed examples may satisfy this success criterion.</li></ul>
+</ul>
+</blockquote>
+  </aside>
+
 A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a secondary requirement.</li>
 
 <aside class=example>
