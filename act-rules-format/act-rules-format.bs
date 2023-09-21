@@ -1,16 +1,18 @@
 <pre class='metadata'>
-Title: Accessibility Conformance Testing (ACT) Rules Format
+Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
 Shortname: ACT-Rules-Format
 URL: https://w3c.github.io/wcag-act/act-rules-format.html
-Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2019-07-12.html
-Level: 1.0
+Previous Version: https://w3c.github.io/wcag-act/archive_act-format/2019-07-22.html
+Level: 1.1
 Status: w3c/ED
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems
-Editor: Maureen Kraft, IBM Corp.
-Editor: Mary Jo Mueller, IBM Corp.
-Editor: Shadi Abou-Zahra, W3C
-Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.0 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+Editor: Kathy Eng, US Access Board
+Editor: Trevor Bostic, MITRE Corp.
+Former Editor: Maureen Kraft, IBM Corp.
+Former Editor: Mary Jo Mueller, IBM Corp.
+Former Editor: Shadi Abou-Zahra, W3C
+Abstract: The Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 </pre>
 <style>
@@ -107,7 +109,7 @@ An ACT Rule MAY also contain:
 
 * [Issues List](#issues-list) (optional)
 * [Background](#background) (optional)
-* [Acknowledgments](#acknowldgements) (optional)
+* [Acknowledgments](#acknowledgments) (optional)
 
 The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.1 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG21/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
 
@@ -160,26 +162,38 @@ Refer to the [Rule Type](#rule-types) section for detailed definitions of the ru
 Accessibility Requirements Mapping {#accessibility-requirements-mapping}
 ------------------------------------------------------------------------
 
-When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. For example, when designing a rule for WCAG that tests if image buttons have alternative text, the rule maps to success criteria 1.1.1 Non-text content, and 4.1.2 Name, Role, Value. That ACT Rule will list both success criteria in its accessibility requirements mapping.
+When an ACT Rule is designed to test conformance to one or more [=Accessibility requirements documents=], the rule <em class="rfc2119">must</em> list all [=accessibility requirements=] from those documents that are not satisfied when one or more of the [=outcomes=] of the rule is `failed`. The rule <em class="rfc2119">may</em> list accessibility requirements that could be not satisfied when the rule outcome is failed. There are two types of accessibility requirements:
+- [Conformance Requirements](#conformance-requirements)
+- [Secondary Requirements](#secondary-requirements)
 
 Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> include the following:
 
 1. either the name, title, identifier or summary of the accessibility requirement, and
 2. the name of the [=accessibility requirements document=], and
 3. a link or reference to the [=accessibility requirements document=] if one exists, and
-4. the conformance level associated with the accessibility requirement, if one exists.
-
+4. the conformance level associated with the accessibility requirement, if one exists, and
+5. whether the requirement is a conformance requirement or a secondary requirement.
 
 ### Outcome Mapping ### {#outcome-mapping}
+For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
 
-For each accessibility requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying that accessibility requirement for that [=test subject=]. When one or more of the outcomes for a test target is `failed`, the accessibility requirements are <dfn>not satisfied</dfn> for the test subject. When all of the outcomes are `passed` or `inapplicable`, the accessibility requirements could be <dfn>satisfied</dfn>, or <dfn>further testing is needed</dfn>. Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+#### Conformance Requirements #### {#conformance-requirements}
+
+When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true: 
+
+- Failed Outcomes: When one or more of the outcomes for a test subject is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> for the test subject, and 
+- Passed or Inapplicable Outcomes: When all of the outcomes are `passed` or `inapplicable` for a test subject, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn> for the test subject.
+ 
+Rules that can be used to determine if an accessibility requirement is *satisfied* are called <dfn>satisfying tests</dfn>.
+
+- Passed: When all of the outcomes are `passed`, the accessibility requirement is [=satisfied=] for the test subject.
 
 <div class=note>
   <p>**Note:** In the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]], success criteria do not evaluate to `passed`, `failed` or `inapplicable`. Rather they can be *satisfied* (or not). (See the [WCAG 2.1 definition: satisfies a success criterion](https://www.w3.org/TR/WCAG21/#dfn-satisfies).) If a success criterion is *not satisfied*, a web page can only conform if there is a conforming alternative version, as described in [WCAG 2.1 Conformance Requirement 1](https://www.w3.org/TR/WCAG21/#cc1).</p>
 </div>
 
 <aside class=example>
-  <header>Example accessibility requirements mapping for a rule that tests if an image button has an accessible name:</header>
+  <header>Example accessibility requirements mapping for a rule that was designed to test if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
   <blockquote><ul>
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG21/#non-text-content)
@@ -206,6 +220,84 @@ For each accessibility requirement in the mapping, an ACT Rule <em class="rfc211
   </ul></blockquote>
 </aside>
 
+#### Secondary Requirements #### {#secondary-requirements}
+
+A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
+
+When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
+
+
+Some scenarios when a rule will have Secondary requirements include:
+
+**Scenario 1**: the rule is not as strict as a requirement
+
+A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule's outcomes are passed. The stricter requirement is a Secondary requirement.
+
+<aside class=example>
+  <header>Example: a rule that tests if text has minimum contrast</header>
+<blockquote>This rule was designed to test Success Criterion 1.4.3 Contrast Minimum (AA). A stricter requirement, Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA), will be not satisfied when the rule outcome is failed, and may be not satisfied when the rule outcomes are passed. This rule’s mapping:
+<ul>
+<li>Conformance Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
+<li>Secondary Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
+  <ul><li>Background Section: Success Criterion 1.4.6 is mapped as a Secondary requirement because the SC may be [=not satisfied=]when the rule’s outcomes are `passed`. </li></ul>
+</ul>
+</blockquote>
+</aside>
+
+**Scenario 2**: the rule's failed outcomes require further testing for the accessibility requirement
+
+A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</li>
+
+  <aside class=example>
+    <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
+    <blockquote>This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for other possible solutions, such as the use of non-standard navigation, so its failed outcomes cannot determine that the accessibility requirement is [=not satisfied=]. This rule’s mapping:
+<ul>
+<li>Secondary Requirement: Success Criterion 2.1.2: No Keyboard Trap</li>
+  <ul><li>Background Section: This rule tests for one solution that can meet Success Criterion 2.1.2. SC 2.1.2 is mapped as a Secondary requirement because other solutions (such as use of non-standard navigation to exit a keyboard trap) can be used to meet this SC that are not tested by this rule.</li></ul>
+</ul>
+</blockquote>
+  </aside>
+
+**Scenario 3**: the rule is stricter than a requirement
+
+A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a Secondary requirement.</li>
+
+<aside class=example>
+<header>Example: a rule that tests Enhanced Contrast</header>
+<blockquote>This rule was designed to test Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA). A less strict requirement, Success Criterion 1.4.3 Contrast Minimum (AA), will be satisfied when the rule outcomes are passed, and may be satisfied when the rule outcomes are failed. This rule’s mapping:
+<ul>
+<li>Conformance Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
+<li>Secondary Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
+<ul><li>Background Section: Success Criterion 1.4.3 is mapped as a Secondary requirement because the SC may be [=satisfied=]when the rule’s outcomes are `failed`.</li></ul>
+</aside>
+
+
+**Scenario 4**: the rule may impact the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement
+
+A rule was designed to test an accessibility requirement and under certain conditions, other accessibility requirements apply. In this scenario, the other accessibility requirements are sometimes, but not always, satisfied or not satisfied because they are not always applicable in the rule. These other accessibility requirements are a Secondary requirement.
+
+<aside class=example>
+  <header>Example 1: a rule that tests if a link has a non-empty accessible name</header>
+  <blockquote>This rule was designed to test links for accessibility requirements 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA). When a &lt;map&gt; element is used with <area> elements to define an image map, this is also a link area. Testing for non-empty accessible name for &lt;area&gt; elements would map to another accessibility requirement 1.1.1 Non-text Content. Because the rule tests for all links and SC 1.1.1 only applies certain links, this rule’s mapping:
+  <ul>
+  <li>Conformance Requirement: Success Criteria 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA)</li>
+  <li>Secondary Requirement: Success Criterion 1.1.1 Non-text Content</li>
+  <ul><li>Background Section: Success Criterion 1.1.1 Non-text Content is mapped as a Secondary requirement because the SC applies only to certain types of links (<area> element links), not to all links. </li></ul>
+  </ul>
+  </blockquote>
+</aside>
+
+<aside class=example>
+  <header>Example 2: A rule that tests that elements that have an explicit role also specify all required states and properties </header>
+  <blockquote>This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping:
+  <ul>
+    <li>Conformance Requirement: WAI-ARIA 1.1</li>
+    <li>Secondary Requirement: Success Criterion 4.1.2 Name, Role, Value
+      <ul><li>Background Section: Success Criterion 4.1.2 Name, Role, Value is mapped as a Secondary requirement because it only applies to user controls. </li></ul>
+    </li>
+  </ul>
+  </blockquote>
+</aside>
 
 ### Mapping Outside WCAG ### {#mapping-outside-wcag}
 
@@ -623,13 +715,13 @@ This section provides examples of expressing results from carrying out ACT Rules
 
 Examples in this section include:
 
-- Example 1: Minimal outcome from one 'Assertion'
-- Example 2: Results from more than one 'Assertion'
-- Example 3: Aggregating based on 'Requirement'
+- Example 1: Minimal outcome from one assertion
+- Example 2: Results from more than one assertion
+- Example 3: Aggregating based on requirement
 - Example 4: Aggregating based on 'Test Subject'
-- Example 5: Assumed 'Context' for this section
+- Example 5: Assumed context for this section
 
-**Example 1:** Minimal outcome for one 'Assertion'
+**Example 1:** Minimal outcome for one assertion
 
 ```javascript
 {
@@ -645,7 +737,7 @@ Examples in this section include:
 }
 ```
 
-**Example 2:** Results for more than one 'Assertion'
+**Example 2:** Results for more than one assertion
 
 ```javascript
 {
@@ -672,7 +764,7 @@ Examples in this section include:
 }
 ```
 
-**Example 3:** Aggregating based on 'Requirement' (eg. WCAG Success Criteria)
+**Example 3:** Aggregating based on requirement (eg. WCAG Success Criteria)
 
 ```javascript
 {
@@ -758,7 +850,7 @@ Examples in this section include:
 }
 ```
 
-**Example 5:** Assumed 'Context' for this section
+**Example 5:** Assumed context for this section
 
 ```javascript
 {

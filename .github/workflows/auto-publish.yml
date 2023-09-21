@@ -1,29 +1,29 @@
-name: CI Input Aspects
+name: CI
 on:
-  pull_request:
-    paths: ["NOTE-act-rules-common-aspects.bs"]
+  pull_request: {}
   push:
     branches: [main]
-    paths: ["NOTE-act-rules-common-aspects.bs"]
-  workflow_dispatch:
 jobs:
   main:
-    name: Build, Validate and Deploy
+    name: Build gh-pages
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
     strategy:
       max-parallel: 1
       matrix:
         include:
-          - source: NOTE-act-rules-common-aspects.bs
-            destination: NOTE-act-rules-aspects.html
-#            echidna_token: ECHIDNA_TOKEN_INPUT_ASPECTS
+          - source: common-input-aspects/NOTE-act-rules-common-aspects.bs
+            destination: NOTE-common-input-aspects.html
+          - source: act-rules-format/act-rules-format.bs
+            destination: act-rules-format.html
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: w3c/spec-prod@v2
         with:
           TOOLCHAIN: bikeshed
           SOURCE: ${{ matrix.source }}
           DESTINATION: ${{ matrix.destination }}
           GH_PAGES_BRANCH: gh-pages 
-#          W3C_ECHIDNA_TOKEN: ${{ secrets[matrix.echidna_token] }}
-#          W3C_WG_DECISION_URL: "https://lists.w3.org/Archives/Public/w3c-wai-gl/2022AprJun/0223.html"
+          VALIDATE_WEBIDL: false
+          VALIDATE_MARKUP: false
