@@ -711,7 +711,7 @@ Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-ex
 
 This section is *non-normative*.
 
-This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is proivided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
 
 Examples in this section include:
 
