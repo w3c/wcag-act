@@ -545,7 +545,7 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=accessibility requirements=]. For all `failed` test cases, all accessibility requirements <em class="rfc2119">must</em> be *not satisfied*.
+All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=conformance requirements=]. For all `failed` test cases, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*.
 
 <aside class="example">
   <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
@@ -626,10 +626,10 @@ Consistency says how well a [=check=] is aligned with the intent of an ACT Rule.
 
 When a [=check=] reports more than one outcomes for a test case, the first outcome that appears on the following ordered list is considered for determining consistency:
 
-1. `untested`
-2. `failed`
+1. `failed`
+2. `untested`
 3. `passed`
-4. `incomplete`
+4. `inapplicable`
 5. `cantTell`
 
 ### Partial Consistency ### {#impl-partial-consistency}
