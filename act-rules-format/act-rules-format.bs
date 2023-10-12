@@ -725,7 +725,7 @@ Definitions {#definitions}
 
   <dt><dfn>Implementation</dfn><dt>
   <dd>
-    <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].
+    <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].</p>
   </dd>
 
   <dt><dfn>Outcome</dfn></dt>
