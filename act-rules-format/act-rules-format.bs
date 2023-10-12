@@ -545,7 +545,7 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-All `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy at least one of that rule's [=conformance requirements=]. For all `failed` test cases, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*.
+Every `passed` and `inapplicable` test cases of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For every `failed` test cases, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*.
 
 <aside class="example">
   <header>Example of HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
@@ -595,14 +595,13 @@ An ACT Rule <em class="rfc2119">may</em> contain information about the backgroun
 Implementations (optional) {#implementation}
 --------------------------------
 
-An ACT Rule <em class="rfc2119">may</em> contain a list of [=implementations=] with [=checks=] that are consistent or partially consistent with that rule. An implementation is an accessibility test methodology or test tool. An implementation includes with [=checks=]. These checks use automated and/or manual tests to come to [=outcomes=] for [=accessibility requirements=].
+An ACT Rule <em class="rfc2119">may</em> contain a list of [=implementations=] with [=checks=] that are consistent or partially consistent with that rule. An implementation is an accessibility test methodology or test tool that uses [=checks=] that give [=outcomes=] indicating whether [=accessibility requirement=] could be satisfied. These checks can be fully automated, completely manual, or some combination of the two.
 
-[=Checks=] are not required to have a one-to-one mapping to an ACT Rule. A combination of checks can together be consistent with a single ACT Rule. A single check can also be consistent with multiple ACT Rules.
+[=Checks=] are not required to have a one-to-one mapping to an ACT Rule. A single check can be consistent with multiple ACT Rules. A [combination of checks](#impl-partial-consistency) can together be consistent with a single ACT Rule.
 
-For each implementation information such as the following can be provided. If included, consistency <em class="rfc2119">must</em> be determined as defined in this section.
+If implementations are included in an ACT Rule, consistency <em class="rfc2119">must</em> be determined as defined in this section. Other information can also be included for an implementation, such as the following:
 
 - Name, title or identifier of any consistent or partially consistent checks
-- [Consistency](#impl-consistency) (Consistent or partially consistent)
 - [test modes](https://www.w3.org/TR/EARL10-Schema/#TestMode) of the checks (e.g. automatic, manual, semiAuto)
 - Name of implementation
 - Version used in testing consistency and coverage
@@ -621,7 +620,7 @@ Consistency says how well a [=check=] is aligned with the intent of an ACT Rule.
     2. At least one of the `failed` test cases is reported as `failed`; and
 
 3. <dfn>Rule Mapping</dfn>: The accessibility requirements are reported consistently, meaning:
-    1. The [=check=] is reported as testing for all the rule's[=conformance requirements=], except requirements of a level or standard not supported by the implementation; and
+    1. The [=check=] is reported as testing for all the rule's [=conformance requirements=], except requirements of a level or standard not supported by the implementation; and
     2. All accessibility requirements the rule reports to be a part of are either [=conformance requirements=] or [=secondary requirements=], except for requirements of [=accessibility requirement documents=] not mentioned in the rule.
 
 When a [=check=] reports more than one outcomes for a test case, the first outcome that appears on the following ordered list is considered for determining consistency:
@@ -643,11 +642,11 @@ A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</
 A [=set of checks=] is [=consistent=] with an ACT Rule if it meets all requirements for a [=consistent|consistent check=]. The [=outcomes=] for this set of checks is a list of all outcomes of checks that are partially consistent with the ACT Rule. The accessibility requirements of this set of checks is a list of all accessibility requirements of checks that are partially consistent with the ACT rule.
 
 <aside class=example>
-  <header>Example or a consistent set of checks:</header>
+  <header>Example of a consistent set of checks:</header>
   <blockquote>
     <p>An ACT Rule checks that all elements with a native button elements, and element with a role="button" have an accessible name. The ACT Rule has test cases including both native buttons and role="button" elements.</p>
-    <p>The ACME Conformance Tool has a check for native button elements. This check passes all native buttons with an accessible name, it fails all native buttons without an accessible name, and gives inapplicable for with only elements with role="button". Because it reports inapplicable for some of the failed test cases of the ACT Rule, this check is partially consistent.
-    <p>ACME Conformance Tool has a second check for elements with role="button". This works similarly to the previous check, except it passes and fails role="button" elements, and is inapplicable for pages with only native buttons. This check is also partially consistent. The combination of these two checks is consistent though, because all failed test cases of the ACT Rule are failed by either one or the other rule.</p>
+    <p>The ACME Conformance Tool has a check for native button elements. This check passes all native buttons with an accessible name, it fails all native buttons without an accessible name, and gives inapplicable for pages  with only elements with role="button". Because it reports inapplicable for some of the failed test cases of the ACT Rule, this check is partially consistent.
+    <p>ACME Conformance Tool has a second check for elements with role="button". This works similarly to the previous check, except it passes and fails role="button" elements, and is inapplicable for pages with only native buttons. This check is also partially consistent. The combination of these two checks is consistent though, because all failed test cases of the ACT Rule are failed by either one or the other check.</p>
   </blockquote>
 </aside>
 
@@ -721,7 +720,7 @@ Definitions {#definitions}
 
   <dt><dfn>Implementation</dfn><dt>
   <dd>
-    <p>An accessibility test methodology or test tool, containing a set of [=checks=] that describes how to get the expected [=outcomes=] of an ACT Rule.</p>
+    <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].
   </dd>
 
   <dt><dfn>Check</dfn><dt>
