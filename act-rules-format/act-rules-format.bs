@@ -718,14 +718,14 @@ Definitions {#definitions}
     <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
   </dd>
 
-  <dt><dfn>Implementation</dfn><dt>
-  <dd>
-    <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].
-  </dd>
-
   <dt><dfn>Check</dfn><dt>
   <dd>
     <p>A procedure resulting in an [=outcome=]. The procedure can be a step by step description of how to manually perform a test, a fully automated test, or some combination of manual and automated testing.</p>
+  </dd>
+
+  <dt><dfn>Implementation</dfn><dt>
+  <dd>
+    <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].
   </dd>
 
   <dt><dfn>Outcome</dfn></dt>
