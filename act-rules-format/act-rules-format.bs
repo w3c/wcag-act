@@ -720,7 +720,7 @@ Definitions {#definitions}
 
   <dt><dfn>Check</dfn><dt>
   <dd>
-    <p>A procedure resulting in an [=outcome=]. The procedure can be a step by step description of how to manually perform a test, a fully automated test, or some combination of manual and automated testing.</p>
+    <p>A procedure resulting in one or more [=outcomes=] when used to evaluate the accessibility of a web page or other test subject. The procedure can be a step by step description of how to manually perform a test, a fully automated test, or some combination of manual and automated testing.</p>
   </dd>
 
   <dt><dfn>Implementation</dfn><dt>
