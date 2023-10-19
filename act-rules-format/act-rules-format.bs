@@ -563,10 +563,10 @@ Test cases are (snippets of) content that can be used to validate the implementa
 </aside>
 
 
-Change Log {#change-log}
+Rule Versions {#rule-versions}
 ------------------------
 
-It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcomes=] of an evaluation <em class="rfc2119">must</em> be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
+It is important to keep track of changes to the ACT Rules in different versions so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All versions of an ACT Rule  <em class="rfc2119">must</em> be recorded under this section. A change log can either be part of the rule document itself or be referenced from it.
 
 
 Glossary {#glossary}
