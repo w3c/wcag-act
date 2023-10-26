@@ -511,10 +511,10 @@ All expectations of a [=composite rule=] <em class="rfc2119">must</em> describe 
 Background {#background}
 -----------------------------------
 
-An ACT Rule <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a  is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
+An ACT Rule's Background <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a  is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
-### Assumptions ### {#assumptions}
+#### Assumptions #### {#assumptions}
 
 An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
 
@@ -523,7 +523,7 @@ Sometimes there are multiple plausible ways that an accessibility requirement ca
 While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.
 
 
-### Accessibility Support ### {#accessibility-support}
+#### Accessibility Support #### {#accessibility-support}
 
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#dfn-accessibility-supported) use of a web technology.
 
@@ -543,12 +543,12 @@ While an accessibility support section <em class="rfc2119">must</em> be included
 </div>
 
 
-### Related Rules (optional) ### {#related-rules}
+#### Related Rules (optional) #### {#related-rules}
 
 Related rules are other rules that test the same accessibility requirement. For example, two related rules of a composite rule can be the two atomic rules that contribute to its outcome. Similarly, each atomic rule in this example can list the other atomic rule and the composite rule as its related rules.
 
 
-### Other Resources (optional) ### {#other-resources}
+#### Other Resources (optional) #### {#other-resources}
 
 Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
