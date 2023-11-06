@@ -587,7 +587,7 @@ It is important to keep track of versions of ACT Rules so that users of the rule
 Glossary {#glossary}
 --------------------
 
-ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> be included in the [change log](#change-log) of all rules that use that definition.
+ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> result in a new [rule version](#rule-versions) of all rules that use that definition.
 
 
 Issues List (optional) {#issues-list}
