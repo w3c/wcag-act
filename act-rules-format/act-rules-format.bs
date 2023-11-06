@@ -515,7 +515,7 @@ Background {#background}
 An ACT Rule's Background <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a  is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
-#### Assumptions #### {#assumptions}
+### Assumptions ### {#assumptions}
 
 An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
 
