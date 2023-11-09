@@ -599,9 +599,10 @@ An ACT Rule <em class="rfc2119">may</em> contain a list of [=implementations=], 
 
 [=Checks=] are not required to have a one-to-one mapping to an ACT Rule. A single check can be consistent with multiple ACT Rules or a [set of checks](#impl-partial-consistency) can together be consistent with a single ACT Rule.
 
-If implementations are included in an ACT Rule, consistency <em class="rfc2119">must</em> be determined as defined in this section. Other information can also be included for an implementation, such as the following:
+For each implementation, information such as the following could be included:
 
 - Name, title or identifier of any consistent or partially consistent checks
+- [Consistency](#impl-consistency)
 - [test modes](https://www.w3.org/TR/EARL10-Schema/#TestMode) of the checks (e.g. automatic, manual, semiAuto)
 - Name of implementation
 - Version used in testing consistency and coverage
@@ -609,7 +610,7 @@ If implementations are included in an ACT Rule, consistency <em class="rfc2119">
 
 ### Consistency ### {#impl-consistency}
 
-Consistency describes how well a [=check=] is aligned with the intent of an ACT Rule. A consistent check of an ACT Rule is one that can be used to identify some or all non-conformance issues as described by the rule. A check is <dfn>consistent</dfn> when all the following are true:
+Consistency describes how well a [=check=] is aligned with the intent of an ACT Rule. If consistency is included in an ACT Rule it <em class="rfc2119">must</em> be determined as defined in this section. A consistent check of an ACT Rule is one that can be used to identify some or all non-conformance issues as described by the rule. A check is <dfn>consistent</dfn> when all the following are true:
 
 1. <dfn>True positives</dfn>: There are no inconsistencies with the test cases, meaning:
     1. The `passed` and `inapplicable` test cases are **not** reported as `failed`; and
@@ -633,7 +634,7 @@ When a [=check=] reports more than one outcomes for a test case, the first outco
 
 ### Partial Consistency ### {#impl-partial-consistency}
 
-A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's test cases are `incomplete` or `untested`.
+A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's test cases are `cantTell` or `untested`.
 
 ### Consistency with multiple checks ### {#impl-multi-check}
 
@@ -730,17 +731,18 @@ Definitions {#definitions}
 
   <dt><dfn>Outcome</dfn></dt>
   <dd>
-    <p>A conclusion that comes from evaluating an ACT Rule on a [=test subject=] or one of its constituent [=test target=]. An outcome can be one of the three following types:</p>
+    <p>A conclusion that comes from evaluating an ACT Rule on a [=test subject=] or one of its constituent [=test target=]. An outcome can be one of the five following types:</p>
     <ul>
-      <li>**Inapplicable:** No part of the test subject matches the applicability</li>
-      <li>**Passed:** A [=test target=] meets all expectations</li>
-      <li>**Failed:** A [=test target=] does not meet all expectations</li>
+      <li>**inapplicable:** No part of the test subject matches the applicability</li>
+      <li>**passed:** A [=test target=] meets all expectations</li>
+      <li>**failed:** A [=test target=] does not meet all expectations</li>
+      <li>**cantTell:** Whether the rule is applicable, or not all expectations were met could not be fully determined by the tester.</li>
+      <li>**Untested:** The tester has not attempted to evaluate the test subject.</li>
     </ul>
     <div class="note">
-      <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When there are no test targets the rule has one `inapplicable` outcome. This means that each [=test subject=] will have one or more outcomes.</p>
-    </div>
-    <div class="note">
-      <p>**Note:** Implementers using the [[EARL10-Schema]] can express the outcome with the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome). In addition to `passed`, `failed` and `inapplicable`, EARL 1.0 also defined an `incomplete` outcome. While this cannot be the outcome of an ACT Rule when applied in its entirety, it often happens that rules are only partially evaluated. For example, when applicability was automated, but the expectations have to be evaluated manually. Such "interim" results can be expressed with the `incomplete` outcome.
+      <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When a tester evaluates a test target it can also be reported as `cantTell` if the rule cannot be tested in its entirety. For example, when applicability was automated, but the expectations have to be evaluated manually.</p>
+      <p>When there are no test targets the rule has one `inapplicable` outcome. If the tester is unable to determine whether there are test targets there will be one `cantTell` outcome. And when no evaluation has occurred the test target has one `untested` outcome. This means that each [=test subject=] always has one or more outcomes.</p>
+      <p>Outcomes used in ACT Rules can be expressed using the [outcome property](https://www.w3.org/TR/EARL10-Schema/#outcome) of the [[EARL10-Schema]].</p>
     </div>
   </dd>
 
