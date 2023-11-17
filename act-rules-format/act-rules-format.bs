@@ -708,23 +708,23 @@ Definitions {#definitions}
 ==========================
 
 <dl>
-  <dt><dfn>Accessibility requirement</dfn><dt>
+  <dt><dfn>Accessibility requirement</dfn></dt>
   <dd>
     <p>An accessibility requirement is a requirement aimed at improving access for people with disabilities to an ICT product. In the context of ACT rules mapping, a requirement can be compulsory or advisory. When compulsory, it has to be satisfied in order to conform to a standard, or to comply with a contract, policy or regulation. When advisory, it is recommended, but not satisfying it does not lead to non-conformance or non-compliance.</p>
     <p>A common example of accessibility requirements are the WCAG success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
   </dd>
 
-  <dt><dfn>Accessibility requirements document</dfn><dt>
+  <dt><dfn>Accessibility requirements document</dfn></dt>
   <dd>
     <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
   </dd>
 
-  <dt><dfn>Check</dfn><dt>
+  <dt><dfn>Check</dfn></dt>
   <dd>
     <p>A procedure resulting in one or more [=outcomes=] when used to evaluate the accessibility of a web page or other test subject. The procedure can be a step by step description of how to manually perform a test, a fully automated test, or some combination of manual and automated testing.</p>
   </dd>
 
-  <dt><dfn>Implementation</dfn><dt>
+  <dt><dfn>Implementation</dfn></dt>
   <dd>
     <p>An accessibility test methodology or test tool, containing a set of [=checks=] which can be used to determine (non-)conformance of [=accessibility requirements=].</p>
   </dd>
