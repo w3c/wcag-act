@@ -233,7 +233,7 @@ Some scenarios when a rule will have Secondary requirements include:
 
 **Scenario 1**: the rule is not as strict as a requirement
 
-A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule's failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule's passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule's outcomes are passed. The stricter requirement is a Secondary requirement.
+A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule's outcomes are passed. The stricter requirement is a Secondary requirement.
 
 <aside class=example>
   <header>Example: a rule that tests if text has minimum contrast</header>
