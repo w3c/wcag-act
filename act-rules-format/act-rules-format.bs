@@ -248,7 +248,7 @@ A rule was designed to test a minimum accessibility requirement and there exists
 
 **Scenario 2**: the rule's failed outcomes require further testing for the accessibility requirement
 
-A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule's failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</li>
+A rule was designed to test a specific type of solution for an accessibility requirement, but the rule does not cover all solutions that can be used to meet the requirement. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a Secondary requirement.</li>
 
   <aside class=example>
     <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
@@ -582,6 +582,8 @@ Rule Versions {#rule-versions}
 ------------------------
 
 It is important to keep track of versions of ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All previous versions of an ACT Rule <em class="rfc2119">must</em> be recorded either in the rule document or referenced from it.
+
+This section was previously named "Change Log". Either section name is acceptable.
 
 
 Glossary {#glossary}
