@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="27f92b50ffca3e3000599c4f414989296523bf7f" name="document-revision">
+  <meta content="8ea041a8a6460a928d56f848f32ffb2a74b9c5de" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -609,7 +609,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-11-21">21 November 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-11-30">30 November 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -930,7 +930,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content">Secondary Requirements</span><a class="self-link" href="#secondary-requirements"></a></h5>
    <p>A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
-   <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as secondary. When an ACT rule maps to a secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is secondary.</p>
+   <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.</p>
+   <p>When the rule is designed to test an accessibility requirement, differences in <a href="#accessibility-support">accessibility support</a> <em class="rfc2119">must not</em> be a reason for that requirement to be a secondary accessibility requirement.</p>
    <p>Some scenarios when a rule will have Secondary requirements include:</p>
    <p><strong>Scenario 1</strong>: the rule is not as strict as a requirement</p>
    <p>A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule’s outcomes are passed. The stricter requirement is a Secondary requirement.</p>
@@ -1717,7 +1718,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-http11">[HTTP11]
-   <dd>R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed.. <a href="https://www.rfc-editor.org/rfc/rfc9112"><cite>HTTP/1.1</cite></a>. June 2022. Internet Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9112">https://www.rfc-editor.org/rfc/rfc9112</a>
+   <dd>R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed.. <a href="https://httpwg.org/specs/rfc9112.html"><cite>HTTP/1.1</cite></a>. June 2022. Internet Standard. URL: <a href="https://httpwg.org/specs/rfc9112.html">https://httpwg.org/specs/rfc9112.html</a>
    <dt id="biblio-svg2">[SVG2]
    <dd>Amelia Bellamy-Royds; et al. <a href="https://svgwg.org/svg2-draft/"><cite>Scalable Vector Graphics (SVG) 2</cite></a>. URL: <a href="https://svgwg.org/svg2-draft/">https://svgwg.org/svg2-draft/</a>
    <dt id="biblio-uaag20">[UAAG20]
