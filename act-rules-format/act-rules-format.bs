@@ -99,16 +99,20 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
     * [Input Rules](#input-rules) (for composite rules)
 * [Applicability](#applicability)
 * [Expectations](#expectations)
-* [Assumptions](#assumptions)
-* [Accessibility Support](#accessibility-support)
+* [Background] (#background)
+    * [Assumptions](#assumptions)
+    * [Accessibility Support](#accessibility-support)
+    * [Related Rules (optional)](#related-rules)
+    * [Other Resources (optional)](#other-resources)
 * [Test Cases](#test-cases)
-* [Change Log](#change-log)
+* [Rule Versions](#rule-versions)
 * [Glossary](#glossary)
 
 An ACT Rule MAY also contain:
 
+* [Related Rules](related-rules) (optional) under Background
+* [Other Resources](other-resources) (optional) under Background
 * [Issues List](#issues-list) (optional)
-* [Background](#background) (optional)
 * [Implementations](#implementations) (optional)
 * [Acknowledgments](#acknowledgments) (optional)
 
@@ -506,9 +510,13 @@ All expectations of a [=composite rule=] <em class="rfc2119">must</em> describe 
   </ul></blockquote>
 </aside>
 
+Background {#background}
+-----------------------------------
 
-Assumptions {#assumptions}
---------------------------
+An ACT Rule's Background <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a reference is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
+
+
+### Assumptions ### {#assumptions}
 
 An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test [WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)](https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum) based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.
 
@@ -517,8 +525,7 @@ Sometimes there are multiple plausible ways that an accessibility requirement ca
 While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.
 
 
-Accessibility Support {#accessibility-support}
-----------------------------------------------
+#### Accessibility Support #### {#accessibility-support}
 
 Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/) feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for [accessibility supported](https://www.w3.org/TR/WCAG21/#dfn-accessibility-supported) use of a web technology.
 
@@ -536,6 +543,16 @@ While an accessibility support section <em class="rfc2119">must</em> be included
 <div class=note>
   <p>**Note:** The Website Accessibility Conformance Evaluation Methodology (WCAG-EM) provides guidance on defining an [accessibility support baseline](https://www.w3.org/TR/WCAG-EM/#step1c) for test scenarios, which can help users of ACT Rules to select the appropriate rules for their own circumstance.</p>
 </div>
+
+
+#### Related Rules (optional) #### {#related-rules}
+
+Related rules are other rules that test the same accessibility requirement. For example, two related rules of a composite rule can be the two atomic rules that contribute to its outcome. Similarly, each atomic rule in this example can list the other atomic rule and the composite rule as its related rules.
+
+
+#### Other Resources (optional) #### {#other-resources}
+
+Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
 Test Cases {#test-cases}
@@ -564,16 +581,18 @@ Each`passed` and `inapplicable` test case of an ACT Rule <em class="rfc2119">mus
 </aside>
 
 
-Change Log {#change-log}
+Rule Versions {#rule-versions}
 ------------------------
 
-It is important to keep track of changes to the ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All changes to an ACT Rule that can change the [=outcomes=] of an evaluation <em class="rfc2119">must</em> be recorded in a change log. The change log can either be part of the rule document itself or be referenced from it.
+It is important to keep track of versions of ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All previous versions of an ACT Rule <em class="rfc2119">must</em> be recorded either in the rule document or referenced from it.
+
+This section was previously named "Change Log". Either section name is acceptable.
 
 
 Glossary {#glossary}
 --------------------
 
-ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> be included in the [change log](#change-log) of all rules that use that definition.
+ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> result in a new [rule version](#rule-versions) of all rules that use that definition.
 
 
 Issues List (optional) {#issues-list}
@@ -583,13 +602,7 @@ An ACT Rule <em class="rfc2119">may</em> include a list or a reference to a list
 
 The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.
 
-
-Background (optional) {#background}
------------------------------------
-
-An ACT Rule <em class="rfc2119">may</em> contain information about the background for the development of the rule, or references to relevant reading. The background information is optional, but whenever it is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG]] success criterion could be [WCAG 2.1 Understanding documents](https://www.w3.org/WAI/WCAG21/Understanding/), [WCAG 2.1 Techniques](https://www.w3.org/WAI/WCAG21/Techniques/), or [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
-
-
+  
 Implementations (optional) {#implementations}
 --------------------------------
 
