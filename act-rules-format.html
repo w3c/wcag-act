@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="2efda4c0ce9c1f5532774d7f8b6cd7dc91c9c55c" name="document-revision">
+  <meta content="f78d8a3f6cdb7fcc2bec173151b2275c30398d89" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -1637,67 +1637,43 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>This publication has been developed with support from the <a href="https://www.w3.org/WAI/about/projects/wai-tools/">WAI-Tools Project</a>, co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.</p>
    <h2 class="heading settled" id="Change_History"><span class="content">Appendix 3: Change History</span><a class="self-link" href="#Change_History"></a></h2>
    <p>This section is <em>non-normative</em>.</p>
-   <p>No substantial changes have been made since the previous <a href="https://www.w3.org/TR/2019/CR-act-rules-format-1.0-20190416/">Candidate Recommendation draft of 16 April 2019</a>. The following editorial changes have been made since the previous draft:</p>
    <ul>
-    <li><strong>1. Introduction:</strong> Added relationship of ACT Rules to WCAG 2 Techniques
-    <li><strong>1. Introduction:</strong> Removed unintended word "must" (was never a requirement)
-    <li><strong>4. Rule Structure:</strong> Clarified that optional parts are a MAY requirement
-    <li><strong>4.1. Rule Identifier:</strong> Moved requirements on versioning here from 4.11. Changelog
-    <li><strong>4.1. Rule Identifier:</strong> Clarified scope of uniqueness of an identifier
-    <li><strong>4.5.1. Input Aspects:</strong> Moved description of serving methods further down
-    <li><strong>4.7.1. Expectations for Atomic Rules:</strong> Expanded note on complex aggregation
-    <li><strong>4.14. Background:</strong> Removed unintended word "should" (was never a requirement)
-    <li><strong>Appendix 1. Expressing ACT Results:</strong> Major revision (non-normative examples)
-    <li><strong>Overall:</strong> Edits to align and clarify examples throughout the document
-    <li><strong>Overall:</strong> Fixing typographical, grammatical, and spelling mistakes throughout
-    <li><strong>Overall:</strong> Changed coding of RFC 2119 terms to improve accessibility/semantic
+    <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.
+    <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.
+    <li>
+    <li><strong>4.8. Background</strong> New optional Related Rules and Other Resources subsections have been added
+    <li><strong>4.11. Change Log</strong> The Change Log has been renamed to Rule Versions
+    <li><strong>4.14. Implementations<strong> New section has been added, including a method for determining consistency with ACT Rules</strong></strong>
+    <strong><strong> <li><strong>7. Definitions</strong> The Outcome definition is updated to include cantTell and untested</li> <li><strong>Overall</strong> Links to W3C specifications are updated to their latest recommendation</li> </strong></strong>
    </ul>
-   <p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2019%2FCR-act-rules-format-1.0-20190416%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html">April 2019 to July 2019 diff link</a></p>
+   <strong><strong> <p>All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https://www.w3.org/TR/act-rules-format/&amp;doc2=https://w3c.github.io/wcag-act/act-rules-format.html">Editor’s draft to Rules Format 1.0 Recommendation diff link</a></p> </strong></strong>
   </main>
-  <div data-fill-with="conformance">
-   <h2 class="no-ref no-num heading settled" id="w3c-conformance"><span class="content">Conformance</span><a class="self-link" href="#w3c-conformance"></a></h2>
-   <h3 class="no-ref no-num heading settled" id="w3c-conventions"><span class="content">Document conventions</span><a class="self-link" href="#w3c-conventions"></a></h3>
-   <p>Conformance requirements are expressed
+  <strong><strong> <div data-fill-with="conformance"> <h2 class="no-ref no-num heading settled" id="w3c-conformance"><span class="content">Conformance</span><a class="self-link" href="#w3c-conformance"></a></h2> <h3 class="no-ref no-num heading settled" id="w3c-conventions"><span class="content">Document conventions</span><a class="self-link" href="#w3c-conventions"></a></h3> <p>Conformance requirements are expressed
     with a combination of descriptive assertions
     and RFC 2119 terminology.
     The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
     in the normative parts of this document
     are to be interpreted as described in RFC 2119.
     However, for readability,
-    these words do not appear in all uppercase letters in this specification. </p>
-   <p>All of the text of this specification is normative
-    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a> </p>
-   <p>Examples in this specification are introduced with the words “for example”
+    these words do not appear in all uppercase letters in this specification. </p><p>All of the text of this specification is normative
+    except sections explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a> </p><p>Examples in this specification are introduced with the words “for example”
     or are set apart from the normative text
     with <code>class="example"</code>,
-    like this: </p>
-   <div class="example" id="w3c-example">
-    <a class="self-link" href="#w3c-example"></a> 
-    <p>This is an example of an informative example. </p>
-   </div>
-   <p>Informative notes begin with the word “Note”
+    like this: </p><div class="example" id="w3c-example"><a class="self-link" href="#w3c-example"></a> <p>This is an example of an informative example. </p></div> <p>Informative notes begin with the word “Note”
     and are set apart from the normative text
     with <code>class="note"</code>,
-    like this: </p>
-   <p class="note" role="note">Note, this is an informative note.</p>
-   <section>
-    <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3>
-    <p>Requirements phrased in the imperative as part of algorithms
+    like this: </p><p class="note" role="note">Note, this is an informative note.</p> <section> <h3 class="no-ref no-num heading settled" id="w3c-conformant-algorithms"><span class="content">Conformant Algorithms</span><a class="self-link" href="#w3c-conformant-algorithms"></a></h3> <p>Requirements phrased in the imperative as part of algorithms
     (such as "strip any leading space characters"
     or "return false and abort these steps")
     are to be interpreted with the meaning of the key word
     ("must", "should", "may", etc)
-    used in introducing the algorithm. </p>
-    <p>Conformance requirements phrased as algorithms or specific steps
+    used in introducing the algorithm. </p><p>Conformance requirements phrased as algorithms or specific steps
     can be implemented in any manner,
     so long as the end result is equivalent.
     In particular, the algorithms defined in this specification
     are intended to be easy to understand
     and are not intended to be performant.
-    Implementers are encouraged to optimize. </p>
-   </section>
-  </div>
-<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
+    Implementers are encouraged to optimize. </p></section> </div> <script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script> </strong></strong>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
