@@ -99,7 +99,7 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
     * [Input Rules](#input-rules) (for composite rules)
 * [Applicability](#applicability)
 * [Expectations](#expectations)
-* [Background] (#background)
+* [Background](#background)
     * [Assumptions](#assumptions)
     * [Accessibility Support](#accessibility-support)
     * [Related Rules (optional)](#related-rules)
