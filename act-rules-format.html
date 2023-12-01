@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="ad8322c23814fea56cf5a41783e3d8308a426845" name="document-revision">
+  <meta content="742f3da20a5136cd9233215f65de3836d7e9e472" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -609,7 +609,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-11-30">30 November 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-12-01">1 December 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -749,14 +749,14 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.</p>
+   <p>There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.</p>
    <p>This format is intended to enable a consistent interpretation of how to test conformance to WCAG and other <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document">accessibility requirements documents</a> and promote consistent results in accessibility testing. The rules format is designed to describe both manual accessibility tests, as well as automated tests as performed by accessibility testing tools.</p>
    <p>Documenting how to test <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement">accessibility requirements</a> will result in accessibility tests that are transparent, with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).</p>
-   <p>An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in <a href="https://www.w3.org/TR/WCAG21/#wcag-2-layers-of-guidance">common failures</a> documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.</p>
+   <p>An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in <a href="https://www.w3.org/TR/WCAG22/#wcag-2-layers-of-guidance">common failures</a> documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.</p>
    <p>The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the <a href="#act-rule-structure">ACT Rule Structure</a> section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.</p>
    <h2 class="heading settled" data-level="2" id="scope"><span class="secno">2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h2>
    <p>The ACT Rules Format defined in this specification is designed for rules that can be used in testing content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria" title="Accessible Rich Internet Applications (WAI-ARIA) 1.0">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scalable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2" title="Scalable Vector Graphics (SVG) 2">[SVG2]</a>, <a href="http://www.idpf.org/epub3/latest/">EPUB 3</a>, and more. The ACT Rules Format is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
-   <p>The ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①">accessibility requirements</a> defined in the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>, which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/standards-guidelines/uaag/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20" title="User Agent Accessibility Guidelines (UAAG) 2.0">[UAAG20]</a>. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.</p>
+   <p>The ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①">accessibility requirements</a> defined in the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/standards-guidelines/uaag/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20" title="User Agent Accessibility Guidelines (UAAG) 2.0">[UAAG20]</a>. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.</p>
    <h2 class="heading settled" data-level="3" id="rule-types"><span class="secno">3. </span><span class="content">ACT Rule Types</span><a class="self-link" href="#rule-types"></a></h2>
    <p>In accessibility, there are often different technical solutions to make the same type of content accessible. For example, there are multiple methods for giving an <code>img</code> element in HTML an accessible name. Multiple solutions could be tested in a single rule; however, such a rule tends to be quite complex, making it difficult to understand and maintain. The ACT Rules Format solves this by providing two types of rules:</p>
    <ul>
@@ -837,7 +837,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li data-md>
      <p><a href="#acknowledgments">Acknowledgments</a> (optional)</p>
    </ul>
-   <p>The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a> or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule <a href="#test-cases">test cases</a> are allowed to contain inaccessible content. If any test case contains accessibility issues listed in <a href="https://www.w3.org/TR/WCAG21/#cc5">WCAG 2.1 Section 5.2.5 Non-Interference</a>, users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.</p>
+   <p>The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule <a href="#test-cases">test cases</a> are allowed to contain inaccessible content. If any test case contains accessibility issues listed in <a href="https://www.w3.org/TR/WCAG22/#cc5">WCAG 2.2 Section 5.2.5 Non-Interference</a>, users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.</p>
    <h3 class="heading settled" data-level="4.1" id="rule-identifier"><span class="secno">4.1. </span><span class="content">Rule Identifier</span><a class="self-link" href="#rule-identifier"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> have an identifier. This identifier <em class="rfc2119">must</em> be unique when the rule is part of a ruleset. The identifier can be any text, such as plain text, URL, or a database identifier.</p>
    <aside class="example" id="example-8adf6793">
@@ -912,17 +912,17 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>Passed: When all of the outcomes are <code>passed</code>, the accessibility requirement is <a data-link-type="dfn" href="#satisfied" id="ref-for-satisfied">satisfied</a> for the test subject.</p>
    </ul>
    <div class="note" role="note">
-    <p><strong>Note:</strong> In the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>, success criteria do not evaluate to <code>passed</code>, <code>failed</code> or <code>inapplicable</code>. Rather they can be <em>satisfied</em> (or not). (See the <a href="https://www.w3.org/TR/WCAG21/#dfn-satisfies">WCAG 2.1 definition: satisfies a success criterion</a>.) If a success criterion is <em>not satisfied</em>, a web page can only conform if there is a conforming alternative version, as described in <a href="https://www.w3.org/TR/WCAG21/#cc1">WCAG 2.1 Conformance Requirement 1</a>.</p>
+    <p><strong>Note:</strong> In the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, success criteria do not evaluate to <code>passed</code>, <code>failed</code> or <code>inapplicable</code>. Rather they can be <em>satisfied</em> (or not). (See the <a href="https://www.w3.org/TR/WCAG22/#dfn-satisfies">WCAG 2.2 definition: satisfies a success criterion</a>.) If a success criterion is <em>not satisfied</em>, a web page can only conform if there is a conforming alternative version, as described in <a href="https://www.w3.org/TR/WCAG22/#cc1">WCAG 2.2 Conformance Requirement 1</a>.</p>
    </div>
-   <aside class="example" id="example-fa1596cb">
-    <a class="self-link" href="#example-fa1596cb"></a> 
+   <aside class="example" id="example-0fd4e5d3">
+    <a class="self-link" href="#example-0fd4e5d3"></a> 
     <header>Example accessibility requirements mapping for a rule that was designed to test if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
     <blockquote>
      <ul>
       <li>
-        <a href="https://www.w3.org/TR/WCAG21/#non-text-content">Success criterion 1.1.1: Non-text content</a> 
+        <a href="https://www.w3.org/TR/WCAG22/#non-text-content">Success criterion 1.1.1: Non-text content</a> 
        <ul>
-        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.1 level A and higher
+        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.2 level A and higher
         <li>
          Outcome mapping: 
          <ul>
@@ -932,9 +932,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
          </ul>
        </ul>
       <li>
-        <a href="https://www.w3.org/TR/WCAG21/#name-role-value">Success criterion 4.1.2: Name, Role, Value</a> 
+        <a href="https://www.w3.org/TR/WCAG22/#name-role-value">Success criterion 4.1.2: Name, Role, Value</a> 
        <ul>
-        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.1 level A and higher
+        <li><strong>Required for conformance</strong> to WCAG 2.0 and WCAG 2.2 level A and higher
         <li>
          Outcome mapping:
          <ul>
@@ -1013,13 +1013,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <aside class="example" id="example-666bd3bb">
-    <a class="self-link" href="#example-666bd3bb"></a> 
+   <aside class="example" id="example-cfb70282">
+    <a class="self-link" href="#example-cfb70282"></a> 
     <header>Example 2: A rule that tests that elements that have an explicit role also specify all required states and properties </header>
     <blockquote>
      This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping: 
      <ul>
-      <li>Conformance Requirement: WAI-ARIA 1.1
+      <li>Conformance Requirement: WAI-ARIA 1.2
       <li>
        Secondary Requirement: Success Criterion 4.1.2 Name, Role, Value 
        <ul>
@@ -1030,15 +1030,15 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h4 class="heading settled" data-level="4.4.2" id="mapping-outside-wcag"><span class="secno">4.4.2. </span><span class="content">Mapping Outside WCAG</span><a class="self-link" href="#mapping-outside-wcag"></a></h4>
    <p>ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as accessibility requirements in <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, or tests in a methodology like <a href="https://disic.github.io/rgaa_referentiel_en/criteria.html">RGAA 3 2016</a>. An ACT Rule <em class="rfc2119">must</em> indicate whether or not the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑤">accessibility requirement</a> it maps to is required for conformance in its <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document④">accessibility requirements document</a>. Examples of accessibility requirements that are not required for conformance are WCAG sufficient techniques, or a company style guide that includes both requirements and optional "best practices". The distinction between what is required and what is optional has to be clear.</p>
-   <aside class="example" id="example-fd451b99">
-    <a class="self-link" href="#example-fd451b99"></a> 
+   <aside class="example" id="example-18e1d695">
+    <a class="self-link" href="#example-18e1d695"></a> 
     <header>Example accessibility requirements mapping for a rule that tests that each <code>img</code> element has an <code>alt</code> attribute:</header>
     <blockquote>
      <ul>
       <li>
         <a href="https://www.w3.org/TR/WCAG20-TECHS/H37.html">Technique H37: Using alt attributes on img elements</a> 
        <ul>
-        <li><strong>Not required</strong> for conformance to WCAG 2.0 and WCAG 2.1 at any level
+        <li><strong>Not required</strong> for conformance to WCAG 2.0 and WCAG 2.2 at any level
         <li>
          Outcome mapping: 
          <ul>
@@ -1064,17 +1064,17 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h4 class="heading settled" data-level="4.4.3" id="rules-without-accessibility-requirements"><span class="secno">4.4.3. </span><span class="content">Rules Without Accessibility Requirements</span><a class="self-link" href="#rules-without-accessibility-requirements"></a></h4>
    <p>If the rule does not map to any <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑥">accessibility requirement</a>, the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑤">accessibility requirements document</a>. This is common with atomic rules used in composite rules.</p>
-   <aside class="example" id="example-707e7231">
-    <a class="self-link" href="#example-707e7231"></a> 
-    <header>Example of a rule that tests if <code>role=alert</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 2.1 success criterion 4.1.3 Status Messages</a>:</header>
+   <aside class="example" id="example-e22fa6d9">
+    <a class="self-link" href="#example-e22fa6d9"></a> 
+    <header>Example of a rule that tests if <code>role=alert</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status Messages</a>:</header>
     <blockquote>
-     <p>This rule is <strong>not required</strong> for conformance to WCAG 2.1 at any level.</p>
+     <p>This rule is <strong>not required</strong> for conformance to WCAG 2.2 at any level.</p>
     </blockquote>
    </aside>
    <p>If the <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑥">outcome</a> cannot be mapped to an <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑦">accessibility requirement</a>, there <em class="rfc2119">must not</em> be an accessibility requirement in the accessibility requirements mapping. The optional <a href="#background">Background section</a> could be used to list <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑥">accessibility requirements documents</a> when they are thematically related, but for which the rule is not a failure test.</p>
    <h4 class="heading settled" data-level="4.4.4" id="external-accessibility-requirements-mapping"><span class="secno">4.4.4. </span><span class="content">External Accessibility Requirements Mapping</span><a class="self-link" href="#external-accessibility-requirements-mapping"></a></h4>
    <p>This section is <em>non-normative</em>.</p>
-   <p>While rules are often designed for one, or possibly a small collection of <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑦">accessibility requirements documents</a>, it is likely that other accessibility requirements documents also map to those ACT Rules. For example, rules can be written for the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>, but many of those could also map to a company’s internal accessibility policy. In such a scenario, an external accessibility requirements mapping could be created. An external accessibility requirements mapping amends the accessibility requirements mapping of an ACT rule by adding mapping to a different accessibility requirements document. An external accessibility requirements mapping avoids duplication of a rule for the sole purpose of changing the mapping.</p>
+   <p>While rules are often designed for one, or possibly a small collection of <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑦">accessibility requirements documents</a>, it is likely that other accessibility requirements documents also map to those ACT Rules. For example, rules can be written for the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, but many of those could also map to a company’s internal accessibility policy. In such a scenario, an external accessibility requirements mapping could be created. An external accessibility requirements mapping amends the accessibility requirements mapping of an ACT rule by adding mapping to a different accessibility requirements document. An external accessibility requirements mapping avoids duplication of a rule for the sole purpose of changing the mapping.</p>
    <h3 class="heading settled" data-level="4.5" id="input"><span class="secno">4.5. </span><span class="content">Rule Input</span><a class="self-link" href="#input"></a></h3>
    <p>To evaluate content using an ACT Rule, the rule requires some information from the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject③">test subject</a>. This is the input for the rule. What input is required is made explicit, to help testers understand what capabilities are required to use a rule. <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules①">Atomic rules</a> and <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules">composite rules</a> have different input.</p>
    <ul>
@@ -1119,9 +1119,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>The applicability section is a required part of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑤">atomic rule</a>. It <em class="rfc2119">must</em> contain a precise description of the parts of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑥">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> document. These are known as the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target②">test targets</a>. The applicability <em class="rfc2119">must</em> only use information made available through the listed <a href="#input-aspects">input aspects</a> in the rule. No other information can be used in the applicability. Applicability <em class="rfc2119">must</em> be described objectively, unambiguously and in plain language.</p>
    <p>An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded.</p>
    <p>Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts <em class="rfc2119">must</em> be defined objectively. Definitions can be put in the rule <a href="#glossary">glossary</a>, or they can be defined in the section where they are used.</p>
-   <aside class="example" id="example-7b01134a">
-    <a class="self-link" href="#example-7b01134a"></a> 
-    <header>Example applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-control">WCAG 2.1 success criterion 1.4.2 Audio Control</a>:</header>
+   <aside class="example" id="example-c5b8abe0">
+    <a class="self-link" href="#example-c5b8abe0"></a> 
+    <header>Example applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
     <blockquote>
      <p>Each <code>video</code> or <code>audio</code> element with the <code>autoplay</code> attribute, as well as each <code>object</code> element that is used for automatically playing video or audio when the web page loads.</p>
      <p>Note: A web page is considered "loaded" when the <code>document.readyState</code> is set to <code>complete</code>.</p>
@@ -1172,12 +1172,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ol>
     </blockquote>
    </aside>
-   <aside class="example" id="example-3722e455">
-    <a class="self-link" href="#example-3722e455"></a> 
+   <aside class="example" id="example-7aacb8b3">
+    <a class="self-link" href="#example-7aacb8b3"></a> 
     <header>Example expectation of a rule to test if a <code>role</code> attribute is valid:</header>
     <blockquote>
      <ol>
-      <li>Each <code>role</code> attribute has a value that corresponds to a non-abstract <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a> role.
+      <li>Each <code>role</code> attribute has a value that corresponds to a non-abstract <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a> role.
      </ol>
     </blockquote>
    </aside>
@@ -1186,9 +1186,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </div>
    <h4 class="heading settled" data-level="4.7.2" id="expectations-composite"><span class="secno">4.7.2. </span><span class="content">Expectations for Composite Rules</span><a class="self-link" href="#expectations-composite"></a></h4>
    <p>All expectations of a <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules②">composite rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⓪">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑥">test target</a>, based on the outcomes of rules in its <a href="#input-rules">input rules</a>. A composite rule expectation <em class="rfc2119">must not</em> use information from <a href="#input-aspects">input aspects</a>. The outcome for a composite rule is <code>inapplicable</code> when all input rules are inapplicable.</p>
-   <aside class="example" id="example-b02f1892">
-    <a class="self-link" href="#example-b02f1892"></a> 
-    <header>Example expectations for the composite rule 'video elements have an audio description or media alternative' (<a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-description-or-media-alternative-prerecorded">WCAG 2.1 success criterion 1.2.3 Audio Description or Media Alternative</a>):</header>
+   <aside class="example" id="example-a1dcfe4c">
+    <a class="self-link" href="#example-a1dcfe4c"></a> 
+    <header>Example expectations for the composite rule 'video elements have an audio description or media alternative' (<a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-description-or-media-alternative-prerecorded">WCAG 2.2 success criterion 1.2.3 Audio Description or Media Alternative</a>):</header>
     <blockquote>
      <p>Each HTML <code>video</code> element meets all expectations from at least one of the following rules:</p>
      <ul>
@@ -1210,17 +1210,17 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </blockquote>
    </aside>
    <h3 class="heading settled" data-level="4.8" id="background"><span class="secno">4.8. </span><span class="content">Background</span><a class="self-link" href="#background"></a></h3>
-   <p>An ACT Rule’s Background <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a reference is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG21/Understanding/">WCAG 2.1 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG21/Techniques/">WCAG 2.1 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
+   <p>An ACT Rule’s Background <em class="rfc2119">must</em> contain the Assumptions and Accessibility Support sections. Additional information <em class="rfc2119">may</em> be included about the development of the rule, or references to relevant reading in Other Resources, or Related Rules. Whenever a reference is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAG 2.2 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG22/Techniques/">WCAG 2.2 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
    <h4 class="heading settled" data-level="4.8.1" id="assumptions"><span class="secno">4.8.1. </span><span class="content">Assumptions</span><a class="self-link" href="#assumptions"></a></h4>
-   <p>An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG21/quickref/#contrast-minimum">WCAG 2.1 success criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.</p>
-   <p>Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a>. Whatever the interpretation is, this <em class="rfc2119">must</em> be documented in the rule.</p>
+   <p>An ACT Rule <em class="rfc2119">must</em> list any known assumptions, limitations or any exceptions for the evaluation, the test environment, technologies being used or the subject being tested. For example, a rule that would partially test <a href="https://www.w3.org/WAI/WCAG22/quickref/#contrast-minimum">WCAG 2.2 success criterion 1.4.3 Contrast (Minimum)</a> based on the inspection of CSS properties could state that it is only applicable to HTML text content styleable with CSS, and that the rule does not support images of text.</p>
+   <p>Sometimes there are multiple plausible ways that an accessibility requirement can be interpreted. For instance, it is not immediately obvious if emoji characters are "text" or "non-text content" in the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>. Whatever the interpretation is, this <em class="rfc2119">must</em> be documented in the rule.</p>
    <p>While the assumptions <em class="rfc2119">must</em> be included in the ACT Rule, it <em class="rfc2119">may</em> be empty when there are no known assumptions, limitations or exceptions.</p>
    <h5 class="heading settled" data-level="4.8.1.1" id="accessibility-support"><span class="secno">4.8.1.1. </span><span class="content">Accessibility Support</span><a class="self-link" href="#accessibility-support"></a></h5>
-   <p>Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a> feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for <a href="https://www.w3.org/TR/WCAG21/#dfn-accessibility-supported">accessibility supported</a> use of a web technology.</p>
+   <p>Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a> feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for <a href="https://www.w3.org/TR/WCAG22/#dfn-accessibility-supported">accessibility supported</a> use of a web technology.</p>
    <p>An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.</p>
-   <aside class="example" id="example-9e5ab5bd">
-    <a class="self-link" href="#example-9e5ab5bd"></a> 
-    <header>Example of a rule that checks if <code>aria-errormessage</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG21/#status-messages">WCAG 2.1 success criterion 4.1.3 Status messages</a>:</header>
+   <aside class="example" id="example-90a74aef">
+    <a class="self-link" href="#example-90a74aef"></a> 
+    <header>Example of a rule that checks if <code>aria-errormessage</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status messages</a>:</header>
     <blockquote>
      <p> The <code>aria-errormessage</code> property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019) </p>
     </blockquote>
@@ -1232,7 +1232,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h5 class="heading settled" data-level="4.8.1.2" id="related-rules"><span class="secno">4.8.1.2. </span><span class="content">Related Rules (optional)</span><a class="self-link" href="#related-rules"></a></h5>
    <p>Related rules are other rules that test the same accessibility requirement. For example, two related rules of a composite rule can be the two atomic rules that contribute to its outcome. Similarly, each atomic rule in this example can list the other atomic rule and the composite rule as its related rules.</p>
    <h5 class="heading settled" data-level="4.8.1.3" id="other-resources"><span class="secno">4.8.1.3. </span><span class="content">Other Resources (optional)</span><a class="self-link" href="#other-resources"></a></h5>
-   <p>Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag" title="Web Content Accessibility Guidelines 1.0">[WCAG]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG21/Understanding/">WCAG 2.1 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG21/Techniques/">WCAG 2.1 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.1</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
+   <p>Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAG 2.2 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG22/Techniques/">WCAG 2.2 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
    <h3 class="heading settled" data-level="4.9" id="test-cases"><span class="secno">4.9. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
    <p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
    <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
@@ -1387,7 +1387,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>A common example of accessibility requirements are the WCAG success criteria. There are other standards, including W3C standards, that have recommendations for accessibility, such as WAI-ARIA and HTML. Accessibility requirements are also often found in company policies, regional standards or in legislation.</p>
     <dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accessibility-requirements-document">Accessibility requirements document</dfn>
     <dd>
-     <p>A document, such as a standard, contract, policy or regulation, that includes <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①①">accessibility requirements</a>. For example, WCAG 2.1, WAI-ARIA 1.1, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
+     <p>A document, such as a standard, contract, policy or regulation, that includes <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①①">accessibility requirements</a>. For example, WCAG 2.2, WAI-ARIA 1.2, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
     <dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="check">Check</dfn>
     <dd>
      <p>A procedure resulting in one or more <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⑥">outcomes</a> when used to evaluate the accessibility of a web page or other test subject. The procedure can be a step by step description of how to manually perform a test, a fully automated test, or some combination of manual and automated testing.</p>
@@ -1505,7 +1505,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- u>"subject"</c-><c- o>:</c-> <c- u>"https://example.org/page1.html"</c-><c- p>,</c->
   <c- u>"test"</c-><c- o>:</c-> <c- p>{</c->
     <c- u>"@type"</c-><c- o>:</c-> <c- u>"earl:TestRequirement"</c-><c- p>,</c->
-    <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG21:non-text-content"</c->
+    <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG22:non-text-content"</c->
   <c- p>},</c->
   <c- u>"result"</c-><c- o>:</c-> <c- p>{</c->
     <c- u>"outcome"</c-><c- o>:</c-> <c- u>"earl:failed"</c-><c- p>,</c->
@@ -1549,7 +1549,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <c- u>"source"</c-><c- o>:</c-> <c- p>[{</c->
       <c- u>"test"</c-><c- o>:</c-> <c- p>{</c->
         <c- u>"@type"</c-><c- o>:</c-> <c- u>"earl:TestRequirement"</c-><c- p>,</c->
-        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG21:non-text-content"</c->
+        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG22:non-text-content"</c->
       <c- p>},</c->
       <c- u>"result"</c-><c- o>:</c-> <c- p>{</c->
         <c- u>"outcome"</c-><c- o>:</c-> <c- u>"earl:failed"</c-><c- p>,</c->
@@ -1558,7 +1558,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <c- p>},</c-> <c- p>{</c->
       <c- u>"test"</c-><c- o>:</c-> <c- p>{</c->
         <c- u>"@type"</c-><c- o>:</c-> <c- u>"earl:TestRequirement"</c-><c- p>,</c->
-        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG21:audio-only-and-video-only-prerecorded"</c->
+        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG22:audio-only-and-video-only-prerecorded"</c->
       <c- p>},</c->
       <c- u>"result"</c-><c- o>:</c-> <c- p>{</c->
         <c- u>"outcome"</c-><c- o>:</c-> <c- u>"earl:passed"</c-><c- p>,</c->
@@ -1567,7 +1567,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <c- p>},</c-> <c- p>{</c->
       <c- u>"test"</c-><c- o>:</c-> <c- p>{</c->
         <c- u>"@type"</c-><c- o>:</c-> <c- u>"earl:TestRequirement"</c-><c- p>,</c->
-        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG21:captions-prerecorded"</c->
+        <c- u>"@id"</c-><c- o>:</c-> <c- u>"WCAG22:captions-prerecorded"</c->
       <c- p>},</c->
       <c- u>"result"</c-> <c- o>:</c-> <c- p>{</c->
         <c- u>"outcome"</c-><c- o>:</c-> <c- u>"earl:passed"</c-><c- p>,</c->
@@ -1591,7 +1591,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- u>"xsd"</c-><c- o>:</c-> <c- u>"https://www.w3.org/2001/XMLSchema#"</c-><c- p>,</c->
 
   <c- u>"WCAG20"</c-><c- o>:</c-> <c- u>"https://www.w3.org/TR/WCAG20#"</c-><c- p>,</c->
-  <c- u>"WCAG21"</c-><c- o>:</c-> <c- u>"https://www.w3.org/TR/WCAG21#"</c-><c- p>,</c->
+  <c- u>"WCAG22"</c-><c- o>:</c-> <c- u>"https://www.w3.org/TR/WCAG22#"</c-><c- p>,</c->
   <c- u>"ACT-RULES-CG"</c-><c- o>:</c-> <c- u>"https://act-rules.github.io/"</c-><c- p>,</c->
 
   <c- u>"WebSite"</c-><c- o>:</c-> <c- u>"schema:WebSite"</c-><c- p>,</c->
@@ -1748,8 +1748,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <dd>James Allan; et al. <a href="https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/"><cite>User Agent Accessibility Guidelines (UAAG) 2.0</cite></a>. URL: <a href="https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/">https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/</a>
    <dt id="biblio-wai-aria">[WAI-ARIA]
    <dd>James Craig; Michael Cooper; et al. <a href="https://www.w3.org/TR/wai-aria/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.0</cite></a>. 20 March 2014. REC. URL: <a href="https://www.w3.org/TR/wai-aria/">https://www.w3.org/TR/wai-aria/</a>
-   <dt id="biblio-wcag">[WCAG]
-   <dd>Wendy Chisholm; Gregg Vanderheiden; Ian Jacobs. <a href="https://www.w3.org/TR/WAI-WEBCONTENT/"><cite>Web Content Accessibility Guidelines 1.0</cite></a>. 5 May 1999. REC. URL: <a href="https://www.w3.org/TR/WAI-WEBCONTENT/">https://www.w3.org/TR/WAI-WEBCONTENT/</a>
+   <dt id="biblio-wcag22">[WCAG22]
+   <dd>Michael Cooper; et al. <a href="https://w3c.github.io/wcag/guidelines/22/"><cite>Web Content Accessibility Guidelines (WCAG) 2.2</cite></a>. URL: <a href="https://w3c.github.io/wcag/guidelines/22/">https://w3c.github.io/wcag/guidelines/22/</a>
   </dl>
 <script>/* Boilerplate: script-dfn-panel */
 "use strict";
