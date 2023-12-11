@@ -405,11 +405,13 @@ The applicability describes what parts of the [=test subject=] are tested.
 
 ### Applicability for Atomic Rules ### {#applicability-atomic}
 
-The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. Applicability <em class="rfc2119">must</em> be described objectively, unambiguously and in plain language.
+The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. 
 
-An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded.
+Applicability <em class="rfc2119">should</em> be described objectively, unambiguously and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. When possible, objective descriptions <em class="rfc2119">should</em> be used since they reduce uncertainty. 
 
-Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element's purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts <em class="rfc2119">must</em> be defined objectively. Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
+Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, subjectivity <em class="rfc2119">should</em> be avoided since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable.
+
+Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
 <aside class=example>
   <header>Example applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</header>
@@ -433,6 +435,32 @@ Even concepts like headings and images can be misunderstood. These terms could r
   </blockquote>
 </aside>
 
+<aside class=example>
+  <header>Example subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
+  <blockquote>
+    <p>The rule applies to any HTML element that is styled as a heading.</p>
+  </blockquote>
+</aside>
+
+<aside class=example>
+  <header>Example subjective applicability for a rule testing that error messages correctly describe an invalid form field value. THis rule applicability cannot be written objectively since what constitutes a "form field error indicator" is subjective.</header>
+  <blockquote>
+    <p>This rule applies to each HTML element that has one of the following semantic roles: checkbox, combobox, listbox, etc. ..., where the element has a form field error indicator.</p>
+  </blockquote>
+</aside>
+
+<aside class=example>
+  <header>While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <b>incorrect</b> example of using an objective applicability, where the phrase ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability.</header>
+  <blockquote>
+    <p>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element </p>
+    <p>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</p>
+  </blockquote>
+</aside>
+
+#### Applicability Type Designation (optional)
+
+Rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. This identifier is intended to benefit rule readers and implementers by clearly stating the rule authors intention of the applicability and reducing confusion due to different reader and implementer interpretations.
+
 ### Applicability for Composite Rules ### {#applicability-composite}
 
 The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the [input rules](#input-rules). Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the [input rules](#input-rules).
@@ -451,6 +479,10 @@ Note that input rules in a composite rule <em class="rfc2119">may</em> have diff
     <p>All `img` elements.</p>
   </blockquote>
 </aside>
+
+#### Applicability Type Designation (optional)
+
+Composite rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. The applicability type of a composite rule is calculated as subjective if any of the input rules contain a subjective applicability or objective otherwise.
 
 
 Expectations {#expectations}
