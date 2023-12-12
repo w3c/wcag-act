@@ -106,6 +106,7 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
     * [Other Resources (optional)](#other-resources)
 * [Test Cases](#test-cases)
 * [Rule Versions](#rule-versions)
+* [Rules Format Version](#rules-format-version)
 * [Glossary](#glossary)
 
 An ACT Rule MAY also contain:
@@ -589,6 +590,11 @@ It is important to keep track of versions of ACT Rules so that users of the rule
 This section was previously named "Change Log". Either section name is acceptable.
 
 
+Rules Format Version {#rules-format-version}
+-------------------------------------------
+
+As requirements for ACT Rules are updated, the version of the ACT Rules Format (this document) will change. ACT Rules <em class="rfc2119">must</em> indicate the version of the Rules Format that the rule is compatible with.
+
 Glossary {#glossary}
 --------------------
 
@@ -1015,7 +1021,7 @@ This section is *non-normative*.
 
 <ul>
   <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.</li>
-  <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.<li>
+  <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.</li>
   <li><strong>4.8. Background</strong> New optional Related Rules and Other Resources subsections have been added</li>
   <li><strong>4.11. Change Log</strong> The Change Log has been renamed to Rule Versions</li>
   <li><strong>4.14. Implementations<strong> New section has been added, including a method for determining consistency with ACT Rules</li>
