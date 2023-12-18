@@ -407,9 +407,9 @@ The applicability describes what parts of the [=test subject=] are tested.
 
 The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. 
 
-Applicability <em class="rfc2119">should</em> be described objectively, unambiguously and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. When possible, objective descriptions <em class="rfc2119">should</em> be used since they reduce uncertainty. 
+Applicability <em class="rfc2119">must</em> be unambiguous and <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. 
 
-Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible avoid subjectivity, since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable.
+Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, avoid subjectivity since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable.
 
 Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
@@ -443,14 +443,24 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class=example>
-  <header>Example subjective applicability for a rule testing that error messages correctly describe an invalid form field value. THis rule applicability cannot be written objectively since what constitutes a "form field error indicator" is subjective.</header>
+  <header>Example subjective applicability for a rule testing that error messages correctly describe an invalid form field value. This rule applicability cannot be written objectively since what constitutes a "form field error indicator" is subjective.</header>
   <blockquote>
-    <p>This rule applies to each HTML element that has one of the following semantic roles: checkbox, combobox, listbox, etc. ..., where the element has a form field error indicator.</p>
+    <p>Applicability: This rule applies to all form field error indicators.</p>
+    <p>Expectation 1: This form field error indicator allows the identification of the related form field.</p>
+    <p>Expectation 2: The form field error indicator describes the cause of the error or how to solve it.</p>
   </blockquote>
 </aside>
 
 <aside class=example>
-  <header>While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <b>incorrect</b> example of using an objective applicability, where the phrase ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability.</header>
+  <header><strong>Incorrect Example:</strong>This example demonstrates an applicability that attempts to be subjective, but is so broad that it does not meet the "must be unambiguous" requirement. For example, would a text emoji like ":)" be considered non-text content that requires an accessible name? Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <blockquote>
+    <p>Applicability: This rule applies to any non-text content.</p>
+    <p>Expectation: Each test target has an accessible name.</p>
+  </blockquote>
+</aside>
+
+<aside class=example>
+  <header><strong>Incorrect Example:</strong> While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <strong>incorrect</strong> example of using an objective applicability, where the phrase, ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability.</header>
   <blockquote>
     <p>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element </p>
     <p>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</p>
