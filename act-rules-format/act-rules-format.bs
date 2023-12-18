@@ -409,7 +409,7 @@ The applicability section is a required part of an [=atomic rule=]. It <em class
 
 Applicability <em class="rfc2119">should</em> be described objectively, unambiguously and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. When possible, objective descriptions <em class="rfc2119">should</em> be used since they reduce uncertainty. 
 
-Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible, subjectivity <em class="rfc2119">should</em> be avoided since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable.
+Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded. When possible avoid subjectivity, since it can easily be misunderstood. For example, concepts like headings and images could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable.
 
 Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
