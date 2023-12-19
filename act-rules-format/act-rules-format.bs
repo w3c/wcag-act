@@ -590,7 +590,7 @@ It is important to keep track of versions of ACT Rules so that users of the rule
 This section was previously named "Change Log". Either section name is acceptable.
 
 
-Rules Format Version {#rules-format-version}
+ACT Rules Format Version {#act-rules-format-version}
 -------------------------------------------
 
 ACT Rules <em class="rfc2119">must</em> indicate the rule's compatibility to a version of the Rules Format as each version has different requirements. 
