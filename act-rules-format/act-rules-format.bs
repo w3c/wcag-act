@@ -593,7 +593,7 @@ This section was previously named "Change Log". Either section name is acceptabl
 ACT Rules Format Version {#act-rules-format-version}
 -------------------------------------------
 
-ACT Rules <em class="rfc2119">must</em> indicate the rule's compatibility to a version of the Rules Format as each version has different requirements. 
+ACT Rules <em class="rfc2119">must</em> indicate the rule's compatibility to a version of the ACT Rules Format as each version has different requirements. 
 
 Glossary {#glossary}
 --------------------
