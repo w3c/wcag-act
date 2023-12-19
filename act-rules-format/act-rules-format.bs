@@ -1024,7 +1024,7 @@ This section is *non-normative*.
   <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.</li>
   <li><strong>4.8. Background</strong> New optional Related Rules and Other Resources subsections have been added</li>
   <li><strong>4.11. Change Log</strong> The Change Log has been renamed to Rule Versions</li>
-  <li><strong>4.12 Rules Format Version</strong> New requirement to identify rules format version compatiblity</li>
+  <li><strong>4.12 ACT Rules Format Version</strong> New requirement to identify ACT Rules Format version compatibility</li>
   <li><strong>4.14. Implementations<strong> New section has been added, including a method for determining consistency with ACT Rules</li>
   <li><strong>7. Definitions</strong> The Outcome definition is updated to include cantTell and untested</li>
   <li><strong>Overall</strong> Links to W3C specifications are updated to their latest recommendation</li>
