@@ -411,7 +411,7 @@ Applicability <em class="rfc2119">must</em> be unambiguous so that the applicabi
 
 Additionally, the applicability <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, and the distance between two elements.
 
-Subjective properties, on the other hand, are concepts like decorative, navigation mechanism, and pre-recorded that may be defined a variety of ways, often relying on human judgement and hueristics. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicaility into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.
+Subjective properties, on the other hand, are concepts like decorative, navigation mechanism, and pre-recorded that may be defined in a variety of ways, often relying on human judgement and heuristics. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicability into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.
 
 Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
@@ -440,7 +440,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 <aside class=example>
   <header>Example subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
   <blockquote>
-    <p>The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the usage of whitespace or shapes visually distinguish the element text.</p>
+    <p>The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the use of whitespace or shapes that visually distinguish the element text.</p>
   </blockquote>
 </aside>
 
@@ -454,7 +454,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class=example>
-  <header><strong>Incorrect Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
     <p>Expectation: Each test target has an accessible name.</p>
