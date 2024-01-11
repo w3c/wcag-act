@@ -445,16 +445,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class=example>
-  <header>Example subjective applicability for a rule testing that error messages correctly describe an invalid form field value. This rule applicability cannot be written objectively since what constitutes a "form field error indicator" is subjective.</header>
-  <blockquote>
-    <p>Applicability: This rule applies to all form field error indicators.</p>
-    <p>Expectation 1: This form field error indicator allows the identification of the related form field.</p>
-    <p>Expectation 2: The form field error indicator describes the cause of the error or how to solve it.</p>
-  </blockquote>
-</aside>
-
-<aside class=example>
-  <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like <span role="figure" aria-label="Text smiley face created using a colon and parenthesis">:)</span>. Due to the ambiguity in the applicability it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
     <p>Expectation: Each test target has an accessible name.</p>
@@ -462,7 +453,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class=example>
-  <header><strong>Incorrect Example:</strong> While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <strong>incorrect</strong> example of using an objective applicability, where the phrase, ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability. When fixed, the full applicability would be, "This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element, except if the test target is part of a text node that is purely decorative or does not express anything in human language."</header>
+  <header><strong>Non-conforming Example:</strong> While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <strong>incorrect</strong> example of using an objective applicability, where the phrase, ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability. When fixed, the full applicability would be, "This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element, except if the test target is part of a text node that is purely decorative or does not express anything in human language."</header>
   <blockquote>
     <p>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element </p>
     <p>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</p>
