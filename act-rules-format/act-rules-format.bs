@@ -407,7 +407,7 @@ The applicability describes what parts of the [=test subject=] are tested.
 
 The applicability section is a required part of an [=atomic rule=]. It <em class="rfc2119">must</em> contain a precise description of the parts of the [=test subject=] to which the rule applies. For example, specific nodes in the DOM [[DOM]] tree, or tags that are incorrectly closed in an HTML [[HTML]] document. These are known as the [=test targets=]. The applicability <em class="rfc2119">must</em> only use information made available through the listed [input aspects](#input-aspects) in the rule. No other information can be used in the applicability. 
 
-Applicability <em class="rfc2119">must</em> be unambiguous so that the applicability can only be understood in one way. For example, concepts like headings and images are ambiguous since they could refer to the tag name, the semantic role, or the element’s purpose on the web page. Oppositely, a rule that specifically only applies to elements with a heading tag would satisfy the unambiguous requirement. 
+Applicability <em class="rfc2119">must</em> be unambiguous so that the applicability can only be understood in one way. For example, concepts like headings and images are ambiguous since they could refer to the tag name, the semantic role, or the element’s purpose on the web page. Conversely, a rule that specifically only applies to elements with a heading tag would satisfy the unambiguous requirement. 
 
 Additionally, the applicability <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, and the distance between two elements.
 
@@ -416,31 +416,31 @@ Subjective properties, on the other hand, are concepts like decorative, navigati
 Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
 <aside class=example>
-  <header>Example applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</header>
+  <header>Example objective applicability of an atomic rule testing [WCAG 2.1 success criterion 1.4.2 Audio Control](https://www.w3.org/WAI/WCAG21/quickref/#audio-control):</header>
   <blockquote>
-    <p>Each `video` or `audio` element with the `autoplay` attribute, as well as each `object` element that is used for automatically playing video or audio when the web page loads.</p>
+    <p>Applicability: Each `video` or `audio` element with the `autoplay` attribute, as well as each `object` element that is used for automatically playing video or audio when the web page loads.</p>
     <p>Note: A web page is considered "loaded" when the `document.readyState` is set to `complete`.</p>
   </blockquote>
 </aside>
 
 <aside class=example>
-  <header>Example applicability of a rule with the page as a test target</header>
+  <header>Example objective applicability of a rule with the page as a test target</header>
   <blockquote>
-    <p>The rule applies to any page where the document element is an `html` element, and the `html` element is rendered in a top-level context (i.e. the `html` element is not embedded in another page, such as through `iframe` or `object` elements). </p>
+    <p>Applicability: The rule applies to any page where the document element is an `html` element, and the `html` element is rendered in a top-level context (i.e. the `html` element is not embedded in another page, such as through `iframe` or `object` elements). </p>
   </blockquote>
 </aside>
 
 <aside class=example>
-  <header>Example applicability of a rule with a DOM attribute as a test target</header>
+  <header>Example objective applicability of a rule with a DOM attribute as a test target</header>
   <blockquote>
-    <p>The rule applies to any `role` attribute that is specified on an HTML or SVG element.</p>
+    <p>Applicability: The rule applies to any `role` attribute that is specified on an HTML or SVG element.</p>
   </blockquote>
 </aside>
 
 <aside class=example>
   <header>Example subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
   <blockquote>
-    <p>The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the use of whitespace or shapes that visually distinguish the element text.</p>
+    <p>Applicability: The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the use of whitespace or shapes that visually distinguish the element text.</p>
   </blockquote>
 </aside>
 
@@ -448,7 +448,6 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
   <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like <span role="figure" aria-label="Text smiley face created using a colon and parenthesis">:)</span>. Due to the ambiguity in the applicability it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
-    <p>Expectation: Each test target has an accessible name.</p>
   </blockquote>
 </aside>
 
