@@ -411,7 +411,7 @@ Applicability <em class="rfc2119">must</em> be unambiguous so that the applicabi
 
 Additionally, the applicability <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, and the distance between two elements.
 
-Subjective properties, on the other hand, are concepts like decorative, navigation mechanism, and pre-recorded that may be defined in a variety of ways, often relying on human judgement and heuristics. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicability into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.
+Subjective properties are concepts like decorative, navigation mechanism, and pre-recorded that may be defined in a variety of ways, often relying on human judgement. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicability into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.
 
 Definitions can be put in the rule [glossary](#glossary), or they can be defined in the section where they are used.
 
@@ -445,19 +445,26 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class=example>
-  <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text emoji like <span role="figure" aria-label="Text smiley face created using a colon and parenthesis">:)</span>. Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
   </blockquote>
 </aside>
 
 <aside class=example>
-  <header><strong>Non-conforming Example:</strong> While an objective applicability should be used when possible, care should be taken to ensure parts of the applicability are not included in other sections of the rules format such as the expectation. Below is an <strong>incorrect</strong> example of using an objective applicability, where the phrase, ".... except if the test target is part of a text node that is purely decorative or does not express anything in human language" in the expectation should be included in the applicability. When fixed, the full applicability would be, "This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element, except if the test target is part of a text node that is purely decorative or does not express anything in human language."</header>
+  <header>The below section contains 2 approaches for writing an ACT rule for testing text contrast. For each example, both the applicability and expectation are included for clarity. Each of these examples follows the ACT rules format, but note that in the first example, the applicability is ended with the phrase "... except if the test target is part of a text node that is purely decorative or does not express anything in human language", while in the second example this phrase is appended to the expectation. Both of these approaches follow the normative ACT rules format and lead to valid ACT rules; however, we recommend including this text in the applicability when possible. When phrases such as this are included in the applicability, some test cases become inapplicable that would otherwise be passed if the phrase was included in the expectation. For example, for a smiling face emoji would be considered inapplicable when using the approach in Example 1, while in Example 2 the smiling face emoji would pass since it is considered an exception to the expectation.</header>
   <blockquote>
-    <p>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element </p>
-    <p>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</p>
+    <p><strong>Example 1 of Text Contrast</strong></p>
+    <ul>
+      <li>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</li>
+      <li>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts.</li>
+    </ul>
+    <p><strong>Example 2 of Text Contrast</strong></p>
+    <ul>
+      <li>Applicability: This rule applies to any visible character in a text node that is a child in the flat tree of an HTML element</li>
+      <li>Expectation: For each test target, the highest possible contrast between the foreground colors and background colors is at least 3.0:1 for large scale text and 4.5:1 for other texts, except if the test target is part of a text node that is purely decorative or does not express anything in human language.</li>
+    </ul>
   </blockquote>
-</aside>
 
 #### Applicability Type Designation (optional)
 
