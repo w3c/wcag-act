@@ -8,7 +8,7 @@
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
   <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="0b752d058df6984cafbfea178e32fd33d1b19607" name="document-revision">
+  <meta content="f4e381801f18ad774d4a3dcc4eb54810ae719485" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -684,8 +684,16 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li>
        <a href="#applicability"><span class="secno">4.6</span> <span class="content">Applicability</span></a>
        <ol class="toc">
-        <li><a href="#applicability-atomic"><span class="secno">4.6.1</span> <span class="content">Applicability for Atomic Rules</span></a>
-        <li><a href="#applicability-composite"><span class="secno">4.6.2</span> <span class="content">Applicability for Composite Rules</span></a>
+        <li>
+         <a href="#applicability-atomic"><span class="secno">4.6.1</span> <span class="content">Applicability for Atomic Rules</span></a>
+         <ol class="toc">
+          <li><a href="#applicability-type-designation-optional"><span class="secno">4.6.1.1</span> <span class="content">Applicability Type Designation (optional)</span></a>
+         </ol>
+        <li>
+         <a href="#applicability-composite"><span class="secno">4.6.2</span> <span class="content">Applicability for Composite Rules</span></a>
+         <ol class="toc">
+          <li><a href="#applicability-type-designation-optional①"><span class="secno">4.6.2.1</span> <span class="content">Applicability Type Designation (optional)</span></a>
+         </ol>
        </ol>
       <li>
        <a href="#expectations"><span class="secno">4.7</span> <span class="content">Expectations</span></a>
@@ -1116,31 +1124,49 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h3 class="heading settled" data-level="4.6" id="applicability"><span class="secno">4.6. </span><span class="content">Applicability</span><a class="self-link" href="#applicability"></a></h3>
    <p>The applicability describes what parts of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑤">test subject</a> are tested.</p>
    <h4 class="heading settled" data-level="4.6.1" id="applicability-atomic"><span class="secno">4.6.1. </span><span class="content">Applicability for Atomic Rules</span><a class="self-link" href="#applicability-atomic"></a></h4>
-   <p>The applicability section is a required part of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑤">atomic rule</a>. It <em class="rfc2119">must</em> contain a precise description of the parts of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑥">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> document. These are known as the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target②">test targets</a>. The applicability <em class="rfc2119">must</em> only use information made available through the listed <a href="#input-aspects">input aspects</a> in the rule. No other information can be used in the applicability. Applicability <em class="rfc2119">must</em> be described objectively, unambiguously and in plain language.</p>
-   <p>An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, the distance between two elements, etc. Subjective properties on the other hand, are concepts like decorative, navigation mechanism and pre-recorded.</p>
-   <p>Even concepts like headings and images can be misunderstood. These terms could refer to the tag name, the semantic role, or the element’s purpose on the web page because they are ambiguous. The latter of which is almost impossible to define objectively. When used in applicability, potentially ambiguous concepts <em class="rfc2119">must</em> be defined objectively. Definitions can be put in the rule <a href="#glossary">glossary</a>, or they can be defined in the section where they are used.</p>
-   <aside class="example" id="example-c5b8abe0">
-    <a class="self-link" href="#example-c5b8abe0"></a> 
-    <header>Example applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
+   <p>The applicability section is a required part of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑤">atomic rule</a>. It <em class="rfc2119">must</em> contain a precise description of the parts of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑥">test subject</a> to which the rule applies. For example, specific nodes in the DOM <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree, or tags that are incorrectly closed in an HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> document. These are known as the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target②">test targets</a>. The applicability <em class="rfc2119">must</em> only use information made available through the listed <a href="#input-aspects">input aspects</a> in the rule. No other information can be used in the applicability.</p>
+   <p>Applicability <em class="rfc2119">must</em> be unambiguous so that the applicability can only be understood in one way. For example, concepts like headings and images are ambiguous since they could refer to the tag name, the semantic role, or the element’s purpose on the web page. Conversely, a rule that specifically only applies to elements with a heading tag would satisfy the unambiguous requirement.</p>
+   <p>Additionally, the applicability <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, and the distance between two elements.</p>
+   <p>Subjective properties are concepts like decorative, navigation mechanism, and pre-recorded that may be defined in a variety of ways, often relying on human judgement. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicability into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.</p>
+   <p>Definitions can be put in the rule <a href="#glossary">glossary</a>, or they can be defined in the section where they are used.</p>
+   <aside class="example" id="example-81a2db62">
+    <a class="self-link" href="#example-81a2db62"></a> 
+    <header>Example objective applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
     <blockquote>
-     <p>Each <code>video</code> or <code>audio</code> element with the <code>autoplay</code> attribute, as well as each <code>object</code> element that is used for automatically playing video or audio when the web page loads.</p>
+     <p>Applicability: Each <code>video</code> or <code>audio</code> element with the <code>autoplay</code> attribute, as well as each <code>object</code> element that is used for automatically playing video or audio when the web page loads.</p>
      <p>Note: A web page is considered "loaded" when the <code>document.readyState</code> is set to <code>complete</code>.</p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-5412edb8">
-    <a class="self-link" href="#example-5412edb8"></a> 
-    <header>Example applicability of a rule with the page as a test target</header>
+   <aside class="example" id="example-f00856a4">
+    <a class="self-link" href="#example-f00856a4"></a> 
+    <header>Example objective applicability of a rule with the page as a test target</header>
     <blockquote>
-     <p>The rule applies to any page where the document element is an <code>html</code> element, and the <code>html</code> element is rendered in a top-level context (i.e. the <code>html</code> element is not embedded in another page, such as through <code>iframe</code> or <code>object</code> elements). </p>
+     <p>Applicability: The rule applies to any page where the document element is an <code>html</code> element, and the <code>html</code> element is rendered in a top-level context (i.e. the <code>html</code> element is not embedded in another page, such as through <code>iframe</code> or <code>object</code> elements). </p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-2aec263c">
-    <a class="self-link" href="#example-2aec263c"></a> 
-    <header>Example applicability of a rule with a DOM attribute as a test target</header>
+   <aside class="example" id="example-6e6164c4">
+    <a class="self-link" href="#example-6e6164c4"></a> 
+    <header>Example objective applicability of a rule with a DOM attribute as a test target</header>
     <blockquote>
-     <p>The rule applies to any <code>role</code> attribute that is specified on an HTML or SVG element.</p>
+     <p>Applicability: The rule applies to any <code>role</code> attribute that is specified on an HTML or SVG element.</p>
     </blockquote>
    </aside>
+   <aside class="example" id="example-5213d696">
+    <a class="self-link" href="#example-5213d696"></a> 
+    <header>Example subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
+    <blockquote>
+     <p>Applicability: The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the use of whitespace or shapes that visually distinguish the element text.</p>
+    </blockquote>
+   </aside>
+   <aside class="example" id="example-8bd9cea1">
+    <a class="self-link" href="#example-8bd9cea1"></a> 
+    <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+    <blockquote>
+     <p>Applicability: This rule applies to any non-text content.</p>
+    </blockquote>
+   </aside>
+   <h5 class="heading settled" data-level="4.6.1.1" id="applicability-type-designation-optional"><span class="secno">4.6.1.1. </span><span class="content">Applicability Type Designation (optional)</span><a class="self-link" href="#applicability-type-designation-optional"></a></h5>
+   <p>Rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. This identifier is intended to benefit rule readers and implementers by clearly stating the rule author’s intention of the applicability and reducing confusion due to different reader and implementer interpretations.</p>
    <h4 class="heading settled" data-level="4.6.2" id="applicability-composite"><span class="secno">4.6.2. </span><span class="content">Applicability for Composite Rules</span><a class="self-link" href="#applicability-composite"></a></h4>
    <p>The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the <a href="#input-rules">input rules</a>. Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the <a href="#input-rules">input rules</a>.</p>
    <p>Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.</p>
@@ -1157,6 +1183,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>All <code>img</code> elements.</p>
     </blockquote>
    </aside>
+   <h5 class="heading settled" data-level="4.6.2.1" id="applicability-type-designation-optional①"><span class="secno">4.6.2.1. </span><span class="content">Applicability Type Designation (optional)</span><a class="self-link" href="#applicability-type-designation-optional①"></a></h5>
+   <p>Composite rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. The applicability type of a composite rule is calculated as subjective if any of the input rules contain a subjective applicability or objective otherwise.</p>
    <h3 class="heading settled" data-level="4.7" id="expectations"><span class="secno">4.7. </span><span class="content">Expectations</span><a class="self-link" href="#expectations"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> contain one or more expectations. The expectations describe what the requirements are for the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target③">test targets</a> derived from the <a href="#applicability">applicability</a>. An expectation is an assertion about a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target④">test target</a>. When a test target meets all expectations, the test target <code>passed</code> the rule. If the test target does not meet all expectations, the test target <code>failed</code> the rule. If there are no test targets, the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑧">outcome</a> for the rule is <code>inapplicable</code>.</p>
    <p>Each expectation <em class="rfc2119">must</em> be distinct, unambiguous, and be written in plain language.</p>
