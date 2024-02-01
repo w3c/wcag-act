@@ -645,9 +645,9 @@ When a [=check=] reports more than one outcomes for a test case, the first outco
 
 1. `failed`
 2. `untested`
-3. `passed`
-4. `inapplicable`
-5. `cantTell`
+3. `cantTell`
+4. `passed`
+5. `inapplicable`
 
 ### Partial Consistency ### {#impl-partial-consistency}
 
