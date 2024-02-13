@@ -1048,6 +1048,7 @@ This section is *non-normative*.
 <ul>
   <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.</li>
   <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.</li>
+  <li><strong>4.6 Applicability</strong> Subjective applicability statements are now allowed. Objective and plain language requirements have been reduced to <em class="rfc2119">should</em> instead of <em class="rfc2119">must</em>.</li>
   <li><strong>4.8. Background</strong> New optional Related Rules and Other Resources subsections have been added</li>
   <li><strong>4.10. Change Log</strong> The Change Log has been renamed to Rule Versions</li>
   <li><strong>4.11 ACT Rules Format Version</strong> New requirement to identify ACT Rules Format version compatibility</li>
