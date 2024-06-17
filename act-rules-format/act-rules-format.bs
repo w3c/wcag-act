@@ -6,11 +6,10 @@ TR: https://www.w3.org/TR/act-rules-format/
 Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
 Level: 1.1
 Prepare For TR: yes
-Status: FPWD
+Status: ED
 Status Text:
-  For this publication, the Accessibility Conformance Testing Task Force particularly seeks feedback on the items detailed in the [Change log](#Change_History).
-Date: 2024-06-18
-Deadline: 2024-08-18
+# Date: 2024-06-18
+# Deadline: 2024-08-18
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
