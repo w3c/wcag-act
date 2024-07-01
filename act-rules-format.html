@@ -3,12 +3,10 @@
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Accessibility Conformance Testing (ACT) Rules Format 1.1</title>
-  <meta content="w3c/ED" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
+  <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
-  <link href="https://w3c.github.io/wcag-act/act-rules-format.html" rel="canonical">
-  <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
-  <meta content="fb3de5e6b39065f027349b3b52f7c711d15bfcb8" name="document-revision">
+  <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
+  <meta content="6760691a53c91da3312b357c75bbbc3033653ae9" name="document-revision">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -605,25 +603,29 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     c-[il] { color: #657b83 } /* Literal.Number.Integer.Long */
 }
 </style>
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-02-13">13 February 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-07-01">1 July 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
      <dl>
       <dt>This version:
       <dd><a class="u-url" href="https://w3c.github.io/wcag-act/act-rules-format.html">https://w3c.github.io/wcag-act/act-rules-format.html</a>
+      <dt>Latest published version:
+      <dd><a href="https://www.w3.org/TR/act-rules-format/">https://www.w3.org/TR/act-rules-format/</a>
       <dt>Previous Versions:
-      <dd><a href="https://w3c.github.io/wcag-act/archive_act-format/2019-07-22.html" rel="prev">https://w3c.github.io/wcag-act/archive_act-format/2019-07-22.html</a>
-      <dt>Issue Tracking:
+      <dd><a href="https://www.w3.org/TR/act-rules-format-1.0/" rel="prev">https://www.w3.org/TR/act-rules-format-1.0/</a>
+      <dt>Feedback:
       <dd><a href="https://github.com/w3c/wcag-act/issues/">GitHub</a>
       <dt class="editor">Editors:
-      <dd class="editor p-author h-card vcard"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
-      <dd class="editor p-author h-card vcard"><span class="p-name fn">Kathy Eng</span> (<span class="p-org org">US Access Board</span>)
-      <dd class="editor p-author h-card vcard"><span class="p-name fn">Trevor Bostic</span> (<span class="p-org org">MITRE Corp.</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="43334"><span class="p-name fn">Wilco Fiers</span> (<span class="p-org org">Deque Systems</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="107871"><span class="p-name fn">Kathy Eng</span> (<span class="p-org org">US Access Board</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="105887"><span class="p-name fn">Trevor Bostic</span> (<span class="p-org org">MITRE Corp.</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="114058"><span class="p-name fn">Daniel Montalvo</span> (<span class="p-org org">W3C</span>)
       <dt class="editor">Former Editors:
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Maureen Kraft</span> (<span class="p-org org">IBM Corp.</span>)
       <dd class="editor p-author h-card vcard"><span class="p-name fn">Mary Jo Mueller</span> (<span class="p-org org">IBM Corp.</span>)
@@ -632,7 +634,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </div>
    </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/policies/#copyright">Copyright</a> © 2024 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/copyright/software-license/" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/policies/#copyright">Copyright</a> © 2024 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/copyright/document-license/">document use</a> rules apply.</p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -642,12 +644,13 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <h2 class="no-num no-toc no-ref heading settled" id="sotd"><span class="content">Status of this document</span></h2>
   <div data-fill-with="status">
    <p><em>This section describes the status of this document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em></p>
-   <p>This is an Editor Draft of Accessibility Conformance Testing (ACT) Rules Format 1.0, prepared by the <a href="http://www.w3.org/wai/gl/task-forces/conformance-testing/">Accessibility Conformance Testing (ACT) Task Force</a> of the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group (AGWG)</a>. This document is an Editor Draft and does not represent consensus of the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation after further review and refinement.</p>
-   <p>This is an Editor Draft for review and refinement within ACT TF and AGWG. It is not ready for public comments. Before commenting, please first review the <a href="https://github.com/w3c/wcag-act/"><abbr title="World Wide Web Consortium">W3C</abbr> ACT TF GitHub repository</a> for related comments. New comments can be submitted as <a href="https://github.com/w3c/wcag-act/issues/new">new GitHub issues</a> or by email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Framework%201.0%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">pulic list archive</a>).</p>
+   <p>This is an Editor Draft of Accessibility Conformance Testing (ACT) Rules Format 1.1, prepared by the <a href="https://www.w3.org/wai/gl/task-forces/conformance-testing/">Accessibility Conformance Testing (ACT) Task Force</a> of the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group (AGWG)</a>. This document is an Editor Draft and does not represent consensus of the <a href="https://www.w3.org/WAI/GL/">Accessibility Guidelines Working Group</a>. This document is intended to become a <abbr title="World Wide Web Consortium">W3C</abbr> Recommendation after further review and refinement.</p>
+   <p>This is an Editor Draft for review and refinement within ACT TF and AGWG. It is not ready for public comments. Before commenting, please first review the <a href="https://github.com/w3c/wcag-act/"><abbr title="World Wide Web Consortium">W3C</abbr> ACT TF GitHub repository</a> for related comments. New comments can be submitted as <a href="https://github.com/w3c/wcag-act/issues/new">new GitHub issues</a> or by email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Fomrmat%201.1%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">public list archive</a>).</p>
    <p>Publication as an Editor Draft does not imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. This is a draft document and may be updated, replaced or obsoleted by other documents at any time. It is inappropriate to cite this document as other than work in progress.</p>
-   <p>This document was produced by a group operating under the <a class="css" data-link-type="property" href="https://www.w3.org/Consortium/Patent-Policy-20170801/" id="sotd_patent"><abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>. <abbr title="World Wide Web Consortium">W3C</abbr> maintains a <a href="https://www.w3.org/2004/01/pp-impl/35422/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.</p>
-   <p>This document is governed by the <a href="https://www.w3.org/2023/Process-20231103/" id="w3c_process_revision">03 November 2023 W3C Process Document</a>. </p>
    <p></p>
+   <p>To comment, <a href="https://github.com/w3c/wcag-act/issues/new">file an issue in the <abbr title="World Wide Web Consortium">W3C</abbr> ACT GitHub repository</a>. It is free to create a GitHub account to file issues. If filing issues in GitHub is not feasible, send email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Format%201.1%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">comment archive</a>). Comments are requested by <strong>18 August 2024</strong>. In-progress updates to the document may be viewed in the <a href="https://w3c.github.io/wcag-act/act-rules-format.html">publicly visible editors' draft</a>.</p>
+   <p>This document was produced by a group operating under the <a href="https://www.w3.org/Consortium/Patent-Policy/">W3C Patent Policy</a>. W3C maintains a <a href="https://www.w3.org/groups/wg/ag/ipr/" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the W3C Patent Policy</a>.</p>
+   <p>This document is governed by the <a href="https://www.w3.org/2023/Process-20231103/" id="w3c_process_revision">03 November 2023 W3C Process Document</a>. </p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -668,8 +671,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li>
          <a href="#outcome-mapping"><span class="secno">4.4.1</span> <span class="content">Outcome Mapping</span></a>
          <ol class="toc">
-          <li><a href="#conformance-requirements"><span class="secno">4.4.1.1</span> <span class="content">Conformance Requirements</span></a>
-          <li><a href="#secondary-requirements"><span class="secno">4.4.1.2</span> <span class="content">Secondary Requirements</span></a>
+          <li><a href="#conformance-requirements"><span class="secno">4.4.1.1</span> <span class="content"><span>Conformance Requirements</span></span></a>
+          <li><a href="#secondary-requirements"><span class="secno">4.4.1.2</span> <span class="content"><span>Secondary Requirements</span></span></a>
          </ol>
         <li><a href="#mapping-outside-wcag"><span class="secno">4.4.2</span> <span class="content">Mapping Outside WCAG</span></a>
         <li><a href="#rules-without-accessibility-requirements"><span class="secno">4.4.3</span> <span class="content">Rules Without Accessibility Requirements</span></a>
@@ -687,12 +690,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li>
          <a href="#applicability-atomic"><span class="secno">4.6.1</span> <span class="content">Applicability for Atomic Rules</span></a>
          <ol class="toc">
-          <li><a href="#applicability-type-designation-optional"><span class="secno">4.6.1.1</span> <span class="content">Applicability Type Designation (optional)</span></a>
+          <li><a href="#applicability-type-designation-atomic-optional"><span class="secno">4.6.1.1</span> <span class="content">Applicability Type Designation (optional) {#applicability-type-designation-atomic-optional}</span></a>
          </ol>
         <li>
          <a href="#applicability-composite"><span class="secno">4.6.2</span> <span class="content">Applicability for Composite Rules</span></a>
          <ol class="toc">
-          <li><a href="#applicability-type-designation-optional①"><span class="secno">4.6.2.1</span> <span class="content">Applicability Type Designation (optional)</span></a>
+          <li><a href="#applicability-type-designation-composite-optional"><span class="secno">4.6.2.1</span> <span class="content">Applicability Type Designation (optional) {#applicability-type-designation-composite-optional}</span></a>
          </ol>
        </ol>
       <li>
@@ -761,7 +764,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in <a href="https://www.w3.org/TR/WCAG22/#wcag-2-layers-of-guidance">common failures</a> documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.</p>
    <p>The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the <a href="#act-rule-structure">ACT Rule Structure</a> section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.</p>
    <h2 class="heading settled" data-level="2" id="scope"><span class="secno">2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h2>
-   <p>The ACT Rules Format defined in this specification is designed for rules that can be used in testing content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria" title="Accessible Rich Internet Applications (WAI-ARIA) 1.0">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scalable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2" title="Scalable Vector Graphics (SVG) 2">[SVG2]</a>, <a href="http://www.idpf.org/epub3/latest/">EPUB 3</a>, and more. The ACT Rules Format is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
+   <p>The ACT Rules Format defined in this specification is designed for rules that can be used in testing content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria" title="Accessible Rich Internet Applications (WAI-ARIA) 1.0">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scalable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2" title="Scalable Vector Graphics (SVG) 2">[SVG2]</a>, <a href="httpss://www.idpf.org/">EPUB 3</a> <a data-link-type="biblio" href="#biblio-epub-33" title="EPUB 3.3">[epub-33]</a>, and more. The ACT Rules Format is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
    <p>The ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①">accessibility requirements</a> defined in the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/standards-guidelines/uaag/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20" title="User Agent Accessibility Guidelines (UAAG) 2.0">[UAAG20]</a>. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.</p>
    <h2 class="heading settled" data-level="3" id="rule-types"><span class="secno">3. </span><span class="content">ACT Rule Types</span><a class="self-link" href="#rule-types"></a></h2>
    <p>In accessibility, there are often different technical solutions to make the same type of content accessible. For example, there are multiple methods for giving an <code>img</code> element in HTML an accessible name. Multiple solutions could be tested in a single rule; however, such a rule tends to be quite complex, making it difficult to understand and maintain. The ACT Rules Format solves this by providing two types of rules:</p>
@@ -835,9 +838,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>An ACT Rule MAY also contain:</p>
    <ul>
     <li data-md>
-     <p><a href="related-rules">Related Rules</a> (optional) under Background</p>
+     <p><a href="#related-rules">Related Rules</a> (optional) under Background</p>
     <li data-md>
-     <p><a href="other-resources">Other Resources</a> (optional) under Background</p>
+     <p><a href="#other-resources">Other Resources</a> (optional) under Background</p>
     <li data-md>
      <p><a href="#issues-list">Issues List</a> (optional)</p>
     <li data-md>
@@ -906,7 +909,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ol>
    <h4 class="heading settled" data-level="4.4.1" id="outcome-mapping"><span class="secno">4.4.1. </span><span class="content">Outcome Mapping</span><a class="self-link" href="#outcome-mapping"></a></h4>
     For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑤">outcomes</a> of the rule mean for satisfying an accessibility requirement for that <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject②">test subject</a>. 
-   <h5 class="heading settled" data-level="4.4.1.1" id="conformance-requirements"><span class="secno">4.4.1.1. </span><span class="content">Conformance Requirements</span><a class="self-link" href="#conformance-requirements"></a></h5>
+   <h5 class="heading settled" data-level="4.4.1.1" id="conformance-requirements"><span class="secno">4.4.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="conformance-requirements①">Conformance Requirements</dfn></span><a class="self-link" href="#conformance-requirements"></a></h5>
    <p>When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true:</p>
    <ul>
     <li data-md>
@@ -954,7 +957,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content">Secondary Requirements</span><a class="self-link" href="#secondary-requirements"></a></h5>
+   <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="secondary-requirements①">Secondary Requirements</dfn></span><a class="self-link" href="#secondary-requirements"></a></h5>
    <p>A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
    <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.</p>
    <p>When the rule is designed to test an accessibility requirement, differences in <a href="#accessibility-support">accessibility support</a> <em class="rfc2119">must not</em> be a reason for that requirement to be a secondary accessibility requirement.</p>
@@ -1092,7 +1095,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>Composite rules have <a href="#input-rules">Input Rules</a></p>
    </ul>
    <h4 class="heading settled" data-level="4.5.1" id="input-aspects"><span class="secno">4.5.1. </span><span class="content">Input Aspects (Atomic rules only)</span><a class="self-link" href="#input-aspects"></a></h4>
-   <p>An input aspect is a distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject④">test subject</a>. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules②">atomic rule</a>. For example, some rules need to operate directly on the <a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol</a> <a data-link-type="biblio" href="#biblio-http11" title="HTTP/1.1">[http11]</a> messages exchanged between a server and a client, while others need to operate on the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree exposed by a web browser.</p>
+   <p>An input aspect is a distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject④">test subject</a>. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules②">atomic rule</a>. For example, some rules need to operate directly on the <a href="https://datatracker.ietf.org/doc/html/rfc7230">Hypertext Transfer Protocol</a> <a data-link-type="biblio" href="#biblio-http11" title="HTTP/1.1">[http11]</a> messages exchanged between a server and a client, while others need to operate on the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree exposed by a web browser.</p>
    <p><a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules③">Atomic rules</a> <em class="rfc2119">must</em> list the aspects used as input for the <a href="#applicability-atomic">applicability</a> and <a href="#expectations-atomic">expectations</a> of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.</p>
    <p>Some input aspects are well defined in a formal specification, such as HTTP messages, the DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>. For these, a reference to the corresponding section in the <a href="https://www.w3.org/TR/act-rules-aspects/">Common Input Aspects note</a> is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule <em class="rfc2119">must</em> include either a detailed description of the aspect in question, or a reference to a well defined description.</p>
    <aside class="example" id="example-43214b40">
@@ -1118,7 +1121,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <p>The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an <a href="http://www.idpf.org/epub3/latest/">EPUB publication</a>, or it can be inferred from a <a href="https://facebook.github.io/jsx/">JSX source file</a>. All rules that have only DOM tree as an input aspect can be applied to those technologies.</p>
+   <p>The method through which an input aspect is served is not relevant. For example a DOM tree can be served through HTTP as HTML, it can be bundled as several pages in an <a href="http://www.idpf.org/">EPUB publication</a>, or it can be inferred from a <a href="https://facebook.github.io/jsx/">JSX source file</a>. All rules that have only DOM tree as an input aspect can be applied to those technologies.</p>
    <h4 class="heading settled" data-level="4.5.2" id="input-rules"><span class="secno">4.5.2. </span><span class="content">Input Rules (Composite rules only)</span><a class="self-link" href="#input-rules"></a></h4>
    <p>A <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules①">composite rule</a> uses <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑦">outcomes</a> from <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules④">atomic rules</a> and applies logic to them so that a single outcome can be determined for each <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①">test target</a>. The <a href="#rule-identifier">identifier</a> and <a data-link-type="dfn" href="#descriptive-title" id="ref-for-descriptive-title">descriptive title</a> of all the atomic rules used in the <a href="#expectations-composite">expectations</a> <em class="rfc2119">must</em> be listed in the composite rule. The input rules describe the input for composite rules, similar to how <a href="#input-aspects">input aspects</a> describe the input for atomic rules.</p>
    <h3 class="heading settled" data-level="4.6" id="applicability"><span class="secno">4.6. </span><span class="content">Applicability</span><a class="self-link" href="#applicability"></a></h3>
@@ -1131,7 +1134,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Definitions can be put in the rule <a href="#glossary">glossary</a>, or they can be defined in the section where they are used.</p>
    <aside class="example" id="example-81a2db62">
     <a class="self-link" href="#example-81a2db62"></a> 
-    <header>Example objective applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG21/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
+    <header>Example objective applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
     <blockquote>
      <p>Applicability: Each <code>video</code> or <code>audio</code> element with the <code>autoplay</code> attribute, as well as each <code>object</code> element that is used for automatically playing video or audio when the web page loads.</p>
      <p>Note: A web page is considered "loaded" when the <code>document.readyState</code> is set to <code>complete</code>.</p>
@@ -1165,7 +1168,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>Applicability: This rule applies to any non-text content.</p>
     </blockquote>
    </aside>
-   <h5 class="heading settled" data-level="4.6.1.1" id="applicability-type-designation-optional"><span class="secno">4.6.1.1. </span><span class="content">Applicability Type Designation (optional)</span><a class="self-link" href="#applicability-type-designation-optional"></a></h5>
+   <h5 class="heading settled" data-level="4.6.1.1" id="applicability-type-designation-atomic-optional"><span class="secno">4.6.1.1. </span><span class="content">Applicability Type Designation (optional) {#applicability-type-designation-atomic-optional}</span><a class="self-link" href="#applicability-type-designation-atomic-optional"></a></h5>
    <p>Rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. This identifier is intended to benefit rule readers and implementers by clearly stating the rule author’s intention of the applicability and reducing confusion due to different reader and implementer interpretations.</p>
    <h4 class="heading settled" data-level="4.6.2" id="applicability-composite"><span class="secno">4.6.2. </span><span class="content">Applicability for Composite Rules</span><a class="self-link" href="#applicability-composite"></a></h4>
    <p>The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the <a href="#input-rules">input rules</a>. Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the <a href="#input-rules">input rules</a>.</p>
@@ -1183,7 +1186,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p>All <code>img</code> elements.</p>
     </blockquote>
    </aside>
-   <h5 class="heading settled" data-level="4.6.2.1" id="applicability-type-designation-optional①"><span class="secno">4.6.2.1. </span><span class="content">Applicability Type Designation (optional)</span><a class="self-link" href="#applicability-type-designation-optional①"></a></h5>
+   <h5 class="heading settled" data-level="4.6.2.1" id="applicability-type-designation-composite-optional"><span class="secno">4.6.2.1. </span><span class="content">Applicability Type Designation (optional) {#applicability-type-designation-composite-optional}</span><a class="self-link" href="#applicability-type-designation-composite-optional"></a></h5>
    <p>Composite rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. The applicability type of a composite rule is calculated as subjective if any of the input rules contain a subjective applicability or objective otherwise.</p>
    <h3 class="heading settled" data-level="4.7" id="expectations"><span class="secno">4.7. </span><span class="content">Expectations</span><a class="self-link" href="#expectations"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> contain one or more expectations. The expectations describe what the requirements are for the <a data-link-type="dfn" href="#test-target" id="ref-for-test-target③">test targets</a> derived from the <a href="#applicability">applicability</a>. An expectation is an assertion about a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target④">test target</a>. When a test target meets all expectations, the test target <code>passed</code> the rule. If the test target does not meet all expectations, the test target <code>failed</code> the rule. If there are no test targets, the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑧">outcome</a> for the rule is <code>inapplicable</code>.</p>
@@ -1195,7 +1198,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <header>Example expectations of a rule to test for accessible names of HTML <code>input</code> elements:</header>
     <blockquote>
      <ol>
-      <li>Each HTML <code>input</code> element has an accessible name (as described in <a href="https://www.w3.org/TR/accname-aam-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>). <a data-link-type="biblio" href="#biblio-accname-aam-11" title="Accessible Name and Description Computation 1.1">[accname-aam-1.1]</a>
+      <li>Each HTML <code>input</code> element has an accessible name (as described in <a href="https://www.w3.org/TR/accname-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>). <a data-link-type="biblio" href="#biblio-accname-aam-11" title="Accessible Name and Description Computation 1.1">[accname-aam-1.1]</a>
       <li>The accessible name describes the purpose of each HTML <code>input</code> element.
      </ol>
     </blockquote>
@@ -1263,7 +1266,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAG 2.2 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG22/Techniques/">WCAG 2.2 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
    <h3 class="heading settled" data-level="4.9" id="test-cases"><span class="secno">4.9. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
    <p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
-   <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
+   <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
    <aside class="example" id="example-09b9695b">
     <a class="self-link" href="#example-09b9695b"></a> 
     <header>Example of HTML test cases for a rule that checks if <code>img</code> elements have a text alternative:</header>
@@ -1330,9 +1333,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p><dfn data-dfn-type="dfn" data-noexport id="rule-mapping">Rule Mapping<a class="self-link" href="#rule-mapping"></a></dfn>: The accessibility requirements are reported consistently, meaning:</p>
      <ol>
       <li data-md>
-       <p>The <a data-link-type="dfn" href="#check" id="ref-for-check⑤">check</a> is reported as testing for all the rule’s <a data-link-type="dfn">conformance requirements</a>, except requirements of a level or standard not supported by the implementation; and</p>
+       <p>The <a data-link-type="dfn" href="#check" id="ref-for-check⑤">check</a> is reported as testing for all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①①">conformance requirements</a>, except requirements of a level or standard not supported by the implementation; and</p>
       <li data-md>
-       <p>All accessibility requirements the rule reports to be a part of are either <a data-link-type="dfn">conformance requirements</a> or <a data-link-type="dfn">secondary requirements</a>, except for requirements of <a data-link-type="dfn">accessibility requirement documents</a> not mentioned in the rule.</p>
+       <p>All accessibility requirements the rule reports to be a part of are either <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①②">conformance requirements</a> or <a data-link-type="dfn" href="#secondary-requirements①" id="ref-for-secondary-requirements①">secondary requirements</a>, except for requirements of <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑧">accessibility requirements documents</a> not mentioned in the rule.</p>
      </ol>
    </ol>
    <p>When a <a data-link-type="dfn" href="#check" id="ref-for-check⑥">check</a> reports more than one outcomes for a test case, the first outcome that appears on the following ordered list is considered for determining consistency:</p>
@@ -1408,7 +1411,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <p>An example of such a process is the <a href="https://w3c.github.io/wcag-act-rules/review-process.html">WCAG ACT Review Process</a>.</p>
+   <p>An example of such a process is the <a href="https://w3c.github.io/wcag-act/wcag-ruleset-review-process">WCAG ACT Review Process</a>.</p>
    <h2 class="heading settled" data-level="7" id="definitions"><span class="secno">7. </span><span class="content">Definitions</span><a class="self-link" href="#definitions"></a></h2>
    <dl>
     <dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="accessibility-requirement">Accessibility requirement</dfn>
@@ -1733,6 +1736,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <li><a href="#check">Check</a><span>, in § 7</span>
    <li><a href="#completeness">Completeness</a><span>, in § 4.14.1</span>
    <li><a href="#composite-rules">Composite rules</a><span>, in § 3</span>
+   <li><a href="#conformance-requirements①">Conformance Requirements</a><span>, in § 4.4.1.1</span>
    <li><a href="#consistent">consistent</a><span>, in § 4.14.1</span>
    <li><a href="#descriptive-title">Descriptive Title</a><span>, in § 4</span>
    <li><a href="#further-testing-is-needed">further testing is needed</a><span>, in § 4.4.1.1</span>
@@ -1743,6 +1747,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <li><a href="#rule-mapping">Rule Mapping</a><span>, in § 4.14.1</span>
    <li><a href="#satisfied">satisfied</a><span>, in § 4.4.1.1</span>
    <li><a href="#satisfying-tests">satisfying tests</a><span>, in § 4.4.1.1</span>
+   <li><a href="#secondary-requirements①">Secondary Requirements</a><span>, in § 4.4.1.2</span>
    <li><a href="#set-of-checks">set of checks</a><span>, in § 4.14.3</span>
    <li><a href="#test-subject">Test Subject</a><span>, in § 7</span>
    <li><a href="#test-target">Test Target</a><span>, in § 7</span>
@@ -1764,6 +1769,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <dd>Anne van Kesteren. <a href="https://dom.spec.whatwg.org/"><cite>DOM Standard</cite></a>. Living Standard. URL: <a href="https://dom.spec.whatwg.org/">https://dom.spec.whatwg.org/</a>
    <dt id="biblio-earl10-schema">[EARL10-Schema]
    <dd>Shadi Abou-Zahra. <a href="https://www.w3.org/TR/EARL10-Schema/"><cite>Evaluation and Report Language (EARL) 1.0 Schema</cite></a>. 2 February 2017. NOTE. URL: <a href="https://www.w3.org/TR/EARL10-Schema/">https://www.w3.org/TR/EARL10-Schema/</a>
+   <dt id="biblio-epub-33">[EPUB-33]
+   <dd>Ivan Herman; Matt Garrish; Dave Cramer. <a href="https://w3c.github.io/epub-specs/epub33/core/"><cite>EPUB 3.3</cite></a>. URL: <a href="https://w3c.github.io/epub-specs/epub33/core/">https://w3c.github.io/epub-specs/epub33/core/</a>
    <dt id="biblio-html">[HTML]
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-http11">[HTTP11]
@@ -1935,14 +1942,16 @@ window.dfnpanelData = {};
 window.dfnpanelData['atomic-rules'] = {"dfnID": "atomic-rules", "url": "#atomic-rules", "dfnText": "Atomic rules", "refSections": [{"refs": [{"id": "ref-for-atomic-rules"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-atomic-rules\u2460"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-atomic-rules\u2461"}, {"id": "ref-for-atomic-rules\u2462"}], "title": "4.5.1. Input Aspects (Atomic rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2463"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2464"}], "title": "4.6.1. Applicability for Atomic Rules"}, {"refs": [{"id": "ref-for-atomic-rules\u2465"}], "title": "4.7.1. Expectations for Atomic Rules"}], "external": false};
 window.dfnpanelData['composite-rules'] = {"dfnID": "composite-rules", "url": "#composite-rules", "dfnText": "Composite rules", "refSections": [{"refs": [{"id": "ref-for-composite-rules"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-composite-rules\u2460"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-composite-rules\u2461"}], "title": "4.7.2. Expectations for Composite Rules"}], "external": false};
 window.dfnpanelData['descriptive-title'] = {"dfnID": "descriptive-title", "url": "#descriptive-title", "dfnText": "Descriptive Title", "refSections": [{"refs": [{"id": "ref-for-descriptive-title"}], "title": "4.5.2. Input Rules (Composite rules only)"}], "external": false};
+window.dfnpanelData['conformance-requirements①'] = {"dfnID": "conformance-requirements\u2460", "url": "#conformance-requirements\u2460", "dfnText": "Conformance Requirements", "refSections": [{"refs": [{"id": "ref-for-conformance-requirements\u2460"}], "title": "4.9. Test Cases"}, {"refs": [{"id": "ref-for-conformance-requirements\u2460\u2460"}, {"id": "ref-for-conformance-requirements\u2460\u2461"}], "title": "4.14.1. Consistency"}], "external": false};
 window.dfnpanelData['not-satisfied'] = {"dfnID": "not-satisfied", "url": "#not-satisfied", "dfnText": "not satisfied", "refSections": [{"refs": [{"id": "ref-for-not-satisfied"}], "title": "4.4.1.2. Secondary Requirements"}], "external": false};
 window.dfnpanelData['satisfied'] = {"dfnID": "satisfied", "url": "#satisfied", "dfnText": "satisfied", "refSections": [{"refs": [{"id": "ref-for-satisfied"}], "title": "4.4.1.1. Conformance Requirements"}], "external": false};
+window.dfnpanelData['secondary-requirements①'] = {"dfnID": "secondary-requirements\u2460", "url": "#secondary-requirements\u2460", "dfnText": "Secondary Requirements", "refSections": [{"refs": [{"id": "ref-for-secondary-requirements\u2460"}], "title": "4.14.1. Consistency"}], "external": false};
 window.dfnpanelData['consistent'] = {"dfnID": "consistent", "url": "#consistent", "dfnText": "consistent", "refSections": [{"refs": [{"id": "ref-for-consistent"}], "title": "4.14.2. Partial Consistency"}, {"refs": [{"id": "ref-for-consistent\u2460"}, {"id": "ref-for-consistent\u2461"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
 window.dfnpanelData['true-positives'] = {"dfnID": "true-positives", "url": "#true-positives", "dfnText": "True positives", "refSections": [{"refs": [{"id": "ref-for-true-positives"}], "title": "4.14.2. Partial Consistency"}], "external": false};
 window.dfnpanelData['partially-consistent'] = {"dfnID": "partially-consistent", "url": "#partially-consistent", "dfnText": "partially consistent", "refSections": [{"refs": [{"id": "ref-for-partially-consistent"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
 window.dfnpanelData['set-of-checks'] = {"dfnID": "set-of-checks", "url": "#set-of-checks", "dfnText": "set of checks", "refSections": [{"refs": [{"id": "ref-for-set-of-checks"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
 window.dfnpanelData['accessibility-requirement'] = {"dfnID": "accessibility-requirement", "url": "#accessibility-requirement", "dfnText": "Accessibility requirement", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirement"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460"}], "title": "2. Scope"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2461"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2462"}, {"id": "ref-for-accessibility-requirement\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2464"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2465"}, {"id": "ref-for-accessibility-requirement\u2466"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2467"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2468"}, {"id": "ref-for-accessibility-requirement\u2460\u24ea"}], "title": "5. Rule Accuracy"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460\u2460"}, {"id": "ref-for-accessibility-requirement\u2460\u2461"}], "title": "7. Definitions"}], "external": false};
-window.dfnpanelData['accessibility-requirements-document'] = {"dfnID": "accessibility-requirements-document", "url": "#accessibility-requirements-document", "dfnText": "Accessibility requirements document", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirements-document"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2460"}, {"id": "ref-for-accessibility-requirements-document\u2461"}, {"id": "ref-for-accessibility-requirements-document\u2462"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2463"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2464"}, {"id": "ref-for-accessibility-requirements-document\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2466"}], "title": "4.4.4. External Accessibility Requirements Mapping"}], "external": false};
+window.dfnpanelData['accessibility-requirements-document'] = {"dfnID": "accessibility-requirements-document", "url": "#accessibility-requirements-document", "dfnText": "Accessibility requirements document", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirements-document"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2460"}, {"id": "ref-for-accessibility-requirements-document\u2461"}, {"id": "ref-for-accessibility-requirements-document\u2462"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2463"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2464"}, {"id": "ref-for-accessibility-requirements-document\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2466"}], "title": "4.4.4. External Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2467"}], "title": "4.14.1. Consistency"}], "external": false};
 window.dfnpanelData['check'] = {"dfnID": "check", "url": "#check", "dfnText": "Check", "refSections": [{"refs": [{"id": "ref-for-check"}, {"id": "ref-for-check\u2460"}, {"id": "ref-for-check\u2461"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-check\u2462"}, {"id": "ref-for-check\u2463"}, {"id": "ref-for-check\u2464"}, {"id": "ref-for-check\u2465"}], "title": "4.14.1. Consistency"}, {"refs": [{"id": "ref-for-check\u2466"}], "title": "4.14.2. Partial Consistency"}, {"refs": [{"id": "ref-for-check\u2467"}], "title": "4.14.3. Consistency with multiple checks"}, {"refs": [{"id": "ref-for-check\u2468"}], "title": "7. Definitions"}], "external": false};
 window.dfnpanelData['implementation'] = {"dfnID": "implementation", "url": "#implementation", "dfnText": "Implementation", "refSections": [{"refs": [{"id": "ref-for-implementation"}, {"id": "ref-for-implementation\u2460"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-implementation\u2461"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
 window.dfnpanelData['outcome'] = {"dfnID": "outcome", "url": "#outcome", "dfnText": "Outcome", "refSections": [{"refs": [{"id": "ref-for-outcome"}, {"id": "ref-for-outcome\u2460"}, {"id": "ref-for-outcome\u2461"}, {"id": "ref-for-outcome\u2462"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-outcome\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-outcome\u2464"}], "title": "4.4.1. Outcome Mapping"}, {"refs": [{"id": "ref-for-outcome\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-outcome\u2466"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-outcome\u2467"}], "title": "4.7. Expectations"}, {"refs": [{"id": "ref-for-outcome\u2468"}], "title": "4.7.1. Expectations for Atomic Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u24ea"}], "title": "4.7.2. Expectations for Composite Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u2460"}], "title": "4.9. Test Cases"}, {"refs": [{"id": "ref-for-outcome\u2460\u2461"}], "title": "4.12. Glossary"}, {"refs": [{"id": "ref-for-outcome\u2460\u2462"}], "title": "4.13. Issues List (optional)"}, {"refs": [{"id": "ref-for-outcome\u2460\u2463"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-outcome\u2460\u2464"}], "title": "4.14.3. Consistency with multiple checks"}, {"refs": [{"id": "ref-for-outcome\u2460\u2465"}], "title": "7. Definitions"}], "external": false};
