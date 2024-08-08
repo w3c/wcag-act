@@ -11,7 +11,7 @@
 
 <p>[STATUSTEXT]
 
-<p>To comment, <a href="https://github.com/w3c/wcag-act/issues/new">file an issue in the <abbr title="World Wide Web Consortium">W3C</abbr> ACT GitHub repository</a>. It is free to create a GitHub account to file issues. If filing issues in GitHub is not feasible, send email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Format%201.1%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">comment archive</a>). Comments are requested by <strong>[DEADLINE]</strong>. In-progress updates to the document may be viewed in the <a href="https://w3c.github.io/wcag-act/act-rules-format.html">publicly visible editors' draft</a>.</p>
+<p include-if="FPWD">To comment, <a href="https://github.com/w3c/wcag-act/issues/new">file an issue in the <abbr title="World Wide Web Consortium">W3C</abbr> ACT GitHub repository</a>. It is free to create a GitHub account to file issues. If filing issues in GitHub is not feasible, send email to <a href="mailto:public-wcag-act-comments@w3.org?subject=ACT%20Format%201.1%20public%20comment">public-wcag-act-comments@w3.org</a> (<a href="https://lists.w3.org/Archives/Public/public-wcag-act-comments/">comment archive</a>). Comments are requested by <strong>[DEADLINE]</strong>. In-progress updates to the document may be viewed in the <a href="https://w3c.github.io/wcag-act/act-rules-format.html">publicly visible editors' draft</a>.</p>
 
 <p include-if="FPWD">This document was published by the <a href="https://www.w3.org/groups/wg/ag/">Accessibility Guidelines Working Group</a> as a First Public Working Draft using the <a
       href='https://www.w3.org/2023/Process-20231103/#recs-and-notes'>Recommendation
