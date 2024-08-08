@@ -211,7 +211,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG22/#non-text-content)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.2 level A and higher</li>
+        <li>**Required for conformance** to WCAG 2.2 level A and higher</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -222,7 +222,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
     <li>
       [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0 and WCAG 2.2 level A and higher</li>
+        <li>**Required for conformance** to WCAG 2.2 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -300,7 +300,7 @@ A rule was designed to test an accessibility requirement and under certain condi
 
 <aside class=example>
   <header>Example 2: A rule that tests that elements that have an explicit role also specify all required states and properties </header>
-  <blockquote>This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping:
+  <blockquote>This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2.2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping:
   <ul>
     <li>Conformance Requirement: WAI-ARIA 1.2</li>
     <li>Secondary Requirement: Success Criterion 4.1.2 Name, Role, Value
@@ -320,7 +320,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
     <li>
       [Technique H37: Using alt attributes on img elements](https://www.w3.org/TR/WCAG20-TECHS/H37.html)
       <ul>
-        <li>**Not required** for conformance to WCAG 2.0 and WCAG 2.2 at any level</li>
+        <li>**Not required** for conformance to WCAG 2.2 at any level</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: satisfied</li>
