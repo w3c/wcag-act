@@ -462,7 +462,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
   </blockquote>
 </aside>
 
-#### Applicability Type Designation (optional) {#applicability-type-designation-atomic-optional}
+#### Applicability Type Designation (optional) #### {#applicability-type-designation-atomic-optional}
 
 Rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. This identifier is intended to benefit rule readers and implementers by clearly stating the rule author's intention of the applicability and reducing confusion due to different reader and implementer interpretations.
 
@@ -485,7 +485,7 @@ Note that input rules in a composite rule <em class="rfc2119">may</em> have diff
   </blockquote>
 </aside>
 
-#### Applicability Type Designation (optional) {#applicability-type-designation-composite-optional}
+#### Applicability Type Designation (optional) #### {#applicability-type-designation-composite-optional}
 
 Composite rules can optionally include an applicability type identifier signifying whether the rule contains an objective or a subjective applicability. The applicability type of a composite rule is calculated as subjective if any of the input rules contain a subjective applicability or objective otherwise.
 
