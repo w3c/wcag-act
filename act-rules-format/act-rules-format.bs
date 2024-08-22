@@ -1,6 +1,6 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
-Shortname: act-rules-format
+Shortname: act-rules-format-1.1
 ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
 Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
