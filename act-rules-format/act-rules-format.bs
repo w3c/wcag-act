@@ -8,7 +8,6 @@ Level: 1.1
 Prepare For TR: yes
 Status: ED
 Status Text:
-Deadline: 2024-08-18
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
