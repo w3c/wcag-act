@@ -211,7 +211,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
     <li>
       [Success criterion 1.1.1: Non-text content](https://www.w3.org/TR/WCAG22/#non-text-content)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0, WCAG 2.1, and WCAG 2.2 level A and higher</li>
+        <li>**Required for conformance** to WCAG 2.0, 2.1, and 2.2 level A and higher</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -222,7 +222,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
     <li>
       [Success criterion 4.1.2: Name, Role, Value](https://www.w3.org/TR/WCAG22/#name-role-value)
       <ul>
-        <li>**Required for conformance** to WCAG 2.0, WCAG 2.1, and WCAG 2.2 level A and higher</li>
+        <li>**Required for conformance** to WCAG 2.0, 2.1, and 2.2 level A and higher</li>
         <li>Outcome mapping:<ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: further testing is needed</li>
@@ -320,7 +320,7 @@ ACT Rules can be used to test accessibility requirements that are not part of a 
     <li>
       [Technique H37: Using alt attributes on img elements](https://www.w3.org/TR/WCAG20-TECHS/H37.html)
       <ul>
-        <li>**Not required** for conformance to WCAG 2.0, WCAG 2.1, and WCAG 2.2 at any level</li>
+        <li>**Not required** for conformance to WCAG 2.0, 2.1, and 2.2 at any level</li>
         <li>Outcome mapping: <ul>
           <li>Any `failed` outcomes: not satisfied</li>
           <li>All `passed` outcomes: satisfied</li>
