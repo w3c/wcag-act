@@ -753,6 +753,15 @@ Harmonization occurs when a group of rule implementors collectively accept the v
 
 An example of such a process is the [WCAG ACT Review Process](https://w3c.github.io/wcag-act/wcag-ruleset-review-process).
 
+Privacy Considerations {#privacy-considerations}
+==========================
+
+This specification is not intended to expose information directly to user agents or assistive technologies. There is no other privacy implications that this Group is aware of.
+
+Security considerations {#security-considerations}
+==========================
+
+This specification does not allow the communication between origins and the underlying platform, neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. There are no other security considerations this  Group is aware of.
 
 Definitions {#definitions}
 ==========================
