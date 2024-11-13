@@ -756,12 +756,12 @@ An example of such a process is the [WCAG ACT Review Process](https://w3c.github
 Privacy Considerations {#privacy-considerations}
 ==========================
 
-This specification is not intended to expose information directly to user agents or assistive technologies. There is no other privacy implications that this Group is aware of.
+This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
 
 Security considerations {#security-considerations}
 ==========================
 
-This specification does not allow the communication between origins and the underlying platform, neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. There are no other security considerations this  Group is aware of.
+This specification does not allow the communication between origins and the underlying platform, neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
 
 Definitions {#definitions}
 ==========================
