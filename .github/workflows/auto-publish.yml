@@ -6,7 +6,7 @@ on:
 jobs:
   main:
     name: Build gh-pages
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     strategy:
