@@ -761,7 +761,7 @@ This specification is not intended to expose information directly to user agents
 Security considerations {#security-considerations}
 ==========================
 
-This specification does not allow the communication between origins and the underlying platform, neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
+This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
 
 Definitions {#definitions}
 ==========================
