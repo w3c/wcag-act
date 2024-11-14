@@ -1062,6 +1062,8 @@ Appendix 3: Change History {#Change_History}
 This section is *non-normative*.
 
 <ul>
+  <li><strong>7. Privacy Considerations</strong> Added</li>
+  <li><strong>8. Security Considerations</strong> Added</li>
   <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.</li>
   <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.</li>
   <li><strong>4.6 Applicability</strong> Subjective applicability statements are now allowed. Objective and plain language requirements have been reduced to <em class="rfc2119">should</em> instead of <em class="rfc2119">must</em>.</li>
