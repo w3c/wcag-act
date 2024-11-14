@@ -4,9 +4,10 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Accessibility Conformance Testing (ACT) Rules Format 1.1</title>
   <meta content="ED" name="w3c-status">
-  <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
+  <meta content="Bikeshed version 742f3d674, updated Mon Nov 4 14:56:54 2024 -0800" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="8aa13c49656f5005645de0026ddbda7df903f0ea" name="document-revision">
+  <meta content="66387ed21c40ee0ab1715ea662d543fed6a1a74f" name="revision">
+  <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
     text-transform: uppercase;
@@ -98,7 +99,6 @@ pre .property::before, pre .property::after {
 }
 </style>
 <style>/* Boilerplate: style-colors */
-
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
     color-scheme: light dark;
@@ -352,11 +352,15 @@ figcaption:not(.no-marker)::before {
 :root {
     --dfnpanel-bg: #ddd;
     --dfnpanel-text: var(--text);
+    --dfnpanel-target-bg: #ffc;
+    --dfnpanel-target-outline: orange;
 }
 @media (prefers-color-scheme: dark) {
     :root {
         --dfnpanel-bg: #222;
         --dfnpanel-text: var(--text);
+        --dfnpanel-target-bg: #333;
+        --dfnpanel-target-outline: silver;
     }
 }
 .dfn-panel {
@@ -379,11 +383,13 @@ figcaption:not(.no-marker)::before {
 .dfn-panel > b { display: block; }
 .dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel a:focus {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+}
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0 0 0 1em; list-style: none; }
 .dfn-panel li a {
-    white-space: pre;
-    display: inline-block;
     max-width: calc(300px - 1.5em - 1em);
     overflow: hidden;
     text-overflow: ellipsis;
@@ -392,14 +398,79 @@ figcaption:not(.no-marker)::before {
 .dfn-panel.activated {
     display: inline-block;
     position: fixed;
-    left: .5em;
+    left: 8px;
     bottom: 2em;
     margin: 0 auto;
     max-width: calc(100vw - 1.5em - .4em - .5em);
     max-height: 30vh;
+    transition: left 1s ease-out, bottom 1s ease-out;
 }
 
-.dfn-paneled[role="button"] { cursor: pointer; }
+.dfn-panel .link-item:hover {
+    text-decoration: underline;
+}
+.dfn-panel .link-item .copy-icon {
+    opacity: 0;
+}
+.dfn-panel .link-item:hover .copy-icon,
+.dfn-panel .link-item .copy-icon:focus {
+    opacity: 1;
+}
+
+.dfn-panel .copy-icon {
+    display: inline-block;
+    margin-right: 0.5em;
+    width: 0.85em;
+    height: 1em;
+    border-radius: 3px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.dfn-panel .copy-icon .icon {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dfn-panel .copy-icon .icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: #ccc;
+    opacity: 0.25;
+    transform: translate(3px, -3px);
+}
+
+.dfn-panel .copy-icon:active .icon::before {
+    opacity: 1;
+}
+
+.dfn-paneled[role="button"] { cursor: help; }
+
+.highlighted {
+    animation: target-fade 3s;
+}
+
+@keyframes target-fade {
+    from {
+        background-color: var(--dfnpanel-target-bg);
+        outline: 5px solid var(--dfnpanel-target-outline);
+    }
+    to {
+        color: var(--a-normal-text);
+        background-color: transparent;
+        outline: transparent;
+    }
+}
 </style>
 <style>/* Boilerplate: style-issues */
 a[href].issue-return {
@@ -420,8 +491,40 @@ a[href].issue-return {
     margin-bottom: 0;
 }
 </style>
-<style>/* Boilerplate: style-selflinks */
+<style>/* Boilerplate: style-ref-hints */
+:root {
+    --ref-hint-bg: #ddd;
+    --ref-hint-text: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ref-hint-bg: #222;
+        --ref-hint-text: var(--text);
+    }
+}
 
+.ref-hint {
+    display: inline-block;
+    position: absolute;
+    z-index: 35;
+    width: 20em;
+    width: 300px;
+    height: auto;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.5em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--ref-hint-bg);
+    color: var(--ref-hint-text);
+    border: outset 0.2em;
+    white-space: normal; /* in case it's moved into a pre */
+}
+
+.ref-hint * { margin: 0; padding: 0; text-indent: 0; }
+
+.ref-hint ul { padding: 0 0 0 1em; list-style: none; }
+</style>
+<style>/* Boilerplate: style-selflinks */
 :root {
     --selflink-text: white;
     --selflink-bg: gray;
@@ -481,7 +584,6 @@ a.self-link::before            { content: "¶"; }
 dfn > a.self-link::before      { content: "#"; }
 </style>
 <style>/* Boilerplate: style-syntax-highlighting */
-
 code.highlight { padding: .1em; border-radius: .3em; }
 pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
 
@@ -538,7 +640,6 @@ c-[vc] { color: #0077aa } /* Name.Variable.Class */
 c-[vg] { color: #0077aa } /* Name.Variable.Global */
 c-[vi] { color: #0077aa } /* Name.Variable.Instance */
 c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
-
 
 @media (prefers-color-scheme: dark) {
     .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
@@ -604,11 +705,12 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 }
 </style>
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/dark.css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css">
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-08-29">29 August 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-11-14">14 November 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -915,9 +1017,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <li data-md>
      <p>Failed Outcomes: When one or more of the outcomes for a test subject is <code>failed</code>, the accessibility requirement is <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="not-satisfied">not satisfied</dfn> for the test subject, and</p>
     <li data-md>
-     <p>Passed or Inapplicable Outcomes: When all of the outcomes are <code>passed</code> or <code>inapplicable</code> for a test subject, the accessibility requirement could be <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="satisfied">satisfied</dfn> or <dfn data-dfn-type="dfn" data-noexport id="further-testing-is-needed">further testing is needed<a class="self-link" href="#further-testing-is-needed"></a></dfn> for the test subject.</p>
+     <p>Passed or Inapplicable Outcomes: When all of the outcomes are <code>passed</code> or <code>inapplicable</code> for a test subject, the accessibility requirement could be <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="satisfied">satisfied</dfn> or <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="further-testing-is-needed">further testing is needed</dfn> for the test subject.</p>
    </ul>
-   <p>Rules that can be used to determine if an accessibility requirement is <em>satisfied</em> are called <dfn data-dfn-type="dfn" data-noexport id="satisfying-tests">satisfying tests<a class="self-link" href="#satisfying-tests"></a></dfn>.</p>
+   <p>Rules that can be used to determine if an accessibility requirement is <em>satisfied</em> are called <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="satisfying-tests">satisfying tests</dfn>.</p>
    <ul>
     <li data-md>
      <p>Passed: When all of the outcomes are <code>passed</code>, the accessibility requirement is <a data-link-type="dfn" href="#satisfied" id="ref-for-satisfied">satisfied</a> for the test subject.</p>
@@ -1322,7 +1424,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <p>The <code>failed</code> test cases are <strong>not</strong> reported as <code>passed</code> or <code>inapplicable</code>; and</p>
      </ol>
     <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="completeness">Completeness<a class="self-link" href="#completeness"></a></dfn>: There are no gaps in coverage, meaning:</p>
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="completeness">Completeness</dfn>: There are no gaps in coverage, meaning:</p>
      <ol>
       <li data-md>
        <p>None of the <a data-link-type="dfn" href="#check" id="ref-for-check④">check</a>'s outcomes are <code>untested</code>; and</p>
@@ -1330,7 +1432,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
        <p>At least one of the <code>failed</code> test cases is reported as <code>failed</code>; and</p>
      </ol>
     <li data-md>
-     <p><dfn data-dfn-type="dfn" data-noexport id="rule-mapping">Rule Mapping<a class="self-link" href="#rule-mapping"></a></dfn>: The accessibility requirements are reported consistently, meaning:</p>
+     <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="rule-mapping">Rule Mapping</dfn>: The accessibility requirements are reported consistently, meaning:</p>
      <ol>
       <li data-md>
        <p>The <a data-link-type="dfn" href="#check" id="ref-for-check⑤">check</a> is reported as testing for all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①①">conformance requirements</a>, except requirements of a level or standard not supported by the implementation; and</p>
@@ -1726,7 +1828,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     Implementers are encouraged to optimize. </p>
    </section>
   </div>
-<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
+  <script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
@@ -1784,181 +1886,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <dt id="biblio-wcag22">[WCAG22]
    <dd>Michael Cooper; et al. <a href="https://w3c.github.io/wcag/guidelines/22/"><cite>Web Content Accessibility Guidelines (WCAG) 2.2</cite></a>. URL: <a href="https://w3c.github.io/wcag/guidelines/22/">https://w3c.github.io/wcag/guidelines/22/</a>
   </dl>
-<script>/* Boilerplate: script-dfn-panel */
-"use strict";
-{
-    const dfnsJson = window.dfnsJson || {};
-
-    function genDfnPanel({dfnID, url, dfnText, refSections, external}) {
-        return mk.aside({
-            class: "dfn-panel",
-            id: `infopanel-for-${dfnID}`,
-            "data-for": dfnID,
-            "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
-            },
-            mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
-                `Info about the '${dfnText}' ${external?"external":""} reference.`),
-            mk.a({href:url}, url),
-            mk.b({}, "Referenced in:"),
-            mk.ul({},
-                ...refSections.map(section=>
-                    mk.li({},
-                        ...section.refs.map((ref, refI)=>
-                            [
-                                mk.a({
-                                    href: `#${ref.id}`
-                                    },
-                                    (refI == 0) ? section.title : `(${refI + 1})`
-                                ),
-                                " ",
-                            ]
-                        ),
-                    ),
-                ),
-            ),
-        );
-    }
-
-    function genAllDfnPanels() {
-        for(const panelData of Object.values(window.dfnpanelData)) {
-            const dfnID = panelData.dfnID;
-            const dfn = document.getElementById(dfnID);
-            if(!dfn) {
-                console.log(`Can't find dfn#${dfnID}.`, panelData);
-            } else {
-                const panel = genDfnPanel(panelData);
-                append(document.body, panel);
-                insertDfnPopupAction(dfn, panel)
-            }
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", ()=>{
-        genAllDfnPanels();
-
-        // Add popup behavior to all dfns to show the corresponding dfn-panel.
-        var dfns = queryAll('.dfn-paneled');
-        for(let dfn of dfns) { ; }
-
-        document.body.addEventListener("click", (e) => {
-            // If not handled already, just hide all dfn panels.
-            hideAllDfnPanels();
-        });
-    })
-
-
-    function hideAllDfnPanels() {
-        // Turn off any currently "on" or "activated" panels.
-        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>hideDfnPanel(el));
-    }
-
-    function showDfnPanel(dfnPanel, dfn) {
-        hideAllDfnPanels(); // Only display one at this time.
-        dfn.setAttribute("aria-expanded", "true");
-        dfnPanel.classList.add("on");
-        dfnPanel.style.left = "5px";
-        dfnPanel.style.top = "0px";
-        const panelRect = dfnPanel.getBoundingClientRect();
-        const panelWidth = panelRect.right - panelRect.left;
-        if (panelRect.right > document.body.scrollWidth) {
-            // Panel's overflowing the screen.
-            // Just drop it below the dfn and flip it rightward instead.
-            // This still wont' fix things if the screen is *really* wide,
-            // but fixing that's a lot harder without 'anchor()'.
-            dfnPanel.style.top = "1.5em";
-            dfnPanel.style.left = "auto";
-            dfnPanel.style.right = "0px";
-        }
-    }
-
-    function pinDfnPanel(dfnPanel) {
-        // Switch it to "activated" state, which pins it.
-        dfnPanel.classList.add("activated");
-        dfnPanel.style.left = null;
-        dfnPanel.style.top = null;
-    }
-
-    function hideDfnPanel(dfnPanel, dfn) {
-        if(!dfn) {
-            dfn = document.getElementById(dfnPanel.getAttribute("data-for"));
-        }
-        dfn.setAttribute("aria-expanded", "false")
-        dfnPanel.classList.remove("on");
-        dfnPanel.classList.remove("activated");
-    }
-
-    function toggleDfnPanel(dfnPanel, dfn) {
-        if(dfnPanel.classList.contains("on")) {
-            hideDfnPanel(dfnPanel, dfn);
-        } else {
-            showDfnPanel(dfnPanel, dfn);
-        }
-    }
-
-    function insertDfnPopupAction(dfn, dfnPanel) {
-        // Find dfn panel
-        const panelWrapper = document.createElement('span');
-        panelWrapper.appendChild(dfnPanel);
-        panelWrapper.style.position = "relative";
-        panelWrapper.style.height = "0px";
-        dfn.insertAdjacentElement("afterend", panelWrapper);
-        dfn.setAttribute('role', 'button');
-        dfn.setAttribute('aria-expanded', 'false')
-        dfn.tabIndex = 0;
-        dfn.classList.add('has-dfn-panel');
-        dfn.addEventListener('click', (event) => {
-            showDfnPanel(dfnPanel, dfn);
-            event.stopPropagation();
-        });
-        dfn.addEventListener('keypress', (event) => {
-            const kc = event.keyCode;
-            // 32->Space, 13->Enter
-            if(kc == 32 || kc == 13) {
-                toggleDfnPanel(dfnPanel, dfn);
-                event.stopPropagation();
-                event.preventDefault();
-            }
-        });
-
-        dfnPanel.addEventListener('click', (event) => {
-            if (event.target.nodeName == 'A') {
-                pinDfnPanel(dfnPanel);
-            }
-            event.stopPropagation();
-        });
-
-        dfnPanel.addEventListener('keydown', (event) => {
-            if(event.keyCode == 27) { // Escape key
-                hideDfnPanel(dfnPanel, dfn);
-                event.stopPropagation();
-                event.preventDefault();
-            }
-        })
-    }
-}
-</script>
-<script>/* Boilerplate: script-dfn-panel-json */
-window.dfnpanelData = {};
-window.dfnpanelData['atomic-rules'] = {"dfnID": "atomic-rules", "url": "#atomic-rules", "dfnText": "Atomic rules", "refSections": [{"refs": [{"id": "ref-for-atomic-rules"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-atomic-rules\u2460"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-atomic-rules\u2461"}, {"id": "ref-for-atomic-rules\u2462"}], "title": "4.5.1. Input Aspects (Atomic rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2463"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-atomic-rules\u2464"}], "title": "4.6.1. Applicability for Atomic Rules"}, {"refs": [{"id": "ref-for-atomic-rules\u2465"}], "title": "4.7.1. Expectations for Atomic Rules"}], "external": false};
-window.dfnpanelData['composite-rules'] = {"dfnID": "composite-rules", "url": "#composite-rules", "dfnText": "Composite rules", "refSections": [{"refs": [{"id": "ref-for-composite-rules"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-composite-rules\u2460"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-composite-rules\u2461"}], "title": "4.7.2. Expectations for Composite Rules"}], "external": false};
-window.dfnpanelData['descriptive-title'] = {"dfnID": "descriptive-title", "url": "#descriptive-title", "dfnText": "Descriptive Title", "refSections": [{"refs": [{"id": "ref-for-descriptive-title"}], "title": "4.5.2. Input Rules (Composite rules only)"}], "external": false};
-window.dfnpanelData['conformance-requirements①'] = {"dfnID": "conformance-requirements\u2460", "url": "#conformance-requirements\u2460", "dfnText": "Conformance Requirements", "refSections": [{"refs": [{"id": "ref-for-conformance-requirements\u2460"}], "title": "4.9. Test Cases"}, {"refs": [{"id": "ref-for-conformance-requirements\u2460\u2460"}, {"id": "ref-for-conformance-requirements\u2460\u2461"}], "title": "4.14.1. Consistency"}], "external": false};
-window.dfnpanelData['not-satisfied'] = {"dfnID": "not-satisfied", "url": "#not-satisfied", "dfnText": "not satisfied", "refSections": [{"refs": [{"id": "ref-for-not-satisfied"}], "title": "4.4.1.2. Secondary Requirements"}], "external": false};
-window.dfnpanelData['satisfied'] = {"dfnID": "satisfied", "url": "#satisfied", "dfnText": "satisfied", "refSections": [{"refs": [{"id": "ref-for-satisfied"}], "title": "4.4.1.1. Conformance Requirements"}], "external": false};
-window.dfnpanelData['secondary-requirements①'] = {"dfnID": "secondary-requirements\u2460", "url": "#secondary-requirements\u2460", "dfnText": "Secondary Requirements", "refSections": [{"refs": [{"id": "ref-for-secondary-requirements\u2460"}], "title": "4.14.1. Consistency"}], "external": false};
-window.dfnpanelData['consistent'] = {"dfnID": "consistent", "url": "#consistent", "dfnText": "consistent", "refSections": [{"refs": [{"id": "ref-for-consistent"}], "title": "4.14.2. Partial Consistency"}, {"refs": [{"id": "ref-for-consistent\u2460"}, {"id": "ref-for-consistent\u2461"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
-window.dfnpanelData['true-positives'] = {"dfnID": "true-positives", "url": "#true-positives", "dfnText": "True positives", "refSections": [{"refs": [{"id": "ref-for-true-positives"}], "title": "4.14.2. Partial Consistency"}], "external": false};
-window.dfnpanelData['partially-consistent'] = {"dfnID": "partially-consistent", "url": "#partially-consistent", "dfnText": "partially consistent", "refSections": [{"refs": [{"id": "ref-for-partially-consistent"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
-window.dfnpanelData['set-of-checks'] = {"dfnID": "set-of-checks", "url": "#set-of-checks", "dfnText": "set of checks", "refSections": [{"refs": [{"id": "ref-for-set-of-checks"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
-window.dfnpanelData['accessibility-requirement'] = {"dfnID": "accessibility-requirement", "url": "#accessibility-requirement", "dfnText": "Accessibility requirement", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirement"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460"}], "title": "2. Scope"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2461"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2462"}, {"id": "ref-for-accessibility-requirement\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2464"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2465"}, {"id": "ref-for-accessibility-requirement\u2466"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2467"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2468"}, {"id": "ref-for-accessibility-requirement\u2460\u24ea"}], "title": "5. Rule Accuracy"}, {"refs": [{"id": "ref-for-accessibility-requirement\u2460\u2460"}, {"id": "ref-for-accessibility-requirement\u2460\u2461"}], "title": "7. Definitions"}], "external": false};
-window.dfnpanelData['accessibility-requirements-document'] = {"dfnID": "accessibility-requirements-document", "url": "#accessibility-requirements-document", "dfnText": "Accessibility requirements document", "refSections": [{"refs": [{"id": "ref-for-accessibility-requirements-document"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2460"}, {"id": "ref-for-accessibility-requirements-document\u2461"}, {"id": "ref-for-accessibility-requirements-document\u2462"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2463"}], "title": "4.4.2. Mapping Outside WCAG"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2464"}, {"id": "ref-for-accessibility-requirements-document\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2466"}], "title": "4.4.4. External Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-accessibility-requirements-document\u2467"}], "title": "4.14.1. Consistency"}], "external": false};
-window.dfnpanelData['check'] = {"dfnID": "check", "url": "#check", "dfnText": "Check", "refSections": [{"refs": [{"id": "ref-for-check"}, {"id": "ref-for-check\u2460"}, {"id": "ref-for-check\u2461"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-check\u2462"}, {"id": "ref-for-check\u2463"}, {"id": "ref-for-check\u2464"}, {"id": "ref-for-check\u2465"}], "title": "4.14.1. Consistency"}, {"refs": [{"id": "ref-for-check\u2466"}], "title": "4.14.2. Partial Consistency"}, {"refs": [{"id": "ref-for-check\u2467"}], "title": "4.14.3. Consistency with multiple checks"}, {"refs": [{"id": "ref-for-check\u2468"}], "title": "7. Definitions"}], "external": false};
-window.dfnpanelData['implementation'] = {"dfnID": "implementation", "url": "#implementation", "dfnText": "Implementation", "refSections": [{"refs": [{"id": "ref-for-implementation"}, {"id": "ref-for-implementation\u2460"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-implementation\u2461"}], "title": "4.14.3. Consistency with multiple checks"}], "external": false};
-window.dfnpanelData['outcome'] = {"dfnID": "outcome", "url": "#outcome", "dfnText": "Outcome", "refSections": [{"refs": [{"id": "ref-for-outcome"}, {"id": "ref-for-outcome\u2460"}, {"id": "ref-for-outcome\u2461"}, {"id": "ref-for-outcome\u2462"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-outcome\u2463"}], "title": "4.4. Accessibility Requirements Mapping"}, {"refs": [{"id": "ref-for-outcome\u2464"}], "title": "4.4.1. Outcome Mapping"}, {"refs": [{"id": "ref-for-outcome\u2465"}], "title": "4.4.3. Rules Without Accessibility Requirements"}, {"refs": [{"id": "ref-for-outcome\u2466"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-outcome\u2467"}], "title": "4.7. Expectations"}, {"refs": [{"id": "ref-for-outcome\u2468"}], "title": "4.7.1. Expectations for Atomic Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u24ea"}], "title": "4.7.2. Expectations for Composite Rules"}, {"refs": [{"id": "ref-for-outcome\u2460\u2460"}], "title": "4.9. Test Cases"}, {"refs": [{"id": "ref-for-outcome\u2460\u2461"}], "title": "4.12. Glossary"}, {"refs": [{"id": "ref-for-outcome\u2460\u2462"}], "title": "4.13. Issues List (optional)"}, {"refs": [{"id": "ref-for-outcome\u2460\u2463"}], "title": "4.14. Implementations (optional)"}, {"refs": [{"id": "ref-for-outcome\u2460\u2464"}], "title": "4.14.3. Consistency with multiple checks"}, {"refs": [{"id": "ref-for-outcome\u2460\u2465"}], "title": "7. Definitions"}], "external": false};
-window.dfnpanelData['test-subject'] = {"dfnID": "test-subject", "url": "#test-subject", "dfnText": "Test Subject", "refSections": [{"refs": [{"id": "ref-for-test-subject"}, {"id": "ref-for-test-subject\u2460"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-test-subject\u2461"}], "title": "4.4.1. Outcome Mapping"}, {"refs": [{"id": "ref-for-test-subject\u2462"}], "title": "4.5. Rule Input"}, {"refs": [{"id": "ref-for-test-subject\u2463"}], "title": "4.5.1. Input Aspects (Atomic rules only)"}, {"refs": [{"id": "ref-for-test-subject\u2464"}], "title": "4.6. Applicability"}, {"refs": [{"id": "ref-for-test-subject\u2465"}], "title": "4.6.1. Applicability for Atomic Rules"}, {"refs": [{"id": "ref-for-test-subject\u2466"}, {"id": "ref-for-test-subject\u2467"}, {"id": "ref-for-test-subject\u2468"}], "title": "7. Definitions"}], "external": false};
-window.dfnpanelData['test-target'] = {"dfnID": "test-target", "url": "#test-target", "dfnText": "Test Target", "refSections": [{"refs": [{"id": "ref-for-test-target"}], "title": "3. ACT Rule Types"}, {"refs": [{"id": "ref-for-test-target\u2460"}], "title": "4.5.2. Input Rules (Composite rules only)"}, {"refs": [{"id": "ref-for-test-target\u2461"}], "title": "4.6.1. Applicability for Atomic Rules"}, {"refs": [{"id": "ref-for-test-target\u2462"}, {"id": "ref-for-test-target\u2463"}], "title": "4.7. Expectations"}, {"refs": [{"id": "ref-for-test-target\u2464"}], "title": "4.7.1. Expectations for Atomic Rules"}, {"refs": [{"id": "ref-for-test-target\u2465"}], "title": "4.7.2. Expectations for Composite Rules"}, {"refs": [{"id": "ref-for-test-target\u2466"}, {"id": "ref-for-test-target\u2467"}], "title": "5. Rule Accuracy"}, {"refs": [{"id": "ref-for-test-target\u2468"}, {"id": "ref-for-test-target\u2460\u24ea"}, {"id": "ref-for-test-target\u2460\u2460"}, {"id": "ref-for-test-target\u2460\u2461"}], "title": "7. Definitions"}], "external": false};
-</script>
 <script>/* Boilerplate: script-dom-helper */
+"use strict";
 function query(sel) { return document.querySelector(sel); }
 
 function queryAll(sel) { return [...document.querySelectorAll(sel)]; }
@@ -2152,5 +2081,634 @@ function parseHTML(markup) {
 		el.innerHTML = markup;
 		return el.content;
 	}
+}</script>
+<script>/* Boilerplate: script-dfn-panel */
+"use strict";
+{
+let dfnPanelData = {
+"accessibility-requirement": {"dfnID":"accessibility-requirement","dfnText":"Accessibility requirement","external":false,"refSections":[{"refs":[{"id":"ref-for-accessibility-requirement"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-accessibility-requirement\u2460"}],"title":"2. Scope"},{"refs":[{"id":"ref-for-accessibility-requirement\u2461"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-accessibility-requirement\u2462"},{"id":"ref-for-accessibility-requirement\u2463"}],"title":"4.4. Accessibility Requirements Mapping"},{"refs":[{"id":"ref-for-accessibility-requirement\u2464"}],"title":"4.4.2. Mapping Outside WCAG"},{"refs":[{"id":"ref-for-accessibility-requirement\u2465"},{"id":"ref-for-accessibility-requirement\u2466"}],"title":"4.4.3. Rules Without Accessibility Requirements"},{"refs":[{"id":"ref-for-accessibility-requirement\u2467"}],"title":"4.14. Implementations (optional)"},{"refs":[{"id":"ref-for-accessibility-requirement\u2468"},{"id":"ref-for-accessibility-requirement\u2460\u24ea"}],"title":"5. Rule Accuracy"},{"refs":[{"id":"ref-for-accessibility-requirement\u2460\u2460"},{"id":"ref-for-accessibility-requirement\u2460\u2461"}],"title":"7. Definitions"}],"url":"#accessibility-requirement"},
+"accessibility-requirements-document": {"dfnID":"accessibility-requirements-document","dfnText":"Accessibility requirements document","external":false,"refSections":[{"refs":[{"id":"ref-for-accessibility-requirements-document"}],"title":"1. Introduction"},{"refs":[{"id":"ref-for-accessibility-requirements-document\u2460"},{"id":"ref-for-accessibility-requirements-document\u2461"},{"id":"ref-for-accessibility-requirements-document\u2462"}],"title":"4.4. Accessibility Requirements Mapping"},{"refs":[{"id":"ref-for-accessibility-requirements-document\u2463"}],"title":"4.4.2. Mapping Outside WCAG"},{"refs":[{"id":"ref-for-accessibility-requirements-document\u2464"},{"id":"ref-for-accessibility-requirements-document\u2465"}],"title":"4.4.3. Rules Without Accessibility Requirements"},{"refs":[{"id":"ref-for-accessibility-requirements-document\u2466"}],"title":"4.4.4. External Accessibility Requirements Mapping"},{"refs":[{"id":"ref-for-accessibility-requirements-document\u2467"}],"title":"4.14.1. Consistency"}],"url":"#accessibility-requirements-document"},
+"atomic-rules": {"dfnID":"atomic-rules","dfnText":"Atomic rules","external":false,"refSections":[{"refs":[{"id":"ref-for-atomic-rules"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-atomic-rules\u2460"}],"title":"4.5. Rule Input"},{"refs":[{"id":"ref-for-atomic-rules\u2461"},{"id":"ref-for-atomic-rules\u2462"}],"title":"4.5.1. Input Aspects (Atomic rules only)"},{"refs":[{"id":"ref-for-atomic-rules\u2463"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-atomic-rules\u2464"}],"title":"4.6.1. Applicability for Atomic Rules"},{"refs":[{"id":"ref-for-atomic-rules\u2465"}],"title":"4.7.1. Expectations for Atomic Rules"}],"url":"#atomic-rules"},
+"check": {"dfnID":"check","dfnText":"Check","external":false,"refSections":[{"refs":[{"id":"ref-for-check"},{"id":"ref-for-check\u2460"},{"id":"ref-for-check\u2461"}],"title":"4.14. Implementations (optional)"},{"refs":[{"id":"ref-for-check\u2462"},{"id":"ref-for-check\u2463"},{"id":"ref-for-check\u2464"},{"id":"ref-for-check\u2465"}],"title":"4.14.1. Consistency"},{"refs":[{"id":"ref-for-check\u2466"}],"title":"4.14.2. Partial Consistency"},{"refs":[{"id":"ref-for-check\u2467"}],"title":"4.14.3. Consistency with multiple checks"},{"refs":[{"id":"ref-for-check\u2468"}],"title":"7. Definitions"}],"url":"#check"},
+"completeness": {"dfnID":"completeness","dfnText":"Completeness","external":false,"refSections":[],"url":"#completeness"},
+"composite-rules": {"dfnID":"composite-rules","dfnText":"Composite rules","external":false,"refSections":[{"refs":[{"id":"ref-for-composite-rules"}],"title":"4.5. Rule Input"},{"refs":[{"id":"ref-for-composite-rules\u2460"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-composite-rules\u2461"}],"title":"4.7.2. Expectations for Composite Rules"}],"url":"#composite-rules"},
+"conformance-requirements①": {"dfnID":"conformance-requirements\u2460","dfnText":"Conformance Requirements","external":false,"refSections":[{"refs":[{"id":"ref-for-conformance-requirements\u2460"}],"title":"4.9. Test Cases"},{"refs":[{"id":"ref-for-conformance-requirements\u2460\u2460"},{"id":"ref-for-conformance-requirements\u2460\u2461"}],"title":"4.14.1. Consistency"}],"url":"#conformance-requirements\u2460"},
+"consistent": {"dfnID":"consistent","dfnText":"consistent","external":false,"refSections":[{"refs":[{"id":"ref-for-consistent"}],"title":"4.14.2. Partial Consistency"},{"refs":[{"id":"ref-for-consistent\u2460"},{"id":"ref-for-consistent\u2461"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#consistent"},
+"descriptive-title": {"dfnID":"descriptive-title","dfnText":"Descriptive Title","external":false,"refSections":[{"refs":[{"id":"ref-for-descriptive-title"}],"title":"4.5.2. Input Rules (Composite rules only)"}],"url":"#descriptive-title"},
+"further-testing-is-needed": {"dfnID":"further-testing-is-needed","dfnText":"further testing is needed","external":false,"refSections":[],"url":"#further-testing-is-needed"},
+"implementation": {"dfnID":"implementation","dfnText":"Implementation","external":false,"refSections":[{"refs":[{"id":"ref-for-implementation"},{"id":"ref-for-implementation\u2460"}],"title":"4.14. Implementations (optional)"},{"refs":[{"id":"ref-for-implementation\u2461"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#implementation"},
+"not-satisfied": {"dfnID":"not-satisfied","dfnText":"not satisfied","external":false,"refSections":[{"refs":[{"id":"ref-for-not-satisfied"}],"title":"4.4.1.2. Secondary Requirements"}],"url":"#not-satisfied"},
+"outcome": {"dfnID":"outcome","dfnText":"Outcome","external":false,"refSections":[{"refs":[{"id":"ref-for-outcome"},{"id":"ref-for-outcome\u2460"},{"id":"ref-for-outcome\u2461"},{"id":"ref-for-outcome\u2462"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-outcome\u2463"}],"title":"4.4. Accessibility Requirements Mapping"},{"refs":[{"id":"ref-for-outcome\u2464"}],"title":"4.4.1. Outcome Mapping"},{"refs":[{"id":"ref-for-outcome\u2465"}],"title":"4.4.3. Rules Without Accessibility Requirements"},{"refs":[{"id":"ref-for-outcome\u2466"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-outcome\u2467"}],"title":"4.7. Expectations"},{"refs":[{"id":"ref-for-outcome\u2468"}],"title":"4.7.1. Expectations for Atomic Rules"},{"refs":[{"id":"ref-for-outcome\u2460\u24ea"}],"title":"4.7.2. Expectations for Composite Rules"},{"refs":[{"id":"ref-for-outcome\u2460\u2460"}],"title":"4.9. Test Cases"},{"refs":[{"id":"ref-for-outcome\u2460\u2461"}],"title":"4.12. Glossary"},{"refs":[{"id":"ref-for-outcome\u2460\u2462"}],"title":"4.13. Issues List (optional)"},{"refs":[{"id":"ref-for-outcome\u2460\u2463"}],"title":"4.14. Implementations (optional)"},{"refs":[{"id":"ref-for-outcome\u2460\u2464"}],"title":"4.14.3. Consistency with multiple checks"},{"refs":[{"id":"ref-for-outcome\u2460\u2465"}],"title":"7. Definitions"}],"url":"#outcome"},
+"partially-consistent": {"dfnID":"partially-consistent","dfnText":"partially consistent","external":false,"refSections":[{"refs":[{"id":"ref-for-partially-consistent"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#partially-consistent"},
+"rule-mapping": {"dfnID":"rule-mapping","dfnText":"Rule Mapping","external":false,"refSections":[],"url":"#rule-mapping"},
+"satisfied": {"dfnID":"satisfied","dfnText":"satisfied","external":false,"refSections":[{"refs":[{"id":"ref-for-satisfied"}],"title":"4.4.1.1. Conformance Requirements"}],"url":"#satisfied"},
+"satisfying-tests": {"dfnID":"satisfying-tests","dfnText":"satisfying tests","external":false,"refSections":[],"url":"#satisfying-tests"},
+"secondary-requirements①": {"dfnID":"secondary-requirements\u2460","dfnText":"Secondary Requirements","external":false,"refSections":[{"refs":[{"id":"ref-for-secondary-requirements\u2460"}],"title":"4.14.1. Consistency"}],"url":"#secondary-requirements\u2460"},
+"set-of-checks": {"dfnID":"set-of-checks","dfnText":"set of checks","external":false,"refSections":[{"refs":[{"id":"ref-for-set-of-checks"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#set-of-checks"},
+"test-subject": {"dfnID":"test-subject","dfnText":"Test Subject","external":false,"refSections":[{"refs":[{"id":"ref-for-test-subject"},{"id":"ref-for-test-subject\u2460"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-test-subject\u2461"}],"title":"4.4.1. Outcome Mapping"},{"refs":[{"id":"ref-for-test-subject\u2462"}],"title":"4.5. Rule Input"},{"refs":[{"id":"ref-for-test-subject\u2463"}],"title":"4.5.1. Input Aspects (Atomic rules only)"},{"refs":[{"id":"ref-for-test-subject\u2464"}],"title":"4.6. Applicability"},{"refs":[{"id":"ref-for-test-subject\u2465"}],"title":"4.6.1. Applicability for Atomic Rules"},{"refs":[{"id":"ref-for-test-subject\u2466"},{"id":"ref-for-test-subject\u2467"},{"id":"ref-for-test-subject\u2468"}],"title":"7. Definitions"}],"url":"#test-subject"},
+"test-target": {"dfnID":"test-target","dfnText":"Test Target","external":false,"refSections":[{"refs":[{"id":"ref-for-test-target"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-test-target\u2460"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-test-target\u2461"}],"title":"4.6.1. Applicability for Atomic Rules"},{"refs":[{"id":"ref-for-test-target\u2462"},{"id":"ref-for-test-target\u2463"}],"title":"4.7. Expectations"},{"refs":[{"id":"ref-for-test-target\u2464"}],"title":"4.7.1. Expectations for Atomic Rules"},{"refs":[{"id":"ref-for-test-target\u2465"}],"title":"4.7.2. Expectations for Composite Rules"},{"refs":[{"id":"ref-for-test-target\u2466"},{"id":"ref-for-test-target\u2467"}],"title":"5. Rule Accuracy"},{"refs":[{"id":"ref-for-test-target\u2468"},{"id":"ref-for-test-target\u2460\u24ea"},{"id":"ref-for-test-target\u2460\u2460"},{"id":"ref-for-test-target\u2460\u2461"}],"title":"7. Definitions"}],"url":"#test-target"},
+"true-positives": {"dfnID":"true-positives","dfnText":"True positives","external":false,"refSections":[{"refs":[{"id":"ref-for-true-positives"}],"title":"4.14.2. Partial Consistency"}],"url":"#true-positives"},
+};
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    genAllDfnPanels();
+
+    document.body.addEventListener("click", (e) => {
+        // If not handled already, just hide all dfn panels.
+        hideAllDfnPanels();
+    });
+});
+
+window.addEventListener("resize", () => {
+    // Pin any visible dfn panel
+    queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(el=>positionDfnPanel(el));
+});
+
+function genAllDfnPanels() {
+    for(const panelData of Object.values(dfnPanelData)) {
+        const dfnID = panelData.dfnID;
+        const dfn = document.getElementById(dfnID);
+        if(!dfn) {
+            console.log(`Can't find dfn#${dfnID}.`, panelData);
+            continue;
+        }
+        dfn.panelData = panelData;
+        insertDfnPopupAction(dfn);
+    }
+}
+
+function genDfnPanel(dfn, { dfnID, url, dfnText, refSections, external }) {
+    const dfnPanel = mk.aside({
+        class: "dfn-panel on",
+        id: `infopanel-for-${dfnID}`,
+        "data-for": dfnID,
+        "aria-labelled-by":`infopaneltitle-for-${dfnID}`,
+        },
+        mk.span({id:`infopaneltitle-for-${dfnID}`, style:"display:none"},
+            `Info about the '${dfnText}' ${external?"external":""} reference.`),
+        mk.a({href:url, class:"dfn-link"}, url),
+        refSections.length == 0 ? [] :
+            mk.b({}, "Referenced in:"),
+            mk.ul({},
+                ...refSections.map(section=>
+                    mk.li({},
+                        ...section.refs.map((ref, refI)=>
+                            [
+                                mk.a({ href: `#${ref.id}` },
+                                    (refI == 0) ? section.title : `(${refI + 1})`
+                                ),
+                                " ",
+                            ]
+                        ),
+                    ),
+                ),
+            ),
+        genLinkingSyntaxes(dfn),
+    );
+
+    dfnPanel.addEventListener('click', (event) => {
+        if (event.target.nodeName == 'A') {
+            scrollToTargetAndHighlight(event);
+            pinDfnPanel(dfnPanel);
+        }
+        event.stopPropagation();
+        refocusOnTarget(event);
+    });
+    dfnPanel.addEventListener('keydown', (event) => {
+        if(event.keyCode == 27) { // Escape key
+            hideDfnPanel({dfnPanel});
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    });
+
+    dfnPanel.dfn = dfn;
+    dfn.dfnPanel = dfnPanel;
+    return dfnPanel;
+}
+
+
+
+function hideAllDfnPanels() {
+    // Delete the currently-active dfn panel.
+    queryAll(".dfn-panel").forEach(dfnPanel=>hideDfnPanel({dfnPanel}));
+}
+
+function showDfnPanel(dfn) {
+    hideAllDfnPanels(); // Only display one at a time.
+
+    dfn.setAttribute("aria-expanded", "true");
+
+    const dfnPanel = genDfnPanel(dfn, dfn.panelData);
+
+    // Give the dfn a unique tabindex, and then
+    // give all the tabbable panel bits successive indexes.
+    let tabIndex = 100;
+    dfn.tabIndex = tabIndex++;
+    const tabbable = dfnPanel.querySelectorAll(":is(a, button)");
+    for (const el of tabbable) {
+        el.tabIndex = tabIndex++;
+    }
+
+    append(document.body, dfnPanel);
+    positionDfnPanel(dfnPanel);
+}
+
+function positionDfnPanel(dfnPanel) {
+    const dfn = dfnPanel.dfn;
+    const dfnPos = getBounds(dfn);
+    dfnPanel.style.top = dfnPos.bottom + "px";
+    dfnPanel.style.left = dfnPos.left + "px";
+
+    const panelPos = dfnPanel.getBoundingClientRect();
+    const panelMargin = 8;
+    const maxRight = document.body.parentNode.clientWidth - panelMargin;
+    if (panelPos.right > maxRight) {
+        const overflowAmount = panelPos.right - maxRight;
+        const newLeft = Math.max(panelMargin, dfnPos.left - overflowAmount);
+        dfnPanel.style.left = newLeft + "px";
+    }
+}
+
+function pinDfnPanel(dfnPanel) {
+    // Switch it to "activated" state, which pins it.
+    dfnPanel.classList.add("activated");
+    dfnPanel.style.position = "fixed";
+    dfnPanel.style.left = null;
+    dfnPanel.style.top = null;
+}
+
+function hideDfnPanel({dfn, dfnPanel}) {
+    if(!dfnPanel) dfnPanel = dfn.dfnPanel;
+    if(!dfn) dfn = dfnPanel.dfn;
+    dfn.dfnPanel = undefined;
+    dfnPanel.dfn = undefined;
+    dfn.setAttribute("aria-expanded", "false");
+    dfn.tabIndex = undefined;
+    dfnPanel.remove()
+}
+
+function toggleDfnPanel(dfn) {
+    if(dfn.dfnPanel) {
+        hideDfnPanel(dfn);
+    } else {
+        showDfnPanel(dfn);
+    }
+}
+
+function insertDfnPopupAction(dfn) {
+    dfn.setAttribute('role', 'button');
+    dfn.setAttribute('aria-expanded', 'false')
+    dfn.tabIndex = 0;
+    dfn.classList.add('has-dfn-panel');
+    dfn.addEventListener('click', (event) => {
+        toggleDfnPanel(dfn);
+        event.stopPropagation();
+    });
+    dfn.addEventListener('keypress', (event) => {
+        const kc = event.keyCode;
+        // 32->Space, 13->Enter
+        if(kc == 32 || kc == 13) {
+            toggleDfnPanel(dfn);
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    });
+}
+
+function refocusOnTarget(event) {
+    const target = event.target;
+    setTimeout(() => {
+        // Refocus on the event.target element.
+        // This is needed after browser scrolls to the destination.
+        target.focus();
+    });
+}
+
+// TODO: shared util
+// Returns the root-level absolute position {left and top} of element.
+function getBounds(el, relativeTo=document.body) {
+    const relativeRect = relativeTo.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const top = elRect.top - relativeRect.top;
+    const left = elRect.left - relativeRect.left;
+    return {
+        top,
+        left,
+        bottom: top + elRect.height,
+        right: left + elRect.width,
+    }
+}
+
+function scrollToTargetAndHighlight(event) {
+    let hash = event.target.hash;
+    if (hash) {
+        hash = decodeURIComponent(hash.substring(1));
+        const dest = document.getElementById(hash);
+        if (dest) {
+            dest.classList.add('highlighted');
+            setTimeout(() => dest.classList.remove('highlighted'), 1000);
+        }
+    }
+}
+
+// Functions, divided by link type, that wrap an autolink's
+// contents with the appropriate outer syntax.
+// Alternately, a string naming another type they format
+// the same as.
+function needsFor(type) {
+    switch(type) {
+        case "descriptor":
+        case "value":
+        case "element-attr":
+        case "attr-value":
+        case "element-state":
+        case "method":
+        case "constructor":
+        case "argument":
+        case "attribute":
+        case "const":
+        case "dict-member":
+        case "event":
+        case "enum-value":
+        case "stringifier":
+        case "serializer":
+        case "iterator":
+        case "maplike":
+        case "setlike":
+        case "state":
+        case "mode":
+        case "context":
+        case "facet": return true;
+
+        default: return false;
+    }
+}
+function refusesFor(type) {
+    switch(type) {
+        case "property":
+        case "element":
+        case "interface":
+        case "namespace":
+        case "callback":
+        case "dictionary":
+        case "enum":
+        case "exception":
+        case "typedef":
+        case "http-header":
+        case "permission": return true;
+
+        default: return false;
+    }
+}
+function linkFormatterFromType(type) {
+    switch(type) {
+        case 'scheme':
+        case 'permission':
+        case 'dfn': return (text) => `[=${text}=]`;
+
+        case 'abstract-op': return (text) => `[\$${text}\$]`;
+
+        case 'function':
+        case 'at-rule':
+        case 'selector':
+        case 'value': return (text) => `''${text}''`;
+
+        case 'http-header': return (text) => `[:${text}:]`;
+
+        case 'interface':
+        case 'constructor':
+        case 'method':
+        case 'argument':
+        case 'attribute':
+        case 'callback':
+        case 'dictionary':
+        case 'dict-member':
+        case 'enum':
+        case 'enum-value':
+        case 'exception':
+        case 'const':
+        case 'typedef':
+        case 'stringifier':
+        case 'serializer':
+        case 'iterator':
+        case 'maplike':
+        case 'setlike':
+        case 'extended-attribute':
+        case 'event':
+        case 'idl': return (text) => `{{${text}}}`;
+
+        case 'element-state':
+        case 'element-attr':
+        case 'attr-value':
+        case 'element': return (element) => `<{${element}}>`;
+
+        case 'grammar': return (text) => `${text} (within a <pre class=prod>)`;
+
+        case 'type': return (text)=> `<<${text}>>`;
+
+        case 'descriptor':
+        case 'property': return (text) => `'${text}'`;
+
+        default: return;
+    };
+};
+
+function genLinkingSyntaxes(dfn) {
+    if(dfn.tagName != "DFN") return;
+
+    const type = dfn.getAttribute('data-dfn-type');
+    if(!type) {
+        console.log(`<dfn> doesn't have a data-dfn-type:`, dfn);
+        return [];
+    }
+
+    // Return a function that wraps link text based on the type
+    const linkFormatter = linkFormatterFromType(type);
+    if(!linkFormatter) {
+        console.log(`<dfn> has an unknown data-dfn-type:`, dfn);
+        return [];
+    }
+
+    let ltAlts;
+    if(dfn.hasAttribute('data-lt')) {
+        ltAlts = dfn.getAttribute('data-lt')
+            .split("|")
+            .map(x=>x.trim());
+    } else {
+        ltAlts = [dfn.textContent.trim()];
+    }
+    if(type == "type") {
+        // lt of "<foo>", but "foo" is the interior;
+        // <<foo/bar>> is how you write it with a for,
+        // not <foo/<bar>> or whatever.
+        for(var i = 0; i < ltAlts.length; i++) {
+            const lt = ltAlts[i];
+            const match = /<(.*)>/.exec(lt);
+            if(match) { ltAlts[i] = match[1]; }
+        }
+    }
+
+    let forAlts;
+    if(dfn.hasAttribute('data-dfn-for')) {
+        forAlts = dfn.getAttribute('data-dfn-for')
+            .split(",")
+            .map(x=>x.trim());
+    } else {
+        forAlts = [''];
+    }
+
+    let linkingSyntaxes = [];
+    if(!needsFor(type)) {
+        for(const lt of ltAlts) {
+            linkingSyntaxes.push(linkFormatter(lt));
+        }
+    }
+    if(!refusesFor(type)) {
+        for(const f of forAlts) {
+            linkingSyntaxes.push(linkFormatter(`${f}/${ltAlts[0]}`))
+        }
+    }
+    return [
+        mk.b({}, 'Possible linking syntaxes:'),
+        mk.ul({},
+            ...linkingSyntaxes.map(link => {
+                const copyLink = async () =>
+                    await navigator.clipboard.writeText(link);
+                return mk.li({},
+                    mk.div({ class: 'link-item' },
+                        mk.button({
+                            class: 'copy-icon', title: 'Copy',
+                            type: 'button',
+                            _onclick: copyLink,
+                            tabindex: 0,
+                        }, mk.span({ class: 'icon' }) ),
+                        mk.span({}, link)
+                    )
+                );
+            })
+        )
+    ];
+}
+}
+</script>
+<script>/* Boilerplate: script-ref-hints */
+"use strict";
+{
+let refsData = {
+"#accessibility-requirement": {"displayText":"accessibility requirement","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"accessibility requirement","type":"dfn","url":"#accessibility-requirement"},
+"#accessibility-requirements-document": {"displayText":"accessibility requirements document","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"accessibility requirements document","type":"dfn","url":"#accessibility-requirements-document"},
+"#atomic-rules": {"displayText":"atomic rules","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"atomic rules","type":"dfn","url":"#atomic-rules"},
+"#check": {"displayText":"check","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"check","type":"dfn","url":"#check"},
+"#composite-rules": {"displayText":"composite rules","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"composite rules","type":"dfn","url":"#composite-rules"},
+"#conformance-requirements①": {"displayText":"conformance requirements","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"conformance requirements","type":"dfn","url":"#conformance-requirements\u2460"},
+"#consistent": {"displayText":"consistent","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"consistent","type":"dfn","url":"#consistent"},
+"#descriptive-title": {"displayText":"descriptive title","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"descriptive title","type":"dfn","url":"#descriptive-title"},
+"#implementation": {"displayText":"implementation","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"implementation","type":"dfn","url":"#implementation"},
+"#not-satisfied": {"displayText":"not satisfied","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"not satisfied","type":"dfn","url":"#not-satisfied"},
+"#outcome": {"displayText":"outcome","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"outcome","type":"dfn","url":"#outcome"},
+"#partially-consistent": {"displayText":"partially consistent","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"partially consistent","type":"dfn","url":"#partially-consistent"},
+"#satisfied": {"displayText":"satisfied","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"satisfied","type":"dfn","url":"#satisfied"},
+"#secondary-requirements①": {"displayText":"secondary requirements","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"secondary requirements","type":"dfn","url":"#secondary-requirements\u2460"},
+"#set-of-checks": {"displayText":"set of checks","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"set of checks","type":"dfn","url":"#set-of-checks"},
+"#test-subject": {"displayText":"test subject","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"test subject","type":"dfn","url":"#test-subject"},
+"#test-target": {"displayText":"test target","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"test target","type":"dfn","url":"#test-target"},
+"#true-positives": {"displayText":"true positives","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"true positives","type":"dfn","url":"#true-positives"},
+};
+
+function mkRefHint(link, ref) {
+    const linkText = link.textContent;
+    let dfnTextElements = '';
+    if (ref.displayText.toLowerCase() != linkText.toLowerCase()) {
+        // Give the original term if it's being displayed in a different way.
+        // But allow casing differences, they're insignificant.
+        dfnTextElements =
+            mk.li({},
+                mk.b({}, "Term: "),
+                mk.span({}, ref.displayText)
+            );
+    }
+    const forList = ref.for_;
+    let forListElements;
+    if(forList.length == 0) {
+        forListElements = [];
+    } else if(forList.length == 1) {
+        forListElements = mk.li({},
+            mk.b({}, "For: "),
+            mk.span({}, forList[0]),
+        );
+    } else {
+        forListElements = mk.li({},
+            mk.b({}, "For: "),
+            mk.ul({},
+                ...forList.map(forItem =>
+                    mk.li({},
+                        mk.span({}, forItem)
+                    ),
+                ),
+            ),
+        );
+    }
+    const url = ref.url;
+    const safeUrl = encodeURIComponent(url);
+    const hintPanel = mk.aside({
+        class: "ref-hint",
+        id: `ref-hint-for-${safeUrl}`,
+        "data-for": url,
+        "aria-labelled-by": `ref-hint-for-${safeUrl}`,
+    },
+        mk.ul({},
+            dfnTextElements,
+            mk.li({},
+                mk.b({}, "URL: "),
+                mk.a({ href: url, class: "ref" }, url),
+            ),
+            mk.li({},
+                mk.b({}, "Type: "),
+                mk.span({}, `${ref.type}`),
+            ),
+            mk.li({},
+                mk.b({}, "Spec: "),
+                mk.span({}, `${ref.spec ? ref.spec : ''}`),
+            ),
+            forListElements
+        ),
+    );
+    hintPanel.forLink = link;
+    setupRefHintEventListeners(link, hintPanel);
+    return hintPanel;
+}
+
+function hideAllRefHints() {
+    queryAll(".ref-hint").forEach(el=>hideRefHint(el));
+}
+
+function hideRefHint(refHint) {
+    const link = refHint.forLink;
+    link.setAttribute("aria-expanded", "false");
+    if(refHint.teardownEventListeners) {
+        refHint.teardownEventListeners();
+    }
+    refHint.remove();
+}
+
+function showRefHint(link) {
+    if(link.classList.contains("dfn-link")) return;
+    const url = link.getAttribute("href");
+    const ref = refsData[url];
+    if(!ref) return;
+
+    hideAllRefHints(); // Only display one at this time.
+
+    const refHint = mkRefHint(link, ref);
+    append(document.body, refHint);
+    link.setAttribute("aria-expanded", "true");
+    positionRefHint(refHint);
+}
+
+function setupRefHintEventListeners(link, refHint) {
+    if (refHint.teardownEventListeners) return;
+    // Add event handlers to hide the refHint after the user moves away
+    // from both the link and refHint, if not hovering either within one second.
+    let timeout = null;
+    const startHidingRefHint = (event) => {
+        if (timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+            hideRefHint(refHint);
+        }, 1000);
+    }
+    const resetHidingRefHint = (event) => {
+        if (timeout) clearTimeout(timeout);
+        timeout = null;
+    };
+    link.addEventListener("mouseleave", startHidingRefHint);
+    link.addEventListener("mouseenter", resetHidingRefHint);
+    link.addEventListener("blur", startHidingRefHint);
+    link.addEventListener("focus", resetHidingRefHint);
+    refHint.addEventListener("mouseleave", startHidingRefHint);
+    refHint.addEventListener("mouseenter", resetHidingRefHint);
+    refHint.addEventListener("blur", startHidingRefHint);
+    refHint.addEventListener("focus", resetHidingRefHint);
+
+    refHint.teardownEventListeners = () => {
+        // remove event listeners
+        resetHidingRefHint();
+        link.removeEventListener("mouseleave", startHidingRefHint);
+        link.removeEventListener("mouseenter", resetHidingRefHint);
+        link.removeEventListener("blur", startHidingRefHint);
+        link.removeEventListener("focus", resetHidingRefHint);
+        refHint.removeEventListener("mouseleave", startHidingRefHint);
+        refHint.removeEventListener("mouseenter", resetHidingRefHint);
+        refHint.removeEventListener("blur", startHidingRefHint);
+        refHint.removeEventListener("focus", resetHidingRefHint);
+    };
+}
+
+function positionRefHint(refHint) {
+    const link = refHint.forLink;
+    const linkPos = getBounds(link);
+    refHint.style.top = linkPos.bottom + "px";
+    refHint.style.left = linkPos.left + "px";
+
+    const panelPos = refHint.getBoundingClientRect();
+    const panelMargin = 8;
+    const maxRight = document.body.parentNode.clientWidth - panelMargin;
+    if (panelPos.right > maxRight) {
+        const overflowAmount = panelPos.right - maxRight;
+        const newLeft = Math.max(panelMargin, linkPos.left - overflowAmount);
+        refHint.style.left = newLeft + "px";
+    }
+}
+
+// TODO: shared util
+// Returns the root-level absolute position {left and top} of element.
+function getBounds(el, relativeTo=document.body) {
+    const relativeRect = relativeTo.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const top = elRect.top - relativeRect.top;
+    const left = elRect.left - relativeRect.left;
+    return {
+        top,
+        left,
+        bottom: top + elRect.height,
+        right: left + elRect.width,
+    }
+}
+
+function showRefHintListener(e) {
+    // If the target isn't in a link (or is a link),
+    // just ignore it.
+    let link = e.target.closest("a");
+    if(!link) return;
+
+    // If the target is in a ref-hint panel
+    // (aka a link in the already-open one),
+    // also just ignore it.
+    if(link.closest(".ref-hint")) return;
+
+    // Otherwise, show the panel for the link.
+    showRefHint(link);
+}
+
+function hideAllHintsListener(e) {
+    // If the click is inside a ref-hint panel, ignore it.
+    if(e.target.closest(".ref-hint")) return;
+    // Otherwise, close all the current panels.
+    hideAllRefHints();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("mousedown", showRefHintListener);
+    document.body.addEventListener("focus", showRefHintListener);
+
+    document.body.addEventListener("click", hideAllHintsListener);
+});
+
+window.addEventListener("resize", () => {
+    // Hide any open ref hint.
+    hideAllRefHints();
+});
 }
 </script>
