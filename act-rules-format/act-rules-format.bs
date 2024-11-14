@@ -1073,4 +1073,4 @@ This section is *non-normative*.
   <li><strong>Overall</strong> Links to W3C specifications are updated to their latest recommendation</li>
 </ul>
 
-All changes from the previous published version can be viewed using the [Editor's draft to Rules Format 1.0 Recommendation diff link](https://services.w3.org/htmldiff?doc1=https://www.w3.org/TR/act-rules-format/&doc2=https://w3c.github.io/wcag-act/act-rules-format.html)
+All changes from the previous published version can be viewed using the <a href="https://services.w3.org/htmldiff?doc1=https://www.w3.org/TR/act-rules-format/&doc2=https://w3c.github.io/wcag-act/act-rules-format.html">Editor's draft to Rules Format 1.0 Recommendation diff link</a>
