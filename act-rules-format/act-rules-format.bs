@@ -753,6 +753,15 @@ Harmonization occurs when a group of rule implementors collectively accept the v
 
 An example of such a process is the [WCAG ACT Review Process](https://w3c.github.io/wcag-act/wcag-ruleset-review-process).
 
+Privacy Considerations {#privacy-considerations}
+==========================
+
+This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
+
+Security considerations {#security-considerations}
+==========================
+
+This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
 
 Definitions {#definitions}
 ==========================
@@ -1053,6 +1062,8 @@ Appendix 3: Change History {#Change_History}
 This section is *non-normative*.
 
 <ul>
+  <li><strong>7. Privacy Considerations</strong> Added</li>
+  <li><strong>8. Security Considerations</strong> Added</li>
   <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.</li>
   <li><strong>4.4. Accessibility Requirements Mapping</strong> Accessibility requirements are now categorized as either Conformance requirements or Secondary requirements.</li>
   <li><strong>4.6 Applicability</strong> Subjective applicability statements are now allowed. Objective and plain language requirements have been reduced to <em class="rfc2119">should</em> instead of <em class="rfc2119">must</em>.</li>
