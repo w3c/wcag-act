@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version 742f3d674, updated Mon Nov 4 14:56:54 2024 -0800" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="654855a0dce40305c2efe8642c3919aa942df847" name="revision">
+  <meta content="ecda211eb938c33b6867a120546060cbc2cde01c" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -710,7 +710,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-11-14">14 November 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-12-05">5 December 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -1393,6 +1393,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written.</p>
    <h3 class="heading settled" data-level="4.12" id="glossary"><span class="secno">4.12. </span><span class="content">Glossary</span><a class="self-link" href="#glossary"></a></h3>
    <p>ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①②">outcome</a> definition, as well as any definitions used in <a href="#applicability">applicability</a> and <a href="#expectations">expectations</a> sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> result in a new <a href="#rule-versions">rule version</a> of all rules that use that definition.</p>
+   <div class="note" role="note">
+    <p><strong>Note:</strong> Rules can use multiple glossaries, some in the rule, and some outside. These can also be glossaries in other documents such as WCAG 2.2 or HTML 5. Where an external glossary term can change without a change to the rule, some indication of the glossary term’s version is necessary. For example the HTML 5 standard is regularly updated, so a date can be added to the link to indicate the version that was used in authoring the rule.</p>
+   </div>
    <h3 class="heading settled" data-level="4.13" id="issues-list"><span class="secno">4.13. </span><span class="content">Issues List (optional)</span><a class="self-link" href="#issues-list"></a></h3>
    <p>An ACT Rule <em class="rfc2119">may</em> include a list or a reference to a list of any known issues. The issues list would be used to record cases where an <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①③">outcome</a> of an ACT Rule was <code>failed</code> where it ought to have been <code>passed</code> or <code>inapplicable</code>, or vice versa. There are several reasons why this might occur. See <a href="#rule-accuracy">rule accuracy</a> for more information.</p>
    <p>The issues list serves two purposes. For users of ACT Rules, the issues list gives insight into why an inaccurate result occurred, as well as provide confidence in the result of that rule. For the designer of the rule, the issues list is also useful to plan future updates to the rule. In a new version of the rule, resolved issues would be moved to the change log.</p>
