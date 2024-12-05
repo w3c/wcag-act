@@ -633,6 +633,9 @@ Glossary {#glossary}
 
 ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the [=outcome=] definition, as well as any definitions used in [applicability](#applicability) and [expectations](#expectations) sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> result in a new [rule version](#rule-versions) of all rules that use that definition.
 
+<div class="note">
+  <p>**Note:** Rules can use multiple glossaries, some in the rule, and some outside. These can also be glossaries in other documents such as WCAG 2.2 or HTML 5. Where an external glossary term can change without a change to the rule, some indication of the glossary term's version is necessary. For example the HTML 5 standard is regularly updated, so a date can be added to the link to indicate the version that was used in authoring the rule.</p>
+</div>
 
 Issues List (optional) {#issues-list}
 -------------------------------------
