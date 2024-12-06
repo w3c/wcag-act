@@ -1063,7 +1063,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="secondary-requirements①">Secondary Requirements</dfn></span><a class="self-link" href="#secondary-requirements"></a></h5>
    <p>A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
-   <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.</p>
+   <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the rule.</p>
    <p>When the rule is designed to test an accessibility requirement, differences in <a href="#accessibility-support">accessibility support</a> <em class="rfc2119">must not</em> be a reason for that requirement to be a secondary accessibility requirement.</p>
    <p>Some scenarios when a rule will have Secondary requirements include:</p>
    <p><strong>Scenario 1</strong>: the rule is not as strict as a requirement</p>
@@ -1545,8 +1545,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
       <li><strong>inapplicable:</strong> No part of the test subject matches the applicability
       <li><strong>passed:</strong> A <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①⓪">test target</a> meets all expectations
       <li><strong>failed:</strong> A <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①①">test target</a> does not meet all expectations
-      <li><strong>cantTell:</strong> Whether the rule is applicable, or not all expectations were met could not be fully determined by the tester.
-      <li><strong>Untested:</strong> The tester has not attempted to evaluate the test subject.
+      <li><strong>cantTell:</strong> Whether the rule is applicable, or whether all expectations were met could not be fully determined by the tester.
+      <li><strong>Untested:</strong> The test subject was not evaluated for the rule.
      </ul>
      <div class="note" role="note">
       <p><strong>Note:</strong> A rule has one <code>passed</code> or <code>failed</code> outcome for every <a data-link-type="dfn" href="#test-target" id="ref-for-test-target①②">test target</a>. When a tester evaluates a test target it can also be reported as <code>cantTell</code> if the rule cannot be tested in its entirety. For example, when applicability was automated, but the expectations have to be evaluated manually.</p>
