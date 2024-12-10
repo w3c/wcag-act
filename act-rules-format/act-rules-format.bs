@@ -237,7 +237,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 
 A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
 
-When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the Background section of the rule.
+When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the rule.
 
 When the rule is designed to test an accessibility requirement, differences in [accessibility support](#accessibility-support) <em class="rfc2119">must not</em> be a reason for that requirement to be a secondary accessibility requirement. 
 
@@ -798,8 +798,8 @@ Definitions {#definitions}
       <li>**inapplicable:** No part of the test subject matches the applicability</li>
       <li>**passed:** A [=test target=] meets all expectations</li>
       <li>**failed:** A [=test target=] does not meet all expectations</li>
-      <li>**cantTell:** Whether the rule is applicable, or not all expectations were met could not be fully determined by the tester.</li>
-      <li>**Untested:** The tester has not attempted to evaluate the test subject.</li>
+      <li>**cantTell:** Whether the rule is applicable, or whether all expectations were met could not be fully determined by the tester.</li>
+      <li>**Untested:** The test subject was not evaluated for the rule.</li>
     </ul>
     <div class="note">
       <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When a tester evaluates a test target it can also be reported as `cantTell` if the rule cannot be tested in its entirety. For example, when applicability was automated, but the expectations have to be evaluated manually.</p>
