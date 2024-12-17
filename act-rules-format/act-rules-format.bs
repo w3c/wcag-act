@@ -1065,6 +1065,8 @@ Appendix 3: Change History {#Change_History}
 This section is *non-normative*.
 
 <ul>
+  <li><strong>4.4.1.2. Seconddary Requirements</strong> Secondary requirements explanation no longer rrequired in background section.</li>
+  <li><strong>9. Definitions</strong> Update cantTell and Untested definitions.</li>
   <li><strong>7. Privacy Considerations</strong> Added</li>
   <li><strong>8. Security Considerations</strong> Added</li>
   <li><strong>4. Rule Structure</strong> Accessibility Support and Assumptions section are now subsections of Background.</li>
