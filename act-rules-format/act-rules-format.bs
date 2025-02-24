@@ -154,6 +154,8 @@ Rule Description {#rule-description}
 
 An ACT Rule <em class="rfc2119">must</em> have a description that is in plain language which provides a brief explanation of what the rule does.
 
+Note: Whatever the data format in which a rule is written, it is assumed that the text has metadata specifying its language and writing direction. Most well-known markup languages have built-in provisions to satisfy this requirement.
+
 <aside class=example>
   <header>Example of a rule description:</header>
   <blockquote><p>This rule checks that the HTML page has a title</p></blockquote>
