@@ -271,7 +271,7 @@ A rule was designed to test a specific solution for an accessibility requirement
 </blockquote>
   </aside>
 
-A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a secondary requirement.</li>
+A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a secondary requirement.
 
 <aside class=example>
 <header>Example: a rule that tests Enhanced Contrast</header>
@@ -280,6 +280,8 @@ A rule was designed to test an accessibility requirement and there exists a less
 <li>Conformance Requirement: Success Criterion 1.4.6 Contrast (Enhanced)</li>
 <li>Secondary Requirement: Success Criterion 1.4.3 Contrast (Minimum)</li>
 <ul><li>Explanation: This success criterion is **less strict** than this rule. This is because this criterion has a lower minimum contrast. Some of the failed examples may satisfy this success criterion.</li></ul>
+</ul>
+</blockquote>
 </aside>
 
 **Scenario 3**: the rule may impact the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement
