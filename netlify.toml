@@ -1,5 +1,5 @@
 [build]
-command = "brew install pipx && pipx install bikeshed && bikeshed spec act-rules-format/act-rules.format.bs"
+command = "brew install pipx && pipx install bikeshed && bikeshed spec act-rules-format/act-rules-format.bs"
 # publish = "_site"
 
 [[redirects]]
