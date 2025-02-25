@@ -18,7 +18,7 @@ jobs:
           - source: act-rules-format/act-rules-format.bs
             destination: act-rules-format.html
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: w3c/spec-prod@v2
         with:
           TOOLCHAIN: bikeshed
@@ -26,4 +26,4 @@ jobs:
           DESTINATION: ${{ matrix.destination }}
           GH_PAGES_BRANCH: gh-pages 
           VALIDATE_WEBIDL: false
-          VALIDATE_MARKUP: false
+          VALIDATE_MARKUP: true
