@@ -132,6 +132,8 @@ Rule Identifier {#rule-identifier}
 
 An ACT Rule <em class="rfc2119">must</em> have an identifier. This identifier <em class="rfc2119">must</em> be unique when the rule is part of a ruleset. The identifier can be any text, such as plain text, URL, or a database identifier.
 
+Rulesets <em>MUST</em> be consistent when determining if an identifier is unique. For example, by using lowercase ASCII or other unambiguous method. For a detailed explanation of the problem, see [‘Character Model for the World Wide Web: String Matching’](https://www.w3.org/TR/charmod-norm/)
+
 <aside class=example>
   <header>Example of identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
   <blockquote><ul>
