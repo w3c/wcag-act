@@ -124,8 +124,7 @@ An ACT Rule MAY also contain:
 * [Implementations](#implementations) (optional)
 * [Acknowledgments](#acknowledgments) (optional)
 
-The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. In addition to supporting people with disabilities, using an accessible format also makes internationalization of ACT Rules easier.
-
+The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a [=localisation|localizable=] format, such that a rule can contain multiple language representations or so that translations of the rule can be created.
 
 Rule Identifier {#rule-identifier}
 ----------------------------------
@@ -1069,6 +1068,7 @@ Appendix 3: Change History {#Change_History}
 This section is *non-normative*.
 
 <ul>
+  <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
   <li><strong>4.4.1.2. Secondary Requirements</strong> Secondary requirements explanation no longer required in background section.</li>
   <li><strong>9. Definitions</strong> Update cantTell and Untested definitions.</li>
   <li><strong>7. Privacy Considerations</strong> Added</li>
