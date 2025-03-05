@@ -1069,6 +1069,7 @@ This section is *non-normative*.
 
 <ul>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
+  <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique</li>
   <li><strong>4.4.1.2. Secondary Requirements</strong> Secondary requirements explanation no longer required in background section.</li>
   <li><strong>9. Definitions</strong> Update cantTell and Untested definitions.</li>
   <li><strong>7. Privacy Considerations</strong> Added</li>
