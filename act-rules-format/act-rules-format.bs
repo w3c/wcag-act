@@ -129,7 +129,9 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule <em class="rfc2119">must</em> have an identifier. This identifier <em class="rfc2119">must</em> be unique when the rule is part of a ruleset. The identifier can be any text, such as plain text, URL, or a database identifier.
+An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.
+
+Determining whether an identifier is unique can be achieved by using lowercase ASCII characters or other unambiguous method. For a detailed explanation, see [‘Character Model for the World Wide Web: String Matching’](https://www.w3.org/TR/charmod-norm/)
 
 <aside class=example>
   <header>Example of identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
@@ -1067,6 +1069,7 @@ This section is *non-normative*.
 
 <ul>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
+  <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique</li>
   <li><strong>4.4.1.2. Secondary Requirements</strong> Secondary requirements explanation no longer required in background section.</li>
   <li><strong>9. Definitions</strong> Update cantTell and Untested definitions.</li>
   <li><strong>7. Privacy Considerations</strong> Added</li>
