@@ -1083,7 +1083,7 @@ Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rul
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since ACT Rules Format 1.0
+Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0)
 ---------------
 
 <ul>
