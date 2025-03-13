@@ -1,0 +1,26 @@
+name: Common Input Aspects ED
+on:
+  pull_request:
+    paths: 
+      - "common-input-aspects/**"
+  push:
+    branches: [main]
+    paths:
+        - "common-input-aspects/**"
+jobs:
+  main:
+    name: Common Input Aspects ED
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: bikeshed
+          SOURCE: common-input-aspects/NOTE-act-rules-common-aspects.bs
+          DESTINATION: NOTE-common-input-aspects.html
+          GH_PAGES_BRANCH: gh-pages 
+          VALIDATE_WEBIDL: false
+          VALIDATE_MARKUP: true
+          BUILD_FAIL_ON: fatal
