@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version 4b8aed3f7, updated Thu Mar 6 12:35:01 2025 -0800" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="f68c67575dce7ea88062928f406f7f374b39c8b6" name="revision">
+  <meta content="d06413c09f617af3bdf26e5a78d2f233dff1e38b" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -955,7 +955,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ul>
    <p>The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule <a href="#test-cases">test cases</a> are allowed to contain inaccessible content. If any test case contains accessibility issues listed in <a href="https://www.w3.org/TR/WCAG22/#cc5">WCAG 2.2 Section 5.2.5 Non-Interference</a>, users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a <a data-link-type="dfn" href="https://w3c.github.io/i18n-glossary/#dfn-localisation" id="ref-for-dfn-localisation">localizable</a> format, such that a rule can contain multiple language representations or so that translations of the rule can be created.</p>
    <h3 class="heading settled" data-level="4.1" id="rule-identifier"><span class="secno">4.1. </span><span class="content">Rule Identifier</span><a class="self-link" href="#rule-identifier"></a></h3>
-   <p>An ACT Rule <em class="rfc2119">must</em> have an identifier. This identifier <em class="rfc2119">must</em> be unique when the rule is part of a ruleset. The identifier can be any text, such as plain text, URL, or a database identifier.</p>
+   <p>An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.</p>
+   <p>Determining whether an identifier is unique can be achieved by using lowercase ASCII characters or other unambiguous method. For a detailed explanation, see <a href="https://www.w3.org/TR/charmod-norm/">‘Character Model for the World Wide Web: String Matching’</a></p>
    <aside class="example" id="example-8adf6793">
     <a class="self-link" href="#example-8adf6793"></a> 
     <header>Example of identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
@@ -1784,6 +1785,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>This section is <em>non-normative</em>.</p>
    <ul>
     <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable
+    <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique
     <li><strong>4.4.1.2. Secondary Requirements</strong> Secondary requirements explanation no longer required in background section.
     <li><strong>9. Definitions</strong> Update cantTell and Untested definitions.
     <li><strong>7. Privacy Considerations</strong> Added
