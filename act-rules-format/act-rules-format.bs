@@ -6,9 +6,16 @@ TR: https://www.w3.org/TR/act-rules-format/
 Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
 Level: 1.1
 Prepare For TR: yes
-Status: ED
-Deadline: 2024-08-18
+Status: w3c/CR
+Date: 2025-04-24
+Deadline: 2025-05-22
 Status Text:
+  The group has addressed feedback received during the Horizontal Review Process. For details, see:
+
+  * [Changes since First Public Working Draft](#changes-since-FPWD)
+  * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
+
+  Comments are welcome, more specifically on changes made since First Public working Draft.
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
@@ -1069,7 +1076,7 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/)
+Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
@@ -1083,7 +1090,7 @@ Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rul
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0)
+Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0) {#changes-since-1.0}
 ---------------
 
 <ul>

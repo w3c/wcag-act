@@ -1,0 +1,21 @@
+name: ACT Rules Format ED
+on:
+    workflow_dispatch:
+
+jobs:
+  main:
+    name: ACT Rules Format ED
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: w3c/spec-prod@v2
+        with:
+          TOOLCHAIN: bikeshed
+          SOURCE: act-rules-format/act-rules-format.bs
+          DESTINATION: act-rules-format.html
+          GH_PAGES_BRANCH: gh-pages 
+          VALIDATE_WEBIDL: false
+          VALIDATE_MARKUP: true
+          BUILD_FAIL_ON: fatal
