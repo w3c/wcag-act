@@ -193,9 +193,9 @@ Each [=accessibility requirement=] in the mapping <em class="rfc2119">must</em> 
 ### Outcome Mapping ### {#outcome-mapping}
 For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the [=outcomes=] of the rule mean for satisfying an accessibility requirement for that [=test subject=]. 
 
-#### <dfn>Conformance Requirements</dfn> #### {#conformance-requirements}
+#### Conformance Requirements #### {#conformance-requirements}
 
-When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true: 
+When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a <dfn>Conformance Requirement</dfn> when both of the following conditions are true: 
 
 - Failed Outcomes: When one or more of the outcomes for a test subject is `failed`, the accessibility requirement is <dfn>not satisfied</dfn> for the test subject, and 
 - Passed or Inapplicable Outcomes: When all of the outcomes are `passed` or `inapplicable` for a test subject, the accessibility requirement could be <dfn>satisfied</dfn> or <dfn>further testing is needed</dfn> for the test subject.
@@ -236,9 +236,9 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
   </ul></blockquote>
 </aside>
 
-#### <dfn>Secondary Requirements</dfn> #### {#secondary-requirements}
+#### Secondary Requirements #### {#secondary-requirements}
 
-A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
+A <dfn data-lt="secondary requirement">secondary accessibility requirement</dfn> is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
 
 When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the rule.
 
