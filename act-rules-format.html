@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="cc0e1922a058b27c08297abb92ef08ba340b6eb4" name="revision">
+  <meta content="945f243ccc3a09e361bd086e7a579b26e392c1b3" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -710,7 +710,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-03-19">19 March 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-03-28">28 March 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -885,9 +885,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="composite-rules">Composite rules</dfn> describe how the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①">outcomes</a> of multiple <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules">atomic rules</a> can be combined into a single outcome for each <a data-link-type="dfn" href="#test-target" id="ref-for-test-target">test target</a>. A composite rule can have multiple "conditions", each of these tested in a separate atomic rule. The logic in the composite rule describes how any one of these satisfying conditions, or some combination of them, is used to determine a single outcome.</p>
    </ul>
    <p>Composite rules cannot contain other composite rules. Any time a nested composite rule would be needed, all of the relevant atomic rules can be combined directly into the new composite rule.</p>
-   <aside class="example" id="example-73f36a1c">
-    <a class="self-link" href="#example-73f36a1c"></a> 
-    <header>Example of using multiple input rules in a composite rule:</header>
+   <aside class="example" id="example-2ad07d50">
+    <a class="self-link" href="#example-2ad07d50"></a> 
+    <header>Using multiple input rules in a composite rule:</header>
     <blockquote>
      <p>Each HTML <code>video</code> element meets all expectations from at least one of the following rules:</p>
      <ul>
@@ -962,9 +962,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h3 class="heading settled" data-level="4.1" id="rule-identifier"><span class="secno">4.1. </span><span class="content">Rule Identifier</span><a class="self-link" href="#rule-identifier"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.</p>
    <p>Determining whether an identifier is unique can be achieved by using lowercase ASCII characters or other unambiguous method. For a detailed explanation, see <a href="https://www.w3.org/TR/charmod-norm/">‘Character Model for the World Wide Web: String Matching’</a></p>
-   <aside class="example" id="example-8adf6793">
-    <a class="self-link" href="#example-8adf6793"></a> 
-    <header>Example of identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
+   <aside class="example" id="example-300c7989">
+    <a class="self-link" href="#example-300c7989"></a> 
+    <header>Identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
     <blockquote>
      <ul>
       <li>html+svg/video-alternative
@@ -974,9 +974,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </blockquote>
    </aside>
    <p>In addition to the identifier, each new release of an ACT Rule <em class="rfc2119">must</em> be versioned with either a date or a number. A reference to the previous version of that rule <em class="rfc2119">must</em> be available. The identifier <em class="rfc2119">must not</em> be changed when the rule is updated. For substantial changes, a new rule <em class="rfc2119">should</em> be created with a new identifier, and the old rule <em class="rfc2119">should</em> be deprecated.</p>
-   <aside class="example" id="example-c6a27e25">
-    <a class="self-link" href="#example-c6a27e25"></a> 
-    <header>Example situation of updating a rule:</header>
+   <aside class="example" id="example-c9b253b3">
+    <a class="self-link" href="#example-c9b253b3"></a> 
+    <header>Updating a rule:</header>
     <blockquote>
      <p>When updating a rule that is about buttons, to now also be about links, menu items and tabs, the buttons rule is deprecated. As a replacement, a new rule is created that is applicable to all those elements.</p>
     </blockquote>
@@ -984,9 +984,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h3 class="heading settled" data-level="4.2" id="rule-description"><span class="secno">4.2. </span><span class="content">Rule Description</span><a class="self-link" href="#rule-description"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> have a description that is in plain language which provides a brief explanation of what the rule does.</p>
    <p class="note" role="note"><span class="marker">Note:</span> Regardless of the data format in which a rule is written, it is assumed that the rule has metadata specifying its language and writing direction. Most well-known markup languages have built-in provisions to satisfy this requirement.</p>
-   <aside class="example" id="example-5275cb2a">
-    <a class="self-link" href="#example-5275cb2a"></a> 
-    <header>Example of a rule description:</header>
+   <aside class="example" id="example-ebfedd69">
+    <a class="self-link" href="#example-ebfedd69"></a> 
+    <header>Rule description:</header>
     <blockquote>
      <p>This rule checks that the HTML page has a title</p>
     </blockquote>
@@ -1037,9 +1037,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <div class="note" role="note">
     <p><strong>Note:</strong> In the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, success criteria do not evaluate to <code>passed</code>, <code>failed</code> or <code>inapplicable</code>. Rather they can be <em>satisfied</em> (or not). (See the <a href="https://www.w3.org/TR/WCAG22/#dfn-satisfies">WCAG 2.2 definition: satisfies a success criterion</a>.) If a success criterion is <em>not satisfied</em>, a web page can only conform if there is a conforming alternative version, as described in <a href="https://www.w3.org/TR/WCAG22/#cc1">WCAG 2.2 Conformance Requirement 1</a>.</p>
    </div>
-   <aside class="example" id="example-e101bc5a">
-    <a class="self-link" href="#example-e101bc5a"></a> 
-    <header>Example accessibility requirements mapping for a rule that was designed to test if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
+   <aside class="example" id="example-36573a50">
+    <a class="self-link" href="#example-36573a50"></a> 
+    <header>Accessibility requirements mapping for a rule that was designed to test if an image button has an accessible name maps success criteria 1.1.1 Non-text content and 4.1.2 Name, Role, Value as conformance requirements:</header>
     <blockquote>
      <ul>
       <li>
@@ -1076,9 +1076,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Some scenarios when a rule will have Secondary requirements include:</p>
    <p><strong>Scenario 1</strong>: the rule is not as strict as a requirement</p>
    <p>A rule was designed to test a minimum accessibility requirement and there exists a stricter requirement. The rule’s failed outcomes can determine that the stricter accessibility requirement is not satisfied, and the rule’s passed outcomes may not determine that the stricter requirement is satisfied. It is possible that the accessibility requirement may be not satisfied when the rule’s outcomes are passed. The stricter requirement is a Secondary requirement.</p>
-   <aside class="example" id="example-99498c9e">
-    <a class="self-link" href="#example-99498c9e"></a> 
-    <header>Example: a rule that tests if text has minimum contrast</header>
+   <aside class="example" id="example-f2635d23">
+    <a class="self-link" href="#example-f2635d23"></a> 
+    <header>Rule that tests if text has minimum contrast</header>
     <blockquote>
      This rule was designed to test Success Criterion 1.4.3 Contrast Minimum (AA). A stricter requirement, Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA), will be not satisfied when the rule outcome is failed, and may be not satisfied when the rule outcomes are passed. This rule’s mapping: 
      <ul>
@@ -1092,9 +1092,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <p><strong>Scenario 2</strong>: the rule is stricter than a requirement</p>
    <p>A rule was designed to test a specific solution for an accessibility requirement, but the requirement can be satisfied by other solutions that are not included in the rule. In this scenario, the rule’s failed outcomes cannot determine that an accessibility requirement is not satisfied because further testing is needed. The rule’s passed outcomes can determine that an accessibility requirement is satisfied. The accessibility requirement is a secondary requirement.</p>
-   <aside class="example" id="example-9c026a7f">
-    <a class="self-link" href="#example-9c026a7f"></a> 
-    <header>Example: a rule that tests if a focusable element has no keyboard trap via standard navigation</header>
+   <aside class="example" id="example-4593015e">
+    <a class="self-link" href="#example-4593015e"></a> 
+    <header>Rule that tests if a focusable element has no keyboard trap via standard navigation</header>
     <blockquote>
      This rule was designed to test for a specific solution that can be used to meet Success Criterion 2.1.2: No Keyboard Trap. The rule does not test for the use of other possible solutions, such as non-standard navigation, that can satisfy the success criterion. Its failed outcomes cannot determine that the accessibility requirement is <a data-link-type="dfn" href="#not-satisfied" id="ref-for-not-satisfied">not satisfied</a>. This rule’s mapping: 
      <ul>
@@ -1106,9 +1106,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </blockquote>
    </aside>
    <p>A rule was designed to test an accessibility requirement and there exists a less strict accessibility requirement. In this scenario, the rule’s passed outcomes can determine that the less strict requirement is satisfied, and the rule’s failed outcomes may not determine that the less strict requirement is not satisfied. It is possible that the accessibility requirement may be satisfied when the rule’s outcome is failed. The less strict accessibility requirement is a secondary requirement.</p>
-   <aside class="example" id="example-66ff2871">
-    <a class="self-link" href="#example-66ff2871"></a> 
-    <header>Example: a rule that tests Enhanced Contrast</header>
+   <aside class="example" id="example-996e53f3">
+    <a class="self-link" href="#example-996e53f3"></a> 
+    <header>Rule that tests Enhanced Contrast</header>
     <blockquote>
      This rule was designed to test Success Criterion 1.4.6 Contrast (Enhanced) (Level AAA). A less strict requirement, Success Criterion 1.4.3 Contrast Minimum (AA), will be satisfied when the rule outcomes are passed, and may be satisfied when the rule outcomes are failed. This rule’s mapping: 
      <ul>
@@ -1122,9 +1122,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <p><strong>Scenario 3</strong>: the rule may impact the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement</p>
    <p>A rule was designed to test an accessibility requirement and under certain conditions, other accessibility requirements apply. In this scenario, the other accessibility requirements are sometimes, but not always, satisfied or not satisfied because they are not always applicable in the rule. These other accessibility requirements are secondary requirements.</p>
-   <aside class="example" id="example-baa35e9f">
-    <a class="self-link" href="#example-baa35e9f"></a> 
-    <header>Example 1: a rule that tests if a link has a non-empty accessible name</header>
+   <aside class="example" id="example-474abc60">
+    <a class="self-link" href="#example-474abc60"></a> 
+    <header>Rule that tests if a link has a non-empty accessible name</header>
     <blockquote>
      This rule was designed to test links for accessibility requirements 4.1.2 Name, Role, Value (Level A), 2.4.4 Link Purpose (In Context) (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA). In an image map, &lt;area> elements that define regions within the map are both links and images. Testing for non-empty accessible name for &lt;area> elements would map to another accessibility requirement 1.1.1 Non-text Content. Because the rule tests for all links and Success Criterion 1.1.1 only applies certain links, this rule’s mapping: 
      <ul>
@@ -1136,9 +1136,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <aside class="example" id="example-cfb70282">
-    <a class="self-link" href="#example-cfb70282"></a> 
-    <header>Example 2: A rule that tests that elements that have an explicit role also specify all required states and properties </header>
+   <aside class="example" id="example-e65bb36c">
+    <a class="self-link" href="#example-e65bb36c"></a> 
+    <header>Rule that tests that elements that have an explicit role also specify all required states and properties </header>
     <blockquote>
      This rule was designed to test a requirement of WAI-ARIA. In some cases, a failed outcome for this rule may result in WCAG 2 Success Criterion 4.1.2 Name, Role, Value being not satisfied, but not always. This rule’s mapping: 
      <ul>
@@ -1153,9 +1153,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h4 class="heading settled" data-level="4.4.2" id="mapping-outside-wcag"><span class="secno">4.4.2. </span><span class="content">Mapping Outside WCAG</span><a class="self-link" href="#mapping-outside-wcag"></a></h4>
    <p>ACT Rules can be used to test accessibility requirements that are not part of a W3C accessibility standard, such as accessibility requirements in <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, or tests in a methodology like <a href="https://disic.github.io/rgaa_referentiel_en/criteria.html">RGAA 3 2016</a>. An ACT Rule <em class="rfc2119">must</em> indicate whether or not the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑤">accessibility requirement</a> it maps to is required for conformance in its <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document④">accessibility requirements document</a>. Examples of accessibility requirements that are not required for conformance are WCAG sufficient techniques, or a company style guide that includes both requirements and optional "best practices". The distinction between what is required and what is optional has to be clear.</p>
-   <aside class="example" id="example-341c15ad">
-    <a class="self-link" href="#example-341c15ad"></a> 
-    <header>Example accessibility requirements mapping for a rule that tests that each <code>img</code> element has an <code>alt</code> attribute:</header>
+   <aside class="example" id="example-47818dbf">
+    <a class="self-link" href="#example-47818dbf"></a> 
+    <header>Accessibility requirements mapping for a rule that tests that each <code>img</code> element has an <code>alt</code> attribute:</header>
     <blockquote>
      <ul>
       <li>
@@ -1187,9 +1187,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h4 class="heading settled" data-level="4.4.3" id="rules-without-accessibility-requirements"><span class="secno">4.4.3. </span><span class="content">Rules Without Accessibility Requirements</span><a class="self-link" href="#rules-without-accessibility-requirements"></a></h4>
    <p>If the rule does not map to any <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement⑥">accessibility requirement</a>, the accessibility requirement mapping will only contain the explainer that it is not required for conformance to the <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑤">accessibility requirements document</a>. This is common with atomic rules used in composite rules.</p>
-   <aside class="example" id="example-e22fa6d9">
-    <a class="self-link" href="#example-e22fa6d9"></a> 
-    <header>Example of a rule that tests if <code>role=alert</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status Messages</a>:</header>
+   <aside class="example" id="example-39b9e5ad">
+    <a class="self-link" href="#example-39b9e5ad"></a> 
+    <header>Rule that tests if <code>role=alert</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status Messages</a>:</header>
     <blockquote>
      <p>This rule is <strong>not required</strong> for conformance to WCAG 2.2 at any level.</p>
     </blockquote>
@@ -1210,9 +1210,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>An input aspect is a distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject④">test subject</a>. Rendering a particular piece of content to an end user commonly involves different technologies, some or all of which are required as input for an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules②">atomic rule</a>. For example, some rules need to operate directly on the <a href="https://datatracker.ietf.org/doc/html/rfc7230">Hypertext Transfer Protocol</a> <a data-link-type="biblio" href="#biblio-http11" title="HTTP/1.1">[http11]</a> messages exchanged between a server and a client, while others need to operate on the <a href="https://dom.spec.whatwg.org">Document Object Model</a> <a data-link-type="biblio" href="#biblio-dom" title="DOM Standard">[DOM]</a> tree exposed by a web browser.</p>
    <p><a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules③">Atomic rules</a> <em class="rfc2119">must</em> list the aspects used as input for the <a href="#applicability-atomic">applicability</a> and <a href="#expectations-atomic">expectations</a> of the atomic rule. Rules can operate on several aspects simultaneously, such as both the HTTP messages and the DOM tree.</p>
    <p>Some input aspects are well defined in a formal specification, such as HTTP messages, the DOM tree, and CSS styling <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>. For these, a reference to the corresponding section in the <a href="https://www.w3.org/TR/act-rules-aspects/">Common Input Aspects note</a> is sufficient as a description of the aspect. For input aspects that are not well defined, an ACT Rule <em class="rfc2119">must</em> include either a detailed description of the aspect in question, or a reference to a well defined description.</p>
-   <aside class="example" id="example-43214b40">
-    <a class="self-link" href="#example-43214b40"></a> 
-    <header>Example input aspects for a rule that checks if a transcript is available for videos:</header>
+   <aside class="example" id="example-e0405914">
+    <a class="self-link" href="#example-e0405914"></a> 
+    <header>Input aspects for a rule that checks if a transcript is available for videos:</header>
     <blockquote>
      <ul>
       <li>DOM Tree
@@ -1222,9 +1222,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <aside class="example" id="example-22444586">
-    <a class="self-link" href="#example-22444586"></a> 
-    <header>Example input aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</header>
+   <aside class="example" id="example-65ee72de">
+    <a class="self-link" href="#example-65ee72de"></a> 
+    <header>Input aspects for a rule that checks for use of (language specific) generic link texts like "click here" and "more":</header>
     <blockquote>
      <ul>
       <li>DOM Tree
@@ -1244,38 +1244,38 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Additionally, the applicability <em class="rfc2119">should</em> be described objectively and in plain language. An objective description is one that can be resolved without uncertainty, in a given technology. Examples of objective properties in HTML are tag names, their computed role, and the distance between two elements.</p>
    <p>Subjective properties are concepts like decorative, navigation mechanism, and pre-recorded that may be defined in a variety of ways, often relying on human judgement. When possible, avoid subjectivity since it can easily be misunderstood. In cases where it is impossible to objectively define the applicability, the use of a subjective description in the applicability is acceptable. When crafting a subjective applicability, if possible, split the objective and subjective parts of the applicability into separate rules. This will ensure the designed rule meets the atomic rule requirement of testing a single condition. An example would be testing headings with correct semantic markup in a different rule from those without semantic markup.</p>
    <p>Definitions can be put in the rule <a href="#glossary">glossary</a>, or they can be defined in the section where they are used.</p>
-   <aside class="example" id="example-81a2db62">
-    <a class="self-link" href="#example-81a2db62"></a> 
-    <header>Example objective applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
+   <aside class="example" id="example-89a2eb0d">
+    <a class="self-link" href="#example-89a2eb0d"></a> 
+    <header>Objective applicability of an atomic rule testing <a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-control">WCAG 2.2 success criterion 1.4.2 Audio Control</a>:</header>
     <blockquote>
      <p>Applicability: Each <code>video</code> or <code>audio</code> element with the <code>autoplay</code> attribute, as well as each <code>object</code> element that is used for automatically playing video or audio when the web page loads.</p>
      <p>Note: A web page is considered "loaded" when the <code>document.readyState</code> is set to <code>complete</code>.</p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-f00856a4">
-    <a class="self-link" href="#example-f00856a4"></a> 
-    <header>Example objective applicability of a rule with the page as a test target</header>
+   <aside class="example" id="example-65081fad">
+    <a class="self-link" href="#example-65081fad"></a> 
+    <header>Objective applicability of a rule with the page as a test target</header>
     <blockquote>
      <p>Applicability: The rule applies to any page where the document element is an <code>html</code> element, and the <code>html</code> element is rendered in a top-level context (i.e. the <code>html</code> element is not embedded in another page, such as through <code>iframe</code> or <code>object</code> elements). </p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-6e6164c4">
-    <a class="self-link" href="#example-6e6164c4"></a> 
-    <header>Example objective applicability of a rule with a DOM attribute as a test target</header>
+   <aside class="example" id="example-a09b65c1">
+    <a class="self-link" href="#example-a09b65c1"></a> 
+    <header>Objective applicability of a rule with a DOM attribute as a test target</header>
     <blockquote>
      <p>Applicability: The rule applies to any <code>role</code> attribute that is specified on an HTML or SVG element.</p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-5213d696">
-    <a class="self-link" href="#example-5213d696"></a> 
-    <header>Example subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
+   <aside class="example" id="example-874231df">
+    <a class="self-link" href="#example-874231df"></a> 
+    <header>Subjective applicability for a rule testing that elements styled as a heading use correct heading markup. This rule applicability cannot be written objectively since "styled as a heading" is subjective and depends on the context of the page.</header>
     <blockquote>
      <p>Applicability: The rule applies to any HTML element that is styled as a heading. Elements that are styled as a heading may include features such as a larger font-size than nearby text, bolding or changing of the font, or the use of whitespace or shapes that visually distinguish the element text.</p>
     </blockquote>
    </aside>
-   <aside class="example" id="example-8bd9cea1">
-    <a class="self-link" href="#example-8bd9cea1"></a> 
-    <header><strong>Non-conforming Example:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+   <aside class="example" id="example-2b6c5a97">
+    <a class="self-link" href="#example-2b6c5a97"></a> 
+    <header><strong>Non-conforming:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
     <blockquote>
      <p>Applicability: This rule applies to any non-text content.</p>
     </blockquote>
@@ -1285,9 +1285,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h4 class="heading settled" data-level="4.6.2" id="applicability-composite"><span class="secno">4.6.2. </span><span class="content">Applicability for Composite Rules</span><a class="self-link" href="#applicability-composite"></a></h4>
    <p>The applicability of a composite rule is defined as the union of all applicability definitions from the rules listed in the <a href="#input-rules">input rules</a>. Rule authors <em class="rfc2119">may</em> omit a description of the applicability for composite rules. This can be useful if it is difficult to express the combined applicability in plain language. If the composite rule includes applicability, it <em class="rfc2119">must</em> be the union of all the applicability in the <a href="#input-rules">input rules</a>.</p>
    <p>Note that input rules in a composite rule <em class="rfc2119">may</em> have different applicability. Because of this, not every test target applicable within the composite rule is tested by every input rule.</p>
-   <aside class="example" id="example-5ca938b6">
-    <a class="self-link" href="#example-5ca938b6"></a> 
-    <header>Example of the union of applicability of input rules in a composite rule:</header>
+   <aside class="example" id="example-0773ef21">
+    <a class="self-link" href="#example-0773ef21"></a> 
+    <header>Union of applicability of input rules in a composite rule:</header>
     <blockquote>
      <p><strong>Input applicability:</strong></p>
      <ul>
@@ -1305,9 +1305,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Each expectation <em class="rfc2119">must</em> be distinct, unambiguous, and be written in plain language.</p>
    <h4 class="heading settled" data-level="4.7.1" id="expectations-atomic"><span class="secno">4.7.1. </span><span class="content">Expectations for Atomic Rules</span><a class="self-link" href="#expectations-atomic"></a></h4>
    <p>All expectations of an <a data-link-type="dfn" href="#atomic-rules" id="ref-for-atomic-rules⑥">atomic rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑨">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑤">test target</a>. The expectation <em class="rfc2119">must</em> only use information available in the <a href="#input-aspects">input aspects</a>, from the applicability, and other expectations of the same rule. No other information can be used in the expectation. So for instance, an expectation could be "Expectation 1 is true and ...", but it can’t be "Rule XYZ passed and ...". This ensures that atomic rules are encapsulated.</p>
-   <aside class="example" id="example-6e5a951f">
-    <a class="self-link" href="#example-6e5a951f"></a> 
-    <header>Example expectations of a rule to test for accessible names of HTML <code>input</code> elements:</header>
+   <aside class="example" id="example-8234d605">
+    <a class="self-link" href="#example-8234d605"></a> 
+    <header>Expectations of a rule to test for accessible names of HTML <code>input</code> elements:</header>
     <blockquote>
      <ol>
       <li>Each HTML <code>input</code> element has an accessible name (as described in <a href="https://www.w3.org/TR/accname-1.1/#mapping_additional_nd_te">Accessible Name and Description: Computation and API Mappings 1.1</a>). <a data-link-type="biblio" href="#biblio-accname-aam-11" title="Accessible Name and Description Computation 1.1">[accname-aam-1.1]</a>
@@ -1315,9 +1315,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ol>
     </blockquote>
    </aside>
-   <aside class="example" id="example-7aacb8b3">
-    <a class="self-link" href="#example-7aacb8b3"></a> 
-    <header>Example expectation of a rule to test if a <code>role</code> attribute is valid:</header>
+   <aside class="example" id="example-be2ec0d3">
+    <a class="self-link" href="#example-be2ec0d3"></a> 
+    <header>Expectation of a rule to test if a <code>role</code> attribute is valid:</header>
     <blockquote>
      <ol>
       <li>Each <code>role</code> attribute has a value that corresponds to a non-abstract <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a> role.
@@ -1329,9 +1329,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </div>
    <h4 class="heading settled" data-level="4.7.2" id="expectations-composite"><span class="secno">4.7.2. </span><span class="content">Expectations for Composite Rules</span><a class="self-link" href="#expectations-composite"></a></h4>
    <p>All expectations of a <a data-link-type="dfn" href="#composite-rules" id="ref-for-composite-rules②">composite rule</a> <em class="rfc2119">must</em> describe the logic that is used to determine a single <code>passed</code> or <code>failed</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⓪">outcome</a> for a <a data-link-type="dfn" href="#test-target" id="ref-for-test-target⑥">test target</a>, based on the outcomes of rules in its <a href="#input-rules">input rules</a>. A composite rule expectation <em class="rfc2119">must not</em> use information from <a href="#input-aspects">input aspects</a>. The outcome for a composite rule is <code>inapplicable</code> when all input rules are inapplicable.</p>
-   <aside class="example" id="example-a1dcfe4c">
-    <a class="self-link" href="#example-a1dcfe4c"></a> 
-    <header>Example expectations for the composite rule 'video elements have an audio description or media alternative' (<a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-description-or-media-alternative-prerecorded">WCAG 2.2 success criterion 1.2.3 Audio Description or Media Alternative</a>):</header>
+   <aside class="example" id="example-bbf41b4d">
+    <a class="self-link" href="#example-bbf41b4d"></a> 
+    <header>Expectations for the composite rule 'video elements have an audio description or media alternative' (<a href="https://www.w3.org/WAI/WCAG22/quickref/#audio-description-or-media-alternative-prerecorded">WCAG 2.2 success criterion 1.2.3 Audio Description or Media Alternative</a>):</header>
     <blockquote>
      <p>Each HTML <code>video</code> element meets all expectations from at least one of the following rules:</p>
      <ul>
@@ -1341,9 +1341,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <aside class="example" id="example-b218f8a4">
-    <a class="self-link" href="#example-b218f8a4"></a> 
-    <header>Example expectations for a composite rule that checks if a mechanism is available to escape a keyboard trap; Either through a standard mechanism, or one for which instructions are available:</header>
+   <aside class="example" id="example-c9996f09">
+    <a class="self-link" href="#example-c9996f09"></a> 
+    <header>Expectations for a composite rule that checks if a mechanism is available to escape a keyboard trap; Either through a standard mechanism, or one for which instructions are available:</header>
     <blockquote>
      <p>For each focusable element, the outcome of one of the following rules is <code>passed</code>:</p>
      <ul>
@@ -1361,9 +1361,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h4 class="heading settled" data-level="4.8.2" id="accessibility-support"><span class="secno">4.8.2. </span><span class="content">Accessibility Support</span><a class="self-link" href="#accessibility-support"></a></h4>
    <p>Content can be designed to rely on the support for particular accessibility features by different assistive technologies and user agents. For example, content using a particular <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a> feature relies on that feature to be supported by assistive technologies and user agents. This content would not work for assistive technologies and user agents that do not support WAI-ARIA. See the WCAG definition for <a href="https://www.w3.org/TR/WCAG22/#dfn-accessibility-supported">accessibility supported</a> use of a web technology.</p>
    <p>An ACT Rule <em class="rfc2119">must</em> include known limitations on accessibility support.</p>
-   <aside class="example" id="example-90a74aef">
-    <a class="self-link" href="#example-90a74aef"></a> 
-    <header>Example of a rule that checks if <code>aria-errormessage</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status messages</a>:</header>
+   <aside class="example" id="example-2c462832">
+    <a class="self-link" href="#example-2c462832"></a> 
+    <header>Rule that checks if <code>aria-errormessage</code> is used to satisfy <a href="https://www.w3.org/TR/WCAG22/#status-messages">WCAG 2.2 success criterion 4.1.3 Status messages</a>:</header>
     <blockquote>
      <p> The <code>aria-errormessage</code> property is known to have limited support with several major screen readers. This method cannot be relied on for support. Alternatives, like using live regions, could serve as fallback. (January 2019) </p>
     </blockquote>
@@ -1379,9 +1379,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h3 class="heading settled" data-level="4.9" id="test-cases"><span class="secno">4.9. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
    <p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
    <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
-   <aside class="example" id="example-09b9695b">
-    <a class="self-link" href="#example-09b9695b"></a> 
-    <header>Example of HTML test cases for a rule that checks if <code>img</code> elements have a text alternative:</header>
+   <aside class="example" id="example-96d9247d">
+    <a class="self-link" href="#example-96d9247d"></a> 
+    <header>HTML test cases for a rule that checks if <code>img</code> elements have a text alternative:</header>
     <blockquote>
      <p>Example of a <code>passed</code> outcome:</p>
 <pre class="language-html highlight"><c- p>&lt;</c-><c- f>img</c-> <c- e>alt</c-><c- o>=</c-><c- s>"W3C Logo"</c-> <c- e>src</c-><c- o>=</c-><c- s>"image/w3c.png"</c-><c- p>></c->
@@ -1471,9 +1471,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h4 class="heading settled" data-level="4.14.3" id="impl-multi-check"><span class="secno">4.14.3. </span><span class="content">Consistency with multiple checks</span><a class="self-link" href="#impl-multi-check"></a></h4>
    <p>An <a data-link-type="dfn" href="#implementation" id="ref-for-implementation②">implementation</a> can include <a data-link-type="dfn" href="#check" id="ref-for-check⑧">checks</a> that test only parts of a single ACT Rule. The combination of those checks can be consistent if all parts of the ACT Rule are covered. The consistency of a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="set-of-checks">set of checks</dfn> can be determined by treating all <a data-link-type="dfn" href="#partially-consistent" id="ref-for-partially-consistent">partially consistent</a> checks as though they were a single check.</p>
    <p>A <a data-link-type="dfn" href="#set-of-checks" id="ref-for-set-of-checks">set of checks</a> is <a data-link-type="dfn" href="#consistent" id="ref-for-consistent①">consistent</a> with an ACT Rule if it meets all requirements for a <a data-link-type="dfn" href="#consistent" id="ref-for-consistent②">consistent check</a>. The <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①⑤">outcomes</a> for this set of checks is a list of all outcomes of checks that are partially consistent with the ACT Rule. The accessibility requirements of this set of checks is a list of all accessibility requirements of checks that are partially consistent with the ACT rule.</p>
-   <aside class="example" id="example-cc021208">
-    <a class="self-link" href="#example-cc021208"></a> 
-    <header>Example of a consistent set of checks:</header>
+   <aside class="example" id="example-c9cd0e13">
+    <a class="self-link" href="#example-c9cd0e13"></a> 
+    <header>Consistent set of checks:</header>
     <blockquote>
      <p>An ACT Rule checks that all native button elements, and elements with a role="button" have an accessible name. The ACT Rule has test cases including both native buttons and role="button" elements.</p>
      <p>The ACME Conformance Tool has a check for native button elements. This check passes all native buttons with an accessible name, it fails all native buttons without an accessible name, and gives inapplicable for pages with only elements with role="button". Because it reports inapplicable for some of the failed test cases of the ACT Rule, this check is partially consistent. </p>
@@ -1516,9 +1516,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>This section is <em>non-normative</em>.</p>
    <p>While the ACT Rules Format is designed to stimulate harmonization, there are no direct requirement in the ACT Rules Format that prevent a rule author from writing rules inconsistent with already established ACT Rules. Neither are there requirements for ACT Rules to have a certain number of implementations, or to have a certain level of accuracy. This allows quality requirements to be different for different rulesets, and allows them to develop over time.</p>
    <p>Harmonization occurs when a group of rule implementors collectively accept the validity of an ACT Rule. For example, a community group of accessibility testing tool vendors could declare they have harmonized on a particular set of ACT Rules. Such a group can set acceptance criteria for rules, and have quality requirements that go beyond the ACT Rules Format.</p>
-   <aside class="example" id="example-65a5c06a">
-    <a class="self-link" href="#example-65a5c06a"></a> 
-    <header>Example of acceptance criteria for a group working on EPUB rules:</header>
+   <aside class="example" id="example-4cd6f8d1">
+    <a class="self-link" href="#example-4cd6f8d1"></a> 
+    <header>Acceptance criteria for a group working on EPUB rules:</header>
     <blockquote>
      <ul>
       <li>An ACT EPUB Rule is harmonized when it is approved by members of 3 organizations, AND
@@ -1564,9 +1564,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="test-subject">Test Subject</dfn>
     <dd>
      <p>A resource or collection of resources that can be evaluated by an ACT Rule.</p>
-     <aside class="example" id="example-42b1dee1">
-      <a class="self-link" href="#example-42b1dee1"></a> 
-      <header>Example of test subjects:</header>
+     <aside class="example" id="example-8ddcecf8">
+      <a class="self-link" href="#example-8ddcecf8"></a> 
+      <header>Test subjects:</header>
       <blockquote>
        <ul>
         <li>An HTML page, including all embedded scripts, style and images
@@ -1581,9 +1581,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     <dt><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="test-target">Test Target</dfn>
     <dd>
      <p>A distinct part of the <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject⑨">test subject</a>, as defined by the <a href="#applicability">applicability</a>.</p>
-     <aside class="example" id="example-cd7029f9">
-      <a class="self-link" href="#example-cd7029f9"></a> 
-      <header>Example of test targets:</header>
+     <aside class="example" id="example-c06dfb1e">
+      <a class="self-link" href="#example-c06dfb1e"></a> 
+      <header>Test targets:</header>
       <blockquote>
        <ul>
         <li>Nodes within an HTML page
@@ -1602,17 +1602,19 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Examples in this section include:</p>
    <ul>
     <li data-md>
-     <p>Example 1: Minimal outcome from one assertion</p>
+     <p>Minimal outcome from one assertion</p>
     <li data-md>
-     <p>Example 2: Results from more than one assertion</p>
+     <p>Results from more than one assertion</p>
     <li data-md>
-     <p>Example 3: Aggregating based on requirement</p>
+     <p>Aggregating based on requirement</p>
     <li data-md>
-     <p>Example 4: Aggregating based on 'Test Subject'</p>
+     <p>Aggregating based on 'Test Subject'</p>
     <li data-md>
-     <p>Example 5: Assumed context for this section</p>
+     <p>Assumed context for this section</p>
    </ul>
-   <p><strong>Example 1:</strong> Minimal outcome for one assertion</p>
+   <aside class="example" id="example-00a7173a">
+    <a class="self-link" href="#example-00a7173a"></a> 
+    <header>Minimal outcome for one assertion</header>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1625,7 +1627,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 2:</strong> Results for more than one assertion</p>
+   </aside>
+   <aside class="example" id="example-26d05dbb">
+    <a class="self-link" href="#example-26d05dbb"></a> 
+    <header>Results for more than one assertion</header>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@graph"</c-><c- o>:</c-> <c- p>[{</c->
@@ -1649,7 +1654,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}]</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 3:</strong> Aggregating based on requirement (eg. WCAG Success Criteria)</p>
+   </aside>
+   <aside class="example" id="example-811b3b05">
+    <a class="self-link" href="#example-811b3b05"></a> 
+    <header>Aggregating based on requirement (eg. WCAG Success Criteria)</header>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1677,7 +1685,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 4:</strong> Aggregating based on 'Test Subject' (eg. for a website)</p>
+   </aside>
+   <aside class="example" id="example-351919ff">
+    <a class="self-link" href="#example-351919ff"></a> 
+    <header>Aggregating based on 'Test Subject' (eg. for a website)</header>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@context"</c-><c- o>:</c-> <c- u>"context.json"</c-><c- p>,</c->
   <c- u>"@type"</c-><c- o>:</c-> <c- u>"Assertion"</c-><c- p>,</c->
@@ -1729,7 +1740,10 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
-   <p><strong>Example 5:</strong> Assumed context for this section</p>
+   </aside>
+   <aside class="example" id="example-ba90e833">
+    <a class="self-link" href="#example-ba90e833"></a> 
+    <header>Assumed context for this section</header>
 <pre class="language-javascript highlight"><c- p>{</c->
   <c- u>"@vocab"</c-><c- o>:</c-> <c- u>"http://www.w3.org/ns/earl#"</c-><c- p>,</c->
 
@@ -1781,6 +1795,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <c- p>}</c->
 <c- p>}</c->
 </pre>
+   </aside>
    <h2 class="heading settled" id="Acknowledgments"><span class="content">Appendix 2: Acknowledgments</span><a class="self-link" href="#Acknowledgments"></a></h2>
    <p>This section is <em>non-normative</em>.</p>
    <h3 class="heading settled" id="participants"><span class="content">Participants of the AG WG active in the development of this document</span><a class="self-link" href="#participants"></a></h3>
@@ -1791,6 +1806,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>This section is <em>non-normative</em>.</p>
    <h3 class="heading settled" id="changes-since-FPWD"><span class="content">Changes since <a href="https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/">First Public Working Draft</a></span><a class="self-link" href="#changes-since-FPWD"></a></h3>
    <ul>
+    <li><strong>All</strong> Examples now only follow Bikeshed’s automatic numbering
+    <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the exxamples in this secction to render correctly
     <li><strong>4.2. Rule Description</strong> Add assumption that text has metadata specifying its language and writing direction 
     <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable
     <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique
