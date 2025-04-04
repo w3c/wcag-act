@@ -131,7 +131,7 @@ Rule Identifier {#rule-identifier}
 
 An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.
 
-Determining whether an identifier is unique can be achieved by using lowercase ASCII characters or other unambiguous method. For a detailed explanation, see [‘Character Model for the World Wide Web: String Matching’](https://www.w3.org/TR/charmod-norm/)
+Comparing and matching identifiers can be complex. To ensure uniqueness, choose identifiers that are visually distinct and do not require additional processing when checking for a match. For example, rules written by the ACT-Rules Community Group use only lowercase ASCII letters. For a detailed explanation, see [[charmod-norm]].
 
 <aside class="example">
   <header>Identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
