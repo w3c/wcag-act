@@ -129,7 +129,7 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.
+An ACT Rule <em class="rfc2119">must</em> have an identifier that is a unique string of unicode characters. The identifier can be any text, such as a lower case ascii string, URL, or a database identifier.
 
 Comparing and matching identifiers can be complex. To ensure uniqueness, choose identifiers that are visually distinct and do not require additional processing when checking for a match. For example, rules written by the ACT-Rules Community Group use only lowercase ASCII letters. For a detailed explanation, see [[charmod-norm]].
 
