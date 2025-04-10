@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="945f243ccc3a09e361bd086e7a579b26e392c1b3" name="revision">
+  <meta content="467c787045a3890b5662c6bc4d182dd6045f45e5" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -710,7 +710,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-03-28">28 March 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-10">10 April 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -983,7 +983,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </aside>
    <h3 class="heading settled" data-level="4.2" id="rule-description"><span class="secno">4.2. </span><span class="content">Rule Description</span><a class="self-link" href="#rule-description"></a></h3>
    <p>An ACT Rule <em class="rfc2119">must</em> have a description that is in plain language which provides a brief explanation of what the rule does.</p>
-   <p class="note" role="note"><span class="marker">Note:</span> Regardless of the data format in which a rule is written, it is assumed that the rule has metadata specifying its language and writing direction. Most well-known markup languages have built-in provisions to satisfy this requirement.</p>
+   <p>Regardless of the data format in which a rule is written, the description needs to include metadata specifying its language and base paragraph direction. Most markup languages or document formats have built-in provisions for indicating these. For more details, see <a data-link-type="biblio" href="#biblio-string-meta" title="Strings on the Web: Language and Direction Metadata">[string-meta]</a>.</p>
    <aside class="example" id="example-ebfedd69">
     <a class="self-link" href="#example-ebfedd69"></a> 
     <header>Rule description:</header>
@@ -1933,6 +1933,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <dd>Anne van Kesteren; et al. <a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a>
    <dt id="biblio-http11">[HTTP11]
    <dd>R. Fielding, Ed.; M. Nottingham, Ed.; J. Reschke, Ed.. <a href="https://httpwg.org/specs/rfc9112.html"><cite>HTTP/1.1</cite></a>. June 2022. Internet Standard. URL: <a href="https://httpwg.org/specs/rfc9112.html">https://httpwg.org/specs/rfc9112.html</a>
+   <dt id="biblio-string-meta">[STRING-META]
+   <dd>Richard Ishida; Addison Phillips. <a href="https://w3c.github.io/string-meta/"><cite>Strings on the Web: Language and Direction Metadata</cite></a>. URL: <a href="https://w3c.github.io/string-meta/">https://w3c.github.io/string-meta/</a>
    <dt id="biblio-svg2">[SVG2]
    <dd>Amelia Bellamy-Royds; et al. <a href="https://svgwg.org/svg2-draft/"><cite>Scalable Vector Graphics (SVG) 2</cite></a>. URL: <a href="https://svgwg.org/svg2-draft/">https://svgwg.org/svg2-draft/</a>
    <dt id="biblio-uaag20">[UAAG20]
