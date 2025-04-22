@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="467c787045a3890b5662c6bc4d182dd6045f45e5" name="revision">
+  <meta content="815ff23f53dc052487c8435249925b385ee0f7f9" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -710,7 +710,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-10">10 April 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-22">22 April 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -773,8 +773,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
         <li>
          <a href="#outcome-mapping"><span class="secno">4.4.1</span> <span class="content">Outcome Mapping</span></a>
          <ol class="toc">
-          <li><a href="#conformance-requirements"><span class="secno">4.4.1.1</span> <span class="content"><span>Conformance Requirements</span></span></a>
-          <li><a href="#secondary-requirements"><span class="secno">4.4.1.2</span> <span class="content"><span>Secondary Requirements</span></span></a>
+          <li><a href="#conformance-requirements"><span class="secno">4.4.1.1</span> <span class="content">Conformance Requirements</span></a>
+          <li><a href="#secondary-requirements"><span class="secno">4.4.1.2</span> <span class="content">Secondary Requirements</span></a>
          </ol>
         <li><a href="#mapping-outside-wcag"><span class="secno">4.4.2</span> <span class="content">Mapping Outside WCAG</span></a>
         <li><a href="#rules-without-accessibility-requirements"><span class="secno">4.4.3</span> <span class="content">Rules Without Accessibility Requirements</span></a>
@@ -1021,8 +1021,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ol>
    <h4 class="heading settled" data-level="4.4.1" id="outcome-mapping"><span class="secno">4.4.1. </span><span class="content">Outcome Mapping</span><a class="self-link" href="#outcome-mapping"></a></h4>
     For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119">must</em> indicate what the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome⑤">outcomes</a> of the rule mean for satisfying an accessibility requirement for that <a data-link-type="dfn" href="#test-subject" id="ref-for-test-subject②">test subject</a>. 
-   <h5 class="heading settled" data-level="4.4.1.1" id="conformance-requirements"><span class="secno">4.4.1.1. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="conformance-requirements①">Conformance Requirements</dfn></span><a class="self-link" href="#conformance-requirements"></a></h5>
-   <p>When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a Conformance Requirement when both of the following conditions are true:</p>
+   <h5 class="heading settled" data-level="4.4.1.1" id="conformance-requirements"><span class="secno">4.4.1.1. </span><span class="content">Conformance Requirements</span><a class="self-link" href="#conformance-requirements"></a></h5>
+   <p>When a rule is designed to test a specific accessibility requirement, the accessibility requirement is mapped as a <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="conformance-requirement">Conformance Requirement</dfn> when both of the following conditions are true:</p>
    <ul>
     <li data-md>
      <p>Failed Outcomes: When one or more of the outcomes for a test subject is <code>failed</code>, the accessibility requirement is <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="not-satisfied">not satisfied</dfn> for the test subject, and</p>
@@ -1069,8 +1069,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      </ul>
     </blockquote>
    </aside>
-   <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content"><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="secondary-requirements①">Secondary Requirements</dfn></span><a class="self-link" href="#secondary-requirements"></a></h5>
-   <p>A secondary accessibility requirement is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
+   <h5 class="heading settled" data-level="4.4.1.2" id="secondary-requirements"><span class="secno">4.4.1.2. </span><span class="content">Secondary Requirements</span><a class="self-link" href="#secondary-requirements"></a></h5>
+   <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="secondary requirement" data-noexport id="secondary-requirement">secondary accessibility requirement</dfn> is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule’s test cases not satisfying the secondary accessibility requirement.</p>
    <p>When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the rule.</p>
    <p>When the rule is designed to test an accessibility requirement, differences in <a href="#accessibility-support">accessibility support</a> <em class="rfc2119">must not</em> be a reason for that requirement to be a secondary accessibility requirement.</p>
    <p>Some scenarios when a rule will have Secondary requirements include:</p>
@@ -1378,7 +1378,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p>Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> success criterion could be <a href="https://www.w3.org/WAI/WCAG22/Understanding/">WCAG 2.2 Understanding documents</a>, <a href="https://www.w3.org/WAI/WCAG22/Techniques/">WCAG 2.2 Techniques</a>, or <a href="https://www.w3.org/TR/wai-aria/">WAI-ARIA 1.2</a>, CSS <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, or HTML <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a> specifications.</p>
    <h3 class="heading settled" data-level="4.9" id="test-cases"><span class="secno">4.9. </span><span class="content">Test Cases</span><a class="self-link" href="#test-cases"></a></h3>
    <p>Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for <code>passed</code>, <code>failed</code>, and <code>inapplicable</code> <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①①">outcomes</a>. A test case consists of two pieces of data, a snippet of each <a href="#input-aspects">input aspect</a> for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is <code>passed</code>, <code>failed</code>, or <code>inapplicable</code>. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.</p>
-   <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
+   <p>Each<code>passed</code> and <code>inapplicable</code> test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule’s <a data-link-type="dfn" href="#conformance-requirement" id="ref-for-conformance-requirement">conformance requirements</a>. For each <code>failed</code> test case, all conformance requirements <em class="rfc2119">must</em> be <em>not satisfied</em>.</p>
    <aside class="example" id="example-96d9247d">
     <a class="self-link" href="#example-96d9247d"></a> 
     <header>HTML test cases for a rule that checks if <code>img</code> elements have a text alternative:</header>
@@ -1448,9 +1448,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="rule-mapping">Rule Mapping</dfn>: The accessibility requirements are reported consistently, meaning:</p>
      <ol>
       <li data-md>
-       <p>The <a data-link-type="dfn" href="#check" id="ref-for-check⑤">check</a> is reported as testing for all the rule’s <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①①">conformance requirements</a>, except requirements of a level or standard not supported by the implementation; and</p>
+       <p>The <a data-link-type="dfn" href="#check" id="ref-for-check⑤">check</a> is reported as testing for all the rule’s <a data-link-type="dfn" href="#conformance-requirement" id="ref-for-conformance-requirement①">conformance requirements</a>, except requirements of a level or standard not supported by the implementation; and</p>
       <li data-md>
-       <p>All accessibility requirements the rule reports to be a part of are either <a data-link-type="dfn" href="#conformance-requirements①" id="ref-for-conformance-requirements①②">conformance requirements</a> or <a data-link-type="dfn" href="#secondary-requirements①" id="ref-for-secondary-requirements①">secondary requirements</a>, except for requirements of <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑧">accessibility requirements documents</a> not mentioned in the rule.</p>
+       <p>All accessibility requirements the rule reports to be a part of are either <a data-link-type="dfn" href="#conformance-requirement" id="ref-for-conformance-requirement②">conformance requirements</a> or <a data-link-type="dfn" href="#secondary-requirement" id="ref-for-secondary-requirement">secondary requirements</a>, except for requirements of <a data-link-type="dfn" href="#accessibility-requirements-document" id="ref-for-accessibility-requirements-document⑧">accessibility requirements documents</a> not mentioned in the rule.</p>
      </ol>
    </ol>
    <p>When a <a data-link-type="dfn" href="#check" id="ref-for-check⑥">check</a> reports more than one outcomes for a test case, the first outcome that appears on the following ordered list is considered for determining consistency:</p>
@@ -1884,7 +1884,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <li><a href="#check">Check</a><span>, in § 9</span>
    <li><a href="#completeness">Completeness</a><span>, in § 4.14.1</span>
    <li><a href="#composite-rules">Composite rules</a><span>, in § 3</span>
-   <li><a href="#conformance-requirements①">Conformance Requirements</a><span>, in § 4.4.1.1</span>
+   <li><a href="#conformance-requirement">Conformance Requirement</a><span>, in § 4.4.1.1</span>
    <li><a href="#consistent">consistent</a><span>, in § 4.14.1</span>
    <li><a href="#descriptive-title">Descriptive Title</a><span>, in § 4</span>
    <li><a href="#further-testing-is-needed">further testing is needed</a><span>, in § 4.4.1.1</span>
@@ -1895,7 +1895,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <li><a href="#rule-mapping">Rule Mapping</a><span>, in § 4.14.1</span>
    <li><a href="#satisfied">satisfied</a><span>, in § 4.4.1.1</span>
    <li><a href="#satisfying-tests">satisfying tests</a><span>, in § 4.4.1.1</span>
-   <li><a href="#secondary-requirements①">Secondary Requirements</a><span>, in § 4.4.1.2</span>
+   <li><a href="#secondary-requirement">secondary requirement</a><span>, in § 4.4.1.2</span>
    <li><a href="#set-of-checks">set of checks</a><span>, in § 4.14.3</span>
    <li><a href="#test-subject">Test Subject</a><span>, in § 9</span>
    <li><a href="#test-target">Test Target</a><span>, in § 9</span>
@@ -2151,7 +2151,7 @@ let dfnPanelData = {
 "check": {"dfnID":"check","dfnText":"Check","external":false,"refSections":[{"refs":[{"id":"ref-for-check"},{"id":"ref-for-check\u2460"},{"id":"ref-for-check\u2461"}],"title":"4.14. Implementations (optional)"},{"refs":[{"id":"ref-for-check\u2462"},{"id":"ref-for-check\u2463"},{"id":"ref-for-check\u2464"},{"id":"ref-for-check\u2465"}],"title":"4.14.1. Consistency"},{"refs":[{"id":"ref-for-check\u2466"}],"title":"4.14.2. Partial Consistency"},{"refs":[{"id":"ref-for-check\u2467"}],"title":"4.14.3. Consistency with multiple checks"},{"refs":[{"id":"ref-for-check\u2468"}],"title":"9. Definitions"}],"url":"#check"},
 "completeness": {"dfnID":"completeness","dfnText":"Completeness","external":false,"refSections":[],"url":"#completeness"},
 "composite-rules": {"dfnID":"composite-rules","dfnText":"Composite rules","external":false,"refSections":[{"refs":[{"id":"ref-for-composite-rules"}],"title":"4.5. Rule Input"},{"refs":[{"id":"ref-for-composite-rules\u2460"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-composite-rules\u2461"}],"title":"4.7.2. Expectations for Composite Rules"}],"url":"#composite-rules"},
-"conformance-requirements①": {"dfnID":"conformance-requirements\u2460","dfnText":"Conformance Requirements","external":false,"refSections":[{"refs":[{"id":"ref-for-conformance-requirements\u2460"}],"title":"4.9. Test Cases"},{"refs":[{"id":"ref-for-conformance-requirements\u2460\u2460"},{"id":"ref-for-conformance-requirements\u2460\u2461"}],"title":"4.14.1. Consistency"}],"url":"#conformance-requirements\u2460"},
+"conformance-requirement": {"dfnID":"conformance-requirement","dfnText":"Conformance Requirement","external":false,"refSections":[{"refs":[{"id":"ref-for-conformance-requirement"}],"title":"4.9. Test Cases"},{"refs":[{"id":"ref-for-conformance-requirement\u2460"},{"id":"ref-for-conformance-requirement\u2461"}],"title":"4.14.1. Consistency"}],"url":"#conformance-requirement"},
 "consistent": {"dfnID":"consistent","dfnText":"consistent","external":false,"refSections":[{"refs":[{"id":"ref-for-consistent"}],"title":"4.14.2. Partial Consistency"},{"refs":[{"id":"ref-for-consistent\u2460"},{"id":"ref-for-consistent\u2461"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#consistent"},
 "descriptive-title": {"dfnID":"descriptive-title","dfnText":"Descriptive Title","external":false,"refSections":[{"refs":[{"id":"ref-for-descriptive-title"}],"title":"4.5.2. Input Rules (Composite rules only)"}],"url":"#descriptive-title"},
 "further-testing-is-needed": {"dfnID":"further-testing-is-needed","dfnText":"further testing is needed","external":false,"refSections":[],"url":"#further-testing-is-needed"},
@@ -2162,7 +2162,7 @@ let dfnPanelData = {
 "rule-mapping": {"dfnID":"rule-mapping","dfnText":"Rule Mapping","external":false,"refSections":[],"url":"#rule-mapping"},
 "satisfied": {"dfnID":"satisfied","dfnText":"satisfied","external":false,"refSections":[{"refs":[{"id":"ref-for-satisfied"}],"title":"4.4.1.1. Conformance Requirements"}],"url":"#satisfied"},
 "satisfying-tests": {"dfnID":"satisfying-tests","dfnText":"satisfying tests","external":false,"refSections":[],"url":"#satisfying-tests"},
-"secondary-requirements①": {"dfnID":"secondary-requirements\u2460","dfnText":"Secondary Requirements","external":false,"refSections":[{"refs":[{"id":"ref-for-secondary-requirements\u2460"}],"title":"4.14.1. Consistency"}],"url":"#secondary-requirements\u2460"},
+"secondary-requirement": {"dfnID":"secondary-requirement","dfnText":"secondary accessibility requirement","external":false,"refSections":[{"refs":[{"id":"ref-for-secondary-requirement"}],"title":"4.14.1. Consistency"}],"url":"#secondary-requirement"},
 "set-of-checks": {"dfnID":"set-of-checks","dfnText":"set of checks","external":false,"refSections":[{"refs":[{"id":"ref-for-set-of-checks"}],"title":"4.14.3. Consistency with multiple checks"}],"url":"#set-of-checks"},
 "test-subject": {"dfnID":"test-subject","dfnText":"Test Subject","external":false,"refSections":[{"refs":[{"id":"ref-for-test-subject"},{"id":"ref-for-test-subject\u2460"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-test-subject\u2461"}],"title":"4.4.1. Outcome Mapping"},{"refs":[{"id":"ref-for-test-subject\u2462"}],"title":"4.5. Rule Input"},{"refs":[{"id":"ref-for-test-subject\u2463"}],"title":"4.5.1. Input Aspects (Atomic rules only)"},{"refs":[{"id":"ref-for-test-subject\u2464"}],"title":"4.6. Applicability"},{"refs":[{"id":"ref-for-test-subject\u2465"}],"title":"4.6.1. Applicability for Atomic Rules"},{"refs":[{"id":"ref-for-test-subject\u2466"},{"id":"ref-for-test-subject\u2467"},{"id":"ref-for-test-subject\u2468"}],"title":"9. Definitions"}],"url":"#test-subject"},
 "test-target": {"dfnID":"test-target","dfnText":"Test Target","external":false,"refSections":[{"refs":[{"id":"ref-for-test-target"}],"title":"3. ACT Rule Types"},{"refs":[{"id":"ref-for-test-target\u2460"}],"title":"4.5.2. Input Rules (Composite rules only)"},{"refs":[{"id":"ref-for-test-target\u2461"}],"title":"4.6.1. Applicability for Atomic Rules"},{"refs":[{"id":"ref-for-test-target\u2462"},{"id":"ref-for-test-target\u2463"}],"title":"4.7. Expectations"},{"refs":[{"id":"ref-for-test-target\u2464"}],"title":"4.7.1. Expectations for Atomic Rules"},{"refs":[{"id":"ref-for-test-target\u2465"}],"title":"4.7.2. Expectations for Composite Rules"},{"refs":[{"id":"ref-for-test-target\u2466"},{"id":"ref-for-test-target\u2467"}],"title":"5. Rule Accuracy"},{"refs":[{"id":"ref-for-test-target\u2468"},{"id":"ref-for-test-target\u2460\u24ea"},{"id":"ref-for-test-target\u2460\u2460"},{"id":"ref-for-test-target\u2460\u2461"}],"title":"9. Definitions"}],"url":"#test-target"},
@@ -2560,7 +2560,7 @@ let refsData = {
 "#atomic-rules": {"displayText":"atomic rules","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"atomic rules","type":"dfn","url":"#atomic-rules"},
 "#check": {"displayText":"check","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"check","type":"dfn","url":"#check"},
 "#composite-rules": {"displayText":"composite rules","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"composite rules","type":"dfn","url":"#composite-rules"},
-"#conformance-requirements①": {"displayText":"conformance requirements","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"conformance requirements","type":"dfn","url":"#conformance-requirements\u2460"},
+"#conformance-requirement": {"displayText":"conformance requirement","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"conformance requirement","type":"dfn","url":"#conformance-requirement"},
 "#consistent": {"displayText":"consistent","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"consistent","type":"dfn","url":"#consistent"},
 "#descriptive-title": {"displayText":"descriptive title","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"descriptive title","type":"dfn","url":"#descriptive-title"},
 "#implementation": {"displayText":"implementation","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"implementation","type":"dfn","url":"#implementation"},
@@ -2568,7 +2568,7 @@ let refsData = {
 "#outcome": {"displayText":"outcome","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"outcome","type":"dfn","url":"#outcome"},
 "#partially-consistent": {"displayText":"partially consistent","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"partially consistent","type":"dfn","url":"#partially-consistent"},
 "#satisfied": {"displayText":"satisfied","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"satisfied","type":"dfn","url":"#satisfied"},
-"#secondary-requirements①": {"displayText":"secondary requirements","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"secondary requirements","type":"dfn","url":"#secondary-requirements\u2460"},
+"#secondary-requirement": {"displayText":"secondary requirement","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"secondary requirement","type":"dfn","url":"#secondary-requirement"},
 "#set-of-checks": {"displayText":"set of checks","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"set of checks","type":"dfn","url":"#set-of-checks"},
 "#test-subject": {"displayText":"test subject","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"test subject","type":"dfn","url":"#test-subject"},
 "#test-target": {"displayText":"test target","export":true,"for_":[],"level":"1.1","normative":true,"shortname":"act-rules-format-1.1","spec":"act-rules-format-1.1-1.1","status":"local","text":"test target","type":"dfn","url":"#test-target"},
