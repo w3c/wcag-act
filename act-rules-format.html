@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version b25686b9f, updated Fri Mar 14 14:15:20 2025 -0700" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="815ff23f53dc052487c8435249925b385ee0f7f9" name="revision">
+  <meta content="1d8f394bc876da2291ca48781ad162c98fff2783" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -710,7 +710,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-22">22 April 2025</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2025-04-24">24 April 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -960,8 +960,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    </ul>
    <p>The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a> or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule <a href="#test-cases">test cases</a> are allowed to contain inaccessible content. If any test case contains accessibility issues listed in <a href="https://www.w3.org/TR/WCAG22/#cc5">WCAG 2.2 Section 5.2.5 Non-Interference</a>, users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a <a data-link-type="dfn" href="https://w3c.github.io/i18n-glossary/#dfn-localisation" id="ref-for-dfn-localisation">localizable</a> format, such that a rule can contain multiple language representations or so that translations of the rule can be created.</p>
    <h3 class="heading settled" data-level="4.1" id="rule-identifier"><span class="secno">4.1. </span><span class="content">Rule Identifier</span><a class="self-link" href="#rule-identifier"></a></h3>
-   <p>An ACT Rule <em class="rfc2119">must</em> have an unique identifier. The identifier can be any text, such as plain text, URL, or a database identifier.</p>
-   <p>Determining whether an identifier is unique can be achieved by using lowercase ASCII characters or other unambiguous method. For a detailed explanation, see <a href="https://www.w3.org/TR/charmod-norm/">‘Character Model for the World Wide Web: String Matching’</a></p>
+   <p>An ACT Rule <em class="rfc2119">must</em> have an identifier that is a unique within its ruleset. The identifier can be any text, URL, a database identifier, etc..</p>
    <aside class="example" id="example-300c7989">
     <a class="self-link" href="#example-300c7989"></a> 
     <header>Identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
