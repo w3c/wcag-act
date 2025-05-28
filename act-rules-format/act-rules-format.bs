@@ -7,8 +7,9 @@ Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
 Level: 1.1
 Prepare For TR: yes
 Status: w3c/CR
-Date: 2025-04-24
-Deadline: 2025-05-22
+Date: 2025-05-26
+Deadline: 2025-06-22
+Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
 Status Text:
   The group has addressed feedback received during the Horizontal Review Process. For details, see:
 
