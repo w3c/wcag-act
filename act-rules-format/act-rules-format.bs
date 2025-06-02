@@ -680,7 +680,7 @@ Consistency describes how well a [=check=] is aligned with the intent of an ACT 
     1. The [=check=] is reported as testing for all the rule's [=conformance requirements=], except requirements of a level or standard not supported by the implementation; and
     2. All accessibility requirements the rule reports to be a part of are either [=conformance requirements=] or [=secondary requirements=], except for requirements of [=accessibility requirements documents=] not mentioned in the rule.
 
-When a [=check=] reports more than one outcomes for an example, the first outcome that appears on the following ordered list is considered for determining consistency:
+When a [=check=] reports more than one outcome for an example, the first outcome that appears on the following ordered list is considered for determining consistency:
 
 1. `failed`
 2. `untested`
