@@ -597,7 +597,7 @@ Examples {#examples}
 
 Examples are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more examples for `passed`, `failed`, and `inapplicable` [=outcomes=]. An example consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Examples serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-Each`passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*.
+Each`passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
 
 <aside class="example">
   <header>HTML examples for a rule that checks if `img` elements have a text alternative:</header>
