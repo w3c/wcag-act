@@ -597,7 +597,7 @@ Test Cases {#test-cases}
 
 Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-Each`passed` and `inapplicable` test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` test case, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all test cases of [input rules](#input-rules) <em class="rfc2119">must</em> meet those same requirements for the conformance requirements of the composite rule.
+Each`passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
 
 <aside class="example">
   <header>HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
