@@ -1082,7 +1082,7 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
+Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
