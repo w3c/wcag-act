@@ -459,7 +459,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class="example">
-  <header><strong>Non-conforming:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming:</strong> This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parenthesis like ":)". Due to the ambiguity in the applicability, it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
   </blockquote>
@@ -850,7 +850,7 @@ Appendix 1: Expressing ACT Rule Results with JSON-LD and EARL {#appendix-data-ex
 
 This section is *non-normative*.
 
-This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD. For details, see [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
 
 Examples in this section include:
 
