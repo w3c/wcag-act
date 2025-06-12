@@ -764,7 +764,7 @@ Privacy Considerations {#privacy-considerations}
 
 This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
 
-Security considerations {#security-considerations}
+Security Considerations {#security-considerations}
 ==========================
 
 This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
@@ -845,7 +845,7 @@ Definitions {#definitions}
 </dl>
 
 
-Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-example}
+Appendix 1: Expressing ACT Rule Results with JSON-LD and EARL {#appendix-data-example}
 =================================================================================
 
 This section is *non-normative*.
@@ -1065,13 +1065,13 @@ Appendix 2: Acknowledgments {#Acknowledgments}
 This section is *non-normative*.
 
 
-Participants of the AG WG active in the development of this document {#participants}
+Participants of the AG WG Active in the Development of This Document {#participants}
 --------------------------------------------------------------------
 
 Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
 
 
-Enabling funders {#enabling-funders}
+Enabling Funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
@@ -1082,7 +1082,7 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
+Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
@@ -1100,7 +1100,7 @@ Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.o
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
+Changes Since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
 ---------------
 
 <ul>
