@@ -692,7 +692,7 @@ When a [=check=] reports more than one outcome for an example, the first outcome
 
 A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's examples are `cantTell` or `untested`.
 
-### Consistency with multiple checks ### {#impl-multi-check}
+### Consistency with Multiple Checks ### {#impl-multi-check}
 
 An [=implementation=] can include [=checks=] that test only parts of a single ACT Rule. The combination of those checks can be consistent if all parts of the ACT Rule are covered. The consistency of a <dfn>set of checks</dfn> can be determined by treating all [=partially consistent=] checks as though they were a single check.
 
