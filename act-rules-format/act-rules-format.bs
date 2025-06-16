@@ -6,7 +6,7 @@ TR: https://www.w3.org/TR/act-rules-format/
 Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
 Level: 1.1
 Prepare For TR: yes
-Status: ED
+Status: CR
 Deadline: 2024-08-18
 Status Text:
 Group: act-rules-format
