@@ -64,6 +64,8 @@ The ACT Rules Format defined in this specification is designed for rules that ca
 
 The ACT Rules Format can be used to describe ACT Rules dedicated to testing the [=accessibility requirements=] defined in the Web Content Accessibility Guidelines [[WCAG22]], which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/uaag/) [[UAAG20]]. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.
 
+### Backward Compatibility ### {#backward-compatible}
+
 ACT Rules Format 1.1 is largely, but not fully, backwards compatible with 1.0. ACT Rules Format 1.1 introduces requirements that are not part of 1.0. It also allows a few things that were not allowed under 1.0, such as subjective [applicability](#applicability). A detailed list of changes is available under [Change History](#Change_History).
 
 
@@ -631,7 +633,7 @@ This section was previously named "Change Log". Either section name is acceptabl
 ACT Rules Format Version {#act-rules-format-version}
 -------------------------------------------
 
-An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written. 
+An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written. This is important because the ACT Rules Format is not fully [backward compatible](#backward-compatible).
 
 Glossary {#glossary}
 --------------------
