@@ -459,7 +459,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class="example">
-  <header><strong>Non-conforming:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming:</strong> This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parenthesis like ":)". Due to the ambiguity in the applicability, it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
   </blockquote>
@@ -597,7 +597,7 @@ Examples {#examples}
 
 Examples are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more examples for `passed`, `failed`, and `inapplicable` [=outcomes=]. An example consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Examples serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-Each`passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
+Each `passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
 
 <aside class="example">
   <header>HTML examples for a rule that checks if `img` elements have a text alternative:</header>
@@ -692,7 +692,7 @@ When a [=check=] reports more than one outcome for an example, the first outcome
 
 A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's examples are `cantTell` or `untested`.
 
-### Consistency with multiple checks ### {#impl-multi-check}
+### Consistency with Multiple Checks ### {#impl-multi-check}
 
 An [=implementation=] can include [=checks=] that test only parts of a single ACT Rule. The combination of those checks can be consistent if all parts of the ACT Rule are covered. The consistency of a <dfn>set of checks</dfn> can be determined by treating all [=partially consistent=] checks as though they were a single check.
 
@@ -764,7 +764,7 @@ Privacy Considerations {#privacy-considerations}
 
 This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
 
-Security considerations {#security-considerations}
+Security Considerations {#security-considerations}
 ==========================
 
 This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
@@ -845,12 +845,12 @@ Definitions {#definitions}
 </dl>
 
 
-Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-example}
+Appendix 1: Expressing ACT Rule Results with JSON-LD and EARL {#appendix-data-example}
 =================================================================================
 
 This section is *non-normative*.
 
-This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD. For details, see [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
 
 Examples in this section include:
 
@@ -1065,13 +1065,13 @@ Appendix 2: Acknowledgments {#Acknowledgments}
 This section is *non-normative*.
 
 
-Participants of the AG WG active in the development of this document {#participants}
+Participants of the AG WG Active in the Development of This Document {#participants}
 --------------------------------------------------------------------
 
 Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
 
 
-Enabling funders {#enabling-funders}
+Enabling Funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
@@ -1082,12 +1082,14 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
+Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
+  <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
+  <li><strong>All</strong> Test cases renamed to examples</li>
   <li><strong>All</strong> Examples now only follow Bikeshed's automatic numbering</li>
-  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the exxamples in this secction to render correctly</li>
+  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the examples in this section to render correctly</li>
   <li><strong>4.2. Rule Description</strong> Add assumption that text has metadata specifying its language and writing direction </li>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
   <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique</li>
@@ -1098,7 +1100,7 @@ Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.o
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
+Changes Since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
 ---------------
 
 <ul>
