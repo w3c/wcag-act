@@ -54,7 +54,7 @@ Documenting how to test [=accessibility requirements=] will result in accessibil
 
 An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in [common failures](https://www.w3.org/TR/WCAG22/#wcag-2-layers-of-guidance) documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.
 
-The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](#act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Test cases are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
+The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](#act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Examples are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
 
 
 Scope {#scope}
@@ -113,7 +113,7 @@ An ACT Rule <em class="rfc2119">must</em> consist of at least the following item
     * [Accessibility Support](#accessibility-support)
     * [Related Rules (optional)](#related-rules)
     * [Other Resources (optional)](#other-resources)
-* [Test Cases](#test-cases)
+* [Examples](#examples)
 * [Rule Versions](#rule-versions)
 * [ACT Rules Format Version](#act-rules-format-version)
 * [Glossary](#glossary)
@@ -126,7 +126,7 @@ An ACT Rule MAY also contain:
 * [Implementations](#implementations) (optional)
 * [Acknowledgments](#acknowledgments) (optional)
 
-The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [test cases](#test-cases) are allowed to contain inaccessible content. If any test case contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a [=localisation|localizable=] format, such that a rule can contain multiple language representations or so that translations of the rule can be created.
+The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [examples](#examples) are allowed to contain inaccessible content. If any example contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a [=localisation|localizable=] format, such that a rule can contain multiple language representations or so that translations of the rule can be created.
 
 Rule Identifier {#rule-identifier}
 ----------------------------------
@@ -238,7 +238,7 @@ Rules that can be used to determine if an accessibility requirement is *satisfie
 
 #### Secondary Requirements #### {#secondary-requirements}
 
-A <dfn data-lt="secondary requirement">secondary accessibility requirement</dfn> is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's test cases not satisfying the secondary accessibility requirement.
+A <dfn data-lt="secondary requirement">secondary accessibility requirement</dfn> is a requirement that is correlated with the rule, but for which the rule is not designed to test. The outcome of the rule impacts the result of the accessibility requirement, but the rule is not intended to test the conformance of that requirement. This correlation often results in some of the rule's examples not satisfying the secondary accessibility requirement.
 
 When the rule is not designed to test the accessibility requirement, or failed outcomes of the rule still require further testing for the accessibility requirement, the rule <em class="rfc2119">may</em> map the accessibility requirement as Secondary. When an ACT rule maps to a Secondary requirement, it <em class="rfc2119">must</em> include an explanation of why that requirement is Secondary in the rule.
 
@@ -461,7 +461,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class="example">
-  <header><strong>Non-conforming:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming:</strong> This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parenthesis like ":)". Due to the ambiguity in the applicability, it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
   </blockquote>
@@ -594,15 +594,15 @@ Related rules are other rules that test the same accessibility requirement. For 
 Whenever a resource is included in the rule, the relationship to the relevant reading can be specified. Examples of relevant background references for a rule for a [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG22]] success criterion could be [WCAG 2.2 Understanding documents](https://www.w3.org/WAI/WCAG22/Understanding/), [WCAG 2.2 Techniques](https://www.w3.org/WAI/WCAG22/Techniques/), or [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria/), CSS [[css-2018]], or HTML [[HTML]] specifications.
 
 
-Test Cases {#test-cases}
+Examples {#examples}
 ------------------------
 
-Test cases are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more test cases for `passed`, `failed`, and `inapplicable` [=outcomes=]. A test case consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Test cases serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
+Examples are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more examples for `passed`, `failed`, and `inapplicable` [=outcomes=]. An example consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Examples serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-Each`passed` and `inapplicable` test case of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` test case, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*.
+Each `passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
 
 <aside class="example">
-  <header>HTML test cases for a rule that checks if `img` elements have a text alternative:</header>
+  <header>HTML examples for a rule that checks if `img` elements have a text alternative:</header>
   <blockquote>
     <p>Example of a `passed` outcome:</p>
     ```html
@@ -670,19 +670,19 @@ For each implementation, information such as the following could be included:
 
 Consistency describes how well a [=check=] is aligned with the intent of an ACT Rule. If consistency is included in an ACT Rule it <em class="rfc2119">must</em> be determined as defined in this section. A consistent check of an ACT Rule is one that can be used to identify some or all non-conformance issues as described by the rule. A check is <dfn>consistent</dfn> when all the following are true:
 
-1. <dfn>True positives</dfn>: There are no inconsistencies with the test cases, meaning:
-    1. The `passed` and `inapplicable` test cases are **not** reported as `failed`; and
-    2. The `failed` test cases are **not** reported as `passed` or `inapplicable`; and
+1. <dfn>True positives</dfn>: There are no inconsistencies with the examples, meaning:
+    1. The `passed` and `inapplicable` examples are **not** reported as `failed`; and
+    2. The `failed` examples are **not** reported as `passed` or `inapplicable`; and
 
 2. <dfn>Completeness</dfn>: There are no gaps in coverage, meaning: 
     1. None of the [=check=]'s outcomes are `untested`; and
-    2. At least one of the `failed` test cases is reported as `failed`; and
+    2. At least one of the `failed` examples is reported as `failed`; and
 
 3. <dfn>Rule Mapping</dfn>: The accessibility requirements are reported consistently, meaning:
     1. The [=check=] is reported as testing for all the rule's [=conformance requirements=], except requirements of a level or standard not supported by the implementation; and
     2. All accessibility requirements the rule reports to be a part of are either [=conformance requirements=] or [=secondary requirements=], except for requirements of [=accessibility requirements documents=] not mentioned in the rule.
 
-When a [=check=] reports more than one outcomes for a test case, the first outcome that appears on the following ordered list is considered for determining consistency:
+When a [=check=] reports more than one outcome for an example, the first outcome that appears on the following ordered list is considered for determining consistency:
 
 1. `failed`
 2. `untested`
@@ -692,9 +692,9 @@ When a [=check=] reports more than one outcomes for a test case, the first outco
 
 ### Partial Consistency ### {#impl-partial-consistency}
 
-A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's test cases are `cantTell` or `untested`.
+A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's examples are `cantTell` or `untested`.
 
-### Consistency with multiple checks ### {#impl-multi-check}
+### Consistency with Multiple Checks ### {#impl-multi-check}
 
 An [=implementation=] can include [=checks=] that test only parts of a single ACT Rule. The combination of those checks can be consistent if all parts of the ACT Rule are covered. The consistency of a <dfn>set of checks</dfn> can be determined by treating all [=partially consistent=] checks as though they were a single check.
 
@@ -703,9 +703,9 @@ A [=set of checks=] is [=consistent=] with an ACT Rule if it meets all requireme
 <aside class="example">
   <header>Consistent set of checks:</header>
   <blockquote>
-    <p>An ACT Rule checks that all native button elements, and elements with a role="button" have an accessible name. The ACT Rule has test cases including both native buttons and role="button" elements.</p>
-    <p>The ACME Conformance Tool has a check for native button elements. This check passes all native buttons with an accessible name, it fails all native buttons without an accessible name, and gives inapplicable for pages with only elements with role="button". Because it reports inapplicable for some of the failed test cases of the ACT Rule, this check is partially consistent.
-    <p>ACME Conformance Tool has a second check for elements with role="button". This works similarly to the previous check, except it passes and fails role="button" elements, and is inapplicable for pages with only native buttons. This check is also partially consistent. The combination of these two checks is consistent though, because all failed test cases of the ACT Rule are failed by one of the checks.</p>
+    <p>An ACT Rule checks that all native button elements, and elements with a role="button" have an accessible name. The ACT Rule has examples including both native buttons and role="button" elements.</p>
+    <p>The ACME Conformance Tool has a check for native button elements. This check passes all native buttons with an accessible name, it fails all native buttons without an accessible name, and gives inapplicable for pages with only elements with role="button". Because it reports inapplicable for some of the failed examples of the ACT Rule, this check is partially consistent.
+    <p>ACME Conformance Tool has a second check for elements with role="button". This works similarly to the previous check, except it passes and fails role="button" elements, and is inapplicable for pages with only native buttons. This check is also partially consistent. The combination of these two checks is consistent though, because all failed examples of the ACT Rule are failed by one of the checks.</p>
   </blockquote>
 </aside>
 
@@ -724,14 +724,14 @@ Rule Accuracy {#rule-accuracy}
 
 This section is *non-normative*.
 
-While [test cases](#test-cases) can be used to determine if an ACT Rule was correctly implemented, they do not guarantee that implementations will never produce incorrect results. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked. Technologies are always evolving, and content authors are constantly coming up with new and unexpected ways to use them. Some examples of causes for inaccuracy are:
+While [examples](#examples) can be used to determine if an ACT Rule was correctly implemented, they do not guarantee that implementations will never produce incorrect results. When writing ACT Rules, it is almost inevitable that edge cases will be overlooked. Technologies are always evolving, and content authors are constantly coming up with new and unexpected ways to use them. Some examples of causes for inaccuracy are:
 
 - [Assumptions](#assumptions) were made about the test subject that turned out to be untrue
 - Technologies were used in an unusual and difficult to predict manner
 - Technologies have changes, or aspects of the technologies were overlooked
 - The accessibility requirement was not correctly interpreted
 
-There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the **implementation** can be addressed with test cases, but inaccuracies in the **ACT Rule itself** cannot. After all, rule inaccuracies come from the rule author being unaware of a particular edge case.
+There are two types of inaccuracies that can produce incorrect results. Inaccuracies in the **implementation** can be addressed with examples, but inaccuracies in the **ACT Rule itself** cannot. After all, rule inaccuracies come from the rule author being unaware of a particular edge case.
 
 When a test result incorrectly indicates non-conformance to an accessibility requirement, this is known as a false positive. Opposite, when a rule incorrectly indicates conformance, this is a false negative. A percentage of false positives and false negatives can be calculated by comparing it to results from an accessibility audit:
 
@@ -766,7 +766,7 @@ Privacy Considerations {#privacy-considerations}
 
 This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
 
-Security considerations {#security-considerations}
+Security Considerations {#security-considerations}
 ==========================
 
 This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
@@ -847,12 +847,12 @@ Definitions {#definitions}
 </dl>
 
 
-Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-example}
+Appendix 1: Expressing ACT Rule Results with JSON-LD and EARL {#appendix-data-example}
 =================================================================================
 
 This section is *non-normative*.
 
-This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD. For details, see [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
 
 Examples in this section include:
 
@@ -1067,13 +1067,13 @@ Appendix 2: Acknowledgments {#Acknowledgments}
 This section is *non-normative*.
 
 
-Participants of the AG WG active in the development of this document {#participants}
+Participants of the AG WG Active in the Development of This Document {#participants}
 --------------------------------------------------------------------
 
 Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
 
 
-Enabling funders {#enabling-funders}
+Enabling Funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
@@ -1084,13 +1084,14 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
+Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
-  <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backwards compatible with 1.0</li>
+  <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
+  <li><strong>All</strong> Test cases renamed to examples</li>
   <li><strong>All</strong> Examples now only follow Bikeshed's automatic numbering</li>
-  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the exxamples in this secction to render correctly</li>
+  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the examples in this section to render correctly</li>
   <li><strong>4.2. Rule Description</strong> Add assumption that text has metadata specifying its language and writing direction </li>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
   <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique</li>
@@ -1101,7 +1102,7 @@ Changes since [First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rul
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
+Changes Since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
 ---------------
 
 <ul>
