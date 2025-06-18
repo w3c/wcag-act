@@ -1,6 +1,6 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
-Shortname: act-rules-format-1.1
+Shortname: act-rules-format
 ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
 Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
@@ -10,13 +10,17 @@ Status: w3c/CR
 Date: 2025-05-26
 Deadline: 2025-06-22
 Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
+Repository: https://github.com/w3c/wcag-act
+Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
   The group has addressed feedback received during the Horizontal Review Process. For details, see:
 
   * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
   * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
 
-  Comments are welcome, more specifically on changes made since First Public working Draft.
+  The group welcomes your feedback, more specifically on changes made since First Public working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
+
+  To comment, [file an issue in the ACT GitHub repository](https://github.com/w3c/wcag-act/issues/new). Create a separate GitHub issue for each topic, rather than commenting on multiple topics in a single issue. It is free to create a GitHub account to file issues.  Before commenting, please first review the ACT GitHub repository for related comments. If filing issues in GitHub is not feasible, email public-wcag-act-comments@w3.org ([mail archive of previous comments](https://lists.w3.org/Archives/Public/public-wcag-act-comments/)). The deadline for comments is **[DEADLINE]**. 
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
