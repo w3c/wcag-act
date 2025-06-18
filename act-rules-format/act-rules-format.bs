@@ -67,7 +67,7 @@ The ACT Rules Format can be used to describe ACT Rules dedicated to testing the 
 Backward Compatibility {#backward-compatible}
 -------------------------
 
-ACT Rules Format 1.1 is largely, but not fully, backwards compatible with 1.0. ACT Rules Format 1.1 introduces requirements that are not part of 1.0. It also allows a few things that were not allowed under 1.0, such as subjective [applicability](#applicability). A detailed list of changes is available under [Change History](#Change_History).
+ACT Rules Format 1.1 is largely, but not fully, backward compatible with 1.0. ACT Rules Format 1.1 introduces requirements that are not part of 1.0. It also allows a few things that were not allowed under 1.0, such as subjective [applicability](#applicability). A detailed list of changes is available under [Change History](#Change_History).
 
 
 ACT Rule Types {#rule-types}
@@ -1091,7 +1091,7 @@ Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.o
 ------------------
 
 <ul>
-  <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backwards compatible with 1.0</li>
+  <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backward compatible with 1.0</li>
   <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
   <li><strong>All</strong> Test cases renamed to examples</li>
   <li><strong>All</strong> Examples now only follow Bikeshed's automatic numbering</li>
