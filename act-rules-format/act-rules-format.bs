@@ -27,7 +27,8 @@ Editor: Daniel Montalvo, W3C, w3cid 114058
 Former Editor: Maureen Kraft, IBM Corp.
 Former Editor: Mary Jo Mueller, IBM Corp.
 Former Editor: Shadi Abou-Zahra, W3C
-Abstract:     The Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. These test rules can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+Abstract:
+     Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules, which can be used for developing automated testing tools and manual testing methodologies. It provides a common format that allows any party involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
 Local Boilerplate: abstract yes, status yes, copyright yes
 </pre>
@@ -58,13 +59,13 @@ Introduction {#intro}
 
 There are currently many test procedures and tools available which aid their users in testing web content for conformance to accessibility standards such as the [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/) [[WCAG22]]. As the Web develops in both size and complexity, these procedures and tools are essential for managing the accessibility of resources available on the Web.
 
-This format is intended to enable a consistent interpretation of how to test conformance to WCAG and other [=accessibility requirements documents=] and promote consistent results in accessibility testing. The rules format is designed to describe both manual accessibility tests, as well as automated tests as performed by accessibility testing tools.
+ACT Rules Format provides guidance that is intended to enable a consistent interpretation of how to test conformance to WCAG and other [=accessibility requirements documents=], and to promote consistent results in accessibility testing. Act Rules Format is designed to describe both manual tests, and automated tests that are performed by accessibility testing tools.
 
-Documenting how to test [=accessibility requirements=] will result in accessibility tests that are transparent, with test results that are reproducible. The Accessibility Conformance Testing (ACT) Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
+Documenting how to test [=accessibility requirements=] will result in transparent accessibility tests that have reproducible test results. ACT Rules Format defines the requirements for these test descriptions, known as Accessibility Conformance Testing Rules (ACT Rules).
 
-An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying Success Criteria. Such failures are often described in [common failures](https://www.w3.org/TR/WCAG22/#wcag-2-layers-of-guidance) documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.
+An ACT Rule is a plain language description of how to test a specific type of content for a specific aspect of an accessibility requirement. An ACT Rule describes what kind of content it applies to and which conditions are true about the applicable elements for them to meet all expectations of the rule. In the context of WCAG, ACT Rules test for failures in satisfying success criteria. Such failures are often described in [common failures](https://www.w3.org/TR/WCAG22/#wcag-2-layers-of-guidance) documented for WCAG. ACT Rules are written for the testing process and are usually more specific than common failures.
 
-The ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](#act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Examples are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
+ACT Rules Format defines the requirements and rule structure for the types of information each rule needs to include in order to be called an ACT Rule. The structure of the ACT rule is defined in the [ACT Rule Structure](#act-rule-structure) section. Each ACT Rule also contains a plain language description of the type of content under test, the test to perform, and the expected result.  Where the test result affects conformance, the rule documents the particular requirement being tested. The resulting outcomes from the test can be used to help determine conformance or non-conformance to the requirement. Examples are also written as part of the ACT rule to provide a way to verify that implementations of the rule can successfully determine the expected outcomes.
 
 
 Scope {#scope}
@@ -73,6 +74,11 @@ Scope {#scope}
 The ACT Rules Format defined in this specification is designed for rules that can be used in testing content created using web technologies, such as [Hypertext Markup Language](https://www.w3.org/TR/html/) [[HTML]], [Cascading Style Sheets](https://www.w3.org/TR/CSS/) [[css-2018]], [Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria/) [[WAI-ARIA]], [Scalable Vector Graphics](https://www.w3.org/TR/SVG/) [[SVG2]], [EPUB 3](https://www.idpf.org/) [[epub-33]], and more. The ACT Rules Format is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.
 
 The ACT Rules Format can be used to describe ACT Rules dedicated to testing the [=accessibility requirements=] defined in the Web Content Accessibility Guidelines [[WCAG22]], which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the [User Agent Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/uaag/) [[UAAG20]]. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.
+
+Backward Compatibility {#backward-compatible}
+-------------------------
+
+ACT Rules Format 1.1 is largely, but not fully, backward compatible with 1.0. ACT Rules Format 1.1 introduces requirements that are not part of 1.0. It also allows a few things that were not allowed under 1.0, such as subjective [applicability](#applicability). A detailed list of changes is available under [Change History](#Change_History).
 
 
 ACT Rule Types {#rule-types}
@@ -469,7 +475,7 @@ Definitions can be put in the rule [glossary](#glossary), or they can be defined
 </aside>
 
 <aside class="example">
-  <header><strong>Non-conforming:</strong>This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parathesis like ":)". Due to the ambiguity in the applicability it is impossible to tell.</header>
+  <header><strong>Non-conforming:</strong> This example demonstrates an applicability that attempts to be subjective, but does not meet the "must be unambiguous" requirement. For example, non-text content could refer to images, interactive elements, or even a text smiling face emoji using a colon and parenthesis like ":)". Due to the ambiguity in the applicability, it is impossible to tell.</header>
   <blockquote>
     <p>Applicability: This rule applies to any non-text content.</p>
   </blockquote>
@@ -607,7 +613,7 @@ Examples {#examples}
 
 Examples are (snippets of) content that can be used to validate the implementation of ACT Rules. Each rule <em class="rfc2119">must</em> have one or more examples for `passed`, `failed`, and `inapplicable` [=outcomes=]. An example consists of two pieces of data, a snippet of each [input aspect](#input-aspects) for a rule, and the expected outcome for that rule. Examples serve two functions, firstly as example scenarios for readers to understand when the outcome of a rule is `passed`, `failed`, or `inapplicable`. It also serves developers and users of accessibility testing tools and methodologies to validate that a rule is correctly implemented.
 
-Each`passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
+Each `passed` and `inapplicable` example of an ACT Rule <em class="rfc2119">must</em> satisfy all the rule's [=conformance requirements=]. For each `failed` example, all conformance requirements <em class="rfc2119">must</em> be *not satisfied*. For [=composite rules=], all examples of [input rules](#input-rules) <em class="rfc2119">must</em> satisfy those same requirements for the conformance requirements of the composite rule.
 
 <aside class="example">
   <header>HTML examples for a rule that checks if `img` elements have a text alternative:</header>
@@ -639,7 +645,7 @@ This section was previously named "Change Log". Either section name is acceptabl
 ACT Rules Format Version {#act-rules-format-version}
 -------------------------------------------
 
-An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written. 
+An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written. This is important because the ACT Rules Format is not fully [backward compatible](#backward-compatible).
 
 Glossary {#glossary}
 --------------------
@@ -702,7 +708,7 @@ When a [=check=] reports more than one outcome for an example, the first outcome
 
 A [=check=] that is not [=consistent=] is considered <dfn>partially consistent</dfn> if the [=true positive=] condition is true and not all outcomes it reports for the rule's examples are `cantTell` or `untested`.
 
-### Consistency with multiple checks ### {#impl-multi-check}
+### Consistency with Multiple Checks ### {#impl-multi-check}
 
 An [=implementation=] can include [=checks=] that test only parts of a single ACT Rule. The combination of those checks can be consistent if all parts of the ACT Rule are covered. The consistency of a <dfn>set of checks</dfn> can be determined by treating all [=partially consistent=] checks as though they were a single check.
 
@@ -774,7 +780,7 @@ Privacy Considerations {#privacy-considerations}
 
 This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
 
-Security considerations {#security-considerations}
+Security Considerations {#security-considerations}
 ==========================
 
 This specification does not provide means for protocols, domains, and ports to communicate directly with underlying platforms (including browsers and operating systems), neither does it allow access to device sensors. The specification does not enable new script execution/loading mechanisms. This Group is not aware of other security considerations.
@@ -855,12 +861,12 @@ Definitions {#definitions}
 </dl>
 
 
-Appendix 1: Expressing ACT Rule results with JSON-LD and EARL {#appendix-data-example}
+Appendix 1: Expressing ACT Rule Results with JSON-LD and EARL {#appendix-data-example}
 =================================================================================
 
 This section is *non-normative*.
 
-This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD (See [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/)). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
+This section provides examples of expressing results from carrying out ACT Rules using EARL and JSON-LD. For details, see [Evaluation and Report Language](https://www.w3.org/WAI/standards-guidelines/earl/) and [A JSON-based Serialization for Linked Data (JSON-LD)](https://www.w3.org/TR/json-ld/). More examples and background is provided on the [JSON-LD serialization of EARL](https://github.com/w3c/earl) GitHub repository.
 
 Examples in this section include:
 
@@ -1075,13 +1081,13 @@ Appendix 2: Acknowledgments {#Acknowledgments}
 This section is *non-normative*.
 
 
-Participants of the AG WG active in the development of this document {#participants}
+Participants of the AG WG Active in the Development of This Document {#participants}
 --------------------------------------------------------------------
 
 Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
 
 
-Enabling funders {#enabling-funders}
+Enabling Funders {#enabling-funders}
 ----------------
 
 This publication has been developed with support from the [WAI-Tools Project](https://www.w3.org/WAI/about/projects/wai-tools/), co-funded by the European Commission (EC) under the Horizon 2020 Program (Grant Agreement 780057). The content of this publication does not necessarily reflect the views or policies of the European Commission (EC) or any of the European Union (EU) Member States.
@@ -1092,12 +1098,15 @@ Appendix 3: Change History {#Change_History}
 
 This section is *non-normative*.
 
-Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
+Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/) {#changes-since-FPWD}
 ------------------
 
 <ul>
+  <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backward compatible with 1.0</li>
+  <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
+  <li><strong>All</strong> Test cases renamed to examples</li>
   <li><strong>All</strong> Examples now only follow Bikeshed's automatic numbering</li>
-  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the exxamples in this secction to render correctly</li>
+  <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the examples in this section to render correctly</li>
   <li><strong>4.2. Rule Description</strong> Add assumption that text has metadata specifying its language and writing direction </li>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
   <li><strong>4.1. Rule Identifier</strong> Clarifications for determining if a rule identifier is unique</li>
@@ -1108,7 +1117,7 @@ Changes since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.o
   <li><strong>8. Security Considerations</strong> Added</li>
 </ul>
 
-Changes since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
+Changes Since [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/) {#changes-since-1.0}
 ---------------
 
 <ul>
