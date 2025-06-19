@@ -6,7 +6,7 @@
   <meta content="ED" name="w3c-status">
   <meta content="Bikeshed version 275834c42, updated Wed Jun 11 14:18:15 2025 -0700" name="generator">
   <link href="https://www.w3.org/TR/act-rules-format/" rel="canonical">
-  <meta content="8fe7250c15276f243fc0a78a5c56e2f86c3bc11f" name="revision">
+  <meta content="150a3127c64dde8d76035ac62d65e81a5662cb41" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
   .rfc2119 {
@@ -714,7 +714,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 </p>
    <h1 class="p-name no-ref" id="title">Accessibility Conformance Testing (ACT) Rules Format 1.1</h1>
    <p id="w3c-state"><a href="https://www.w3.org/standards/types/#ED">Editor’s Draft</a>,
-    <time class="dt-updated" datetime="2025-06-16">16 June 2025</time></p>
+    <time class="dt-updated" datetime="2025-06-19">19 June 2025</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -765,7 +765,11 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
     <li><a href="#intro"><span class="secno">1</span> <span class="content">Introduction</span></a>
-    <li><a href="#scope"><span class="secno">2</span> <span class="content">Scope</span></a>
+    <li>
+     <a href="#scope"><span class="secno">2</span> <span class="content">Scope</span></a>
+     <ol class="toc">
+      <li><a href="#backward-compatible"><span class="secno">2.1</span> <span class="content">Backward Compatibility</span></a>
+     </ol>
     <li><a href="#rule-types"><span class="secno">3</span> <span class="content">ACT Rule Types</span></a>
     <li>
      <a href="#act-rule-structure"><span class="secno">4</span> <span class="content">ACT Rule Structure</span></a>
@@ -882,6 +886,8 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <h2 class="heading settled" data-level="2" id="scope"><span class="secno">2. </span><span class="content">Scope</span><a class="self-link" href="#scope"></a></h2>
    <p>The ACT Rules Format defined in this specification is designed for rules that can be used in testing content created using web technologies, such as <a href="https://www.w3.org/TR/html/">Hypertext Markup Language</a> <a data-link-type="biblio" href="#biblio-html" title="HTML Standard">[HTML]</a>, <a href="https://www.w3.org/TR/CSS/">Cascading Style Sheets</a> <a data-link-type="biblio" href="#biblio-css-2018" title="CSS Snapshot 2018">[css-2018]</a>, <a href="https://www.w3.org/WAI/standards-guidelines/aria/">Accessible Rich Internet Applications</a> <a data-link-type="biblio" href="#biblio-wai-aria" title="Accessible Rich Internet Applications (WAI-ARIA) 1.0">[WAI-ARIA]</a>, <a href="https://www.w3.org/TR/SVG/">Scalable Vector Graphics</a> <a data-link-type="biblio" href="#biblio-svg2" title="Scalable Vector Graphics (SVG) 2">[SVG2]</a>, <a href="https://www.idpf.org/">EPUB 3</a> <a data-link-type="biblio" href="#biblio-epub-33" title="EPUB 3.3">[epub-33]</a>, and more. The ACT Rules Format is designed to be technology agnostic, meaning that it can conceivably be used to describe test rules for other technologies.</p>
    <p>The ACT Rules Format can be used to describe ACT Rules dedicated to testing the <a data-link-type="dfn" href="#accessibility-requirement" id="ref-for-accessibility-requirement①">accessibility requirements</a> defined in the Web Content Accessibility Guidelines <a data-link-type="biblio" href="#biblio-wcag22" title="Web Content Accessibility Guidelines (WCAG) 2.2">[WCAG22]</a>, which are specifically designed for web content. Other accessibility requirements applicable to web technologies can also be testable with ACT Rules. For example, ACT Rules could be developed to test the conformance of web-based user agents to the <a href="https://www.w3.org/WAI/standards-guidelines/uaag/">User Agent Accessibility Guidelines</a> <a data-link-type="biblio" href="#biblio-uaag20" title="User Agent Accessibility Guidelines (UAAG) 2.0">[UAAG20]</a>. The ACT Rules Format might not always be suitable to describe tests for other types of accessibility requirements.</p>
+   <h3 class="heading settled" data-level="2.1" id="backward-compatible"><span class="secno">2.1. </span><span class="content">Backward Compatibility</span><a class="self-link" href="#backward-compatible"></a></h3>
+   <p>ACT Rules Format 1.1 is largely, but not fully, backward compatible with 1.0. ACT Rules Format 1.1 introduces requirements that are not part of 1.0. It also allows a few things that were not allowed under 1.0, such as subjective <a href="#applicability">applicability</a>. A detailed list of changes is available under <a href="#Change_History">Change History</a>.</p>
    <h2 class="heading settled" data-level="3" id="rule-types"><span class="secno">3. </span><span class="content">ACT Rule Types</span><a class="self-link" href="#rule-types"></a></h2>
    <p>In accessibility, there are often different technical solutions to make the same type of content accessible. For example, there are multiple methods for giving an <code>img</code> element in HTML an accessible name. Multiple solutions could be tested in a single rule; however, such a rule tends to be quite complex, making it difficult to understand and maintain. The ACT Rules Format solves this by providing two types of rules:</p>
    <ul>
@@ -1448,7 +1454,7 @@ For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119"
    <p>It is important to keep track of versions of ACT Rules so that users of the rules can understand if changes in test results are due to changes in the rules used when performing the tests, or from changes in the content itself. All previous versions of an ACT Rule <em class="rfc2119">must</em> be recorded either in the rule document or referenced from it.</p>
    <p>This section was previously named "Change Log". Either section name is acceptable.</p>
    <h3 class="heading settled" data-level="4.11" id="act-rules-format-version"><span class="secno">4.11. </span><span class="content">ACT Rules Format Version</span><a class="self-link" href="#act-rules-format-version"></a></h3>
-   <p>An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written.</p>
+   <p>An ACT Rule is written for a specific version of the ACT Rules Format. Each ACT Rule <em class="rfc2119">must</em> indicate the version of the ACT Rules Format for which it is written. This is important because the ACT Rules Format is not fully <a href="#backward-compatible">backward compatible</a>.</p>
    <h3 class="heading settled" data-level="4.12" id="glossary"><span class="secno">4.12. </span><span class="content">Glossary</span><a class="self-link" href="#glossary"></a></h3>
    <p>ACT Rules <em class="rfc2119">must</em> have a glossary section. The glossary <em class="rfc2119">must</em> contain the <a data-link-type="dfn" href="#outcome" id="ref-for-outcome①②">outcome</a> definition, as well as any definitions used in <a href="#applicability">applicability</a> and <a href="#expectations">expectations</a> sections in the rule. Since changes to the definition change the rule, those definitions cannot be maintained independently of the rule. If a shared glossary is used for rules, any definition changes <em class="rfc2119">must</em> result in a new <a href="#rule-versions">rule version</a> of all rules that use that definition.</p>
    <div class="note" role="note">
@@ -1866,6 +1872,7 @@ For each conformance requirement in the mapping, an ACT Rule <em class="rfc2119"
    <p>This section is <em>non-normative</em>.</p>
    <h3 class="heading settled" id="changes-since-FPWD"><span class="content">Changes Since <a href="https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/">ACT Rules Format 1.1 First Public Working Draft</a></span><a class="self-link" href="#changes-since-FPWD"></a></h3>
    <ul>
+    <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backward compatible with 1.0
     <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
   
     <li><strong>All</strong> Test cases renamed to examples
