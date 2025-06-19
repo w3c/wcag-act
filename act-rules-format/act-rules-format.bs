@@ -12,8 +12,8 @@ Status Text:
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
-Editor: Trevor Bostic, MITRE Corp., w3cid 105887
 Editor: Daniel Montalvo, W3C, w3cid 114058
+Former Editor: Trevor Bostic, MITRE Corp., w3cid 105887
 Former Editor: Maureen Kraft, IBM Corp.
 Former Editor: Mary Jo Mueller, IBM Corp.
 Former Editor: Shadi Abou-Zahra, W3C
