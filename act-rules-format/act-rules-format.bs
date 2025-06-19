@@ -20,7 +20,7 @@ Status Text:
 
   The group welcomes your feedback, more specifically on changes made since First Public working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
 
-  To comment, [file an issue in the ACT GitHub repository](https://github.com/w3c/wcag-act/issues/new). Create a separate GitHub issue for each topic, rather than commenting on multiple topics in a single issue. It is free to create a GitHub account to file issues.  Before commenting, please first review the ACT GitHub repository for related comments. If filing issues in GitHub is not feasible, email public-wcag-act-comments@w3.org ([mail archive of previous comments](https://lists.w3.org/Archives/Public/public-wcag-act-comments/)). The deadline for comments is **[DEADLINE]**. 
+  To comment, [file an issue in the ACT GitHub repository](https://github.com/w3c/wcag-act/issues/new). Create a separate GitHub issue for each topic, rather than commenting on multiple topics in a single issue. It is free to create a GitHub account to file issues.  Before commenting, please first review the ACT GitHub repository for related comments. If filing issues in GitHub is not feasible, email public-wcag-act-comments@w3.org ([mail archive of previous comments](https://lists.w3.org/Archives/Public/public-wcag-act-comments/)). The deadline for comments is **[DEADLINE?]**. 
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
