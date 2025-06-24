@@ -17,6 +17,7 @@ Status Text:
 
   * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
   * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
+  * Complete [Diff between Candidate Recommendation and First Public Working Draft](@@@)
 
   The group welcomes your feedback, more specifically on changes made since First Public working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
 Group: act-rules-format
