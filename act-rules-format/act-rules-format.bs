@@ -19,7 +19,7 @@ Status Text:
   * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
   * Complete [Diff between Candidate Recommendation and First Public Working Draft](@@@)
 
-  The group welcomes your feedback, more specifically on changes made since First Public Working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
+  The group welcomes your feedback, more specifically on changes made since the First Public Working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
