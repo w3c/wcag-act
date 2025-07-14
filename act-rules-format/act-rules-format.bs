@@ -1074,7 +1074,7 @@ This section is *non-normative*.
 Participants of the AG WG who Have Contributed to the Development of This Document {#participants}
 --------------------------------------------------------------------
 
-Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin, Helen Burge, Shunguo Yan
+Shadi Abou-Zahra, Trevor Bostic, Helen Burge, Tom Brunet, Romain Deltour, Catherine Droege, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Shunguo Yan, Todd Libby, Chris Loiselle, Sage Keriazes, Maureen Kraft, Daniel Montalvo, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Suji Sreerama, Anne Thyme Nørregaard, and Kathleen Wahlbin.
 
 
 Enabling Funders {#enabling-funders}
