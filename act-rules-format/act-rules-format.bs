@@ -1071,10 +1071,10 @@ Appendix 2: Acknowledgments {#Acknowledgments}
 This section is *non-normative*.
 
 
-Participants of the AG WG Active in the Development of This Document {#participants}
+Participants of the AG WG who Have Contributed to the Development of This Document {#participants}
 --------------------------------------------------------------------
 
-Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin
+Shadi Abou-Zahra, Trevor Bostic, Romain Deltour, Kathy Eng, Wilco Fiers, Alistair Garrison, Kasper Isager, Maureen Kraft, Mary Jo Mueller, Jey Nandakumar, Charu Pandhi, Stein Erik Skotkjerra, Anne Thyme Nørregaard, Kathleen Wahlbin, Helen Burge, Shunguo Yan
 
 
 Enabling Funders {#enabling-funders}
