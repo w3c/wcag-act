@@ -135,7 +135,7 @@ The ACT Rules format does not prescribe what format ACT Rules can be written in 
 Rule Identifier {#rule-identifier}
 ----------------------------------
 
-An ACT Rule <em class="rfc2119">must</em> have an identifier that is a unique within its ruleset. The identifier can be any text, URL, a database identifier, etc..
+An ACT Rule <em class="rfc2119">must</em> have an identifier that is unique within its ruleset. The identifier can be any text, URL, a database identifier, etc.
 
 <aside class="example">
   <header>Identifiers that are also used as filenames; They include a technology directory, followed by a handle that includes an element name or attribute:</header>
