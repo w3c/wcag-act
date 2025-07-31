@@ -17,7 +17,7 @@ Status Text:
 
   * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
   * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
-  * Complete [Diff between Candidate Recommendation and First Public Working Draft](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2024%2FWD-act-rules-format-1.1-20240618%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2025%2FCR-act-rules-format-1.1-20250731%2F)
+  * Complete [Diff between Candidate Recommendation and First Public Working Draft](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2024%2FWD-act-rules-format-1.1-20240618%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2025%2FCR-act-rules-format-1.1-20250819%2F)
 
   The group welcomes your feedback, more specifically on changes made since the First Public Working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
 Group: act-rules-format
