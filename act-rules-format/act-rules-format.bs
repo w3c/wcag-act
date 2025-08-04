@@ -3,7 +3,7 @@ Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
 Shortname: act-rules-format
 ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
-Previous Version: https://www.w3.org/TR/act-rules-format-1.0/
+Previous Version: https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/
 Level: 1.1
 Prepare For TR: yes
 Status: w3c/CR
