@@ -768,7 +768,7 @@ An example of such a process is the [WCAG ACT Review Process](https://w3c.github
 Privacy Considerations {#privacy-considerations}
 ==========================
 
-This specification is not intended to expose information directly to user agents or assistive technologies. This Group is not aware of other privacy implications.
+This specification provides Accessibility Conformance Testing (ACT) Rules to test content conformity with the Web Content Accessibility Guidelines. This specification is not intended to access user information or expose user information directly to user agents or assistive technologies.
 
 Security Considerations {#security-considerations}
 ==========================
