@@ -3,7 +3,6 @@ Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
 Shortname: act-rules-format
 ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
-Previous Version: https://www.w3.org/TR/2024/WD-act-rules-format-1.1-20240618/
 Level: 1.1
 Prepare For TR: yes
 Status: w3c/CR
@@ -141,7 +140,7 @@ An ACT Rule MAY also contain:
 * [Implementations](#implementations) (optional)
 * [Acknowledgments](#acknowledgments) (optional)
 
-The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [examples](#examples) are allowed to contain inaccessible content. If any example contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules SHOULD use a [=localisation|localizable=] format, such that a rule can contain multiple language representations or so that translations of the rule can be created.
+The ACT Rules format does not prescribe what format ACT Rules can be written in (e.g. HTML, DOCX, PDF, etc.). However, ACT Rules <em class="rfc2119">must</em> be written in a document that conforms to the Web Content Accessibility Guidelines [[WCAG22]] or a comparable accessibility standard. This ensures that ACT Rules are accessible to people with disabilities. ACT Rule [examples](#examples) are allowed to contain inaccessible content. If any example contains accessibility issues listed in [WCAG 2.2 Section 5.2.5 Non-Interference](https://www.w3.org/TR/WCAG22/#cc5), users <em class="rfc2119">must</em> be warned of this in advance. ACT Rules should use a [=localisation|localizable=] format, such that a rule can contain multiple language representations or so that translations of the rule can be created.
 
 Rule Identifier {#rule-identifier}
 ----------------------------------
