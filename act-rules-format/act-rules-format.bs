@@ -1,13 +1,24 @@
 <pre class='metadata'>
 Title: Accessibility Conformance Testing (ACT) Rules Format 1.1
-Shortname: act-rules-format-1.1
+Shortname: act-rules-format
 ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
 Level: 1.1
 Prepare For TR: yes
-Status: ED
-Deadline: 2024-08-18
+Status: w3c/CR
+Date: 2025-08-19
+Deadline: 2025-10-20
+Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
+Repository: https://github.com/w3c/wcag-act
+Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
+  The group has addressed feedback received during the Horizontal Review Process. For details, see:
+
+  * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
+  * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
+  * Complete [Diff between Candidate Recommendation and First Public Working Draft](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2024%2FWD-act-rules-format-1.1-20240618%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2025%2FCR-act-rules-format-1.1-20250819%2F)
+
+  The group welcomes your feedback, more specifically on changes made since the First Public Working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
