@@ -5,20 +5,23 @@ ED: https://w3c.github.io/wcag-act/act-rules-format.html
 TR: https://www.w3.org/TR/act-rules-format/
 Level: 1.1
 Prepare For TR: yes
-Status: w3c/CR
-Date: 2025-08-19
-Deadline: 2025-10-20
+Status: w3c/REC
+Date: 2025-12-18
+Deadline: 2025-12-18
 Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
 Repository: https://github.com/w3c/wcag-act
 Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
-  The group has addressed feedback received during the Horizontal Review Process. For details, see:
+    No changes have been incorporated into the document since the Candidate Recommendation.
 
-  * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
-  * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
-  * Complete [Diff between Candidate Recommendation and First Public Working Draft](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2024%2FWD-act-rules-format-1.1-20240618%2F&doc2=https%3A%2F%2Fwww.w3.org%2FTR%2F2025%2FCR-act-rules-format-1.1-20250819%2F)
+    All ACT Rules that are published on the WAI website are now compatible with this version of the ACT rules Format.
 
-  The group welcomes your feedback, more specifically on changes made since the First Public Working Draft. Please provide all technical comments during this round of review, to make it easier for the group to transition this document into a W3C Recommendation Standard.
+    The group addressed feedback received during the Horizontal Review Process. For details, see:
+
+    * [Changes since ACT Rules Format First Public Working Draft](#changes-since-FPWD)
+    * [Changes since ACT Rules Format 1.0](#changes-since-1.0)
+    * Complete [Diff between ACT Rules Format 1.1 and 1.0](https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2Fact-rules-format-1.0%2F&amp;doc2=https%3A%2F%2Fw3c.github.io%2Fwcag-act%2Fact-rules-format.html)
+
 Group: act-rules-format
 Editor: Wilco Fiers, Deque Systems, w3cid 43334
 Editor: Kathy Eng, US Access Board, w3cid 107871
@@ -28,9 +31,8 @@ Former Editor: Maureen Kraft, IBM Corp.
 Former Editor: Mary Jo Mueller, IBM Corp.
 Former Editor: Shadi Abou-Zahra, W3C
 Abstract:
-     Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. The test rules can be used for developing automated testing tools and manual testing methodologies. This document provides a common format that allows anyone involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
+    Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. The test rules can be used for developing automated testing tools and manual testing methodologies. This document provides a common format that allows anyone involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
-Local Boilerplate: abstract yes, status yes, copyright yes
 </pre>
 
 <style>
