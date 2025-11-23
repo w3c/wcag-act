@@ -12,7 +12,17 @@ Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
 Repository: https://github.com/w3c/wcag-act
 Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
-    No changes have been incorporated into the document since the Candidate Recommendation.
+    ACT rules Format 1.1 includes two major changes with respect to the [ACT Rules Format 1.0](https://www.w3.org/TR/aact-rules-format-1.0/). It now allows for:
+
+    * Two types of accessibility requirements: conformance requirements and secondary requirements.
+
+    * Subjective applicability.
+
+    For a detailed list of changes, see [Change History](#Change_History).
+
+    ACT Rules Format 1.1 is not fully backwards compatible with 1.0. The two versions of the specification coexist, although the Working Group encourages writers to write test rules that are compatible with ACT Rules Format 1.1.
+    
+    There have been no changes since ACT Rules Format 1.1 was published as a Candidate Recommendation 19 August 2025.
 
     All ACT Rules that are published on the WAI website are now compatible with this version of the ACT rules Format.
 
