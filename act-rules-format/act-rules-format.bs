@@ -42,7 +42,7 @@ Former Editor: Shadi Abou-Zahra, W3C
 Abstract:
     Accessibility Conformance Testing (ACT) Rules Format 1.1 defines a format for writing accessibility test rules. The test rules can be used for developing automated testing tools and manual testing methodologies. This document provides a common format that allows anyone involved in accessibility testing to document and share their testing procedures in a robust and understandable manner. This enables transparency and harmonization of testing methods, including methods implemented by accessibility test tools.
 Markup Shorthands: markdown yes
-Local Boilerplate: header yes
+Local Boilerplate: header yes, copyright yes
 </pre>
 
 <style>
