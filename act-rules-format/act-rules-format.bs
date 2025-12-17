@@ -9,6 +9,7 @@ Status: w3c/REC
 Date: 2026-01-29
 Deadline: 2025-12-18
 Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
+!Errata: https://w3c.github.io/wcag-act/act-rules-format/errata.html
 Repository: https://github.com/w3c/wcag-act
 Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
