@@ -6,24 +6,23 @@ TR: https://www.w3.org/TR/act-rules-format/
 Level: 1.1
 Prepare For TR: yes
 Status: w3c/REC
-Date: 2026-01-29
-Deadline: 2025-12-18
-Implementation Report: https://www.w3.org/WAI/standards-guidelines/act/rules/
-!Errata: [Errata exists](https://w3c.github.io/wcag-act/act-rules-format/errata.html)
+Date: 2026-02-05
+Deadline: 2026-02-03
+Implementation Report: https://www.w3.org/2025/12/17-act-rules-format-11/implementation-report.html
+!Errata: [Errata](https://www.w3.org/2025/12/17-act-rules-format-11/errata.html)
 Repository: https://github.com/w3c/wcag-act
 Issue Tracking: Open Issues https://github.com/w3c/wcag-act/issues/
 Status Text:
     ACT Rules Format 1.1 includes two major changes with respect to the [ACT Rules Format 1.0](https://www.w3.org/TR/act-rules-format-1.0/). It now allows for:
 
     * Two types of accessibility requirements: conformance requirements and secondary requirements.
-
     * Subjective applicability.
 
     ACT Rules Format 1.1 is not fully backwards compatible with 1.0. The two versions of the specification coexist, although the Working Group encourages writers to write test rules that are compatible with ACT Rules Format 1.1.
     
     There have been no changes since ACT Rules Format 1.1 was published as a Candidate Recommendation 19 August 2025.
 
-    All ACT rules that are published on the WAI website are now compatible with this version of the ACT rules Format.
+    All ACT Rules that are published on the WAI website are now compatible with this version of the ACT Rules Format.
 
     The group addressed feedback received during the Horizontal Review Process. For details, see:
 
