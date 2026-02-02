@@ -829,7 +829,7 @@ Definitions {#definitions}
       <li>**passed:** A [=test target=] meets all expectations</li>
       <li>**failed:** A [=test target=] does not meet all expectations</li>
       <li>**cantTell:** Whether the rule is applicable, or whether all expectations were met could not be fully determined by the tester.</li>
-      <li>**Untested:** The test subject was not evaluated for the rule.</li>
+      <li>**untested:** The test subject was not evaluated for the rule.</li>
     </ul>
     <div class="note">
       <p>**Note:** A rule has one `passed` or `failed` outcome for every [=test target=]. When a tester evaluates a test target it can also be reported as `cantTell` if the rule cannot be tested in its entirety. For example, when applicability was automated, but the expectations have to be evaluated manually.</p>
