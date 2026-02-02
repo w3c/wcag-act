@@ -1116,7 +1116,7 @@ Changes Since [ACT Rules Format 1.1 First Public Working Draft](https://www.w3.o
   <li><strong>2 Scope</strong> Clarify that ACT Rules Format 1.1 is not fully backward compatible with 1.0</li>
   <li><strong>4.9 Examples</strong> Clarify that input rule test cases must be consistent with conformance requirements
   <li><strong>All</strong> Test cases renamed to examples</li>
-  <li><strong>All</strong> Examples now only follow Bikeshed's automatic numbering</li>
+  <li><strong>All</strong> Examples now only follow <a href="https://speced.github.io/bikeshed/">Bikeshed's</a> automatic numbering</li>
   <li><strong>Appendix 1: Expressing ACT Rule results with JSON-LD and EARL</strong> Add markup for the examples in this section to render correctly</li>
   <li><strong>4.2. Rule Description</strong> Add assumption that text has metadata specifying its language and writing direction </li>
   <li><strong>4. ACT Rules Structure</strong> Reinforce that ACT rules are localizable</li>
