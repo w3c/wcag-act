@@ -786,7 +786,7 @@ Definitions {#definitions}
 
   <dt><dfn>Accessibility requirements document</dfn></dt>
   <dd>
-    <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.2, WAI-ARIA 1.2, HTML 5.2, EPUB Accessibility 1.0, BBC HTML Accessibility Standards v2.0</p>
+    <p>A document, such as a standard, contract, policy or regulation, that includes [=accessibility requirements=]. For example, WCAG 2.2, WAI-ARIA 1.2, HTML 5.2, EPUB Accessibility 1.0, BBC Guide to Accessible HTML Documents</p>
   </dd>
 
   <dt><dfn>Check</dfn></dt>
